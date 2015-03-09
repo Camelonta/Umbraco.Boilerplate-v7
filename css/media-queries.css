@@ -1,0 +1,57 @@
+/* == Media Queries == */
+
+@media only screen and (min-width: 480px) {
+
+    /* == INTERMEDIATE: Menu == */
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    /* == WIDE: Menu == */
+
+    .title {
+        float: left;
+    }
+
+    .header-container nav {
+        float: right;
+        width: 38%;
+    }
+    
+    #sidebar nav {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    /* == WIDE: Main == */
+
+    .main #sidebar {
+        margin-top: 20px;
+        float: left;
+        width: 20%;
+        margin-right: 2%;
+        background: #f16529;
+    }
+
+    .main article {
+        float: left;
+        width: 57%;
+    }
+
+    .main aside {
+        margin-top: 20px;
+        float: right;
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 1140px) {
+
+    /* == Maximal Width == */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}

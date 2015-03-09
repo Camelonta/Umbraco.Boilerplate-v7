@@ -1,0 +1,31 @@
+﻿@inherits UmbracoTemplatePage
+@{ Layout = "~/Views/_Layout.cshtml"; }
+
+@{
+    string searchTerm = Request.QueryString["q"] ?? "";
+    var searchResults = Umbraco.Search(searchTerm);
+}
+
+
+<h1>@CurrentPage.Name</h1>
+
+<form class="margin-bottom">
+    <input type="text" autocomplete="off" name="q" placeholder="Search" value="@Request.QueryString["q"]">
+    <input type="submit" value="Search">
+</form>
+
+@if (searchResults.Any())
+{
+    foreach (var result in searchResults)
+    {
+        var node = Umbraco.TypedContent(result.Id);
+        <div class="margin-bottom">
+            <b>@node.Name</b><br />
+            <a href="@node.Url">@node.Url</a>
+        </div>
+    }
+}
+else if (!String.IsNullOrWhiteSpace(searchTerm))
+{
+    <div class="margin-bottom">Inga träffar på: @searchTerm</div>
+}

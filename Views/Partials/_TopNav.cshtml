@@ -1,0 +1,31 @@
+﻿@inherits UmbracoTemplatePage
+
+@{ var home = CurrentPage.AncestorOrSelf(1); }
+
+@helper PageIsActive(dynamic page)
+{
+    if (page.IsAncestorOrSelf(CurrentPage))
+    {
+        @: class="is-active"
+    }
+}
+
+<nav>
+    <ul>
+        @foreach (var page in home.Children.Where("!umbracoNaviHide"))
+        {
+            <li>
+                <a href="@page.Url" @PageIsActive(page)>@page.Name</a>
+                @*@if (page.Children.Any())
+                {
+                    <select>
+                        @foreach (var child in page.Children.Where("!umbracoNaviHide"))
+                        {
+                            <option value="@child.Url">@child.Name</option>
+                        }
+                    </select>
+                }*@
+            </li>
+        }
+    </ul>
+</nav>

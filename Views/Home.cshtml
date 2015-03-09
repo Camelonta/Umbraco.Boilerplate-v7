@@ -1,0 +1,5 @@
+﻿@inherits UmbracoTemplatePage
+@{ Layout = "~/Views/_Layout.cshtml"; }
+
+<h2>@CurrentPage.Name</h2>
+@CurrentPage.GetGridHtml("grid")

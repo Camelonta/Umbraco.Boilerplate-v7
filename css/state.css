@@ -1,0 +1,23 @@
+/* == State rules are ways to describe how our modules or layouts will look when in a particular state. == */
+
+
+/* == Misc == */
+
+.is-hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+
+/* == Menus == */
+.header-container nav a.is-active {
+    text-decoration: underline;
+}
+
+#sidebar nav a.is-current-page {
+    text-decoration: underline;
+}
+
+#sidebar nav a.is-active {
+    text-decoration: underline;
+}

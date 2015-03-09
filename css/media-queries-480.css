@@ -1,0 +1,4 @@
+/* == Example of media queries in its own file == */
+
+@media only screen and (min-width: 480px) {
+}

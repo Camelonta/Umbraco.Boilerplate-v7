@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@using System.Text.RegularExpressions
+@{
+    var header = Model.MacroParameters["header"].ToString();
+    var movieUrl = Model.MacroParameters["movieUrl"].ToString();
+    var height = Model.MacroParameters["height"].ToString() == "null" ? "300px" : Model.MacroParameters["height"] + "px";
+}
+
+@if (!string.IsNullOrWhiteSpace(movieUrl) && movieUrl.Contains("youtu"))
+{
+    <span class="movie padding-bottom">
+        @if (!string.IsNullOrWhiteSpace(header))
+        {
+            <h3>@header</h3>
+        }
+        @{ var youtubeId = GetYouTubeId(movieUrl);}
+        <div class="youtube-container" style="background-image: url('http://i3.ytimg.com/vi/@youtubeId/0.jpg'); background-repeat:no-repeat; height:@height">
+            <a href=" javascript:void(0)" data-youtube-id="@youtubeId" id="youtube-start" class="icon-play">
+            </a>
+        </div>
+    </span>
+}
+
+@* Helpers *@
+
+@helper GetYouTubeId(string link)
+{
+    var extractId = Regex.Match(link, @"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)");
+    var id = extractId.Groups[1].Value;
+    @id
+}

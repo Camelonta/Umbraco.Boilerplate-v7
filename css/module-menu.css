@@ -1,0 +1,76 @@
+/* == Top menu == */
+
+.header-container nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.header-container nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 0;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: white;
+    background: #e44d26;
+}
+
+
+.header-container nav a {
+    float: left;
+    width: 27%;
+    margin: 0 1.7%;
+    padding: 25px 2%;
+    margin-bottom: 0;
+}
+
+
+/* == Left menu == */
+
+#sidebar nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#sidebar nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#sidebar nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 6px 0;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: white;
+    background: #e44d26;
+}
+
+/* == Shared == */
+
+
+nav a:hover,
+nav a:visited {
+    color: white;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+nav li:first-child a {
+    margin-left: 0;
+}
+
+nav li:last-child a {
+    margin-right: 0;
+}

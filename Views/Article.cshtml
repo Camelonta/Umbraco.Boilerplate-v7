@@ -1,0 +1,20 @@
+﻿@inherits UmbracoTemplatePage
+@{ Layout = "~/Views/_Layout.cshtml"; }
+
+<section id="sidebar">
+    @RenderPage("Partials/_LeftNav.cshtml")
+</section>
+
+<article>
+    <h2>@CurrentPage.Name</h2>
+    @CurrentPage.bodytext
+</article>
+
+@if (!String.IsNullOrWhiteSpace(CurrentPage.righttext.ToString()))
+{
+    <aside>
+        <div>
+            @CurrentPage.righttext
+        </div>
+    </aside>
+}
