@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{
+    var mediaId = !string.IsNullOrEmpty(Model.MacroParameters["mediaId"].ToString()) ? Convert.ToInt32(Model.MacroParameters["mediaId"]) : -1;
+    if (mediaId > 0)
+    {
+        var mediaFolder = UmbracoContext.Current.MediaCache.GetById(mediaId);
+        var images = mediaFolder.Children.Where(x => x.DocumentTypeAlias == "Image").ToList();
+
+        if (images.Any())
+        {
+            <div class="gallery">
+                @foreach (var image in images)
+                {
+                    <a href="@image.Url" class="fancybox" rel="gallery"><img src="@image.Url?width=100" alt="@image.Name"></a>
+                }
+            </div>
+        }
+    }
+}

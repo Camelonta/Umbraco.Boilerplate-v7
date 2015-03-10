@@ -215,6 +215,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\typo.css" />
     <Content Include="css\base.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\layout.css" />
@@ -265,6 +266,7 @@
     <Content Include="Views\MacroPartials\PageList.cshtml" />
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />
+    <Content Include="Views\MacroPartials\ImageGallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
