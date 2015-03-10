@@ -15,14 +15,14 @@ namespace Camelonta.Boilerplate.App_Start
         private void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/bundles/styles").Include(
-                "~/css/normalize.css",
+                "~/css/vendor/normalize.css",
                 "~/css/base.css",
                 "~/css/layout.css",
                 "~/css/module-menu.css",
                 "~/css/modules.css",
                 "~/css/state.css",
                 "~/css/utillity.css",
-                "~/css/bootstrap.css",
+                "~/css/vendor/bootstrap.css",
                 "~/css/media-queries.css"
             ));
             bundles.Add(new StyleBundle("~/bundles/styles-print").Include(
