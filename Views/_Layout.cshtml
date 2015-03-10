@@ -13,7 +13,7 @@
         <link href="@System.Web.Optimization.Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
         <link href="@System.Web.Optimization.Styles.Url("~/bundles/styles-print")" rel="stylesheet" type="text/css" media="print" />
     </head>
-    <body>
+    <body class="pagetype-@CurrentPage.DocumentTypeAlias.ToLower()">
 
         <div class="header-container">
             <header class="wrapper clearfix">

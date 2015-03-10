@@ -22,6 +22,7 @@ namespace Camelonta.Boilerplate.App_Start
                 "~/css/modules.css",
                 "~/css/state.css",
                 "~/css/utillity.css",
+                "~/css/bootstrap.css",
                 "~/css/media-queries.css"
             ));
             bundles.Add(new StyleBundle("~/bundles/styles-print").Include(

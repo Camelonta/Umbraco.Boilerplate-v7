@@ -38,6 +38,9 @@
         float: left;
         width: 57%;
     }
+    .pagetype-articlewithgrid .main article {
+        width: 78%;
+    }
 
     .main aside {
         margin-top: 20px;
