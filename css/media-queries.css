@@ -1,17 +1,16 @@
 /* == Media Queries == */
 
 @media only screen and (max-width: 480px) {
-
 }
 
 @media only screen and (max-width: 768px) {
 
     #l-header-container nav {
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
-}
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+    }
 
     .title {
         float: none;
@@ -20,10 +19,10 @@
     .main #l-sidebar,
     #l-sidebar nav,
     .main article,
-        .main aside
-    {
+    .main aside {
         width: 100%;
     }
+
     .main #l-sidebar {
         background: none;
     }

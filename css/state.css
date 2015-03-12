@@ -14,10 +14,10 @@
     text-decoration: underline;
 }
 
-#sidebar nav a.is-current-page {
+#l-sidebar nav a.is-current-page {
     text-decoration: underline;
 }
 
-#sidebar nav a.is-active {
+#l-sidebar nav a.is-active {
     text-decoration: underline;
 }

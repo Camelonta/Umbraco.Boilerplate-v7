@@ -1,19 +1,8 @@
 /* == Top menu == */
 
-.title {
-    float: left;
-}
-
 #l-header-container nav {
     float: right;
     width: 38%;
-}
-
-#l-sidebar nav {
-    width: 90%;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #l-header-container nav ul {
@@ -42,6 +31,8 @@
 }
 
 
+/* == Top menu mobile == */
+
 #l-header-container nav.mobile {
     position: fixed;
     left:-300px;
@@ -65,7 +56,8 @@
     left: 0;
 }
 
-/* Icon */
+
+/* == Top menu Icon == */
 
 #mobile-menu-button {
     padding-left: 1.25em;
@@ -92,6 +84,13 @@
 
 /* == Left menu == */
 
+#l-sidebar nav {
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #l-sidebar nav ul {
     margin: 0;
     padding: 0;
@@ -111,8 +110,8 @@
     background: #e44d26;
 }
 
-/* == Shared == */
 
+/* == Shared == */
 
 nav a:hover,
 nav a:visited {
