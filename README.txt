@@ -1,4 +1,6 @@
-﻿1. Skapa ett nytt projekt (ASP.NET Web Application). Välj empty, kryssa inte i några checkboxar (blir konflikt vid installation av Umbraco ifall man tar mvc)
+﻿TIPS: Checka in ofta så man kan gå tillbaks ifall något går fel
+
+1. Skapa ett nytt projekt (ASP.NET Web Application). Välj empty, kryssa inte i några checkboxar (blir konflikt vid installation av Umbraco ifall man tar mvc)
 
 2. Om du lägger till test-projekt och kör Visual Studio 2013 så kan det hamna på fel ställe. 
    I så fall: Kopiera hela mappen och ändra till rätt sökväg i .sln-filen. Stäng projektet och öppna det på nytt.

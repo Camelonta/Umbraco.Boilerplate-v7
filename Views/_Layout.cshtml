@@ -1,5 +1,8 @@
 ﻿@using System.Web.Optimization
 @inherits UmbracoTemplatePage
+@{
+    var site = @CurrentPage.AncestorOrSelf(1);
+}
 
 <!DOCTYPE html>
 <html lang="sv">
@@ -17,11 +20,7 @@
 
     <div id="l-header-container">
         <header class="wrapper clearfix">
-            @{ var site = @CurrentPage.AncestorOrSelf(1); }
-            @if (site != null)
-            {
-                <h1 class="title"><a href="@site.Url">@site.Name</a></h1>
-            }
+            <h1 class="title"><a href="@site.Url">@site.Name</a></h1>
             @RenderPage("Partials/_TopNav.cshtml")
         </header>
     </div>
