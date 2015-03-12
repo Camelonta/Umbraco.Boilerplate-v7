@@ -215,6 +215,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\form.css" />
     <Content Include="css\typo.css" />
     <Content Include="css\base.css" />
     <Content Include="css\vendor\bootstrap.css" />
@@ -229,7 +230,9 @@
     <Content Include="css\utillity.css" />
     <Content Include="packages.config" />
     <Content Include="README.txt" />
+    <Content Include="scripts\youtube.js" />
     <Content Include="scripts\main.js" />
+    <Content Include="scripts\menu.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -286,6 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="img\" />
+    <Folder Include="scripts\vendor\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,13 @@
 /* == Top menu == */
 
+.header-container nav {
+    
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
 .header-container nav ul {
     margin: 0;
     padding: 0;
@@ -17,15 +25,60 @@
 
     color: white;
     background: #e44d26;
-}
-
-
-.header-container nav a {
+    
     float: left;
     width: 27%;
     margin: 0 1.7%;
     padding: 25px 2%;
     margin-bottom: 0;
+}
+
+
+.header-container nav.mobile {
+    position: fixed;
+    left:-300px;
+    top: 0;
+    height: 100%;
+    background: #e44d26;
+    width: 300px;
+    
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    transform: translate(0,0);
+}
+
+.header-container nav.mobile a {
+    float:inherit;
+}
+
+.header-container nav.slide-in {
+    left: 0;
+}
+
+/* Icon */
+
+.box-shadow-menu {
+    padding-left: 1.25em;
+    right: 20px;
+    position: fixed;
+    top: 20px;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.box-shadow-menu:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 1em;
+    height: 0.15em;
+    background: #fff;
+    box-shadow: 
+        0 0.25em 0 0 #fff,
+        0 0.5em 0 0 #fff;
 }
 
 

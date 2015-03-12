@@ -10,22 +10,23 @@
     }
 }
 
-<nav>
+<nav id="topnav">
     <ul>
         @foreach (var page in home.Children.Where("!umbracoNaviHide"))
         {
             <li>
                 <a href="@page.Url" @PageIsActive(page)>@page.Name</a>
                 @*@if (page.Children.Any())
-                {
-                    <select>
-                        @foreach (var child in page.Children.Where("!umbracoNaviHide"))
-                        {
-                            <option value="@child.Url">@child.Name</option>
-                        }
-                    </select>
-                }*@
+                    {
+                        <select>
+                            @foreach (var child in page.Children.Where("!umbracoNaviHide"))
+                            {
+                                <option value="@child.Url">@child.Name</option>
+                            }
+                        </select>
+                    }*@
             </li>
         }
     </ul>
 </nav>
+<a href="#" id="mobile-menu-button" class="box-shadow-menu"></a><!--is-hidden-->

@@ -1,4 +1,4 @@
-﻿* Inkludera allt i App_Start, Views, css och scripts i ditt projekt
+﻿* Inkludera allt i App_Start, Views, css, img och scripts i ditt projekt
 
 * Byt namn på ditt namespace
 

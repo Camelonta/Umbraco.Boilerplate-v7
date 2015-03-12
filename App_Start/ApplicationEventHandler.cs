@@ -19,16 +19,15 @@ namespace Camelonta.Boilerplate.App_Start
                 cssPath + "vendor/normalize.css",
                 cssPath + "base.css",
                 cssPath + "layout.css",
+                cssPath + "form.css",
                 cssPath + "module-menu.css",
                 cssPath + "modules.css",
                 cssPath + "state.css",
                 cssPath + "utillity.css",
                 cssPath + "vendor/bootstrap.css",
                 cssPath + "media-queries.css",
-                cssPath + "typo.css"
-            ));
-            bundles.Add(new StyleBundle("~/bundles/styles-print").Include(
-                cssPath + "print.css"
+                cssPath + "typo.css",
+                cssPath + "styles-print.css"
             ));
 
             const string scriptsPath = "~/scripts/";
