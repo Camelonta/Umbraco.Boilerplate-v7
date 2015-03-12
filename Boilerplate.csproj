@@ -222,7 +222,7 @@
     <Content Include="css\layout.css" />
     <Content Include="css\media-queries-480.css" />
     <Content Include="css\media-queries.css" />
-    <Content Include="css\module-menu.css" />
+    <Content Include="css\nav.css" />
     <Content Include="css\modules.css" />
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />

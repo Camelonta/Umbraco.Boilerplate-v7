@@ -20,7 +20,7 @@ namespace Camelonta.Boilerplate.App_Start
                 cssPath + "base.css",
                 cssPath + "layout.css",
                 cssPath + "form.css",
-                cssPath + "module-menu.css",
+                cssPath + "nav.css",
                 cssPath + "modules.css",
                 cssPath + "state.css",
                 cssPath + "utillity.css",
@@ -32,7 +32,9 @@ namespace Camelonta.Boilerplate.App_Start
 
             const string scriptsPath = "~/scripts/";
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
-                scriptsPath + "main.js"
+                scriptsPath + "main.js",
+                scriptsPath + "menu.js",
+                scriptsPath + "youtube.js"
             ));
 
             BundleTable.EnableOptimizations = true;

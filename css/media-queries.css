@@ -14,19 +14,19 @@
         float: left;
     }
 
-    .header-container nav {
+    #l-header-container nav {
         float: right;
         width: 38%;
     }
     
-    #sidebar nav {
+    #l-sidebar nav {
         width: 90%;
         margin-top: 10px;
     }
 
     /* == WIDE: Main == */
 
-    .main #sidebar {
+    .main #l-sidebar {
         margin-top: 20px;
         float: left;
         width: 20%;

@@ -6,17 +6,17 @@
 }
 
 
-.header-container {
+#l-header-container {
     border-bottom: 20px solid #e44d26;
 }
 
-.footer-container,
+#l-footer-container,
 .main aside {
     border-top: 20px solid #e44d26;
 }
 
-.header-container,
-.footer-container,
+#l-header-container,
+#l-footer-container,
 .main aside {
     background: #f16529;
 }
@@ -39,7 +39,7 @@
     padding: 0px 5% 10px;
 }
 
-.footer-container footer {
+#l-footer-container footer {
     color: white;
     padding: 20px 0;
 }

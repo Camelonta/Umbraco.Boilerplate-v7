@@ -15,7 +15,7 @@
 </head>
 <body class="pagetype-@CurrentPage.DocumentTypeAlias.ToLower()">
 
-    <div class="header-container">
+    <div id="l-header-container">
         <header class="wrapper clearfix">
             @{ var site = @CurrentPage.AncestorOrSelf(1); }
             @if (site != null)
@@ -26,14 +26,14 @@
         </header>
     </div>
 
-    <div class="main-container">
+    <div id="l-main-container">
         <div class="main wrapper clearfix">
             @RenderBody()
 
         </div> <!-- #main -->
     </div> <!-- #main-container -->
 
-    <div class="footer-container">
+    <div id="l-footer-container">
         <footer class="wrapper">
             @CurrentPage.GetPropertyValue("footer", true)
         </footer>

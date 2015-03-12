@@ -1,9 +1,9 @@
-﻿camelonta.menubar = (function () {
+﻿camelonta.menu = (function () {
 
     var menuOpen = false;
     var mobileWidthBreakpoint = 480;
-    var topNav = document.getElementById("topnav");
-    var leftNav = document.getElementById("leftnav");
+    var topNav = document.getElementById("l-topnav");
+    var leftNav = document.getElementById("l-leftnav");
     var mobileMenuButton = document.getElementById("mobile-menu-button");
 
     var init = function () {
@@ -79,7 +79,7 @@
 })();
 
 // Init mobile menu
-camMain.EventListener(window, 'load', function () { camMenu.Init(); });
+camelonta.EventListener(window, 'load', function () { camelonta.menu.Init(); });
 
 
 
