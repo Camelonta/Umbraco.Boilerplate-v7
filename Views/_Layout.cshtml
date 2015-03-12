@@ -1,45 +1,46 @@
-﻿@inherits UmbracoTemplatePage
-	
-<!doctype html>
+﻿@using System.Web.Optimization
+@inherits UmbracoTemplatePage
+
+<!DOCTYPE html>
 <html lang="sv">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Boilerplate - @CurrentPage.Name</title>
-        <meta name="description" content="@CurrentPage.metadescription">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Boilerplate - @CurrentPage.Name</title>
+    <meta name="description" content="@CurrentPage.metadescription">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link href="@System.Web.Optimization.Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
-        <link href="@System.Web.Optimization.Styles.Url("~/bundles/styles-print")" rel="stylesheet" type="text/css" media="print" />
-    </head>
-    <body class="pagetype-@CurrentPage.DocumentTypeAlias.ToLower()">
+    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
+    <link href="@Styles.Url("~/bundles/styles-print")" rel="stylesheet" type="text/css" media="print" />
+</head>
+<body class="pagetype-@CurrentPage.DocumentTypeAlias.ToLower()">
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                @{ var site = @CurrentPage.AncestorOrSelf(1); }
-                @if (site != null) {
-                    <h1 class="title"><a href="@site.Url">@site.Name</a></h1>
-                }
-                @RenderPage("Partials/_TopNav.cshtml")
-            </header>
-        </div>
+    <div class="header-container">
+        <header class="wrapper clearfix">
+            @{ var site = @CurrentPage.AncestorOrSelf(1); }
+            @if (site != null)
+            {
+                <h1 class="title"><a href="@site.Url">@site.Name</a></h1>
+            }
+            @RenderPage("Partials/_TopNav.cshtml")
+        </header>
+    </div>
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
-                
-                @RenderBody()
+    <div class="main-container">
+        <div class="main wrapper clearfix">
+            @RenderBody()
 
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
+        </div> <!-- #main -->
+    </div> <!-- #main-container -->
 
-        <div class="footer-container">
-            <footer class="wrapper">
-                @CurrentPage.GetPropertyValue("footer", true)
-            </footer>
-        </div>
+    <div class="footer-container">
+        <footer class="wrapper">
+            @CurrentPage.GetPropertyValue("footer", true)
+        </footer>
+    </div>
 
-        <script src="@System.Web.Optimization.Scripts.Url("~/bundles/scripts")" type="text/javascript"></script>
-        
-    </body>
+    <script src="@Scripts.Url("~/bundles/scripts")" type="text/javascript"></script>
+
+</body>
 </html>

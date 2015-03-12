@@ -14,24 +14,26 @@ namespace Camelonta.Boilerplate.App_Start
 
         private void RegisterBundles(BundleCollection bundles)
         {
+            const string cssPath = "~/css/";
             bundles.Add(new StyleBundle("~/bundles/styles").Include(
-                "~/css/vendor/normalize.css",
-                "~/css/base.css",
-                "~/css/layout.css",
-                "~/css/module-menu.css",
-                "~/css/modules.css",
-                "~/css/state.css",
-                "~/css/utillity.css",
-                "~/css/vendor/bootstrap.css",
-                "~/css/media-queries.css",
-                "~/css/typo.css"
+                cssPath + "vendor/normalize.css",
+                cssPath + "base.css",
+                cssPath + "layout.css",
+                cssPath + "module-menu.css",
+                cssPath + "modules.css",
+                cssPath + "state.css",
+                cssPath + "utillity.css",
+                cssPath + "vendor/bootstrap.css",
+                cssPath + "media-queries.css",
+                cssPath + "typo.css"
             ));
             bundles.Add(new StyleBundle("~/bundles/styles-print").Include(
-                "~/css/print.css"
+                cssPath + "print.css"
             ));
 
+            const string scriptsPath = "~/scripts/";
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
-                "~/scripts/main.js"
+                scriptsPath + "main.js"
             ));
 
             BundleTable.EnableOptimizations = true;
