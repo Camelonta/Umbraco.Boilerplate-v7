@@ -23,4 +23,6 @@
 
 11. Sätt umbracoTimeOutInMinutes i web.config till tex 1440 (24 timmar) för att slippa bli utloggad
 
-12. Installera önskade Camelonta-paket + Url Tracker
+12. Peka ut "Home" (eller egen förstasida) under Properties -> umbracoInternalRedirectId på Site-noden
+
+13. Installera önskade Camelonta-paket
