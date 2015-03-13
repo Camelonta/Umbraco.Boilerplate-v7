@@ -26,6 +26,15 @@
     .main #l-sidebar {
         background: none;
     }
+
+    #l-header-container nav {
+        float: left;
+        width: 100%;
+    }
+
+    #l-header-container nav a {
+        width: auto;
+    }
 }
 
 @media only screen and (max-width: 1140px) {
