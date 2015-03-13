@@ -25,4 +25,4 @@
 
 12. Peka ut "Home" (eller egen förstasida) under Properties -> umbracoInternalRedirectId på Site-noden
 
-13. Installera önskade Camelonta-paket
+13. Installera önskade Camelonta-paket + Url Tracker
