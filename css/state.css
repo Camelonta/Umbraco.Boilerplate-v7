@@ -10,7 +10,7 @@
 
 
 /* == Menus == */
-#l-header-container nav a.is-active {
+#l-topnav a.is-active {
     text-decoration: underline;
 }
 

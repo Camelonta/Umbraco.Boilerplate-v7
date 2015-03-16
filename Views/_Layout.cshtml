@@ -1,15 +1,12 @@
 ﻿@using System.Web.Optimization
-@inherits UmbracoTemplatePage
-@{
-    var site = CurrentPage.AncestorOrSelf(1);
-}
+@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 
 <!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>@site.Name - @CurrentPage.Name</title>
+    <title>@CurrentSite.Name - @CurrentPage.Name</title>
     <meta name="description" content="@CurrentPage.metadescription">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -20,7 +17,7 @@
 
     <div id="l-header-container">
         <header class="wrapper clearfix">
-            <h1 class="title"><a href="@site.Url">@site.Name</a></h1>
+            <h1 class="title"><a href="@CurrentSite.Url">@CurrentSite.Name</a></h1>
             @RenderPage("Partials/_TopNav.cshtml")
         </header>
     </div>

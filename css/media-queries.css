@@ -5,7 +5,7 @@
 
 @media only screen and (max-width: 768px) {
 
-    #l-header-container nav {
+    #l-topnav {
         -webkit-transition: 0.5s ease-in-out;
         -moz-transition: 0.5s ease-in-out;
         -o-transition: 0.5s ease-in-out;
@@ -27,12 +27,12 @@
         background: none;
     }
 
-    #l-header-container nav {
+    #l-topnav {
         float: left;
         width: 100%;
     }
 
-    #l-header-container nav a {
+    #l-topnav a {
         width: auto;
     }
 }

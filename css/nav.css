@@ -1,17 +1,17 @@
 /* == Top menu == */
 
-#l-header-container nav {
+#l-topnav {
     float: right;
     width: 38%;
 }
 
-#l-header-container nav ul {
+#l-topnav ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
 }
 
-#l-header-container nav a {
+#l-topnav a {
     display: block;
     margin-bottom: 10px;
     padding: 15px 0;
@@ -33,7 +33,7 @@
 
 /* == Top menu mobile == */
 
-#l-header-container nav.mobile {
+#l-topnav.mobile {
     position: fixed;
     left:-300px;
     top: 0;
@@ -48,11 +48,11 @@
     transform: translate(0,0);
 }
 
-#l-header-container nav.mobile a {
+#l-topnav.mobile a {
     float:inherit;
 }
 
-#l-header-container nav.slide-in {
+#l-topnav.slide-in {
     left: 0;
 }
 
