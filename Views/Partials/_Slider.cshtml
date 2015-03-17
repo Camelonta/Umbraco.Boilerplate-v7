@@ -1,0 +1,30 @@
+﻿@inherits UmbracoTemplatePage
+@using Newtonsoft.Json.Linq
+
+@{
+    var slider = CurrentPage.GetPropertyValue<JArray>("slider") == null ? new JArray() : CurrentPage.GetPropertyValue<JArray>("slider");
+}
+
+@if (slider.Count > 0)
+{
+    <div class="swiper-container">
+
+        <div class="swiper-wrapper">
+            @foreach (var item in slider)
+            {
+                <div class="swiper-slide">
+                    <a href="@(item.Value<string>("link"))">
+                        @if (item.Value<string>("image") != String.Empty)
+                        {
+                            <img src="@Umbraco.TypedMedia(item.Value<string>("image")).Url" alt="@(item.Value<string>("text"))">
+                        }
+                    </a>
+                </div>
+            }
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+}

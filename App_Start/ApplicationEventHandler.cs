@@ -27,14 +27,17 @@ namespace Camelonta.Boilerplate.App_Start
                 cssPath + "vendor/bootstrap.css",
                 cssPath + "media-queries.css",
                 cssPath + "typo.css",
-                cssPath + "styles-print.css"
+                cssPath + "styles-print.css",
+                cssPath + "vendor/swiper.css"
             ));
 
             const string scriptsPath = "~/scripts/";
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                 scriptsPath + "main.js",
                 scriptsPath + "menu.js",
-                scriptsPath + "youtube.js"
+                scriptsPath + "youtube.js",
+                scriptsPath + "vendor/swiper.js",
+                scriptsPath + "slider.js"
             ));
 
             BundleTable.EnableOptimizations = true;

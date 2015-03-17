@@ -230,8 +230,11 @@
     <Content Include="css\print.css" />
     <Content Include="css\state.css" />
     <Content Include="css\utillity.css" />
+    <Content Include="css\vendor\swiper.css" />
     <Content Include="packages.config" />
     <Content Include="README.txt" />
+    <Content Include="scripts\slider.js" />
+    <Content Include="scripts\vendor\swiper.js" />
     <Content Include="scripts\youtube.js" />
     <Content Include="scripts\main.js" />
     <Content Include="scripts\menu.js" />
@@ -272,6 +275,9 @@
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />
     <Content Include="Views\MacroPartials\ImageGallery.cshtml" />
+    <Content Include="Views\Partials\_Slider.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -292,7 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="img\" />
-    <Folder Include="scripts\vendor\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
