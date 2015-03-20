@@ -13,8 +13,6 @@
 
 #l-topnav a {
     display: block;
-    margin-bottom: 10px;
-    padding: 15px 0;
 
     text-align: center;
     text-decoration: none;
@@ -24,10 +22,8 @@
     background: #e44d26;
     
     float: left;
-    width: 27%;
     margin: 0 1.7%;
-    padding: 25px 2%;
-    margin-bottom: 0;
+    padding: 25px 4%;
 }
 
 

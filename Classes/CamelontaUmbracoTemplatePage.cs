@@ -1,10 +1,11 @@
-﻿using Umbraco.Web.Mvc;
+﻿using Umbraco.Core.Models;
+using Umbraco.Web.Mvc;
 
 namespace Camelonta.Boilerplate.Classes
 {
     public abstract class CamelontaUmbracoTemplatePage : UmbracoTemplatePage
     {
-        public dynamic CurrentSite
+        public IPublishedContent CurrentSite
         {
             get
             {
@@ -15,6 +16,6 @@ namespace Camelonta.Boilerplate.Classes
                 return _currentSite;
             }
         }
-        private dynamic _currentSite;
+        private IPublishedContent _currentSite;
     }
 }

@@ -1,0 +1,38 @@
+﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+@{ Layout = "~/Views/_Layout.cshtml"; }
+
+<section id="l-sidebar">
+    @RenderPage("Partials/_LeftNav.cshtml")
+</section>
+
+<article>
+    <h2>@CurrentPage.Name</h2>
+
+    @{
+        var take = 40;
+        var skip = Request.QueryString["skip"] == null ? 0 : Convert.ToInt32(Request.QueryString["skip"]);
+        var news = ((IPublishedContent)CurrentPage).Descendants().Where(p => p.DocumentTypeAlias == "News").Skip(skip).Take(take);
+        var count = ((IPublishedContent)CurrentPage).Descendants().Where(p => p.DocumentTypeAlias == "News").Count();
+    }
+
+    @foreach (IPublishedContent page in news)
+    {
+        <div class="margin-bottom">
+            @page.CreateDate.ToString("yyyy-MM-dd") <b><a href="@page.Url">@page.Name</a></b>
+            <div>@page.GetPropertyValue("metadescription")</div>
+        </div>
+    }
+
+    <footer>
+        @{
+            var paginationSize = count/take;
+        }
+
+        @for (var i = 0; i < paginationSize; i++)
+        {
+            <a href="?skip=@(i*take)">@(i + 1)</a>
+        }
+    </footer>
+
+    <b>@count</b>
+</article>
