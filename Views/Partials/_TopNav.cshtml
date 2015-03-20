@@ -1,7 +1,5 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 
-@{ var home = CurrentPage.AncestorOrSelf(1); }
-
 @helper PageIsActive(dynamic page)
 {
     if (page.IsAncestorOrSelf(CurrentPage))
@@ -12,14 +10,14 @@
 
 <nav id="l-topnav">
     <ul>
-        @foreach (var page in home.Children.Where("!umbracoNaviHide"))
+        @foreach (var page in CurrentSite.Children.ShowOnlyVisible())
         {
             <li>
                 <a href="@page.Url" @PageIsActive(page)>@page.Name</a>
                 @*@if (page.Children.Any())
                     {
                         <select>
-                            @foreach (var child in page.Children.Where("!umbracoNaviHide"))
+                            @foreach (var child in page.Children.ShowOnlyVisible())
                             {
                                 <option value="@child.Url">@child.Name</option>
                             }

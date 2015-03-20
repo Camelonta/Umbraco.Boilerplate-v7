@@ -20,14 +20,14 @@
 
 <nav id="l-leftnav">
     <ul>
-        @foreach (var page in topleft.Children.Where("!umbracoNaviHide"))
+        @foreach (var page in topleft.Children.ShowOnlyVisible())
         {
             <li>
                 <a href="@page.Url" class="@PageIsCurrent(page, "is-current-page")">@page.Name</a>
                 @if (page.IsAncestorOrSelf(Model) && page.Children.Any())
                 {
                     <ul class="is-submenu">
-                        @foreach (var child in page.Children.Where("!umbracoNaviHide"))
+                        @foreach (var child in page.Children.ShowOnlyVisible())
                         {
                             <li class="@PageIsCurrent(child, "is-current-page") @PageIsCurrent(child, "is-active-sub")">
                                 <a href="@child.Url">@child.Name</a>

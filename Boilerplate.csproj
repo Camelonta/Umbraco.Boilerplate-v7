@@ -294,6 +294,7 @@
   <ItemGroup>
     <Compile Include="App_Start\ApplicationEventHandler.cs" />
     <Compile Include="Classes\CamelontaUmbracoTemplatePage.cs" />
+    <Compile Include="Classes\ExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
