@@ -16,14 +16,14 @@
         float: none;
     }
 
-    .main #l-sidebar,
+    main #l-sidebar,
     #l-sidebar nav,
-    .main article,
-    .main aside {
+    main article,
+    main aside {
         width: 100%;
     }
 
-    .main #l-sidebar {
+    main #l-sidebar {
         background: none;
     }
 
