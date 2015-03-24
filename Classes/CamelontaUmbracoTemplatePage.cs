@@ -17,5 +17,13 @@ namespace Camelonta.Boilerplate.Classes
             }
         }
         private IPublishedContent _currentSite;
+
+        /// <summary>
+        /// Get UmbracoTemplatePage.CurrentPage typed. IMPORTANT: It might contain dynamic properties that this property won´t display
+        /// </summary>
+        public IPublishedContent CurrentPageTyped
+        {
+            get { return CurrentPage; }
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 
-@{ var topleft = CurrentPage.AncestorOrSelf(2); }
+@{ var topleft = CurrentPageTyped.AncestorOrSelf(2); }
 
 @helper PageIsCurrent(dynamic page, string cssClass)
 {
@@ -20,14 +20,14 @@
 
 <nav id="l-leftnav">
     <ul>
-        @foreach (var page in topleft.Children.ShowOnlyVisible())
+        @foreach (var page in topleft.Children.Where(p => p.IsVisible()))
         {
             <li>
                 <a href="@page.Url" class="@PageIsCurrent(page, "is-current-page")">@page.Name</a>
-                @if (page.IsAncestorOrSelf(Model) && page.Children.Any())
+                @if (page.IsAncestorOrSelf(Model.Content) && page.Children.Any())
                 {
                     <ul class="is-submenu">
-                        @foreach (var child in page.Children.ShowOnlyVisible())
+                        @foreach (var child in page.Children.Where(p => p.IsVisible()))
                         {
                             <li class="@PageIsCurrent(child, "is-current-page") @PageIsCurrent(child, "is-active-sub")">
                                 <a href="@child.Url">@child.Name</a>

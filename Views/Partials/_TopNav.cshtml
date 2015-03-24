@@ -1,8 +1,8 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 
-@helper PageIsActive(dynamic page)
+@helper PageIsActive(IPublishedContent page)
 {
-    if (page.IsAncestorOrSelf(CurrentPage))
+    if (page.IsAncestorOrSelf(CurrentPageTyped))
     {
         @: class="is-active"
     }
@@ -10,14 +10,14 @@
 
 <nav id="l-topnav">
     <ul>
-        @foreach (var page in CurrentSite.Children.ShowOnlyVisible())
+        @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
         {
             <li>
                 <a href="@page.Url" @PageIsActive(page)>@page.Name</a>
                 @*@if (page.Children.Any())
                     {
                         <select>
-                            @foreach (var child in page.Children.ShowOnlyVisible())
+                            @foreach (var child in page.Children.Where(p => p.IsVisible()))
                             {
                                 <option value="@child.Url">@child.Name</option>
                             }
