@@ -568,3 +568,7 @@
     max-height: 350px;
     width: 100%;
 }
+
+.swiper-link {
+    cursor: pointer;
+}

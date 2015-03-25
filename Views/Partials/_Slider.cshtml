@@ -1,5 +1,6 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 @using Newtonsoft.Json.Linq
+@using umbraco.NodeFactory
 
 @{
     var slides = CurrentPage.GetPropertyValue<JArray>("slider") == null ? new JArray() : CurrentPage.GetPropertyValue<JArray>("slider");
@@ -12,14 +13,19 @@
         <div class="swiper-wrapper">
             @foreach (var item in slides)
             {
-                <div class="swiper-slide">
-                    <a href="@(item.Value<string>("link"))">
-                        @if (item.Value<string>("image") != String.Empty)
-                        {
-                            <img src="@Umbraco.TypedMedia(item.Value<string>("image")).Url" alt="@(item.Value<string>("text"))">
-                        }
-                    </a>
-                </div>
+                if (item.Value<string>("image") != String.Empty)
+                {
+                    var link = "";
+                    var linkId = item.Value<string>("link");
+                    if (linkId != String.Empty)
+                    {
+                        var node = new Node(Convert.ToInt32(linkId));
+                        link = "onclick=\"document.location = '" + node.Url + "'\" class=\"swiper-link\"";
+                    }
+                    <div class="swiper-slide">
+                        <img src="@Umbraco.TypedMedia(item.Value<string>("image")).Url?height=300&width=1026&mode=crop&center=0.25,0.30" alt="@(item.Value<string>("text"))" @Html.Raw(link)>
+                    </div>
+                }
             }
         </div>
 
