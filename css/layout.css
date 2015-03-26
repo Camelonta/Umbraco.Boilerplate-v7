@@ -41,6 +41,14 @@ main aside {
     text-decoration: none;
 }
 
+/* == top search == */
+
+#l-topsearch {
+    float:right;
+    margin-top:20px;
+    font-size: 12px;
+}
+
 /* == main content == */
 
 main {

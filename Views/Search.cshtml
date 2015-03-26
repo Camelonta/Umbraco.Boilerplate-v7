@@ -12,8 +12,8 @@
 <h1>@CurrentPage.Name</h1>
 
 <form class="margin-bottom">
-    <input type="text" autocomplete="off" name="q" placeholder="Search" value="@Request.QueryString["q"]">
-    <input type="submit" value="Search">
+    <input type="text" autocomplete="off" name="q" placeholder="@CurrentPage.Name" value="@Request.QueryString["q"]">
+    <input type="submit" value="@CurrentPage.Name">
 </form>
 
 @if (searchResults.Any())

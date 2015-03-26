@@ -25,5 +25,13 @@ namespace Camelonta.Boilerplate.Classes
         {
             get { return CurrentPage; }
         }
+
+        /// <summary>
+        /// The current sites search page
+        /// </summary>
+        public IPublishedContent SearchPage
+        {
+            get { return Umbraco.TypedContent(CurrentPage.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
+        }
     }
 }
