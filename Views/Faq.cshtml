@@ -1,0 +1,37 @@
+﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<section id="l-sidebar">
+    @RenderPage("Partials/_LeftNav.cshtml")
+</section>
+
+<article>
+    <h2>@CurrentPage.Name</h2>
+
+    @* Single question *@ 
+    @if (CurrentPage.DocumentTypeAlias == "Faqquestion")
+    {
+        @FaqQuestion(CurrentPage)
+    }
+
+    @* Questionlist *@
+    @foreach (var page in CurrentPage.Children)
+    {
+        @FaqQuestion(page)
+    }
+
+</article>
+
+
+@helper FaqQuestion(dynamic page) {
+    <div class="faq">
+        <div class="question">
+            @page.question
+        </div>
+        <div class="answer">
+            @page.answer
+        </div>
+    </div>
+}

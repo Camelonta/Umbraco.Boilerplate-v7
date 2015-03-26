@@ -238,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\grid.editors.config.js" />
+    <Content Include="css\faq.css" />
     <Content Include="css\form.css" />
     <Content Include="css\typo.css" />
     <Content Include="css\base.css" />
@@ -256,6 +257,7 @@
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="README.txt" />
+    <Content Include="scripts\faq.js" />
     <Content Include="scripts\slider.js" />
     <Content Include="scripts\vendor\swiper.js" />
     <Content Include="scripts\youtube.js" />
@@ -304,6 +306,7 @@
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
     <Content Include="Views\Partials\_TopSearch.cshtml" />
+    <Content Include="Views\Faq.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
