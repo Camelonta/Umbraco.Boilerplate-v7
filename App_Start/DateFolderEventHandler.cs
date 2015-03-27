@@ -27,19 +27,29 @@ namespace Camelonta.Boilerplate.App_Start
                 // Not interested if the item being added is not a news-page.
                 if (page.ContentType.Alias != "News") return;
 
-                var now = page.ReleaseDate.HasValue ? page.ReleaseDate.Value: DateTime.Now;
+                var now = page.ReleaseDate.HasValue ? page.ReleaseDate.Value : DateTime.Now;
                 var year = now.ToString("yyyy");
                 var month = now.ToString("MM");
 
                 IContent yearDocument = null;
-                foreach (var child in page.Parent().Children())
+
+                // Get year-document by container (if it is a 4 digit number)
+                int n;
+                if (int.TryParse(page.Parent().Name, out n))
                 {
-                    if (child.Name == year)
-                    {
-                        yearDocument = child;
-                        break;
-                    }
+                    if (n.ToString().Length == 4)
+                        yearDocument = page.Parent();
                 }
+                // Get year-document by parent-siblings
+                if (yearDocument != null)
+                    foreach (var child in page.Parent().Children())
+                    {
+                        if (child.Name == year)
+                        {
+                            yearDocument = child;
+                            break;
+                        }
+                    }
 
                 // If the year folder doesn't exist, create it.
                 if (yearDocument == null)
