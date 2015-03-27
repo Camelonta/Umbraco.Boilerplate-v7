@@ -35,10 +35,10 @@ namespace Camelonta.Boilerplate.App_Start
             const string scriptsPath = "~/scripts/";
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                 scriptsPath + "vendor/jquery-1.11.2.min.js",
+                scriptsPath + "vendor/swiper.jquery.min.js",
                 scriptsPath + "main.js",
                 scriptsPath + "menu.js",
                 scriptsPath + "youtube.js",
-                scriptsPath + "vendor/swiper.js",
                 scriptsPath + "slider.js",
                 scriptsPath + "faq.js"
             ));
