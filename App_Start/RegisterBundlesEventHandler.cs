@@ -3,7 +3,7 @@ using Umbraco.Core;
 
 namespace Camelonta.Boilerplate.App_Start
 {
-    public class ApplicationEventHandler : IApplicationEventHandler
+    public class RegisterBundlesEventHandler : IApplicationEventHandler
     {
         public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext) { }
         public void OnApplicationInitialized(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext) { }

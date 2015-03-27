@@ -290,7 +290,9 @@
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Config\UrlRewriting.config" />
-    <Content Include="Config\umbracoSettings.config" />
+    <Content Include="Config\umbracoSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\trees.config" />
     <Content Include="Config\tinyMceConfig.config" />
     <Content Include="Config\scripting.config" />

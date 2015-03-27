@@ -37,5 +37,11 @@
 
     <script src="@Scripts.Url("~/bundles/scripts")" type="text/javascript"></script>
 
+    @{ var siteScript = CurrentPage.GetPropertyValue("siteScript", true);}
+    @if (!String.IsNullOrWhiteSpace(siteScript))
+    {
+        <script type="text/javascript">@Html.Raw(siteScript)</script>
+    }
+
 </body>
 </html>
