@@ -1,0 +1,29 @@
+﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+@using Newtonsoft.Json.Linq
+
+@{
+    var topLinks = CurrentSite.GetPropertyValue<JArray>("topLinks") == null ? new JArray() : CurrentSite.GetPropertyValue<JArray>("topLinks");
+}
+
+@if (topLinks.Count() > 0)
+{
+    <div id="l-top-links">
+        <ul>
+            @foreach (var topLink in topLinks)
+            {
+                if (!topLink.Value<string>("text").IsEmpty())
+                {
+                    <li>
+                        <a href="@(topLink.Value<string>("link"))">
+                            <span>@(topLink.Value<string>("text"))</span>
+                            @if (!topLink.Value<string>("icon").IsEmpty())
+                            {
+                                <img src="@Umbraco.TypedMedia(topLink.Value<string>("icon")).Url" alt="@(topLink.Value<string>("text"))">
+                            }
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+}
