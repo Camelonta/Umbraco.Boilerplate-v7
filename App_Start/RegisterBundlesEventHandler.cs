@@ -43,6 +43,10 @@ namespace Camelonta.Boilerplate.App_Start
                 scriptsPath + "faq.js"
             ));
 
+            bundles.Add(new ScriptBundle("~/bundles/html5shiv").Include(
+                scriptsPath + "vendor/html5shiv.js"
+            ));
+
             BundleTable.EnableOptimizations = true;
         }
     }

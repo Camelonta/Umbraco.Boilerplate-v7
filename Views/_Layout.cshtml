@@ -11,7 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
+    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />    
+    <!--[if lt IE 9]>
+        <script src="@Scripts.Url("~/bundles/html5shiv")"></script>
+    <![endif]-->
 </head>
 <body class="pagetype-@CurrentPage.DocumentTypeAlias.ToLower()">
 
@@ -35,12 +38,12 @@
         </footer>
     </div>
 
-    <script src="@Scripts.Url("~/bundles/scripts")" type="text/javascript"></script>
+    <script async src="@Scripts.Url("~/bundles/scripts")"></script>
 
     @{ var siteScript = CurrentPage.GetPropertyValue("siteScript", true);}
     @if (!String.IsNullOrWhiteSpace(siteScript))
     {
-        <script type="text/javascript">@Html.Raw(siteScript)</script>
+        <script async>@Html.Raw(siteScript)</script>
     }
 
 </body>

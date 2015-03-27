@@ -2,14 +2,14 @@
 
     var menuOpen = false;
     var mobileWidthBreakpoint = 480;
-    var topNav = document.getElementById("l-topnav");
-    var leftNav = document.getElementById("l-leftnav");
-    var mobileMenuButton = document.getElementById("mobile-menu-button");
+    var topNav = $("#l-topnav");
+    var leftNav = $("#l-leftnav");
+    var mobileMenuButton = $("#mobile-menu-button");
 
     var init = function () {
         checkMenuState();
         addEvent(window, "resize", checkMenuState);
-        addEvent(mobileMenuButton, "click", openCloseMenu);
+        mobileMenuButton.click(openCloseMenu);
     }
 
     var openCloseMenu = function () {
@@ -23,19 +23,19 @@
 
     var openMenu = function () {
         //console.log("Open menu...");
-        topNav.classList.remove("is-hidden");
-        topNav.classList.add("mobile");
+        topNav.removeClass("is-hidden");
+        topNav.addClass("mobile");
 
         var x = topNav.clientHeight;
-        topNav.classList.add("slide-in");
+        topNav.addClass("slide-in");
     }
 
     var closeMenu = function () {
         //console.log("Close menu...");
 
-        topNav.classList.remove("slide-in");
-        topNav.classList.add("is-hidden");
-        topNav.classList.remove("mobile");
+        topNav.removeClass("slide-in");
+        topNav.addClass("is-hidden");
+        topNav.removeClass("mobile");
     }
 
     var checkMenuState = function () {
@@ -47,16 +47,16 @@
         x = w.innerWidth || e.clientWidth || g.clientWidth;
 
         if (x < mobileWidthBreakpoint) {
-            topNav.classList.add("is-hidden");
+            topNav.addClass("is-hidden");
             if (leftNav != null)
-                leftNav.classList.add("is-hidden");
-            mobileMenuButton.classList.remove("is-hidden");
+                leftNav.addClass("is-hidden");
+            mobileMenuButton.removeClass("is-hidden");
             //console.log("MOBILE");
         } else {
-            topNav.classList.remove("is-hidden");
+            topNav.removeClass("is-hidden");
             if (leftNav != null)
-                leftNav.classList.remove("is-hidden");
-            mobileMenuButton.classList.add("is-hidden");
+                leftNav.removeClass("is-hidden");
+            mobileMenuButton.addClass("is-hidden");
             //console.log("DESKTOP");
         }
     }
