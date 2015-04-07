@@ -1,6 +1,9 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 
-<form action="@SearchPage.Url" id="l-topsearch">
-    <input type="search" name="q" placeholder="@SearchPage.Name" value="@Request.QueryString["q"]" />
-    <button>@SearchPage.Name</button>
-</form>
+@if (SearchPage != null)
+{
+    <form action="@SearchPage.Url" id="l-topsearch">
+        <input type="search" name="q" placeholder="@SearchPage.Name" value="@Request.QueryString["q"]" />
+        <button>@SearchPage.Name</button>
+    </form>
+}
