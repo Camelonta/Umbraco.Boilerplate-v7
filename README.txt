@@ -1,4 +1,4 @@
-﻿TIPS: Checka in ofta så man kan gå tillbaks ifall något går fel
+TIPS: Checka in ofta så man kan gå tillbaks ifall något går fel
 
 1. Skapa ett nytt projekt (ASP.NET Web Application). Välj empty, kryssa inte i några checkboxar (blir konflikt vid installation av Umbraco ifall man tar MVC)
 
@@ -15,11 +15,11 @@
 
 7. Installera Boilerplate-paketet
 
-8. Inkludera allt i App_Start, Views, Classes, css, img och scripts i ditt projekt
+8. För att bundling av css/js filer ska fungera så lägg till ~/bundles på umbracoReservedPaths i web.config och installera Microsoft.AspNet.Web.Optimization från nuget
 
 9. Byt namn på ditt namespace
 
-10. För att bundling av css/js filer ska fungera så lägg till ~/bundles på umbracoReservedPaths i web.config och installera Microsoft.AspNet.Web.Optimization från nuget
+10. Inkludera allt i App_Start, Views, Classes, css, img och scripts i ditt projekt
 
 11. Sätt umbracoTimeOutInMinutes i web.config till tex 1440 (24 timmar) för att slippa bli utloggad
 

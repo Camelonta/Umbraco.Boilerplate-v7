@@ -275,7 +275,6 @@
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Partials\_TopNav.cshtml" />
     <Content Include="Views\Partials\_LeftNav.cshtml" />
-    <Content Include="Views\MacroPartials\Image.cshtml" />
     <Content Include="Views\MacroPartials\PageList.cshtml" />
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />

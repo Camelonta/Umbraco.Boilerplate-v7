@@ -8,17 +8,16 @@
 
 @if (!string.IsNullOrWhiteSpace(movieUrl) && movieUrl.Contains("youtu"))
 {
-    <span class="movie padding-bottom">
+    <div class="video">
         @if (!string.IsNullOrWhiteSpace(header))
         {
             <h3>@header</h3>
         }
         @{ var youtubeId = GetYouTubeId(movieUrl);}
-        <div class="youtube-container" style="background-image: url('http://i3.ytimg.com/vi/@youtubeId/0.jpg'); background-repeat:no-repeat; height:@height">
-            <a href=" javascript:void(0)" data-youtube-id="@youtubeId" id="youtube-start" class="icon-play">
-            </a>
+        <div class="youtube-preview" data-video="@youtubeId" style="background-image: url('http://i3.ytimg.com/vi/@youtubeId/0.jpg'); height:@height">
+            <i class="icon-play"></i>
         </div>
-    </span>
+    </div>
 }
 
 @* Helpers *@
