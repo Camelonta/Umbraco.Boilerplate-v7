@@ -11,8 +11,8 @@
     @{
         var take = 40;
         var skip = Request.QueryString["skip"] == null ? 0 : Convert.ToInt32(Request.QueryString["skip"]);
-        var news = ((IPublishedContent)CurrentPage).Descendants().Where(p => p.DocumentTypeAlias == "News").Skip(skip).Take(take);
-        var count = ((IPublishedContent)CurrentPage).Descendants().Where(p => p.DocumentTypeAlias == "News").Count();
+        var news = Model.Content.Descendants().Where(p => p.DocumentTypeAlias == "News").Skip(skip).Take(take);
+        var count = Model.Content.Descendants().Count(p => p.DocumentTypeAlias == "News");
     }
 
     @foreach (IPublishedContent page in news)
