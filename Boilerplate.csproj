@@ -269,33 +269,6 @@
     <Content Include="App_Plugins\Archetype\views\archetype.config.html" />
     <Content Include="App_Plugins\Archetype\views\archetype.default.html" />
     <Content Include="App_Plugins\Archetype\views\archetype.html" />
-    <Content Include="App_Plugins\u7dtg\directives\rteDirective.js" />
-    <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.columns.html" />
-    <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.controller.js" />
-    <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.maxrows.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\checkbox.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\contentpicker.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\datePicker.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\dropdown.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\mediapicker.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\numeric.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\readonly.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\rte.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\textarea.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\textbox.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\checkbox.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\contentpicker.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\datePicker.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\dropdown.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\mediapicker.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\numeric.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\readonly.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\rte.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\textarea.html" />
-    <Content Include="App_Plugins\u7dtg\propertiesViews\textbox.html" />
-    <Content Include="App_Plugins\u7dtg\u7dtg.controller.js" />
-    <Content Include="App_Plugins\u7dtg\u7dtg.editor.html" />
-    <Content Include="App_Plugins\u7dtg\u7dtg.style.css" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="css\faq.css" />
     <Content Include="css\form.css" />
@@ -368,7 +341,6 @@
     <Content Include="Views\Partials\_TopSearch.cshtml" />
     <Content Include="Views\Faq.cshtml" />
     <Content Include="Views\Partials\_TopLinks.cshtml" />
-    <Content Include="App_Plugins\u7dtg\package.manifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -13,17 +13,17 @@
         <div class="swiper-wrapper">
             @foreach (var slide in slides)
             {
-                if (slide.GetValue<string>("image") != String.Empty)
+                if (slide.HasValue("image"))
                 {
                     var link = "";
-                    var linkId = slide.GetValue<string>("link");
-                    if (linkId != String.Empty)
+                    var linkId = slide.GetValue<int>("link");
+                    if (linkId > 0)
                     {
-                        var node = new Node(Convert.ToInt32(linkId));
+                        var node = Umbraco.TypedContent(linkId);
                         link = "onclick=\"document.location = '" + node.Url + "'\" class=\"swiper-link\"";
                     }
                     <div class="swiper-slide">
-                        <img src="@Umbraco.TypedMedia(slide.GetValue<string>("image")).Url?height=300&width=1026&mode=crop&center=0.25,0.30" alt="@(slide.GetValue<string>("text"))" @Html.Raw(link)>
+                        <img src="@Umbraco.TypedMedia(slide.GetValue("image")).Url?height=300&width=1026&mode=crop&center=0.25,0.30" alt="@(slide.GetValue("text"))" @Html.Raw(link)>
                     </div>
                 }
             }

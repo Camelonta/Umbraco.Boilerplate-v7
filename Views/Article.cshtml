@@ -9,14 +9,14 @@
 
 <article>
     <h2>@Model.Content.Name</h2>
-    @Model.Content.GetPropertyValue("bodytext")
+    @Model.Content.GetPropertyValue("contentMiddle")
 </article>
 
-@if (!String.IsNullOrWhiteSpace(Model.Content.GetPropertyValue<string>("righttext")))
+@if (Model.Content.HasValue("contentRight"))
 {
     <aside>
         <div>
-            @Model.Content.GetPropertyValue("righttext")
+            @Model.Content.GetPropertyValue("contentRight")
         </div>
     </aside>
 }
