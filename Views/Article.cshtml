@@ -8,15 +8,15 @@
 </section>
 
 <article>
-    <h2>@CurrentPage.Name</h2>
-    @CurrentPage.bodytext
+    <h2>@Model.Content.Name</h2>
+    @Model.Content.GetPropertyValue("bodytext")
 </article>
 
-@if (!String.IsNullOrWhiteSpace(CurrentPage.righttext.ToString()))
+@if (!String.IsNullOrWhiteSpace(Model.Content.GetPropertyValue<string>("righttext")))
 {
     <aside>
         <div>
-            @CurrentPage.righttext
+            @Model.Content.GetPropertyValue("righttext")
         </div>
     </aside>
 }

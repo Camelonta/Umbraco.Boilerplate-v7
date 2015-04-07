@@ -1,4 +1,5 @@
 ﻿using Umbraco.Core.Models;
+using Umbraco.Web;
 using Umbraco.Web.Mvc;
 
 namespace Camelonta.Boilerplate.Classes
@@ -11,7 +12,7 @@ namespace Camelonta.Boilerplate.Classes
             {
                 if (_currentSite == null)
                 {
-                    _currentSite = CurrentPage.AncestorOrSelf(1);
+                    _currentSite = Model.Content.AncestorOrSelf(1);
                 }
                 return _currentSite;
             }
@@ -19,19 +20,11 @@ namespace Camelonta.Boilerplate.Classes
         private IPublishedContent _currentSite;
 
         /// <summary>
-        /// Get UmbracoTemplatePage.CurrentPage typed. IMPORTANT: It might contain dynamic properties that this property won´t display
-        /// </summary>
-        public IPublishedContent CurrentPageTyped
-        {
-            get { return CurrentPage; }
-        }
-
-        /// <summary>
         /// The current sites search page
         /// </summary>
         public IPublishedContent SearchPage
         {
-            get { return Umbraco.TypedContent(CurrentPage.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
+            get { return Umbraco.TypedContent(Model.Content.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
         }
     }
 }

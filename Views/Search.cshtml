@@ -9,11 +9,11 @@
 }
 
 
-<h1>@CurrentPage.Name</h1>
+<h1>@Model.Content.Name</h1>
 
 <form class="margin-bottom">
-    <input type="text" autocomplete="off" name="q" placeholder="@CurrentPage.Name" value="@Request.QueryString["q"]">
-    <input type="submit" value="@CurrentPage.Name">
+    <input type="text" autocomplete="off" name="q" placeholder="@Model.Content.Name" value="@Request.QueryString["q"]">
+    <input type="submit" value="@Model.Content.Name">
 </form>
 
 @if (searchResults.Any())

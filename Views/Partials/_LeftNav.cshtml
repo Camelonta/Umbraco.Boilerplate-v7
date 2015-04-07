@@ -1,10 +1,10 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
 
-@{ var topleft = CurrentPageTyped.AncestorOrSelf(2); }
+@{ var topleft = Model.Content.AncestorOrSelf(2); }
 
-@helper PageIsCurrent(dynamic page, string cssClass)
+@helper PageIsCurrent(IPublishedContent page, string cssClass)
 {
-    if (CurrentPage.Id == page.Id)
+    if (Model.Content.Id == page.Id)
     {
         @cssClass
     }
@@ -12,7 +12,7 @@
 
 @helper PageIsSelected(IPublishedContent page)
 {
-    if (page.IsAncestorOrSelf((IPublishedContent)CurrentPage))
+    if (page.IsAncestorOrSelf(Model.Content))
     {
         @:is-active
     }

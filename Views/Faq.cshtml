@@ -8,16 +8,16 @@
 </section>
 
 <article>
-    <h2>@CurrentPage.Name</h2>
+    <h2>@Model.Content.Name</h2>
 
     @* Single question *@ 
-    @if (CurrentPage.DocumentTypeAlias == "Faqquestion")
+    @if (Model.Content.DocumentTypeAlias == "Faqquestion")
     {
-        @FaqQuestion(CurrentPage)
+        @FaqQuestion(Model.Content)
     }
 
     @* Questionlist *@
-    @foreach (var page in CurrentPage.Children)
+    @foreach (var page in Model.Content.Children)
     {
         @FaqQuestion(page)
     }
@@ -25,13 +25,13 @@
 </article>
 
 
-@helper FaqQuestion(dynamic page) {
+@helper FaqQuestion(IPublishedContent page) {
     <div class="faq">
         <div class="question">
-            @page.question
+            @Model.Content.GetPropertyValue("question")
         </div>
         <div class="answer">
-            @page.answer
+            @Model.Content.GetPropertyValue("answer")
         </div>
     </div>
 }

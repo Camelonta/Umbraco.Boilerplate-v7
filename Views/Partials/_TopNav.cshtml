@@ -2,7 +2,7 @@
 
 @helper PageIsActive(IPublishedContent page)
 {
-    if (page.IsAncestorOrSelf(CurrentPageTyped))
+    if (page.IsAncestorOrSelf(Model.Content))
     {
         @: class="is-active"
     }

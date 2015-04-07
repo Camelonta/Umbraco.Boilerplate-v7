@@ -1,29 +1,29 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
-@using Newtonsoft.Json.Linq
+@using Archetype.Models
 @using umbraco.NodeFactory
 
 @{
-    var slides = CurrentPage.GetPropertyValue<JArray>("slider") == null ? new JArray() : CurrentPage.GetPropertyValue<JArray>("slider");
+    var slides = Model.Content.GetPropertyValue<ArchetypeModel>("slider");
 }
 
-@if (slides.Count > 0)
+@if (slides != null)
 {
     <div class="swiper-container">
 
         <div class="swiper-wrapper">
-            @foreach (var item in slides)
+            @foreach (var slide in slides)
             {
-                if (item.Value<string>("image") != String.Empty)
+                if (slide.GetValue<string>("image") != String.Empty)
                 {
                     var link = "";
-                    var linkId = item.Value<string>("link");
+                    var linkId = slide.GetValue<string>("link");
                     if (linkId != String.Empty)
                     {
                         var node = new Node(Convert.ToInt32(linkId));
                         link = "onclick=\"document.location = '" + node.Url + "'\" class=\"swiper-link\"";
                     }
                     <div class="swiper-slide">
-                        <img src="@Umbraco.TypedMedia(item.Value<string>("image")).Url?height=300&width=1026&mode=crop&center=0.25,0.30" alt="@(item.Value<string>("text"))" @Html.Raw(link)>
+                        <img src="@Umbraco.TypedMedia(slide.GetValue<string>("image")).Url?height=300&width=1026&mode=crop&center=0.25,0.30" alt="@(slide.GetValue<string>("text"))" @Html.Raw(link)>
                     </div>
                 }
             }

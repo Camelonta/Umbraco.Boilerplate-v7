@@ -3,8 +3,8 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
-<h2>@CurrentPage.Name</h2>
+<h2>@Model.Content.Name</h2>
 
 @RenderPage("Partials/_Slider.cshtml")
 
-@CurrentPage.GetGridHtml("grid")
+@Model.Content.GetGridHtml("grid")

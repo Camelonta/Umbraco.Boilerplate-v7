@@ -49,6 +49,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Archetype">
+      <HintPath>packages\Archetype.1.7.2\lib\net40\Archetype.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper">
       <HintPath>packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
@@ -240,6 +243,59 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\Archetype\css\archetype.css" />
+    <Content Include="App_Plugins\Archetype\js\archetype.js" />
+    <Content Include="App_Plugins\Archetype\langs\da-dk.js" />
+    <Content Include="App_Plugins\Archetype\langs\da.js" />
+    <Content Include="App_Plugins\Archetype\langs\de-de.js" />
+    <Content Include="App_Plugins\Archetype\langs\de.js" />
+    <Content Include="App_Plugins\Archetype\langs\en-gb.js" />
+    <Content Include="App_Plugins\Archetype\langs\en-us.js" />
+    <Content Include="App_Plugins\Archetype\langs\en.js" />
+    <Content Include="App_Plugins\Archetype\langs\es-es.js" />
+    <Content Include="App_Plugins\Archetype\langs\es.js" />
+    <Content Include="App_Plugins\Archetype\langs\fr-fr.js" />
+    <Content Include="App_Plugins\Archetype\langs\he-il.js" />
+    <Content Include="App_Plugins\Archetype\langs\it-it.js" />
+    <Content Include="App_Plugins\Archetype\langs\ja-jp.js" />
+    <Content Include="App_Plugins\Archetype\langs\ko-kr.js" />
+    <Content Include="App_Plugins\Archetype\langs\nb-no.js" />
+    <Content Include="App_Plugins\Archetype\langs\nl-nl.js" />
+    <Content Include="App_Plugins\Archetype\langs\pl-pl.js" />
+    <Content Include="App_Plugins\Archetype\langs\pt-br.js" />
+    <Content Include="App_Plugins\Archetype\langs\ru-ru.js" />
+    <Content Include="App_Plugins\Archetype\langs\sv-se.js" />
+    <Content Include="App_Plugins\Archetype\langs\zh-cn.js" />
+    <Content Include="App_Plugins\Archetype\views\archetype.config.html" />
+    <Content Include="App_Plugins\Archetype\views\archetype.default.html" />
+    <Content Include="App_Plugins\Archetype\views\archetype.html" />
+    <Content Include="App_Plugins\u7dtg\directives\rteDirective.js" />
+    <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.columns.html" />
+    <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.controller.js" />
+    <Content Include="App_Plugins\u7dtg\prevalues\u7dtg.prevalues.maxrows.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\checkbox.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\contentpicker.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\datePicker.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\dropdown.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\mediapicker.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\numeric.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\readonly.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\rte.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\textarea.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesPrevalues\textbox.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\checkbox.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\contentpicker.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\datePicker.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\dropdown.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\mediapicker.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\numeric.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\readonly.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\rte.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\textarea.html" />
+    <Content Include="App_Plugins\u7dtg\propertiesViews\textbox.html" />
+    <Content Include="App_Plugins\u7dtg\u7dtg.controller.js" />
+    <Content Include="App_Plugins\u7dtg\u7dtg.editor.html" />
+    <Content Include="App_Plugins\u7dtg\u7dtg.style.css" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="css\faq.css" />
     <Content Include="css\form.css" />
@@ -312,6 +368,7 @@
     <Content Include="Views\Partials\_TopSearch.cshtml" />
     <Content Include="Views\Faq.cshtml" />
     <Content Include="Views\Partials\_TopLinks.cshtml" />
+    <Content Include="App_Plugins\u7dtg\package.manifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

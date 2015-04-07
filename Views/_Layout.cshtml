@@ -6,8 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>@CurrentSite.Name - @CurrentPage.Name</title>
-    <meta name="description" content="@CurrentPage.metadescription">
+    <title>@CurrentSite.Name - @Model.Content.Name</title>
+    <meta name="description" content="@(Model.Content.GetPropertyValue("metadescription"))">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -16,7 +16,7 @@
         <script src="@Scripts.Url("~/bundles/html5shiv")"></script>
     <![endif]-->
 </head>
-<body class="pagetype-@CurrentPage.DocumentTypeAlias.ToLower()">
+<body class="pagetype-@Model.Content.DocumentTypeAlias.ToLower()">
 
     <div id="l-header-container">
         <header class="wrapper clearfix">
@@ -35,13 +35,13 @@
 
     <div id="l-footer-container">
         <footer class="wrapper">
-            @CurrentPage.GetPropertyValue("footer", true)
+            @Model.Content.GetPropertyValue("footer", true)
         </footer>
     </div>
 
     <script async src="@Scripts.Url("~/bundles/scripts")"></script>
 
-    @{ var siteScript = CurrentPage.GetPropertyValue("siteScript", true);}
+    @{ var siteScript = Model.Content.GetPropertyValue<string>("siteScript", true);}
     @if (!String.IsNullOrWhiteSpace(siteScript))
     {
         <script async>@Html.Raw(siteScript)</script>

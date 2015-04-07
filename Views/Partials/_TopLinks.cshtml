@@ -1,24 +1,24 @@
 ﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
-@using Newtonsoft.Json.Linq
+@using Archetype.Models
 
 @{
-    var topLinks = CurrentSite.GetPropertyValue<JArray>("topLinks") == null ? new JArray() : CurrentSite.GetPropertyValue<JArray>("topLinks");
+    var topLinks = Model.Content.GetPropertyValue<ArchetypeModel>("topLinks");
 }
 
-@if (topLinks.Count() > 0)
+@if (topLinks != null)
 {
     <div id="l-top-links">
         <ul>
             @foreach (var topLink in topLinks)
             {
-                if (!topLink.Value<string>("text").IsEmpty())
+                if (!topLink.GetValue<string>("text").IsEmpty())
                 {
                     <li>
-                        <a href="@(topLink.Value<string>("link"))">
-                            <span>@(topLink.Value<string>("text"))</span>
-                            @if (!topLink.Value<string>("icon").IsEmpty())
+                        <a href="@(topLink.GetValue<string>("link"))">
+                            <span>@(topLink.GetValue<string>("text"))</span>
+                            @if (!topLink.GetValue<string>("icon").IsEmpty())
                             {
-                                <img src="@Umbraco.TypedMedia(topLink.Value<string>("icon")).Url" alt="@(topLink.Value<string>("text"))">
+                                <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url" alt="@(topLink.GetValue<string>("text"))">
                             }
                         </a>
                     </li>
