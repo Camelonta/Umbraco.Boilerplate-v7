@@ -11,13 +11,19 @@ body {
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #F16529;
+    color: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #F16529;
+    color: #fff;
     text-shadow: none;
+}
+
+img,iframe,table {
+    max-width: 100%;
 }
 
 hr {
