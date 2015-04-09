@@ -295,7 +295,9 @@
     <Content Include="scripts\youtube.js" />
     <Content Include="scripts\main.js" />
     <Content Include="scripts\menu.js" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\ClientDependency.config" />
     <Content Include="Views\Article.cshtml" />
     <Content Include="Views\ArticleGrid.cshtml" />

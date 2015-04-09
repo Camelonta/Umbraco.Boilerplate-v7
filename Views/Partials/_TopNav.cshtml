@@ -13,13 +13,13 @@
         @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
         {
             <li>
-                <a href="@page.Url" @PageIsActive(page)>@page.Name</a>
+                <a href="@page.Url" @PageIsActive(page)>@page.NavName()</a>
                 @*@if (page.Children.Any())
                     {
                         <select>
                             @foreach (var child in page.Children.Where(p => p.IsVisible()))
                             {
-                                <option value="@child.Url">@child.Name</option>
+                                <option value="@child.Url">@child.NavName()</option>
                             }
                         </select>
                     }*@
