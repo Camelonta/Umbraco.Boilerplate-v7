@@ -1,4 +1,5 @@
-﻿using System.Web.Optimization;
+﻿using System.Configuration;
+using System.Web.Optimization;
 using Umbraco.Core;
 
 namespace Camelonta.Boilerplate.App_Start
@@ -47,7 +48,21 @@ namespace Camelonta.Boilerplate.App_Start
                 scriptsPath + "vendor/html5shiv.js"
             ));
 
-            BundleTable.EnableOptimizations = true;
+            // To disable bundling/optimization, add <add key="disableBundles" value="true" /> to appSettings in web.config
+            var disableBundles = ConfigurationManager.AppSettings["disableBundles"] ?? "false";
+            if (bool.Parse(disableBundles))
+            {
+                foreach (var bundle in BundleTable.Bundles)
+                {
+                    bundle.Transforms.Clear();
+                }
+                BundleTable.EnableOptimizations = false;
+            }
+            else
+            {
+                BundleTable.EnableOptimizations = true;
+            }
+
         }
     }
 }
