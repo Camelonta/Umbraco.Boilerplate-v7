@@ -1,29 +1,41 @@
 /* == Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on. == */
 
-/* == Youtube == */
-.youtube-preview {
+/* == Video == */
+.video {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     border: 1px solid #D3D3D3;
     cursor: pointer;
     position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
 }
 
-    .youtube-preview i {
+    .video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video:before {
+        content: "";
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
         margin: auto;
-        /* Placeholder-styling */
         width: 45px;
         height: 45px;
-        background: #B3B3B3;
+        background: #B3B3B3; /* Placeholder-styling. Lägg till din play-ikon som bakgrund eller font
+        */
     }
 
-    .youtube-preview:hover i {
+    .video:hover:before {
         opacity: .6;
     }
-/* == End of Youtube == */
+/* == End of Video == */

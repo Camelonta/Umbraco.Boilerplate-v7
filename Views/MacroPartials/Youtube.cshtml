@@ -3,28 +3,36 @@
 @{
     var header = Model.MacroParameters["header"].ToString();
     var movieUrl = Model.MacroParameters["movieUrl"].ToString();
-    var height = Model.MacroParameters["height"].ToString() == "null" ? "300px" : Model.MacroParameters["height"] + "px";
+    var videoId = GetYouTubeId(movieUrl);
+    var previewImage = string.IsNullOrEmpty(Model.MacroParameters["previewImage"].ToString()) ? string.Format("http://i3.ytimg.com/vi/{0}/maxresdefault.jpg", videoId) : string.Format("{0}?maxwidth=1000", Umbraco.Media(Model.MacroParameters["previewImage"]).Url);
+    var customHeight = Model.MacroParameters["height"].ToString() != "null" ? string.Format("padding-bottom:{0}px;", Model.MacroParameters["height"]) : string.Empty;
 }
 
-@if (!string.IsNullOrWhiteSpace(movieUrl) && movieUrl.Contains("youtu"))
+@if (!string.IsNullOrWhiteSpace(movieUrl) && !string.IsNullOrEmpty(videoId))
 {
-    <div class="video">
+    <div class="video-wrapper">
         @if (!string.IsNullOrWhiteSpace(header))
         {
             <h3>@header</h3>
         }
-        @{ var youtubeId = GetYouTubeId(movieUrl);}
-        <div class="youtube-preview" data-video="@youtubeId" style="background-image: url('http://i3.ytimg.com/vi/@youtubeId/0.jpg'); height:@height">
-            <i class="icon-play"></i>
-        </div>
+
+        @if (movieUrl.Contains("youtu"))
+        {
+            <div class="video" data-video-id="@videoId" style="background-image: url('@previewImage');@customHeight">
+            </div>
+        }
     </div>
 }
 
-@* Helpers *@
+    @* Helpers *@
 
-@helper GetYouTubeId(string link)
-{
-    var extractId = Regex.Match(link, @"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)");
-    var id = extractId.Groups[1].Value;
-    @id
-}
+    @functions{
+
+        static string GetYouTubeId(string link)
+        {
+            var extractId = Regex.Match(link, @"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)");
+            return extractId.Groups[1].Value;
+
+        }
+
+    }
