@@ -1,4 +1,4 @@
-camelonta.swiper =  new Swiper ('.swiper-container', {
+camelonta.swiper = new Swiper ('.swiper-container', {
     loop: true,
     autoplay: 10000,
     centeredSlides: true,

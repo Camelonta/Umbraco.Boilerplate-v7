@@ -12,15 +12,12 @@ camelonta.faq = (function () {
         $(".answer").addClass("is-hidden");
 
         // Show answers on question-click
-        $(".question").click(function () {
+        $(".question").click(function() {
             $(this).next(".answer").toggleClass("is-hidden");
-        })
+        });
     }
 
     return {
         Init: init
     }
 })();
-
-// Init faq
-camelonta.faq.Init();

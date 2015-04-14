@@ -1,5 +1,8 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
 using System.Web.Optimization;
+using Camelonta.Utilities;
 using Umbraco.Core;
 
 namespace Camelonta.Boilerplate.App_Start
@@ -15,54 +18,50 @@ namespace Camelonta.Boilerplate.App_Start
 
         private void RegisterBundles(BundleCollection bundles)
         {
+            // CSS
             const string cssPath = "~/css/";
-            bundles.Add(new StyleBundle("~/bundles/styles").Include(
-                cssPath + "vendor/normalize.css",
-                cssPath + "base.css",
-                cssPath + "layout.css",
-                cssPath + "form.css",
-                cssPath + "nav.css",
-                cssPath + "modules.css",
-                cssPath + "state.css",
-                cssPath + "utillity.css",
-                cssPath + "vendor/bootstrap.css",
-                cssPath + "media-queries.css",
-                cssPath + "typo.css",
-                cssPath + "faq.css",
-                cssPath + "styles-print.css",
-                cssPath + "vendor/swiper.css"
-            ));
-
+            var cssFiles = new List<string>
+            {
+                "vendor/normalize.css", // Should be before base.css
+                "base.css",
+                "layout.css",
+                "form.css",
+                "nav.css",
+                "modules.css",
+                "state.css",
+                "utillity.css",
+                "vendor/bootstrap.css",
+                "media-queries.css",
+                "typo.css",
+                "faq.css",
+                "styles-print.css",
+                "vendor/swiper.css"
+            }.Select(cssFile => cssPath + cssFile).ToArray(); // Add CSS-path
+            var styleBundle = new StyleBundle("~/bundles/styles").Include(cssFiles);
+            styleBundle.Orderer = Bundles.AsIsBundleOrderer;
+            bundles.Add(styleBundle);
+            
+            // Scripts
             const string scriptsPath = "~/scripts/";
-            bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
-                scriptsPath + "vendor/jquery-1.11.2.min.js",
-                scriptsPath + "vendor/swiper.jquery.min.js",
-                scriptsPath + "main.js",
-                scriptsPath + "menu.js",
-                scriptsPath + "youtube.js",
-                scriptsPath + "slider.js",
-                scriptsPath + "faq.js"
-            ));
+            var jsFiles = new List<string>
+            {
+                "vendor/jquery-1.11.2.min.js",
+                "vendor/swiper.jquery.min.js",
+                "main.js",
+                "menu.js",
+                "youtube.js",
+                "slider.js",
+                "faq.js"
+            }.Select(jsFile => scriptsPath + jsFile).ToArray(); // Add scripts-path;
+            var scriptBundle = new ScriptBundle("~/bundles/scripts").Include(jsFiles);
+            scriptBundle.Orderer = Bundles.AsIsBundleOrderer;
+            bundles.Add(scriptBundle);
 
             bundles.Add(new ScriptBundle("~/bundles/html5shiv").Include(
                 scriptsPath + "vendor/html5shiv.js"
             ));
 
-            // To disable bundling/optimization, add <add key="disableBundles" value="true" /> to appSettings in web.config
-            var disableBundles = ConfigurationManager.AppSettings["disableBundles"] ?? "false";
-            if (bool.Parse(disableBundles))
-            {
-                foreach (var bundle in BundleTable.Bundles)
-                {
-                    bundle.Transforms.Clear();
-                }
-                BundleTable.EnableOptimizations = false;
-            }
-            else
-            {
-                BundleTable.EnableOptimizations = true;
-            }
-
+            Bundles.DisableBundles();
         }
     }
 }

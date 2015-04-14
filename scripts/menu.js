@@ -78,11 +78,6 @@
     }
 })();
 
-// Init mobile menu
-camelonta.EventListener(window, 'load', function () { camelonta.menu.Init(); });
-
-
-
 
 //function detectswipe(el, func) {
 //    swipe_det = new Object();

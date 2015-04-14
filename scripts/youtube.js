@@ -13,6 +13,3 @@ camelonta.youtube = (function () {
         Init: init
     }
 })();
-
-// Init youtube videos
-camelonta.youtube.Init();
