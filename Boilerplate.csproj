@@ -63,8 +63,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\UmbracoCms.Core.7.2.4\lib\businesslogic.dll</HintPath>
     </Reference>
-    <Reference Include="Camelonta.Utilities">
-      <HintPath>packages\CamelontaUmbracoUtilities.0.6\lib\Camelonta.Utilities.dll</HintPath>
+    <Reference Include="Camelonta.Utilities, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\CamelontaUmbracoUtilities.0.7\lib\Camelonta.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core, Version=1.8.3.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
