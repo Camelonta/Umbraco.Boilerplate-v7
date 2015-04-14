@@ -11,15 +11,19 @@ body {
 }
 
 ::-moz-selection {
-    background: #F16529;
+    background: #F16529; /* TODO: Change to desired color */
     color: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background: #F16529;
+    background: #F16529; /* TODO: Change to desired color */
     color: #fff;
     text-shadow: none;
+}
+
+button {
+    outline: 0;
 }
 
 img,iframe,table {
