@@ -3,34 +3,18 @@
 
 @{ var pages = Model.Content.AncestorOrSelf(2); }
 
-@helper PageIsCurrent(IPublishedContent page, string cssClass)
-{
-    if (Model.Content.Id == page.Id)
-    {
-        @cssClass
-    }
-}
-
-@helper PageIsSelected(IPublishedContent page)
-{
-    if (page.IsAncestorOrSelf(Model.Content))
-    {
-        @:is-active
-    }
-}
-
 <nav id="l-leftnav">
     <ul>
         @foreach (var page in pages.Children.Where(p => p.IsVisible()))
         {
             <li>
-                <a href="@page.Url" class="@PageIsCurrent(page, "is-current-page")">@page.NavName()</a>
+                <a href="@page.Url" class="@page.IfPageIsCurrent(Model, "is-current-page")">@page.NavName()</a>
                 @if (page.IsAncestorOrSelf(Model.Content) && page.Children.Any())
                 {
                     <ul class="is-submenu">
                         @foreach (var child in page.Children.Where(p => p.IsVisible()))
                         {
-                            <li class="@PageIsCurrent(child, "is-current-page") @PageIsCurrent(child, "is-active-sub")">
+                            <li class="@child.IfPageIsCurrent(Model, "is-current-page") @child.IfPageIsActive(Model, "is-active-sub")">
                                 <a href="@child.Url">@child.NavName()</a>
                             </li>
                         }

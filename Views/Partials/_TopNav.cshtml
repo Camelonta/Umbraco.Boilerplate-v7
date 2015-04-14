@@ -1,20 +1,12 @@
 ﻿@using Camelonta.Utilities
 @inherits CamelontaUmbracoTemplatePage
 
-@helper PageIsActive(IPublishedContent page)
-{
-    if (page.IsAncestorOrSelf(Model.Content))
-    {
-        @: class="is-active"
-    }
-}
-
 <nav id="l-topnav">
     <ul>
         @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
         {
             <li>
-                <a href="@page.Url" @PageIsActive(page)>@page.NavName()</a>
+                <a href="@page.Url" class="@page.IfPageIsActive(Model, "is-active")">@page.NavName()</a>
                 @*@if (page.Children.Any())
                     {
                         <select>
