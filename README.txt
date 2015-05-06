@@ -6,7 +6,7 @@ OBS! Om du lägger till test-projekt och kör Visual Studio 2013 så kan det ham
 
 1. Skapa ett nytt projekt (ASP.NET Web Application). Välj empty, kryssa inte i några checkboxar (blir konflikt vid installation av Umbraco ifall man tar MVC)
 
-2. Installera "Camelonta Umbraco Metapaket"  via NuGet
+2. Installera "Camelonta Umbraco Metapaket" via NuGet
 
 3. Starta projektet och kör Umbraco installationen OBS: Välj Customize för att slippa deras standard-mall
 
@@ -19,3 +19,5 @@ OBS! Om du lägger till test-projekt och kör Visual Studio 2013 så kan det ham
 7. I Umbracos UI: Peka ut "Home" (eller egen förstasida) i rotnoden (sidträdet) -> fliken Properties -> umbracoInternalRedirectId på Site-noden
 
 8. Properties för projektet -> Web -> Kryssa ur "Enable Edit and Continue". Det gör att applikationen fortfarande "lever" när du slutat debugga
+
+9. Kopiera Config/umbracoSettings.config/requestHandler om du vill kunna ha snyggare omskrivning av åäö i urler
