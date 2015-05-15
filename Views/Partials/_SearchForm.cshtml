@@ -1,0 +1,9 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+
+@if (SearchPage != null)
+{
+    <form class="search-form" action="@SearchPage.Url" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+        <input type="search" name="q" itemprop="query-input" placeholder="@SearchPage.Name" autocomplete="off" value="@Request.QueryString["q"]" />
+        <button>@SearchPage.Name</button>
+    </form>
+}

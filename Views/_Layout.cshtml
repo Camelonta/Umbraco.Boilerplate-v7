@@ -1,5 +1,5 @@
 ﻿@using System.Web.Optimization
-@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+@inherits CamelontaUmbracoTemplatePage
 
 <!DOCTYPE html>
 <html lang="sv">
@@ -11,33 +11,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />    
+    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
     <!--[if lt IE 9]>
         <script src="@Scripts.Url("~/bundles/html5shiv")"></script>
     <![endif]-->
 </head>
-<body class="pagetype-@Model.Content.DocumentTypeAlias.ToLower()">
+<body class="pagetype-@Model.Content.DocumentTypeAlias.ToLower()" itemscope itemtype="http://schema.org/WebPage">
 
-    <div id="l-header-container">
-        <header class="wrapper clearfix">
-            <h1 class="title"><a href="@CurrentSite.Url">@CurrentSite.Name</a></h1>
+    <header>
+        <div class="container">
+            <h1 class="title">
+                <a href="@CurrentSite.Url">@CurrentSite.Name</a>
+            </h1>
             @RenderPage("Partials/_TopNav.cshtml")
-            @RenderPage("Partials/_TopSearch.cshtml")
+            @RenderPage("Partials/_SearchForm.cshtml")
             @RenderPage("Partials/_TopLinks.cshtml")
-        </header>
-    </div>
+        </div>
+    </header>
 
-    <div id="l-main-container">
-        <main class="wrapper clearfix">
-            @RenderBody()
-        </main> <!-- main -->
-    </div> <!-- #main-container -->
+    <main class="container">
+        @RenderBody()
+    </main>
 
-    <div id="l-footer-container">
-        <footer class="wrapper">
+    <footer>
+        <div class="container">
             @Model.Content.GetPropertyValue("footer", true)
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script async src="@Scripts.Url("~/bundles/scripts")"></script>
 

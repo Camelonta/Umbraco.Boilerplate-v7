@@ -1,34 +1,39 @@
 /* == Layout rules divide the page into sections. Layouts hold one or more modules together. == */
 
 /* == wraps content == */
-
-.wrapper {
-    width: 1026px; /* 1140px - 10% for margins */
+.container {
+    max-width: 100%;
+    width: 1080px;
     margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
+.umb-grid .container {
+    padding: 0;
+}
 
-/* == containers == */
+/* == Header == */
 
-#l-header-container {
+header {
     border-bottom: 20px solid #e44d26;
-}
-
-#l-footer-container,
-main aside {
-    border-top: 20px solid #e44d26;
-}
-
-#l-header-container,
-#l-footer-container,
-main aside {
     background: #f16529;
 }
 
-#l-footer-container footer {
+/* == End of Header == */
+
+
+
+
+/* == Footer == */
+footer {
+    background: #f16529;
+    border-top: 20px solid #e44d26;
     color: white;
     padding: 20px 0;
 }
+/* == End of Footer == */
+
 
 /* == header title == */
 
@@ -36,16 +41,16 @@ main aside {
     float: left;
 }
 
-.title a {
-    color: white;
-    text-decoration: none;
-}
+    .title a {
+        color: white;
+        text-decoration: none;
+    }
 
 /* == top search == */
 
-#l-topsearch {
-    float:right;
-    margin-top:20px;
+header .search-form {
+    float: right;
+    margin-top: 20px;
     font-size: 12px;
 }
 
@@ -55,22 +60,23 @@ main {
     padding: 30px 0;
 }
 
-main article h1 {
-    font-size: 2em;
-}
+    main article h1 {
+        font-size: 2em;
+    }
 
-main #l-sidebar {
-    margin-top: 20px;
-    float: left;
-    width: 20%;
-    margin-right: 2%;
-    background: #f16529;
-}
+    main #l-sidebar {
+        margin-top: 20px;
+        float: left;
+        width: 20%;
+        margin-right: 2%;
+        background: #f16529;
+    }
 
-main article {
-    float: left;
-    width: 57%;
-}
+    main article {
+        float: left;
+        width: 57%;
+    }
+
 .pagetype-articlewithgrid main article {
     width: 78%;
 }
@@ -79,9 +85,8 @@ main aside {
     margin-top: 20px;
     float: right;
     width: 20%;
-}
-
-main aside > div {
+    border-top: 20px solid #e44d26;
     color: white;
-    padding: 0px 5% 10px;
+    padding: 0 15px 10px;
+    background: #f16529;
 }

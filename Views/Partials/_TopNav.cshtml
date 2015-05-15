@@ -1,12 +1,14 @@
 ﻿@using Camelonta.Utilities
 @inherits CamelontaUmbracoTemplatePage
 
-<nav id="l-topnav">
+<nav id="l-topnav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul>
         @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
         {
             <li>
-                <a href="@page.Url" class="@page.IfPageIsActive(Model, "is-active")">@page.NavName()</a>
+                <a href="@page.Url" class="@page.IfPageIsActive(Model, "is-active")" title="@page.Name" itemprop="url">
+                    <span itemprop="name">@page.NavName()</span>
+                </a>
                 @*@if (page.Children.Any())
                     {
                         <select>
