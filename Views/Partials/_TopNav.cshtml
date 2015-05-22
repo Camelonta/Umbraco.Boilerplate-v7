@@ -6,8 +6,9 @@
         @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
         {
             <li>
-                <a href="@page.Url" class="@page.IfPageIsActive(Model, "is-active")" title="@page.Name" itemprop="url">
-                    <span itemprop="name">@page.NavName()</span>
+                <a href="@page.GetUrl()" @Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank")
+                   class="@page.IfPageIsActive(Model, "is-active")" title="@page.Name" itemprop="url">
+                   <span itemprop="name">@page.NavName()</span>
                 </a>
                 @*@if (page.Children.Any())
                     {
