@@ -1,127 +1,199 @@
-/* == Top menu == */
-
-#l-topnav {
-    float: right;
-    width: 38%;
+nav a {
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -ms-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
 }
 
-#l-topnav ul {
-    margin: 0;
-    padding: 0;
+/* Hide some elements as default. Should only be visible on mobile*/
+#top-nav .toggle,
+#top-nav .search-form,
+#top-nav .top-links,
+#top-nav .dyn-menu ul {
+    display: none;
+}
+
+/* == Main navigation == */
+#top-nav {
+    overflow: hidden;
+    background-color: #E44D26;
+    will-change: opacity;
+}
+
+    #top-nav ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    #top-nav .dyn-menu li {
+        display: inline-block;
+        *display: inline;
+    }
+
+    #top-nav a {
+        color: white;
+        padding: 0 30px;
+    }
+
+    #top-nav .dyn-menu .active > ul {
+        display: block; /* Only display sub-ul's in 'active' li's '*/
+    }
+/* == End of Main navigation == */
+
+
+/* == Left navigation == */
+#left-nav ul {
     list-style-type: none;
+    padding: 0;
 }
 
-#l-topnav a {
+#left-nav a {
+    background-color: #F16529;
+    color: #FFF;
+    padding: 9px 12px;
     display: block;
-
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-
-    color: white;
-    background: #e44d26;
-    
-    float: left;
-    margin: 0 1.7%;
-    padding: 25px 4%;
 }
 
-
-/* == Top menu mobile == */
-
-#l-topnav.mobile {
-    position: fixed;
-    left:-300px;
-    top: 0;
-    height: 100%;
-    background: #e44d26;
-    width: 300px;
-    
-    -webkit-transform: translate(0,0);
-    -moz-transform: translate(0,0);
-    -o-transform: translate(0,0);
-    -ms-transform: translate(0,0);
-    transform: translate(0,0);
+#left-nav > ul > li {
+    background: #FFECE4; /* Background for submenus */
 }
 
-#l-topnav.mobile a {
-    float:inherit;
+    #left-nav > ul > li.active > a {
+        background-color: #D25925; /* Slightly darker active menu */
+    }
+
+#left-nav > ul ul {
+    padding-left: 5%; /* Move every submenu a bit to the right */
 }
 
-#l-topnav.slide-in {
-    left: 0;
+#left-nav ul ul a {
+    background-color: transparent;
+    color: #333;
 }
 
-
-/* == Top menu Icon == */
-
-#mobile-menu-button {
-    padding-left: 1.25em;
-    right: 20px;
-    position: fixed;
-    top: 20px;
-    display: block;
-    width: 20px;
-    height: 20px;
+#left-nav ul ul ul a {
+    font-size: 13px;
 }
-#mobile-menu-button:before {
-    content: "";
+
+#left-nav.dyn-menu ul ul {
+    display: none;
+}
+
+#left-nav.dyn-menu .active > ul {
+    display: block; /* Only display sub-ul's in 'active' li's '*/
+}
+/* == End of Left navigation == */
+
+
+/* == Dynamic navigation == */
+.dyn-menu a {
+    position: relative;
+}
+
+.dyn-menu .toggle {
     position: absolute;
-    left: 0;
-    top: 0.25em;
-    width: 1em;
-    height: 0.15em;
-    background: #fff;
-    box-shadow: 
-        0 0.25em 0 0 #fff,
-        0 0.5em 0 0 #fff;
-}
-
-
-/* == Left menu == */
-
-#l-sidebar nav {
-    width: 90%;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#l-sidebar nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-#l-sidebar nav a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 6px 0;
-
+    height: 100%;
+    width: 45px;
+    right: 0;
+    top: 11px;
     text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-
-    color: white;
-    background: #e44d26;
 }
 
-
-/* == Shared == */
-
-nav a:hover,
-nav a:visited {
-    color: white;
+.dyn-menu li.active > a > .toggle:before, .maximizing > a > .toggle:before {
+    content: "\e602"; /* Minus-sign TODO: Content kan behöva ändras */
 }
 
-nav a:hover {
-    text-decoration: underline;
+.minimizing > a > .toggle:before {
+    content: "\e601" !important; /* Plus-sign  TODO: Content kan behöva ändras */
+}
+/* == End of Dynamic navigation == */
+
+
+
+/* == Top links == */
+.top-links li {
+    margin-left: 6px;
+    display: inline-block;
 }
 
-nav li:first-child a {
-    margin-left: 0;
+.top-links span, .top-links img {
+    vertical-align: middle;
 }
 
-nav li:last-child a {
-    margin-right: 0;
+.top-links img {
+    max-width: 15px;
+}
+
+/* Toplinks in the mobile menu */
+nav .top-links {
+    border: 1px solid #3C3C3C;
+    text-align: center;
+}
+/* == End of Top links == */
+
+
+/* == Mobile menu stuff == */
+.mobile-menu-toggle {
+    border: 1px solid #333;
+    padding: 5px 8px;
+    display: none;
+    border-radius: 3px;
+    float: right;
+}
+
+    .mobile-menu-toggle i {
+        vertical-align: middle;
+        margin-right: 5px;
+        font-size: 21px;
+    }
+
+
+.mobile-menu-open #top-nav, .mobile-menu-enter #top-nav {
+    height: 100%;
+    position: fixed;
+}
+
+.mobile-menu-open #top-nav {
+    display: block;
+}
+
+.mobile-menu-open {
+    /* Prevent the body from scrolling. Only scroll in the navigation */
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+    /* Change the toggle-icon to a cross */
+    .mobile-menu-open .mobile-menu-toggle .icon-menu:before, .mobile-menu-enter .mobile-menu-toggle .icon-menu:before {
+        content: "\e604"; /* TODO denna kan du behöva ändra till content för ditt kryss. Det ska bli kryss när mobilmenyn är öppen/öppnas */
+    }
+
+.mobile-menu-leave .mobile-menu-toggle .icon-menu:before {
+    content: "\e600"; /* TODO denna kan du behöva ändra till content för din hamburgare. Hamburgaren ska komma tillbaka innan animering är klar. Det känns snabbare då */
+}
+
+.mobile-menu-enter #top-nav {
+    -webkit-animation: .5s opaque_enter;
+    -moz-animation: .5s opaque_enter;
+    -o-animation: .5s opaque_enter;
+    animation: .5s opaque_enter;
+}
+
+.mobile-menu-leave #top-nav {
+    -webkit-animation: .5s opaque_leave;
+    -moz-animation: .5s opaque_leave;
+    -o-animation: .5s opaque_leave;
+    animation: .5s opaque_leave;
+}
+/* == End of Mobile menu stuff == */
+
+
+/* Pulsera plus-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+.dyn-menu .loading .icon-plus {
+    -webkit-animation: 2s opaque_leave infinite;
+    -moz-animation: 2s opaque_leave infinite;
+    -o-animation: 2s opaque_leave;
+    animation: 2s opaque_leave infinite;
 }

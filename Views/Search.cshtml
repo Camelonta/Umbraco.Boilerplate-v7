@@ -4,7 +4,7 @@
 }
 
 @{
-    string searchTerm = Request.QueryString["q"] ?? "";
+    var searchTerm = Request.QueryString["q"] ?? "";
     var searchResults = Umbraco.Search(searchTerm);
 }
 
@@ -18,13 +18,11 @@
     foreach (var result in searchResults)
     {
         var node = Umbraco.TypedContent(result.Id);
-        <div class="margin-bottom">
             <b>@node.Name</b><br />
             <a href="@node.Url">@node.Url</a>
-        </div>
     }
 }
 else if (!String.IsNullOrWhiteSpace(searchTerm))
 {
-    <div class="margin-bottom">Inga träffar på: @searchTerm</div>
+    <p>Inga träffar på: @searchTerm</p>
 }

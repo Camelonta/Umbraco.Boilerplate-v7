@@ -1,26 +1,13 @@
-﻿@using Camelonta.Utilities
+﻿@using Camelonta.Boilerplate.Models
 @inherits CamelontaUmbracoTemplatePage
 
-@{ var pages = Model.Content.AncestorOrSelf(2); }
+@{
+    var leftNav = Model.Content.AncestorOrSelf(2).Children.Where(p => p.IsVisible()).ToList();
+}
 
-<nav id="l-leftnav">
-    <ul>
-        @foreach (var page in pages.Children.Where(p => p.IsVisible()))
-        {
-            <li>
-                <a href="@page.GetUrl()" @Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank") class="@page.IfPageIsCurrent(Model, "is-current-page")">@page.NavName()</a>
-                @if (page.IsAncestorOrSelf(Model.Content) && page.Children.Any())
-                {
-                    <ul class="is-submenu">
-                        @foreach (var child in page.Children.Where(p => p.IsVisible()))
-                        {
-                            <li class="@child.IfPageIsCurrent(Model, "is-current-page") @child.IfPageIsActive(Model, "is-active-sub")">
-                                <a href="@child.GetUrl()" @Umbraco.If(child.DocumentTypeAlias == "externalLink", "target=_blank")>@child.NavName()</a>
-                            </li>
-                        }
-                    </ul>
-                }
-            </li>
-        }
-    </ul>
-</nav>
+@if (leftNav.Any())
+{
+    <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = leftNav })
+    </nav>
+}

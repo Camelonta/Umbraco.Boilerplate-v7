@@ -1,26 +1,24 @@
 ﻿@using Camelonta.Utilities
 @inherits CamelontaUmbracoTemplatePage
 
-<nav id="l-topnav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-    <ul>
-        @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
-        {
-            <li>
-                <a href="@page.GetUrl()" @Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank")
-                   class="@page.IfPageIsActive(Model, "is-active")" title="@page.Name" itemprop="url">
-                   <span itemprop="name">@page.NavName()</span>
-                </a>
-                @*@if (page.Children.Any())
-                    {
-                        <select>
-                            @foreach (var child in page.Children.Where(p => p.IsVisible()))
-                            {
-                                <option value="@child.Url">@child.NavName()</option>
-                            }
-                        </select>
-                    }*@
-            </li>
-        }
-    </ul>
+<nav id="top-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <div class="container">
+        @RenderPage("_SearchForm.cshtml")
+        @RenderPage("_TopLinks.cshtml")
+        <ul class="dyn-menu">
+            @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
+            {
+                var target = Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank");
+                <li class="@page.IfPageIsCurrent(Model, "active")@page.IfPageIsActive(Model, " current")" @target data-id="@page.Id">
+                    <a href="@page.GetUrl()" title="@page.Name" itemprop="url">
+                        <span itemprop="name">@page.NavName()</span>
+                        @if (page.Children.Any())
+                        {
+                            <span class="icon-plus toggle"></span>
+                        }
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
 </nav>
-<a href="#" id="mobile-menu-button" class="is-hidden"></a>

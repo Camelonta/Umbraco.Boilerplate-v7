@@ -1,29 +1,26 @@
-﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+﻿@inherits CamelontaUmbracoTemplatePage
 @using Archetype.Models
 
 @{
-    var topLinks = Model.Content.GetPropertyValue<ArchetypeModel>("topLinks");
+    var topLinks = Model.Content.GetPropertyValue<ArchetypeModel>("topLinks", true);
 }
-
 @if (topLinks != null)
 {
-    <div id="l-top-links">
-        <ul>
-            @foreach (var topLink in topLinks)
+    <ul class="top-links">
+        @foreach (var topLink in topLinks)
+        {
+            if (!topLink.GetValue<string>("text").IsEmpty())
             {
-                if (!topLink.GetValue<string>("text").IsEmpty())
-                {
-                    <li>
-                        <a href="@(topLink.GetValue<string>("link"))">
-                            <span>@(topLink.GetValue<string>("text"))</span>
-                            @if (!topLink.GetValue<string>("icon").IsEmpty())
-                            {
-                                <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url" alt="@(topLink.GetValue<string>("text"))">
-                            }
-                        </a>
-                    </li>
-                }
+                <li>
+                    <a href="@(topLink.GetValue<string>("link"))">
+                        <span>@(topLink.GetValue<string>("text"))</span>
+                        @if (!topLink.GetValue<string>("icon").IsEmpty())
+                        {
+                            <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?maxwidth=30" alt="@(topLink.GetValue<string>("text"))">
+                        }
+                    </a>
+                </li>
             }
-        </ul>
-    </div>
+        }
+    </ul>
 }

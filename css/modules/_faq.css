@@ -2,5 +2,10 @@
     cursor: pointer;
     background-color: #d7d7d7;
     border-radius: 5px;
-    padding: 0px 5px 0px 5px;
+    padding: 0 5px;
+}
+
+.faq .answer {
+    display: none;
+    overflow: hidden;
 }

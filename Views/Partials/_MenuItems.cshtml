@@ -1,0 +1,32 @@
+﻿@using Camelonta.Utilities
+@model Camelonta.Boilerplate.Models.MenuItems
+
+<ul>
+    @foreach (var page in Model.Pages.FilterInvalidPages())
+    {
+        @MenuItem(page)
+    }
+</ul>
+
+@helper MenuItem(IPublishedContent page)
+{
+    var children = page.Children.FilterInvalidPages().ToList();
+    <li data-id="@page.Id" class="@page.IfPageIsCurrent(Model.CurrentPage, "active")@page.IfPageIsActive(Model.CurrentPage, " current")">
+        <a href="@page.Url" itemprop="url" title="@page.Name">
+            <span itemprop="name">@page.NavName()</span>
+            @if (children.Any())
+            {
+                <span class="icon-plus toggle"></span>
+            }
+        </a>
+        @if (page.IsAncestorOrSelf(Model.CurrentPage) && children.Any())
+        {
+            <ul>
+                @foreach (var child in children)
+                {
+                    @MenuItem(child)
+                }
+            </ul>
+        }
+    </li>
+}

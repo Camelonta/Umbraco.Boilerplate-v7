@@ -20,4 +20,10 @@ OBS! Om du lägger till test-projekt och kör Visual Studio 2013 så kan det ham
 
 8. Properties för projektet -> Web -> Kryssa ur "Enable Edit and Continue". Det gör att applikationen fortfarande "lever" när du slutat debugga
 
-9. Kopiera Config/umbracoSettings.config/requestHandler om du vill kunna ha snyggare omskrivning av åäö i urler
+9. Kopiera Config/umbracoSettings.config/requestHandler så att det blir snyggare omskrivning av åäö i url:er
+
+
+-- FELSÖKNING --
+
+- "Failed to retrieve data for content id" (när du installerat boilerplatepaket och ska gå till en sida) 
+   Antagligen datatyperna "Camelonta - Top links" och "Camelonta - Slider" som inte har någon struktur i sin Archetype. Skapa dom.

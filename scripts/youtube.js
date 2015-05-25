@@ -1,4 +1,4 @@
-camelonta.youtube = (function () {
+Camelonta.Youtube = (function () {
 
     // Init scripts
     var init = function () {

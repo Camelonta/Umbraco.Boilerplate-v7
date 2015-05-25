@@ -1,10 +1,18 @@
-var camelonta = (function () {
+var Camelonta = (function () {
 
     // Init scripts
     var init = function () {
-        camelonta.menu.Init();
-        camelonta.faq.Init();
-        camelonta.youtube.Init();
+        Camelonta.Menu.Init();
+        Camelonta.Faq.Init();
+        Camelonta.Youtube.Init();
+        Camelonta.Menu.PlaceSubmenu();
+
+        // Resize-event. Triggered if the resize-event has been still for 200ms (debouncer)
+        $(window).resize(Camelonta.Helper.Debouncer(function () {
+            Camelonta.Menu.PlaceSubmenu();
+            Camelonta.Menu.CheckIfMobileMenuShouldBeClosed();
+        }));
+
     }
 
     return {
@@ -13,5 +21,5 @@ var camelonta = (function () {
 })();
 
 $(function() {
-    camelonta.Init();
+    Camelonta.Init();
 })

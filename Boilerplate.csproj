@@ -274,16 +274,17 @@
     <Content Include="App_Plugins\Archetype\views\archetype.default.html" />
     <Content Include="App_Plugins\Archetype\views\archetype.html" />
     <Content Include="Config\grid.editors.config.js" />
-    <Content Include="css\faq.css" />
+    <Content Include="css\animations.css" />
+    <Content Include="css\modules\_faq.css" />
     <Content Include="css\form.css" />
+    <Content Include="css\modules\_search-form.css" />
     <Content Include="css\typo.css" />
     <Content Include="css\base.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\layout.css" />
-    <Content Include="css\media-queries-480.css" />
     <Content Include="css\media-queries.css" />
     <Content Include="css\nav.css" />
-    <Content Include="css\modules.css" />
+    <Content Include="css\modules\_video.css" />
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />
     <Content Include="css\state.css" />
@@ -294,8 +295,13 @@
     <Content Include="packages.config" />
     <Content Include="README.txt" />
     <Content Include="scripts\faq.js" />
+    <Content Include="scripts\helper.js" />
     <Content Include="scripts\slider.js" />
-    <Content Include="scripts\vendor\swiper.js" />
+    <Content Include="scripts\vendor\html5shiv.js" />
+    <Content Include="scripts\vendor\jquery-1.11.2.min.js" />
+    <Content Include="scripts\vendor\modernizr.js" />
+    <Content Include="scripts\vendor\respond.min.js" />
+    <Content Include="scripts\vendor\swiper.jquery.min.js" />
     <Content Include="scripts\youtube.js" />
     <Content Include="scripts\main.js" />
     <Content Include="scripts\menu.js" />
@@ -347,6 +353,7 @@
     <Content Include="Views\Faq.cshtml" />
     <Content Include="Views\Partials\_TopLinks.cshtml" />
     <Content Include="Views\Partials\_SearchForm.cshtml" />
+    <Content Include="Views\Partials\_MenuItems.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -362,6 +369,8 @@
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
     <Compile Include="Classes\CamelontaUmbracoTemplatePage.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />
+    <Compile Include="Controllers\MenuSurfaceController.cs" />
+    <Compile Include="Models\MenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

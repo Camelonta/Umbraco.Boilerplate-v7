@@ -1,4 +1,4 @@
-﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+﻿@inherits CamelontaUmbracoTemplatePage
 @{
     Layout = "~/Views/_Layout.cshtml";
 }
@@ -15,8 +15,6 @@
 @if (Model.Content.HasValue("contentRight"))
 {
     <aside>
-        <div>
-            @Model.Content.GetPropertyValue("contentRight")
-        </div>
+        @Model.Content.GetPropertyValue("contentRight")
     </aside>
 }

@@ -4,6 +4,7 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {

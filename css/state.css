@@ -7,17 +7,3 @@
     display: none !important;
     visibility: hidden;
 }
-
-
-/* == Menus == */
-#l-topnav a.is-active {
-    text-decoration: underline;
-}
-
-#l-sidebar nav a.is-current-page {
-    text-decoration: underline;
-}
-
-#l-sidebar nav a.is-active {
-    text-decoration: underline;
-}

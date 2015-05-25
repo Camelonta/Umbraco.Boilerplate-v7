@@ -9,29 +9,27 @@
     <h2>@Model.Content.Name</h2>
 
     @{
-        var take = 40;
+        const int take = 40;
         var skip = Request.QueryString["skip"] == null ? 0 : Convert.ToInt32(Request.QueryString["skip"]);
         var news = Model.Content.Descendants().Where(p => p.DocumentTypeAlias == "News").Skip(skip).Take(take);
         var count = Model.Content.Descendants().Count(p => p.DocumentTypeAlias == "News");
     }
 
-    @foreach (IPublishedContent page in news)
+    @foreach (var page in news)
     {
-        <div class="margin-bottom">
-            @page.CreateDate.ToString("yyyy-MM-dd") <b><a href="@page.Url">@page.Name</a></b>
-            <div>@page.GetPropertyValue("metadescription")</div>
-        </div>
+        @page.CreateDate.ToString("yyyy-MM-dd") <b><a href="@page.Url">@page.Name</a></b>
+        <div>@page.GetPropertyValue("metadescription")</div>
     }
 
-    <footer>
+    <div>
         @{
-            var paginationSize = count/take;
+            var paginationSize = count / take;
         }
 
         @for (var i = 0; i < paginationSize; i++)
         {
             <a href="?skip=@(i*take)">@(i + 1)</a>
         }
-    </footer>
+    </div>
 
 </article>
