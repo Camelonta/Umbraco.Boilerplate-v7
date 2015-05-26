@@ -27,6 +27,18 @@ button {
     outline: 0;
 }
 
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+textarea {
+    resize: vertical;
+}
+
 img, iframe, table {
     max-width: 100%;
 }

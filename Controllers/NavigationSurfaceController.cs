@@ -4,7 +4,7 @@ using Umbraco.Web.Mvc;
 
 namespace Camelonta.Boilerplate.Controllers
 {
-    public class MenuSurfaceController : SurfaceController
+    public class NavigationSurfaceController : SurfaceController
     {
         [HttpPost]
         public PartialViewResult GetSubmenus(string id, string currentNode)

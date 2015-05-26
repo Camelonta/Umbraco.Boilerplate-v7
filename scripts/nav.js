@@ -1,4 +1,4 @@
-﻿Camelonta.Menu = (function () {
+﻿Camelonta.Nav = (function () {
     var menuOpen = false,
         menuOpenClass = 'mobile-menu-open',
         mainNavigation;
@@ -38,18 +38,13 @@
         $(".dyn-menu").on('click', '.toggle', function (e) {
             openSubmenu(e);
         });
+
+        // Place the submenu correctly
+        placeSubmenu();
     }
 
-    var checkIfMobileMenuShouldBeClosed = function () {
-        // If mobile menu is open and screen is larger than 768, close the menu
-        if (menuOpen && Modernizr.mq('screen and (min-width:768px)')) {
-            $('body').removeClass(menuOpenClass);
-            mainNavigation.css('display', '');
-            menuOpen = false;
-        }
-    };
-
-    // Put the submenu to the correct location. Either let it be (desktop) or put it beneath the active link in main-navigation
+    
+    // Put the submenu to the correct location. Either just let it be (desktop) or put it beneath the active link in the main-navigation
     var placeSubmenu = function () {
 
         if (Modernizr.mq('screen and (max-width:767px)')) {
@@ -60,6 +55,7 @@
             // All submenus in the top navigation (they exist if viewport went from small to large)
             var allSubmenus = $('#top-nav .dyn-menu > li > ul');
 
+            // If there are submenus
             if (allSubmenus.length > 0) {
                 var leftNav = $('#left-nav'),
                     currentMenuItem = mainNavigation.find('li.current');
@@ -88,10 +84,17 @@
                 });
                 allOtherSubmenusExceptCurrent.remove();
             }
+
+            // If mobile menu is open and screen is larger than 767, close the menu
+            if (menuOpen) {
+                $('body').removeClass(menuOpenClass);
+                mainNavigation.css('display', '');
+                menuOpen = false;
+            }
         }
     };
 
-
+    // Get children from the surfacecontroller
     function openSubmenu(e) {
         e.preventDefault();
         var li = $(e.target).closest('li'),
@@ -100,7 +103,7 @@
 
         if (!hasSubmenu) {
             li.addClass('loading');
-            $.post('/umbraco/surface/menusurface/getsubmenus', { id: id, currentNode: window.currentNode }, function (data) {
+            $.post('/umbraco/surface/navigationsurface/getsubmenus', { id: id, currentNode: window.currentNode }, function (data) {
                 var ul = $(data);
                 li.append(ul);
 
@@ -131,7 +134,6 @@
 
     return {
         Init: init,
-        PlaceSubmenu: placeSubmenu,
-        CheckIfMobileMenuShouldBeClosed: checkIfMobileMenuShouldBeClosed
+        PlaceSubmenu: placeSubmenu
     }
 })();

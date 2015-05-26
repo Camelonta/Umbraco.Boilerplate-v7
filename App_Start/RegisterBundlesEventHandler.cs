@@ -51,7 +51,7 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/swiper.jquery.min.js",
                 "vendor/modernizr.js",
                 "main.js",
-                "menu.js",
+                "nav.js",
                 "helper.js",
                 "youtube.js",
                 "slider.js",

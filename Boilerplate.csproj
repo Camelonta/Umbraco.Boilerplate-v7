@@ -304,7 +304,7 @@
     <Content Include="scripts\vendor\swiper.jquery.min.js" />
     <Content Include="scripts\youtube.js" />
     <Content Include="scripts\main.js" />
-    <Content Include="scripts\menu.js" />
+    <Content Include="scripts\nav.js" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -369,7 +369,7 @@
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
     <Compile Include="Classes\CamelontaUmbracoTemplatePage.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />
-    <Compile Include="Controllers\MenuSurfaceController.cs" />
+    <Compile Include="Controllers\NavigationSurfaceController.cs" />
     <Compile Include="Models\MenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

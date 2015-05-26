@@ -2,15 +2,14 @@ var Camelonta = (function () {
 
     // Init scripts
     var init = function () {
-        Camelonta.Menu.Init();
+        Camelonta.Nav.Init();
         Camelonta.Faq.Init();
         Camelonta.Youtube.Init();
-        Camelonta.Menu.PlaceSubmenu();
 
-        // Resize-event. Triggered if the resize-event has been still for 200ms (debouncer)
+        // Global resize-event. Triggered if the resize-event has been still for 200ms (debounced)
+        // Lägg all logik som händer vid resize här
         $(window).resize(Camelonta.Helper.Debouncer(function () {
-            Camelonta.Menu.PlaceSubmenu();
-            Camelonta.Menu.CheckIfMobileMenuShouldBeClosed();
+            Camelonta.Nav.PlaceSubmenu();
         }));
 
     }
