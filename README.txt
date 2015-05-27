@@ -10,11 +10,12 @@ OBS! Om du lägger till test-projekt och kör Visual Studio 2013 så kan det ham
 
 3. Starta projektet och kör Umbraco installationen OBS: Välj Customize för att slippa deras standard-mall
 
-4. Installera Boilerplate-paketet (nedladdat från "Umbraco admin -> Utvecklare -> Skapade paket" i Boilerplate-projektet. Tips: Tryck på "Publicera" uppe till höger, innan exporten)
+4.a Starta Boilerplate-projektet. Gå till "Umbraco admin -> Utvecklare -> Paket -> Skapade paket -> Boilerplate". Tryck först "Publicera" uppe till höger, sen download. 
+4.b Paketet finns nu som zip på disk. I ditt nya projekt, gå till "Ubraco admin -> Utvecklare -> Paket" och tryck på "Installera lokalt paket". Där väljer du filen du just skapade.
 
-5. Byt namn på ditt namespace
+5. Inkludera allt i App_Start, Views, Classes, css, img och scripts i ditt projekt
 
-6. Inkludera allt i App_Start, Views, Classes, css, img och scripts i ditt projekt
+6. Byt namn på ditt namespace (Refactor)
 
 7. I Umbracos UI: Peka ut "Home" (eller egen förstasida) i rotnoden (sidträdet) -> fliken Properties -> umbracoInternalRedirectId på Site-noden
 
