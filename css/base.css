@@ -39,7 +39,7 @@ textarea {
     resize: vertical;
 }
 
-img, iframe, table {
+iframe, table {
     max-width: 100%;
 }
 
@@ -55,8 +55,4 @@ hr {
 a {
     color: #000;
     text-decoration: none;
-}
-
-img {
-    height: auto !important; /* Umbraco sätter fast höjd i Tiny */
 }

@@ -1,27 +1,26 @@
 /* == CSS used in html-editors, only edit these in Umbraco (Settings/Stylesheets/typo) == */
 
+img {
+    /* Sätt dessa properties så de även gäller när man redigerar i Tiny. Ser bättre ut då */
+    max-width: 100%;
+    height: auto !important; /* Umbraco sätter fast höjd i Tiny */
+}
+
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
 h1 {
-
 }
 
 h2 {
-
 }
 
 h3 {
-
 }
 
 h4 {
-
 }
 
 h5 {
-
 }
 
 p {
-
 }
-
