@@ -1,4 +1,6 @@
-﻿using Umbraco.Core.Models;
+﻿using System.Text;
+using Camelonta.Utilities;
+using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 
@@ -25,6 +27,34 @@ namespace Camelonta.Boilerplate.Classes
         public IPublishedContent SearchPage
         {
             get { return Umbraco.TypedContent(Model.Content.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
+        }
+
+        protected string GetMetaRobotsContent()
+        {
+            var sb = new StringBuilder();
+
+            var currentPage = Model.Content;
+
+            if (currentPage.AllowRobotsIndex())
+            {
+                sb.Append("index");
+            }
+            else
+            {
+                sb.Append("noindex");
+            }
+            sb.Append(",");
+
+            if (currentPage.AllowRobotsFollow())
+            {
+                sb.Append("follow");
+            }
+            else
+            {
+                sb.Append("nofollow");
+            }
+
+            return sb.ToString();
         }
     }
 }
