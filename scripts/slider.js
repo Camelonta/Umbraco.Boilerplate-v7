@@ -1,9 +1,30 @@
-Camelonta.Swiper = new Swiper ('.swiper-container', {
-    loop: true,
-    autoplay: 10000,
-    centeredSlides: true,
-    pagination: '.swiper-pagination',
-    paginationClickable: '.swiper-pagination',
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev'
-})
+Camelonta.Slider = (function () {
+    var init = function () {
+        var swiper = [];
+        $('.swiper-container').each(function (index) {
+
+            var $el = $(this);
+
+            swiper[index] = $el.swiper({
+                centeredSlides: true,
+                loop: true,
+                autoplay: 10000, //$el.data('autoplay'), TODO: Add data-attribute from an Umbraco-setting
+                pagination: $el.find('.swiper-pagination')[0],
+                paginationClickable: true
+            });
+
+            $el.find('.swiper-button-prev').on('click', function () {
+                swiper[index].slidePrev();
+            });
+
+            $el.find('.swiper-button-next').on('click', function () {
+                swiper[index].slideNext();
+            });
+
+        });
+    }
+
+    return {
+        Init: init
+    }
+})();

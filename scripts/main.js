@@ -5,6 +5,7 @@ var Camelonta = (function () {
         Camelonta.Nav.Init();
         Camelonta.Faq.Init();
         Camelonta.Youtube.Init();
+        Camelonta.Slider.Init();
 
         // Global resize-event. Triggered if the resize-event has been still for 200ms (debounced)
         // Lägg all logik som händer vid resize här
