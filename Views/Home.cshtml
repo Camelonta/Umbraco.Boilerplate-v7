@@ -1,10 +1,36 @@
-﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+﻿@inherits CamelontaUmbracoTemplatePage
 @{
     Layout = "~/Views/_Layout.cshtml";
 }
 
-<h2>@Model.Content.Name</h2>
-
 @RenderPage("Partials/_Slider.cshtml")
 
 @Model.Content.GetGridHtml("grid")
+
+
+@*
+    TODO: Byt ut alla värden mot dina egna (företaget du skapar sida åt)
+    Detta schema behöver bara skrivas ut på startsidan
+*@
+<script type="application/ld+json">
+    {
+    "@@context": "http://schema.org",
+    "@@type": "Organization",
+    "name": "FÖRETAGET",
+    "url":"https://camelonta.se",
+    "logo":"@CurrentSite.UrlAbsolute()img/logo.png",
+    "description": "Camelonta är en digital byrå med stort engagemang. Vi skapar webblösningar som är enkla att använda, eleganta och med teknisk briljans.",
+    "telephone": "08-654654654",
+    "address":
+    {
+    "@@type": "PostalAddress",
+    "streetAddress": "Gatan 8A",
+    "addressLocality": "Stockholm",
+    "postalCode": "11359",
+    "addressCountry": "SE"
+    },
+    "sameAs" : [ "https://www.facebook.com/LÄNK TILLL FACEBOOK",
+    "http://www.twitter.com/LÄNK TILL TWITTER",
+    "https://plus.google.com/GOOOOOOOOOOOOGLEPLUS"]
+    }
+</script>

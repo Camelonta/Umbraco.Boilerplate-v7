@@ -7,9 +7,9 @@ namespace Camelonta.Boilerplate.Classes
 {
     public static class ExtensionMethods
     {
-        public static IEnumerable<IPublishedContent> FilterInvalidPages(this IEnumerable<IPublishedContent> pages)
+        public static List<IPublishedContent> FilterInvalidPages(this IEnumerable<IPublishedContent> pages)
         {
-            return pages.Where(p => p.IsVisible() && p.DocumentTypeAlias != "Faqquestion");
+            return pages.Where(p => p.IsVisible() && p.DocumentTypeAlias != "Faqquestion" && p.DocumentTypeAlias != "folder").ToList();
         }
     }
 }

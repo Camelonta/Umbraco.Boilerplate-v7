@@ -1,0 +1,198 @@
+/* Logo in top of sidebar */
+ul.sections li.camelonta-logo {
+    height: 69px;
+    padding: 30px 0 2px 0;
+    margin: 0 0 0 -4px;
+    text-align: center;
+    border-bottom: 1px solid #343434;
+}
+
+    ul.sections li.camelonta-logo a {
+        width: 45px;
+        height: 45px;
+        padding: 0;
+        margin: 0 auto;
+        border: 0;
+    }
+
+/* left border in sidebar */
+ul.sections li.current, ul.sections li:hover {
+    border-left: 4px #94BD2C solid;
+}
+
+
+/* Avatar in bottom of sidebar */
+ul.sections li.avatar {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+
+/* Change colorscheme of grid */
+.usky-grid .tb:hover .td {
+    border-right: 1px dashed #ccc;
+}
+
+.usky-grid .tb:hover .usky-row {
+    border-bottom: 1px dashed #ccc;
+}
+
+
+/* Lists */
+.cam-list div {
+    padding: 5px;
+}
+
+.odd {
+    background-color: #fff !important;
+}
+
+.even {
+    background-color: #f8f8f8;
+}
+
+
+/* HTML-editor in grid */
+.mce-tinymce.mce-container.mce-panel {
+    border: 1px solid #ccc !important;
+}
+
+
+/* Larger headlines */
+.umb-panel-header .umb-headline, .umb-panel-header h1 {
+    font-size: 22px;
+}
+
+/* Login page */
+.login-overlay {
+    background: #191919 !important;
+}
+
+#login, #login * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#login {
+    background-color: #FFF;
+    margin: auto;
+    width: 94%;
+    max-width: 380px;
+    margin-top: 120px;
+    margin-top: 16vh;
+    border-radius: 9px;
+    position: relative;
+    padding: 33px 17px 30px;
+}
+
+.login-overlay .form {
+    padding: 0 !important;
+    text-align: left;
+    width: 100%;
+    position: static;
+}
+
+.login-overlay h1 {
+    text-align: left;
+    font-size: 21px;
+    margin-bottom: 22px;
+    overflow: hidden;
+    color: #333;
+    opacity: 0;
+    -moz-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+#login input {
+    width: 100%;
+    padding: 7px 5px;
+    font-size: 15px;
+    height: auto;
+}
+
+#login button {
+    width: 100%;
+    background-color: #97BD2C;
+    border: 1px solid #769421;
+    color: #FFF;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+#login p {
+    color: #333;
+    text-align: center;
+    font-size: 12px;
+}
+
+#login .camelonta-logo {
+    position: absolute;
+    left: 0;
+    top: -35px;
+    right: 0;
+    width: 88px;
+    height: 88px;
+    margin: auto;
+    background-color: #FFF;
+    border-radius: 50%;
+    text-align: center;   
+}
+
+.cam-basedon {
+    font-size: 12px;
+    float: right;
+}
+
+/* Colors */
+.cam-green {
+    color: #94BD2C;
+}
+
+.cam-orange {
+    color: #df7f48;
+}
+
+.controls-row img {
+    max-width: 100%;
+}
+
+
+/* Hide upload on root-folder in media */
+form[node-id="-1"] .drop-zone {
+    display: none;
+}
+
+form[node-id="-1"]:before {
+    content: "Uploading to root folder is not allowed. Please create a folder.\A\A"; /* TODO: localize */
+    white-space: pre;
+}
+
+
+/* == Page tree == */
+#tree .icon-home {
+    color: #E74C3C;
+}
+
+#tree .icon-article {
+    color: #2E9C5D;
+}
+
+#tree .icon-thumbnails {
+    color: #2980B9;
+}
+
+#tree .icon-search, #tree .icon-radio {
+    color: #828282;
+}
+
+#tree .icon-info, #tree .icon-book-alt-2 {
+    color: #FF0095;
+}
+/* == End of Page tree == */

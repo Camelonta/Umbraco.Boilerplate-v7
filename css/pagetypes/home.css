@@ -1,0 +1,3 @@
+﻿.pagetype-home .umb-grid .container {
+    padding: 0 15px; /* Reset this to bootstraps since we remove the padding on all other pages */
+}

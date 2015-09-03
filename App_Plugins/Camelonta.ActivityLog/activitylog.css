@@ -1,0 +1,46 @@
+﻿.cam-activitylog {
+    max-width: 1000px;
+    width: auto;
+    min-height: 1px;
+    overflow: hidden;
+}
+
+    .cam-activitylog .cam-logItem, .cam-activitylog .cam-pageIndexes {
+        padding: 8px;
+    }
+
+        .cam-activitylog .cam-pageIndexes .cam-pageIndex {
+            cursor: pointer;
+        }
+
+        .cam-activitylog .cam-pageIndexes span {
+            margin-right: 10px;
+        }
+
+            .cam-activitylog .cam-pageIndexes span.active {
+                color: #df7f48;
+            }
+
+.odd {
+    background-color: #fff !important;
+}
+
+.even {
+    background-color: #f8f8f8;
+}
+
+.cam-logItem h5 {
+    margin: 5px 0 6px;
+}
+
+.cam-activitylog .profile-image {
+    width: 15px;
+    border-radius: 50%;
+}
+
+.cam-logItem strong,
+.cam-logItem span,
+.cam-logItem img,
+.cam-logItem i {
+    vertical-align: middle;
+}

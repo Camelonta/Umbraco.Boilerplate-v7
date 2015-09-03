@@ -8,7 +8,7 @@ Camelonta.Slider = (function () {
             swiper[index] = $el.swiper({
                 centeredSlides: true,
                 loop: true,
-                autoplay: 10000, //$el.data('autoplay'), TODO: Add data-attribute from an Umbraco-setting
+                autoplay: 10000,
                 pagination: $el.find('.swiper-pagination')[0],
                 paginationClickable: true
             });

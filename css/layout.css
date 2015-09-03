@@ -15,6 +15,11 @@ header {
 }
 /* == End of Header == */
 
+.umb-grid .container {
+    padding: 0; /* This is a test. */
+}
+
+
 /* == Left sidebar == */
 #l-sidebar {
     width: 22%;
@@ -23,31 +28,40 @@ header {
 }
 /* == End of Left sidebar == */
 
+
 /* == Footer == */
 footer {
     background: #f16529;
     border-top: 20px solid #e44d26;
     color: white;
     padding: 20px 0;
+    margin-top: 70px;
 }
 /* == End of Footer == */
 
 
 /* == Main content == */
 main {
-    padding: 30px 0;
+    float: left;
+    width: 53%;
+    min-height: 53vh;
 }
 
-    main article {
-        float: left;
-         width: 53%;
-    }
-
-.pagetype-articlewithgrid main article {
-    width:75%;
+.no-leftnav main {
+    width: 77%;
 }
 
-main aside {
+/* Pages without right column */
+.pagetype-commonpagegrid main,
+.pagetype-newslist main,
+.pagetype-news main {
+    width: 75%;
+}
+.pagetype-commonpagegrid.no-leftnav main{
+    width: 100%;
+}
+
+aside {
     margin-top: 20px;
     float: right;
     width: 20%;

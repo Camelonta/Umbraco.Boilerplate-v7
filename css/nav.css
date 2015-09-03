@@ -4,6 +4,7 @@ nav a {
     -ms-transition: background-color .2s;
     -o-transition: background-color .2s;
     transition: background-color .2s;
+    text-decoration: none;
 }
 
 /* Hide some elements as default. Should only be visible on mobile*/

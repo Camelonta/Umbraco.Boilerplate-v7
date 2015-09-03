@@ -16,8 +16,9 @@
         display: none;
     }
 
-    main article,
-    main aside {
+    main,
+    .pagetype-commonpagegrid main,
+    aside {
         width: 100%;
     }
 

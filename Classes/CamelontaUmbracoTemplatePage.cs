@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Camelonta.Utilities;
+﻿using System.Collections.Generic;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
@@ -29,32 +28,12 @@ namespace Camelonta.Boilerplate.Classes
             get { return Umbraco.TypedContent(Model.Content.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
         }
 
-        protected string GetMetaRobotsContent()
+        public List<IPublishedContent> LeftNavigation
         {
-            var sb = new StringBuilder();
-
-            var currentPage = Model.Content;
-
-            if (currentPage.AllowRobotsIndex())
+            get
             {
-                sb.Append("index");
+                return Model.Content.GetPropertyValue<bool>("hideLeftNav") ? new List<IPublishedContent>() : Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages();
             }
-            else
-            {
-                sb.Append("noindex");
-            }
-            sb.Append(",");
-
-            if (currentPage.AllowRobotsFollow())
-            {
-                sb.Append("follow");
-            }
-            else
-            {
-                sb.Append("nofollow");
-            }
-
-            return sb.ToString();
         }
     }
 }

@@ -1,0 +1,18 @@
+{
+    propertyEditors:
+    [ 
+        {
+            alias: "MyVisitors.Dash",
+            name: "MyVisitors",
+            editor:
+            {
+                view: "~/App_Plugins/Camelonta.MyVisitors/myvisitors.html?v=3"
+            }
+        }
+    ],
+
+    javascript:
+    [
+        "~/App_Plugins/Camelonta.MyVisitors/myvisitors.controller.js?v=3"
+    ]
+ }

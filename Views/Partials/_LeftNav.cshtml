@@ -1,13 +1,11 @@
 ﻿@using Camelonta.Boilerplate.Models
 @inherits CamelontaUmbracoTemplatePage
 
-@{
-    var leftNav = Model.Content.AncestorOrSelf(2).Children.Where(p => p.IsVisible()).ToList();
-}
-
-@if (leftNav.Any())
+@if (LeftNavigation.Any())
 {
-    <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-        @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = leftNav })
-    </nav>
+    <section id="l-sidebar">
+        <nav id="left-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = LeftNavigation })
+        </nav>
+    </section>
 }

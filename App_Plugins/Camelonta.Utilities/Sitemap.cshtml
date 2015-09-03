@@ -1,0 +1,49 @@
+﻿@inherits System.Web.Mvc.WebViewPage<Camelonta.Utilities.ViewModels.Sitemap>
+@using System.Linq;
+@using Camelonta.Utilities
+@using Umbraco.Core.Models
+@using Umbraco.Web
+@{
+    Layout = null;
+    Response.ContentType = "text/xml";
+
+}<?xml version='1.0' encoding='UTF-8' ?>
+@*<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemalocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">*@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    @ListChildNodes(Model.RootNode)
+</urlset>
+
+@helper ListChildNodes(IPublishedContent startNode)
+{
+    foreach (var node in startNode.Children.WhereAllowRobotsIndex())
+    {
+        if (node.TemplateId > 0)
+        {
+            <url>
+                <loc>@GetUrlWithDomainPrefix(node.Url)</loc>
+                <lastmod>@(string.Format("{0:s}+00:00", node.UpdateDate))</lastmod>
+            </url>
+        }
+        if (node.Level <= 100 && node.Children.Any())
+        {
+            @ListChildNodes(node)
+        }
+    }
+}
+
+@functions {
+    private static string GetUrlWithDomainPrefix(string url)
+    {
+        if (url.StartsWith("/"))
+            url = url.Substring(1);
+
+        var domainPrefix = string.Format("http://{0}/", HttpContext.Current.Request.ServerVariables["HTTP_HOST"]);
+
+        if (url.StartsWith(domainPrefix))
+            return url;
+        else
+            return domainPrefix + url;
+    }
+}

@@ -1,0 +1,11 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="container">
+    @RenderPage("Partials/_LeftNav.cshtml")
+    <main>
+        @Model.Content.GetGridHtml("contentMiddle")
+    </main>
+</div>

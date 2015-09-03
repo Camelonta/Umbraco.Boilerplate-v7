@@ -1,36 +1,48 @@
-﻿@inherits Camelonta.Boilerplate.Classes.CamelontaUmbracoTemplatePage
+﻿@inherits CamelontaUmbracoTemplatePage
 @using Archetype.Models
-@using umbraco.NodeFactory
 
 @{
     var slides = Model.Content.GetPropertyValue<ArchetypeModel>("slider");
 }
 
-@if (slides != null)
+@if (slides.Fieldsets.Any())
 {
     <div class="swiper-container">
-
         <div class="swiper-wrapper">
             @foreach (var slide in slides)
             {
                 if (slide.HasValue("image"))
                 {
-                    var link = "";
-                    var linkId = slide.GetValue<int>("link");
-                    if (linkId > 0)
-                    {
-                        var node = Umbraco.TypedContent(linkId);
-                        link = "onclick=\"document.location = '" + node.Url + "'\" class=\"swiper-link\"";
-                    }
                     <div class="swiper-slide">
-                        <img src="@Umbraco.TypedMedia(slide.GetValue("image")).Url?height=300&width=1026&mode=crop&center=0.25,0.30" alt="@(slide.GetValue("text"))" @Html.Raw(link)>
+                        @Image(Umbraco.Media(slide.GetValue("image")).Url)
+                        @if (!string.IsNullOrEmpty(slide.GetValue("text")))
+                        {
+                            <div class="container">
+                                @Html.Raw(slide.GetValue("text"))
+                            </div>
+                        }
                     </div>
                 }
             }
-        </div>
 
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        </div>
+        <div class="container">
+            <a href="javascript:void(0)" id="top-slider-prev" class="swiper-button-prev"></a>
+            <a href="javascript:void(0)" id="top-slider-next" class="swiper-button-next"></a>
+            <div class="swiper-pagination"></div>
+        </div>
     </div>
+}
+
+@helper Image(string src)
+{
+    const string crop = "&mode=crop&anchor=middlecenter";
+    <picture>
+        <source media="(max-width: 550px)" srcset="@src?height=550&width=550@(crop)">
+        <source media="(max-width: 767px)" srcset="@src?height=500&width=767@(crop)">
+        <source media="(max-width: 1099px)" srcset="@src?height=400&width=1099@(crop)">
+        <source media="(max-width: 2000px)" srcset="@src?height=400&width=1920@(crop)">
+        <source media="(min-width: 2001px)" srcset="@src?height=550&width=2560@(crop)">
+        <img src="@src?height=400&width=1920@(crop)" alt="">
+    </picture>
 }

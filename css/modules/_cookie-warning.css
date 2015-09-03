@@ -1,0 +1,17 @@
+﻿#cookie-warning {
+    background-color: #823515;
+    box-shadow: 0 0 16px 4px rgba(0,0,0,.56);
+    z-index: 100000;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 15px 0;
+    color: #fff;
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    #cookie-warning {
+        text-align: center;
+    }
+}

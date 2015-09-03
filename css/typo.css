@@ -1,26 +1,47 @@
 /* == CSS used in html-editors, only edit these in Umbraco (Settings/Stylesheets/typo) == */
-
 img {
-    /* S‰tt dessa properties sÂ de ‰ven g‰ller n‰r man redigerar i Tiny. Ser b‰ttre ut dÂ */
+    /* S√§tt dessa properties s√• de √§ven g√§ller n√§r man redigerar i Tiny. Ser b√§ttre ut d√• */
     max-width: 100%;
-    height: auto !important; /* Umbraco s‰tter fast hˆjd i Tiny */
+    height: auto !important; /* Umbraco s√§tter fast h√∂jd i Tiny */
+}
+.button,
+.button-blue{
+    padding: 12px 24px;
+    border-radius: 4px;
+    display: inline-block;
+	margin: 3px 0;
 }
 
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
-h1 {
+.button {
+background-color: #FB7840;
 }
 
-h2 {
-}
-
-h3 {
-}
-
-h4 {
-}
-
-h5 {
+.button-blue {
+background-color:#1AAAD6;
 }
 
 p {
+
 }
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+

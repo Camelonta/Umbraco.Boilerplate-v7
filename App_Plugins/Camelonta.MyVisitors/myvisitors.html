@@ -1,0 +1,66 @@
+<script src="/App_Plugins/Camelonta.MyVisitors/myvisitors.controller.js"></script>
+
+<div style="max-width: 1000px" class="ng-scope" ng-controller="MyVisitors.DashController">
+
+    <h3>
+        {{resources.TitleMyVisitors}} <i class="icon-settings-alt" style="font-size: 16px" ng-click="showHideSettings()"></i>
+    </h3>
+
+    <div ng-hide="sites.length">{{resources.NoSitesConfigured}}</div>
+
+    <div ng-show="message.length">{{message}}</div>
+
+    <div ng-repeat="site in sites" class="row" ng-hide="showSettings">
+
+        <div class="span7">
+
+            <h4>{{resources.TitleVisitorsGraph}}</h4>
+            <iframe height="210" scrolling="no" frameborder="0" ng-show="site.SiteId" ng-src="http://myvisitors.camelonta.se/widgets/flashy/iframe?site_id={{site.SiteId}}&amp;sitekey={{site.SiteKey}}&amp;w={{width}}&amp;h=250&amp;date=last-30-days&amp;type=visitors&amp;title=Besökare&amp;hide_title=1&amp;hide_branding=1&amp;hide_y=0&amp;" style="width: 480px; height: 190px; position: relative"></iframe>
+
+        </div>
+
+        <div class="span5">
+
+            <h4>{{resources.TitleLatestVisitors}} {{site.Name}}</h4>
+
+            <div class="cam-list">
+                <div ng-class="{ even: !($index % 2), odd: !!($index % 2) }" ng-repeat="visitor in site.visitors">
+                    {{visitor.time * 1000 | date:'yyyy-MM-dd HH:mm'}} {{visitor.organization}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="showSettings">
+        <div class="span7">
+            <h4>{{resources.AddSites}}</h4>
+            <button ng-click="add()" class="btn btn-default">{{resources.NewSite}}</button>
+            <hr/>
+
+            <div ng-repeat="site in sites" class="row">
+                <ng-form>
+                    <div class="form-group">
+                        <label>{{resources.SiteName}}</label>
+                        <input ng-model="site.Name" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>SiteId</label>
+                        <input ng-model="site.SiteId" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Sitekey</label>
+                        <input ng-model="site.SiteKey" class="form-control" required />
+                    </div>
+
+                    <input type="hidden" ng-model="site.Id"/>
+
+                    <button ng-click="save(site)" class="btn btn-default">{{resources.Save}}</button>
+                    <button ng-click="delete(site, $index)" class="btn btn-default">{{resources.Delete}}</button>
+                    <br/>
+                </ng-form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -10,8 +10,8 @@
 
 @helper MenuItem(IPublishedContent page)
 {
-    var children = page.Children.FilterInvalidPages().ToList();
-    <li data-id="@page.Id" class="@page.IfPageIsCurrent(Model.CurrentPage, "active")@page.IfPageIsActive(Model.CurrentPage, " current")">
+    var children = page.Children.FilterInvalidPages();
+    <li data-id="@page.Id" class="@page.IfPageIsCurrent(Model.CurrentPage, "current")@page.IfPageIsActive(Model.CurrentPage, " active")">
         <a href="@page.Url" itemprop="url" title="@page.Name">
             <span itemprop="name">@page.NavName()</span>
             @if (children.Any())
