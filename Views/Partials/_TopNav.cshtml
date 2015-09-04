@@ -3,13 +3,12 @@
 
 <nav id="top-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <div class="container">
-        @RenderPage("_SearchForm.cshtml")
         @RenderPage("_TopLinks.cshtml")
         <ul class="dyn-menu">
-            @foreach (var page in CurrentSite.Children.Where(p => p.IsVisible()))
+            @foreach (var page in CurrentSite.Children.FilterInvalidPages())
             {
                 var target = Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank");
-                <li class="@page.IfPageIsCurrent(Model, "active")@page.IfPageIsActive(Model, " current")" @target data-id="@page.Id">
+                <li class="@page.IfPageIsCurrent(Model, "current")@page.IfPageIsActive(Model, " active")" @target data-id="@page.Id">
                     <a href="@page.GetUrl()" title="@page.Name" itemprop="url">
                         <span itemprop="name">@page.NavName()</span>
                         @if (page.Children.Any())

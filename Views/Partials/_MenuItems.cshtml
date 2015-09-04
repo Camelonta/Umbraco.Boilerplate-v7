@@ -19,7 +19,7 @@
                 <span class="icon-plus toggle"></span>
             }
         </a>
-        @if (page.IsAncestorOrSelf(Model.CurrentPage) && children.Any())
+        @if (children.Any() && page.IsAncestorOrSelf(Model.CurrentPage))
         {
             <ul>
                 @foreach (var child in children)

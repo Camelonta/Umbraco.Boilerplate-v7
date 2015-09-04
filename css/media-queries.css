@@ -1,4 +1,3 @@
-
 @media only screen and (max-width: 767px) {
 
     .mobile-menu-toggle,
@@ -25,18 +24,24 @@
     #top-nav {
         z-index: 100000;
         width: 100%;
-        padding: 12px 0 100px;
     }
 
         #top-nav a {
-            padding: 6px 30px 6px 0;
+            padding: 6px 0;
         }
 
         #top-nav .toggle {
-            display: inline-block;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        #top-nav .active > ul {
+            display: block;
         }
 
         #top-nav ul ul {
             padding-left: 20px;
         }
 }
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

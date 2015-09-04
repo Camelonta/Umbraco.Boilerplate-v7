@@ -2,7 +2,7 @@
 
 .container {
     max-width: 100%;
-    width: 1080px;
+    width: 1170px;
     margin: 0 auto;
     padding-right: 15px;
     padding-left: 15px;
@@ -15,9 +15,6 @@ header {
 }
 /* == End of Header == */
 
-.umb-grid .container {
-    padding: 0; /* This is a test. */
-}
 
 
 /* == Left sidebar == */
@@ -27,6 +24,21 @@ header {
     float: left;
 }
 /* == End of Left sidebar == */
+
+
+
+/* == Right sidebar == */
+aside {
+    margin-top: 20px;
+    float: right;
+    width: 24%;
+    border-top: 20px solid #e44d26;
+    color: white;
+    padding: 0 15px 10px;
+    background: #f16529;
+}
+/* == End of Right sidebar == */
+
 
 
 /* == Footer == */
@@ -40,34 +52,35 @@ footer {
 /* == End of Footer == */
 
 
+
 /* == Main content == */
 main {
     float: left;
-    width: 53%;
+    width: 49%;
     min-height: 53vh;
 }
 
 .no-leftnav main {
-    width: 77%;
+    width: 74%;
 }
 
-/* Pages without right column */
+/* Pages without right column should have a bit wider content */
 .pagetype-commonpagegrid main,
 .pagetype-newslist main,
 .pagetype-news main {
     width: 75%;
 }
+
+/* A grid-page wihtout left navigation */
 .pagetype-commonpagegrid.no-leftnav main{
     width: 100%;
 }
 
-aside {
-    margin-top: 20px;
-    float: right;
-    width: 20%;
-    border-top: 20px solid #e44d26;
-    color: white;
-    padding: 0 15px 10px;
-    background: #f16529;
+.umb-grid .container {
+    padding: 0; /* Grid-containers should not have padding */
 }
 /* == End of Main content == */
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

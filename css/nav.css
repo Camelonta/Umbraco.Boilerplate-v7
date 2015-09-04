@@ -4,7 +4,6 @@ nav a {
     -ms-transition: background-color .2s;
     -o-transition: background-color .2s;
     transition: background-color .2s;
-    text-decoration: none;
 }
 
 /* Hide some elements as default. Should only be visible on mobile*/
@@ -15,32 +14,41 @@ nav a {
     display: none;
 }
 
+
+
+
 /* == Main navigation == */
 #top-nav {
-    overflow: hidden;
     background-color: #E44D26;
-    will-change: opacity;
 }
 
     #top-nav ul {
         padding: 0;
+        margin: 0;
         list-style-type: none;
     }
 
-    #top-nav .dyn-menu li {
+    #top-nav li {
         display: inline-block;
         *display: inline;
+        zoom: 1;
     }
 
     #top-nav a {
         color: white;
-        padding: 0 30px;
+        padding: 18px 30px;
+        display: inline-block;
     }
 
-    #top-nav .dyn-menu .active > ul {
-        display: block; /* Only display sub-ul's in 'active' li's '*/
+    #top-nav .active > a {
+        background-color: #984B2A;
     }
+
+.mobile-menu-open #top-nav {
+    display: block;
+}
 /* == End of Main navigation == */
+
 
 
 /* == Left navigation == */
@@ -87,7 +95,8 @@ nav a {
 /* == End of Left navigation == */
 
 
-/* == Dynamic navigation == */
+
+/* == Dynamic navigation (top/mobile-nav, left-nav) == */
 .dyn-menu a {
     position: relative;
 }
@@ -97,34 +106,53 @@ nav a {
     height: 100%;
     width: 45px;
     right: 0;
-    top: 11px;
+    top: 0;
     text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.dyn-menu .active > ul {
+    display: block; /* Only display sub-ul's in 'active' li's '*/
 }
 
 .dyn-menu li.active > a > .toggle:before, .maximizing > a > .toggle:before {
-    content: "\e602"; /* Minus-sign TODO: Content kan behöva ändras */
+    content: "\e602"; /* Minus-sign TODO: ändra till ditt minustecken från Icomoon */
 }
 
 .minimizing > a > .toggle:before {
-    content: "\e601" !important; /* Plus-sign  TODO: Content kan behöva ändras */
+    content: "\e601" !important; /* Plus-sign  TODO: ändra till ditt plustecken från Icomoon */
 }
 /* == End of Dynamic navigation == */
 
 
 
 /* == Top links == */
-.top-links li {
-    margin-left: 6px;
-    display: inline-block;
+.top-links {
+    text-align: right;
 }
 
-.top-links span, .top-links img {
-    vertical-align: middle;
-}
+    .top-links li {
+        display: inline-block;
+    }
 
-.top-links img {
-    max-width: 15px;
-}
+    .top-links a {
+        margin-left: 27px;
+        color: #fff;
+    }
+
+    .top-links span, .top-links img {
+        vertical-align: middle;
+    }
+
+    .top-links img {
+        max-width: 15px;
+    }
 
 /* Toplinks in the mobile menu */
 nav .top-links {
@@ -134,7 +162,8 @@ nav .top-links {
 /* == End of Top links == */
 
 
-/* == Mobile menu stuff == */
+
+/* == Mobile menu toggle == */
 .mobile-menu-toggle {
     border: 1px solid #333;
     padding: 5px 8px;
@@ -148,47 +177,8 @@ nav .top-links {
         margin-right: 5px;
         font-size: 21px;
     }
+/* == End of Mobile menu toggle == */
 
-
-.mobile-menu-open #top-nav, .mobile-menu-enter #top-nav {
-    height: 100%;
-    position: fixed;
-}
-
-.mobile-menu-open #top-nav {
-    display: block;
-}
-
-.mobile-menu-open {
-    /* Prevent the body from scrolling. Only scroll in the navigation */
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-}
-
-    /* Change the toggle-icon to a cross */
-    .mobile-menu-open .mobile-menu-toggle .icon-menu:before, .mobile-menu-enter .mobile-menu-toggle .icon-menu:before {
-        content: "\e604"; /* TODO denna kan du behöva ändra till content för ditt kryss. Det ska bli kryss när mobilmenyn är öppen/öppnas */
-    }
-
-.mobile-menu-leave .mobile-menu-toggle .icon-menu:before {
-    content: "\e600"; /* TODO denna kan du behöva ändra till content för din hamburgare. Hamburgaren ska komma tillbaka innan animering är klar. Det känns snabbare då */
-}
-
-.mobile-menu-enter #top-nav {
-    -webkit-animation: .5s opaque_enter;
-    -moz-animation: .5s opaque_enter;
-    -o-animation: .5s opaque_enter;
-    animation: .5s opaque_enter;
-}
-
-.mobile-menu-leave #top-nav {
-    -webkit-animation: .5s opaque_leave;
-    -moz-animation: .5s opaque_leave;
-    -o-animation: .5s opaque_leave;
-    animation: .5s opaque_leave;
-}
-/* == End of Mobile menu stuff == */
 
 
 /* Pulsera plus-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
@@ -198,3 +188,5 @@ nav .top-links {
     -o-animation: 2s opaque_leave;
     animation: 2s opaque_leave infinite;
 }
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

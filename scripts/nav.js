@@ -1,38 +1,15 @@
 ﻿Camelonta.Nav = (function () {
     var menuOpen = false,
         menuOpenClass = 'mobile-menu-open',
-        mainNavigation;
-
-    var init = function () {
         mainNavigation = $('#top-nav');
 
+    var init = function () {
+        // Button to open mobile menu
         $(".mobile-menu-toggle").click(function () {
-            var body = $('body'),
-                menuEnterClass = 'mobile-menu-enter',
-                menuLeaveClass = 'mobile-menu-leave';
+            
+            menuOpen = !menuOpen; // Change the sate of menuOpen
 
-
-            // Change the sate of menuOpen
-            menuOpen = !menuOpen;
-
-            if (menuOpen) {
-                body.addClass(menuEnterClass);
-                mainNavigation.show();
-            }
-            else {
-                body.addClass(menuLeaveClass);
-            }
-
-            setTimeout(function () {
-                body.toggleClass(menuOpenClass);
-
-                if (menuOpen) {
-                    body.removeClass(menuEnterClass);
-                } else {
-                    mainNavigation.css('display','');
-                    body.removeClass(menuLeaveClass);
-                }
-            }, 250);
+            $('body').toggleClass(menuOpenClass);
         });
 
         $(".dyn-menu").on('click', '.toggle', function (e) {
@@ -58,7 +35,7 @@
             // If there are submenus
             if (allSubmenus.length > 0) {
                 var leftNav = $('#left-nav'),
-                    currentMenuItem = mainNavigation.find('li.current');
+                    currentMenuItem = mainNavigation.find('li.active');
 
                 var activeParent = currentMenuItem.parents('li.active').last();
                 if (activeParent.length) {

@@ -4,7 +4,7 @@
 @if (LeftNavigation.Any())
 {
     <section id="l-sidebar">
-        <nav id="left-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
             @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = LeftNavigation })
         </nav>
     </section>

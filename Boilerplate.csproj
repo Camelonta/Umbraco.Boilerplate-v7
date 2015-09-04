@@ -78,8 +78,8 @@
       <HintPath>packages\CamelontaUmbracoUI.2.0.5\lib\Camelonta.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.Utilities, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CamelontaUmbracoUtilities.1.1.1.0\lib\Camelonta.Utilities.dll</HintPath>
+    <Reference Include="Camelonta.Utilities, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CamelontaUmbracoUtilities.1.1.2.0\lib\Camelonta.Utilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ClientDependency.Core, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -132,6 +132,14 @@
     </Reference>
     <Reference Include="interfaces, Version=1.0.5675.23466, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\UmbracoCms.Core.7.2.8\lib\interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="jumoo.usync.ui, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.2.5.0\lib\net45\jumoo.usync.ui.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="jumps.umbraco.usync, Version=2.5.0.16740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.2.5.0\lib\net45\jumps.umbraco.usync.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
@@ -325,6 +333,7 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.min.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
+    <Content Include="App_Plugins\uSync\uSyncUi.ascx" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="css\animations.css" />
     <Content Include="css\modules\_button.css" />
@@ -393,7 +402,6 @@
     <Content Include="App_Plugins\Camelonta.MyVisitors\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
-    <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
@@ -417,6 +425,8 @@
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
     <Content Include="Views\Partials\_CookieWarning.cshtml" />
+    <Content Include="Config\uSyncSettings.config" />
+    <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
