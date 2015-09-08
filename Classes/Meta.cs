@@ -61,7 +61,7 @@ namespace Camelonta.Boilerplate.Classes
         public static string PageTitle(IPublishedContent page)
         {
             var windowTitle = page.GetPropertyValue<string>("windowTitle");
-            return string.IsNullOrEmpty(windowTitle) ? page.Name : windowTitle;
+            return string.IsNullOrEmpty(windowTitle) ? string.Format("{0} - Boilerplate", page.Name) : windowTitle;
 
         }
 
