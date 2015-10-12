@@ -79,6 +79,11 @@ main {
 .umb-grid .container {
     padding: 0; /* Grid-containers should not have padding */
 }
+
+.grid-section > div {
+    background-position: center; /* Centrera bakgrundsbilder i grid-sektioner */
+}
+
 /* == End of Main content == */
 
 

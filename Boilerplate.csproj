@@ -398,7 +398,9 @@
     <Content Include="Views\Partials\_TopLinks.cshtml" />
     <Content Include="Views\Partials\_SearchForm.cshtml" />
     <Content Include="Views\Partials\_MenuItems.cshtml" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Plugins\Camelonta.MyVisitors\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />

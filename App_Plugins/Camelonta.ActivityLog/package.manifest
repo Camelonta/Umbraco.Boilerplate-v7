@@ -16,6 +16,6 @@
         "~/App_Plugins/Camelonta.ActivityLog/activitylog.controller.js?v=1"
     ],
 	css: [
-		'~/App_Plugins/Camelonta.ActivityLog/activitylog.css'
+		'~/App_Plugins/Camelonta.ActivityLog/activitylog.css?v=1'
 	]
  }

@@ -1,4 +1,4 @@
-<script src="/App_Plugins/Camelonta.ActivityLog/activitylog.controller.js"></script>
+<script src="/App_Plugins/Camelonta.ActivityLog/activitylog.controller.js?v=1"></script>
 
 <div ng-controller="ActivityLog.DashController" class="cam-activitylog" ng-class="{'umb-loader': !loglist.length}">
 
@@ -8,28 +8,34 @@
         <h5 ng-if="item.SectionHeader">{{item.SectionHeader}}</h5>
         <div class="cam-logItem" ng-class="{ even: !($index % 2), odd: !!($index % 2) }">
             <span>{{item.Timestamp | date:'shortTime'}} - </span>
-            <img src="{{item.UserAvatarUrl}}" class="profile-image" alt="" />
+            <img ng-src="{{item.UserAvatarUrl}}" class="profile-image" alt="" />
             <strong>{{item.UserDisplayName}}</strong>
 
-            <span ng-show="item.LogItemType =='Save'">
+            <span ng-if="item.LogItemType =='Save'">
                 {{resources.Saved}}
                 <i class="{{item.ContentTypeIcon}}"></i>
                 <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='Copy'">
+            <span ng-if="item.LogItemType =='Copy'">
                 {{resources.Copied}}
                 <i class="{{item.ContentTypeIcon}}"></i>
                 <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='RollBack'">
+            <span ng-if="item.LogItemType =='Move'">
+                {{resources.Moved}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='RollBack'">
                 {{resources.RolledBack}}
                 <i class="{{item.ContentTypeIcon}}"></i>
                 <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='MovePageToRecycleBin'">
+            <span ng-if="item.LogItemType =='MovePageToRecycleBin'">
                 {{resources.Moved}}
                 <i class="{{item.ContentTypeIcon}}"></i>
                 {{item.DisplayName}} {{resources.To}}
@@ -37,14 +43,14 @@
                 <a href="#/content/content/recyclebin">{{resources.RecycleBin}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='Publish'">
+            <span ng-if="item.LogItemType =='Publish'">
                 {{resources.Saved}} {{resources.And}} {{resources.Published}}
                 <i class="{{item.ContentTypeIcon}}"></i>
 
                 <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='Delete'">
+            <span ng-if="item.LogItemType =='Delete'">
                 {{resources.Moved}}
                 <i class="{{item.ContentTypeIcon}}"></i>
                 <span>{{item.DisplayName}}</span>
@@ -53,20 +59,20 @@
                 <a href="#/content/content/recyclebin">{{resources.RecycleBin}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='RecycleBinEmptied'">
+            <span ng-if="item.LogItemType =='RecycleBinEmptied'">
                 <i class="icon-trash"></i>
                 <a href="#/content/content/recyclebin">{{resources.EmptiedRecycleBin}}</a>
             </span>
 
-            <span ng-show="item.LogItemType =='Image'">
+            <span ng-if="item.LogItemType =='Image'">
                 <span ng-if="item.CustomAction == 'SaveMedia'">
                     {{resources.Uploaded}}
-                    <img src="{{item.ContentTypeIcon}}?height=20" />
+                    <img ng-src="{{item.ContentTypeIcon}}?height=20" />
                     <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
                 </span>
                 <span ng-if="item.CustomAction == 'MoveMediaToRecycleBin'">
                     {{resources.Moved}}
-                    <img src="{{item.ContentTypeIcon}}?height=20" />
+                    <img ng-src="{{item.ContentTypeIcon}}?height=20" />
                     <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
                     {{resources.To}}
                     <i class="icon-trash"></i>
@@ -75,7 +81,7 @@
 
             </span>
 
-            <span ng-show="item.LogItemType =='File'">
+            <span ng-if="item.LogItemType =='File'">
                 <span ng-if="item.CustomAction == 'SaveMedia'">
                     {{resources.Uploaded}}
                     <i class="icon-document"></i>
@@ -92,7 +98,7 @@
 
             </span>
 
-            <span ng-show="item.LogItemType =='Folder'">
+            <span ng-if="item.LogItemType =='Folder'">
                 <span ng-if="item.CustomAction == 'SaveMedia'">
                     {{resources.Created}}
                     <i class="icon-folder"></i>
@@ -108,7 +114,7 @@
                 </span>
             </span>
 
-            <span ng-show="item.LogItemType =='UnPublish'">
+            <span ng-if="item.LogItemType =='UnPublish'">
                 {{resources.Unpublished}}
                 <i class="{{item.ContentTypeIcon}}"></i>
                 <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
