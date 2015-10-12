@@ -1,4 +1,18 @@
-﻿TIPS: Checka in ofta så man kan gå tillbaks ifall något går fel
+------- NYA SÄTTET ------- 
+1. Kopiera hela Boilerplatemappen och klistra in den där bra du vill ha den
+
+2. Döp om allt (mappen + projektet)
+
+3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer)
+
+
+
+
+
+
+------- GAMLA SÄTTET: ------- 
+
+TIPS: Checka in ofta så man kan gå tillbaks ifall något går fel
 
 OBS! Om du lägger till test-projekt och kör Visual Studio 2013 så kan det hamna på fel ställe. 
    I så fall: Kopiera hela mappen och ändra till rätt sökväg i .sln-filen. Stäng projektet och öppna det på nytt.
