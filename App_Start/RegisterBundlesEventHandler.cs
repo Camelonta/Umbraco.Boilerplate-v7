@@ -24,21 +24,28 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/normalize.css", // Should be before base.css
                 "vendor/swiper.css",
                 "vendor/bootstrap.css",
+
                 "base.css",
                 "layout.css",
                 "form.css",
+                "nav.css",
+                "animations.css",
+                "faq.css",
+
                 "modules/_faq.css",
                 "modules/_button.css",
                 "modules/_video.css",
                 "modules/_search-form.css",
                 "modules/_cookie-warning.css",
+
+                "navigation/left-nav.css",
+                "navigation/top-nav.css",
+                "navigation/top-links.css",
+                "navigation/misc.css",
+
                 "pagetypes/home.css",
-                "nav.css",
-                "animations.css",
-                "utility.css",
+
                 "typo.css",
-                "faq.css",
-                "media-queries.css",
                 "print.css"
             }.Select(cssFile => cssPath + cssFile).ToArray(); // Add CSS-path
             var styleBundle = new StyleBundle("~/bundles/styles").Include(cssFiles);
@@ -53,6 +60,7 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/swiper.jquery.min.js",
                 "vendor/modernizr.js",
                 "vendor/js-cookie.2.0.js",
+
                 "main.js",
                 "nav.js",
                 "helper.js",

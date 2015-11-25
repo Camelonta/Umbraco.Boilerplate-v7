@@ -16,22 +16,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
 
+    @* TODO. Vad är detta? https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android?hl=en*@
     <meta name="theme-color" content="#84EBA5">
 
+
+    @* TODO: Skapa snygga favicons i rätt storlek.
+            Lägg även en 32x32-ikon i rooten som heter favicon.ico (bäst för cross-browser)
+        BRA favicon-docs på Github: https://github.com/audreyr/favicon-cheat-sheet*@
     <link rel="icon" sizes="192x192" href="/img/touch/homescreen-192.png">
     <link rel="shortcut icon" href="/img/touch/homescreen-72.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/img/touch/homescreen-192.png">
+
 
     <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
     <meta property="og:url" content="@Model.Content.UrlAbsolute()">
     <meta property="og:description" content="@Meta.PageTeaser(Model.Content,500)">
     <meta property="og:site_name" content="@CurrentSite.Name" />
+    @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
     <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
 
     @*      TODO: Skapa ett eget Icomoon-projekt.*@
     <link rel="stylesheet" href="http://i.icomoon.io/public/1a91909ce0/Boilerplate-Umbraco/style.css">
 
-    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css"/>
+    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
         <script src="@Scripts.Url("~/bundles/ltIe9Scripts")"></script>
@@ -43,11 +50,9 @@
         <div class="container">
             <a href="@CurrentSite.Url">@CurrentSite.Name</a>
 
-            <div class="pull-right">
-                <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
-                @RenderPage("Partials/_TopLinks.cshtml")
-                @RenderPage("Partials/_SearchForm.cshtml")
-            </div>
+            <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
+            @RenderPage("Partials/_TopLinks.cshtml")
+            @RenderPage("Partials/_SearchForm.cshtml")
         </div>
     </header>
     @RenderPage("Partials/_TopNav.cshtml")

@@ -1,0 +1,73 @@
+﻿nav a {
+    -webkit-transition: background-color .2s;
+    -moz-transition: background-color .2s;
+    -ms-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+
+/* == Dynamic navigation (top/mobile-nav, left-nav) == */
+.dyn-menu a {
+    position: relative;
+}
+
+.dyn-menu .toggle {
+    position: absolute;
+    height: 100%;
+    width: 45px;
+    right: 0;
+    top: 0;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.dyn-menu .active > ul {
+    display: block; /* Only display sub-ul's in 'active' li's '*/
+}
+
+.dyn-menu li.active > a > .toggle:before, .maximizing > a > .toggle:before {
+    content: "\e602"; /* Minus-sign TODO: �ndra till ditt minustecken fr�n Icomoon */
+}
+
+.minimizing > a > .toggle:before {
+    content: "\e601" !important; /* Plus-sign  TODO: �ndra till ditt plustecken fr�n Icomoon */
+}
+/* == End of Dynamic navigation == */
+
+
+/* == Mobile menu toggle == */
+.mobile-menu-toggle {
+    border: 1px solid #333;
+    padding: 5px 8px;
+    display: none;
+    border-radius: 3px;
+    float: right;
+}
+
+    .mobile-menu-toggle i {
+        vertical-align: middle;
+        margin-right: 5px;
+        font-size: 21px;
+    }
+/* == End of Mobile menu toggle == */
+
+/* Pulsera plus-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+.dyn-menu .loading .icon-plus {
+    -webkit-animation: 2s opaque_leave infinite;
+    -moz-animation: 2s opaque_leave infinite;
+    -o-animation: 2s opaque_leave;
+    animation: 2s opaque_leave infinite;
+}
+
+@media only screen and (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
