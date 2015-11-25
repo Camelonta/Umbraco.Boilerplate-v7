@@ -1,4 +1,5 @@
-angular.module("umbraco").controller("Imulus.ArchetypeController", function ($scope, $http, assetsService, angularHelper, notificationsService, $timeout, fileManager, entityResource, archetypeService, archetypeLabelService, archetypeCacheService, archetypePropertyEditorResource) {
+/* Version 1.12.0 */
+angular.module("umbraco").controller("Imulus.ArchetypeController", function ($scope, $http, $filter, assetsService, angularHelper, notificationsService, $timeout, fileManager, entityResource, archetypeService, archetypeLabelService, archetypeCacheService, archetypePropertyEditorResource) {
 
     //$scope.model.value = "";
     $scope.model.hideLabel = $scope.model.config.hideLabel == 1;
@@ -41,7 +42,7 @@ angular.module("umbraco").controller("Imulus.ArchetypeController", function ($sc
     }
 
     var draggedRteSettings;
-    var rteClass = ".mce-tinymce";
+    var rteClass = ".umb-rte textarea";
 
     //sort config
     $scope.sortableOptions = {
@@ -50,30 +51,22 @@ angular.module("umbraco").controller("Imulus.ArchetypeController", function ($sc
         handle: ".handle",
         start: function(ev, ui) {
             draggedRteSettings = {};
-            ui.item.parent().find(rteClass).each(function () {
-                // remove all RTEs in the dragged row and save their settings
-                var $element = $(this);
-                var wrapperId = $element.attr('id');
-                var $textarea = $element.siblings('textarea');
-                var textareaId = $textarea.attr('id');
-
-                draggedRteSettings[textareaId] = _.findWhere(tinyMCE.editors, { id: textareaId }).settings;
-                tinyMCE.execCommand('mceRemoveEditor', false, wrapperId);
+            $(rteClass, ui.item.parent()).each(function () {
+                var id = $(this).attr("id");
+                draggedRteSettings[id] = _.findWhere(tinyMCE.editors, { id: id }).settings;
+                tinymce.execCommand('mceRemoveEditor', false, id);
+                $(this).css("visibility", "hidden");
             });
         },
         update: function (ev, ui) {
             $scope.setDirty();
         },
         stop: function (ev, ui) {
-            ui.item.parent().find(rteClass).each(function () {
-                var $element = $(this);
-                var wrapperId = $element.attr('id');
-                var $textarea = $element.siblings('textarea');
-                var textareaId = $textarea.attr('id');
-
-                draggedRteSettings[textareaId] = draggedRteSettings[textareaId] || _.findWhere(tinyMCE.editors, { id: textareaId }).settings;
-                tinyMCE.execCommand('mceRemoveEditor', false, wrapperId);
-                tinyMCE.init(draggedRteSettings[textareaId]);
+            $(rteClass, ui.item.parent()).each(function () {
+                var id = $(this).attr("id");
+                draggedRteSettings[id] = draggedRteSettings[id] || _.findWhere(tinyMCE.editors, { id: id }).settings;
+                tinyMCE.execCommand("mceRemoveEditor", false, id);
+                tinyMCE.init(draggedRteSettings[id]);
             });
         }
     };
@@ -84,26 +77,37 @@ angular.module("umbraco").controller("Imulus.ArchetypeController", function ($sc
             return;
         }
 
-        $scope.overlayMenu.fieldsets = [];
+        var allFieldsets = [];
         _.each($scope.model.config.fieldsets, function (fieldset) {
             var icon = fieldset.icon;
-            $scope.overlayMenu.fieldsets.push({
+            allFieldsets.push({
                 alias: fieldset.alias,
                 label: fieldset.label,
-                icon: (fieldset.icon || "icon-document-dashed-line") // default icon if none is chosen
+                icon: (fieldset.icon || "icon-document-dashed-line"), // default icon if none is chosen
+                group: fieldset.group ? fieldset.group.name : null
             });
-            $scope.overlayMenu.index = $index;
         });
-
         // sanity check
-        if ($scope.overlayMenu.fieldsets.length == 0) {
+        if (allFieldsets == 0) {
             return;
         }
-        if ($scope.overlayMenu.fieldsets.length == 1) {
+        if (allFieldsets.length == 1) {
             // only one fieldset type - no need to display the picker
-            $scope.addRow($scope.overlayMenu.fieldsets[0].alias, $index);
+            $scope.addRow(allFieldsets[0].alias, $index);
             return;
         }
+
+        $scope.overlayMenu.fieldsetGroups = [];
+        if ($scope.model.config.fieldsetGroups && $scope.model.config.fieldsetGroups.length > 0) {
+            _.each($scope.model.config.fieldsetGroups, function (fieldsetGroup) {
+                $scope.overlayMenu.fieldsetGroups.push({ name: fieldsetGroup.name, fieldsets: $filter("filter")(allFieldsets, { group: fieldsetGroup.name }, true) });
+            })
+        }
+        else {
+            $scope.overlayMenu.fieldsetGroups.push({ name: "", fieldsets: allFieldsets });
+        }
+        $scope.overlayMenu.index = $index;
+        $scope.overlayMenu.activeFieldsetGroup = $scope.overlayMenu.fieldsetGroups[0];
 
         // calculate overlay position
         // - yeah... it's jQuery (ungh!) but that's how the Grid does it.
@@ -476,11 +480,17 @@ angular.module("umbraco").controller("Imulus.ArchetypeConfigController", functio
 
     //define empty items
     var newPropertyModel = '{"alias": "", "remove": false, "collapse": false, "label": "", "helpText": "", "dataTypeGuid": "0cc0eba1-9960-42c9-bf9b-60e150b429ae", "value": ""}';
-    var newFieldsetModel = '{"alias": "", "remove": false, "collapse": false, "labelTemplate": "", "icon": "", "label": "", "properties": [' + newPropertyModel + ']}';
-    var defaultFieldsetConfigModel = JSON.parse('{"showAdvancedOptions": false, "startWithAddButton": false, "hideFieldsetToolbar": false, "enableMultipleFieldsets": false, "hideFieldsetControls": false, "hidePropertyLabel": false, "maxFieldsets": null, "enableCollapsing": true, "enableCloning": false, "enableDisabling": true, "enableDeepDatatypeRequests": false, "fieldsets": [' + newFieldsetModel + ']}');
+    var newFieldsetModel = '{"alias": "", "remove": false, "collapse": false, "labelTemplate": "", "icon": "", "label": "", "properties": [' + newPropertyModel + '], "group": null}';
+    var defaultFieldsetConfigModel = JSON.parse('{"showAdvancedOptions": false, "startWithAddButton": false, "hideFieldsetToolbar": false, "enableMultipleFieldsets": false, "hideFieldsetControls": false, "hidePropertyLabel": false, "maxFieldsets": null, "enableCollapsing": true, "enableCloning": false, "enableDisabling": true, "enableDeepDatatypeRequests": false, "fieldsets": [' + newFieldsetModel + '], "fieldsetGroups": []}');
 
     //ini the model
     $scope.model.value = $scope.model.value || defaultFieldsetConfigModel;
+
+    $scope.dllVersion = "";
+
+    archetypePropertyEditorResource.getDllVersion().then(function(data){
+        $scope.dllVersion = data.dllVersion;
+    });
 
     //ini the render model
     initConfigRenderModel();
@@ -709,8 +719,18 @@ angular.module("umbraco").controller("Imulus.ArchetypeConfigController", functio
     function initConfigRenderModel()
     {
         $scope.archetypeConfigRenderModel = $scope.model.value;
+        if (!$scope.archetypeConfigRenderModel.fieldsetGroups) {
+            $scope.archetypeConfigRenderModel.fieldsetGroups = [];
+        }
 
-        _.each($scope.archetypeConfigRenderModel.fieldsets, function(fieldset){
+        _.each($scope.archetypeConfigRenderModel.fieldsets, function(fieldset) {
+
+            if (fieldset.group) {
+                // tie the fieldset group back up to the actual group object, not the clone that's been persisted
+                fieldset.group = _.find($scope.archetypeConfigRenderModel.fieldsetGroups, function(fieldsetGroup) {
+                    return fieldsetGroup.name == fieldset.group.name;
+                })
+            }
 
             fieldset.remove = false;
             if (fieldset.alias.length > 0)
@@ -760,10 +780,42 @@ angular.module("umbraco").controller("Imulus.ArchetypeConfigController", functio
         $scope.model.value.fieldsets = fieldsets;
     }
 
+    $scope.showOptions = function ($event, template) {
+        $event.preventDefault();
+
+        dialogService.closeAll();
+
+        dialogService.open({
+            template: template,
+            show: true,
+            callback: function(data) {
+                $scope.archetypeConfigRenderModel = data;
+            },
+            dialogData: $scope.archetypeConfigRenderModel
+        });
+    }
+
     //archetype css
     assetsService.loadCss("../App_Plugins/Archetype/css/archetype.css");
 });
 
+angular.module('umbraco').controller('ArchetypeConfigOptionsController', function ($scope) {
+	$scope.model = angular.copy($scope.dialogData);
+
+    //handles a fieldset group add
+    $scope.addFieldsetGroup = function () {
+        $scope.model.fieldsetGroups.push({ name: "" });
+    }
+
+    //handles a fieldset group removal
+    $scope.removeFieldsetGroup = function ($index) {
+        $scope.model.fieldsetGroups.splice($index, 1);
+    }
+
+    $scope.apply = function(index) {
+        $scope.submit($scope.model);
+    }
+});
 angular.module("umbraco.directives").directive('archetypeProperty', function ($compile, $http, archetypePropertyEditorResource, umbPropEditorHelper, $timeout, $rootScope, $q, fileManager, editorState, archetypeService, archetypeCacheService) {
 
     var linker = function (scope, element, attrs, ngModelCtrl) {
@@ -1200,6 +1252,11 @@ angular.module('umbraco.resources').factory('archetypePropertyEditorResource', f
 
                 return "";
             });
+        },
+        getDllVersion: function() {
+            return umbRequestHelper.resourcePromise(
+                $http.get("backoffice/ArchetypeApi/ArchetypeDataType/GetDllVersion", { cache: true }), 'Failed to retrieve dll version'
+            );
         }
     }
 }); 

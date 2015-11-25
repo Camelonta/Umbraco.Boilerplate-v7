@@ -1,9 +1,12 @@
-/* TODO: clean this up */
+/* Version 1.12.0 */
 .archetypeEditor {
   width: 98%;
 }
 .archetypeEditor .usky-grid .cell-tools-menu {
   height: 385px;
+}
+.archetypeEditor .usky-grid.withGroups .cell-tools-menu {
+  height: 415px;
 }
 .archetypeEditor .open {
   position: relative;
@@ -207,24 +210,65 @@
   vertical-align: top;
   height: 90px;
 }
+.archetypeEditor .fieldsetPicker ul.groups {
+  display: block;
+  margin: 0;
+  padding: 4px;
+}
+.archetypeEditor .fieldsetPicker ul.groups li {
+  width: auto;
+  margin: 0;
+  padding: 0 20px;
+  font-weight: bold;
+}
+.archetypeEditor .fieldsetPicker ul.groups li a {
+  color: #d9d9d9;
+  cursor: pointer;
+}
+.archetypeEditor .fieldsetPicker ul.groups li.active a,
+.archetypeEditor .fieldsetPicker ul.groups li a:hover {
+  color: #999;
+  text-decoration: none;
+}
 .archetypeEditor .archetypeEditorControls,
 .archetypeConfig .archetypeEditorControls {
   float: right;
 }
 .archetypeEditor .archetypeEditorControls i,
-.archetypeConfig .archetypeEditorControls i {
+.archetypeConfig .archetypeEditorControls i,
+.archetypeEditor .archetypeFieldsetGroups i,
+.archetypeConfig .archetypeFieldsetGroups i {
   cursor: pointer;
 }
 .archetypeEditor .archetypeEditorControls i.handle,
-.archetypeConfig .archetypeEditorControls i.handle {
+.archetypeConfig .archetypeEditorControls i.handle,
+.archetypeEditor .archetypeFieldsetGroups i.handle,
+.archetypeConfig .archetypeFieldsetGroups i.handle {
   cursor: move;
 }
 .archetypeEditor .archetypeEditorControls i.dimmed,
-.archetypeConfig .archetypeEditorControls i.dimmed {
+.archetypeConfig .archetypeEditorControls i.dimmed,
+.archetypeEditor .archetypeFieldsetGroups i.dimmed,
+.archetypeConfig .archetypeFieldsetGroups i.dimmed {
   color: #d9d9d9;
 }
 .archetypeConfig {
   margin-bottom: 20px;
+}
+.archetypeConfig .archetype-headline img {
+  margin-right: 5px;
+}
+.archetypeConfig .archetype-headline small {
+  margin-left: 5px;
+}
+.archetypeConfig .archetype-headline a {
+  float: right;
+}
+.archetypeConfig .archetype-headline a img {
+  width: 35px;
+}
+.archetypeConfig .manual-link {
+  color: blue;
 }
 .archetypeConfig ul {
   list-style: none;
@@ -290,14 +334,31 @@
 .archetypeConfig .archetypePropertiesWrapper li:last-child {
   margin-bottom: 0;
 }
-.archetypeConfig .archetypeAdvancedOptions {
+.archetypeConfig .archetypeAdvancedOptions label {
+  width: 100%;
+}
+.archetypeConfig .archetypeAdvancedOptions input[type=checkbox] {
+  margin-top: 0;
+  margin-right: 2px;
+}
+.archetypeConfig .archetypeAdvancedOptions small {
+  color: #b3b3b3;
+}
+.archetypeConfig .archetypeAdvancedOptions .archetypeFieldsetGroups {
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+.archetypeConfig .archetypeAdvancedOptions .archetypeFieldsetGroups ul {
+  padding: 0;
+  margin: 0;
   margin-top: 15px;
 }
-.archetypeConfig .archetypeAdvancedOptions div {
-  margin-bottom: 10px;
+.archetypeConfig .archetypeAdvancedOptions .archetypeFieldsetGroups ul li label {
+  width: 120px;
 }
-.archetypeConfig .archetypeAdvancedOptions label {
-  width: 400px;
+.archetypeConfig .archetypeAdvancedOptions .archetypeFieldsetGroups ul li input {
+  vertical-align: middle;
+  width: 240px;
 }
 .archetypeConfig .archetypeMaxFieldsets {
   border: 1px solid #ddd;
@@ -323,4 +384,7 @@
 .ui-sortable-placeholder {
   visibility: visible !important;
   background-color: #d0e7f1 !important;
+}
+.archetype-dialog {
+  margin: 10px;
 }
