@@ -7,7 +7,7 @@
 *@
 
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -28,9 +28,7 @@
     <meta property="og:site_name" content="@CurrentSite.Name" />
     <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
 
-    @*      TODO
-        1. Skapa ett eget Icomoon-projekt.
-        2. Vid livesättning: Ta bort denna länk till Icomoon och LADDA NED ditt egna paket. Snabblänk är endast för utveckling (för att snabbt kunna  ta bort + lägga till ikoner) *@
+    @*      TODO: Skapa ett eget Icomoon-projekt.*@
     <link rel="stylesheet" href="http://i.icomoon.io/public/1a91909ce0/Boilerplate-Umbraco/style.css">
 
     <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css"/>

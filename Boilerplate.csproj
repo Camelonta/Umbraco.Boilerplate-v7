@@ -135,12 +135,16 @@
       <HintPath>packages\UmbracoCms.Core.7.3.1\lib\interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="jumoo.usync.ui, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\uSync.2.5.0\lib\net45\jumoo.usync.ui.dll</HintPath>
+    <Reference Include="Jumoo.uSync.BackOffice, Version=3.0.5751.25624, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.3.0.2\lib\net45\Jumoo.uSync.BackOffice.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="jumps.umbraco.usync, Version=2.5.0.16740, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\uSync.2.5.0\lib\net45\jumps.umbraco.usync.dll</HintPath>
+    <Reference Include="Jumoo.uSync.BackOffice.UI, Version=3.0.5750.30839, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.3.0.2\lib\net45\Jumoo.uSync.BackOffice.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Jumoo.uSync.Core, Version=3.0.5750.30340, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.Core.3.0.0\lib\net45\Jumoo.uSync.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
@@ -391,7 +395,7 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.min.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
-    <Content Include="App_Plugins\uSync\uSyncUi.ascx" />
+    <Content Include="App_Plugins\uSync\BackOffice\uSyncBackOfficeDashboard.ascx" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
@@ -503,8 +507,9 @@
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
     <Content Include="Views\Partials\_CookieWarning.cshtml" />
-    <Content Include="Config\uSyncSettings.config" />
     <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
+    <Content Include="Config\uSyncCore.config" />
+    <Content Include="Config\uSyncBackOffice.Config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

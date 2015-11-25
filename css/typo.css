@@ -1,47 +1,25 @@
-/* == CSS used in html-editors, only edit these in Umbraco (Settings/Stylesheets/typo) == */
-img {
-    /* Sätt dessa properties så de även gäller när man redigerar i Tiny. Ser bättre ut då */
-    max-width: 100%;
-    height: auto !important; /* Umbraco sätter fast höjd i Tiny */
-}
-.button,
-.button-blue{
-    padding: 12px 24px;
-    border-radius: 4px;
-    display: inline-block;
-	margin: 3px 0;
-}
+﻿/* == CSS used in html-editors, only edit these in Umbraco (Settings/Stylesheets/typo) == */img {    /* Sätt dessa properties så de även gäller när man redigerar i Tiny. Ser bättre ut då */    max-width: 100%;    height: auto !important; /* Umbraco sätter fast höjd i Tiny */}.button,.button-blue{    padding: 12px 24px;    border-radius: 4px;    display: inline-block;	margin: 3px 0;}
 
-/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
-.button {
-background-color: #FB7840;
-}
+/**umb_name:Knapp*/
+.button{background-color: #FB7840;}
 
-.button-blue {
-background-color:#1AAAD6;
-}
+/**umb_name:Knapp 2*/
+.button-blue{background-color:#1AAAD6;}
 
-p {
+/**umb_name:Rubrik 1*/
+h1{}
 
-}
+/**umb_name:Rubrik 2*/
+h2{}
 
-h1 {
+/**umb_name:Rubrik 3*/
+h3{}
 
-}
+/**umb_name:Rubrik 4*/
+h4{}
 
-h2 {
+/**umb_name:Rubrik 5*/
+h5{}
 
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
+/**umb_name:Stycke*/
+p{}
