@@ -1,11 +1,6 @@
 ﻿@using System.Web.Optimization
 @inherits CamelontaUmbracoTemplatePage
 
-@*
-    DOCS and attgöra-lista for this Boilerplate
-    https://docs.google.com/document/d/13w3mRYi4V7SzwjbKDTHGkjQsX17HWSgXdC5TOo5Ydg8/edit
-*@
-
 <!DOCTYPE html>
 <html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName">
 <head>
@@ -15,18 +10,6 @@
     <meta name="description" content="@Model.Content.GetPropertyValue("metadescription")">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
-
-    @* TODO. Vad är detta? https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android?hl=en*@
-    <meta name="theme-color" content="#84EBA5">
-
-
-    @* TODO: Skapa snygga favicons i rätt storlek.
-            Lägg även en 32x32-ikon i rooten som heter favicon.ico (bäst för cross-browser)
-        BRA favicon-docs på Github: https://github.com/audreyr/favicon-cheat-sheet*@
-    <link rel="icon" sizes="192x192" href="/img/touch/homescreen-192.png">
-    <link rel="shortcut icon" href="/img/touch/homescreen-72.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/img/touch/homescreen-192.png">
-
 
     <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
     <meta property="og:url" content="@Model.Content.UrlAbsolute()">
@@ -43,8 +26,10 @@
     <!--[if lt IE 9]>
         <script src="@Scripts.Url("~/bundles/ltIe9Scripts")"></script>
     <![endif]-->
+
+    @Html.Partial("_Favicons")
 </head>
-<body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
 
     <header>
         <div class="container">
@@ -78,15 +63,15 @@
 </body>
 </html>
 
-@functions
-{
-    string BodyClasses()
+@*@functions
     {
-        var classes = "pagetype-" + Model.Content.DocumentTypeAlias.ToLower();
-        if (!LeftNavigation.Any())
+        string BodyClasses()
         {
-            classes += " no-leftnav";
+            var classes = "pagetype-" + Model.Content.DocumentTypeAlias.ToLower();
+            if (!LeftNavigation.Any())
+            {
+                classes += " no-leftnav";
+            }
+            return classes;
         }
-        return classes;
-    }
-}
+    }*@

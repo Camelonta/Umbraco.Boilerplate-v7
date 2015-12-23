@@ -6,7 +6,7 @@
     var init = function () {
         // Button to open mobile menu
         $(".mobile-menu-toggle").click(function () {
-            
+
             menuOpen = !menuOpen; // Change the sate of menuOpen
 
             $('body').toggleClass(menuOpenClass);
@@ -20,7 +20,7 @@
         placeSubmenu();
     }
 
-    
+
     // Put the submenu to the correct location. Either just let it be (desktop) or put it beneath the active link in the main-navigation
     var placeSubmenu = function () {
 

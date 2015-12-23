@@ -8,7 +8,7 @@ using Umbraco.Web;
 
 namespace Camelonta.Boilerplate.Classes
 {
-    public class Meta
+    public static class Meta
     {
         public static string PageTeaser(IPublishedContent page, int truncate = 250)
         {
@@ -65,6 +65,22 @@ namespace Camelonta.Boilerplate.Classes
             // Default-titeln är "Sidans namn - FÖRETAGET". En egen fönstertitel öveskriver alltid default helt. 
             return string.IsNullOrEmpty(windowTitle) ? string.Format("{0} - Boilerplate", page.Name) : windowTitle;
 
+        }
+
+        // Check if the header is in the content
+        public static bool AutoHeader(this IPublishedContent model)
+        {
+            if (model.GetPropertyValue<bool>("hideAutoHeader") || model.DocumentTypeAlias == "Newslist")
+                return false;
+
+            var content = model.GetPropertyValue<string>("contentMiddle");
+            if (content.Contains("<h1"))
+            {
+                // If index of the header is small, it is in the beginning of the text. Else it might be further down (which is not recommended)
+                return content.IndexOf("<h1") > 10;
+            }
+
+            return true;
         }
 
         public static string RobotsContent(IPublishedContent page)

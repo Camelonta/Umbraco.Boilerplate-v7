@@ -6,6 +6,6 @@
 <div class="container">
     @RenderPage("Partials/_LeftNav.cshtml")
     <main>
-        @Model.Content.GetGridHtml("contentMiddle")
+        @Html.GetGridHtml(Model.Content, "contentMiddle")
     </main>
 </div>

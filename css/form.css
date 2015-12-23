@@ -1,6 +1,20 @@
 ﻿/* == Styling for forms  == */
 
-input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], select, textarea {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+select,
+textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
     border: 1px solid #ccc;
@@ -10,17 +24,35 @@ input[type="text"], input[type="password"], input[type="email"], input[type="url
     -webkit-appearance: none;
 }
 
-    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, select:focus, textarea:focus {
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="week"]:focus,
+    input[type="number"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    select:focus,
+    textarea:focus {
         outline: 0;
         border-color: #129FEA;
     }
 
-input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
     outline: thin solid #129FEA;
     outline: 1px auto #129FEA;
 }
 
-button, input[type="submit"], input[type="button"] {
+button,
+input[type="submit"],
+input[type="button"] {
     font-family: inherit;
     font-size: 100%;
     padding: .5em 1em;

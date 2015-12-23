@@ -6,14 +6,20 @@
 <div class="container">
     @RenderPage("Partials/_LeftNav.cshtml")
 
-    <main>
-        @Model.Content.GetPropertyValue("contentMiddle")
-    </main>
-
     @if (Model.Content.HasValue("contentRight"))
     {
         <aside>
             @Model.Content.GetPropertyValue("contentRight")
         </aside>
     }
+
+    <main>
+        @if (Model.Content.AutoHeader())
+        {
+            <h1>@Model.Content.Name</h1>
+        }
+
+        @Model.Content.GetPropertyValue("contentMiddle")
+    </main>
+
 </div>

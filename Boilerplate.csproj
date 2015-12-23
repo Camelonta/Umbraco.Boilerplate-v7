@@ -512,6 +512,7 @@
     <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
+    <Content Include="Views\Partials\_Favicons.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

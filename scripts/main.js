@@ -1,16 +1,30 @@
 var Camelonta = (function () {
 
+    var replaceRightColumn = function () {
+        var aside = $('aside');
+        if (!aside.length)
+            return;
+
+        if (Modernizr.mq('screen and (max-width:800px)')) {
+            aside.insertAfter('main').show();
+        } else {
+            aside.insertBefore('main');
+        }
+    };
+
     // Init scripts
     var init = function () {
         Camelonta.Nav.Init();
         Camelonta.Faq.Init();
         Camelonta.Video.Init();
         Camelonta.Slider.Init();
+        replaceRightColumn();
 
         // Global resize-event. Triggered if the resize-event has been still for 200ms (debounced)
         // Lägg all logik som händer vid resize här
         $(window).resize(Camelonta.Helper.Debouncer(function () {
             Camelonta.Nav.PlaceSubmenu();
+            replaceRightColumn();
         }));
 
         // Hack for making CTA's work correctly when created in Tiny
