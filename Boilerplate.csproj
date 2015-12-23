@@ -79,9 +79,8 @@
       <HintPath>packages\CamelontaUmbracoUI.2.0.5\lib\Camelonta.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.Utilities, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CamelontaUmbracoUtilities.1.1.2.0\lib\Camelonta.Utilities.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Camelonta.Utilities">
+      <HintPath>packages\CamelontaUmbracoUtilities.1.1.3.0\lib\Camelonta.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="ClientDependency.Core, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\ClientDependency.1.8.4\lib\net45\ClientDependency.Core.dll</HintPath>
