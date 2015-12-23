@@ -1,7 +1,7 @@
 ﻿/* Denna fil innehåller knapparnas övriga stil (annat än typo-grejer). Man måste återställa vissa färger och properties */
 
 .button,
-.button-blue {
+.button-variant {
     -moz-transition: background-color .2s;
     -o-transition: background-color .2s;
     -webkit-transition: background-color .2s;
@@ -9,13 +9,13 @@
 }
 
 .button,
-.button-blue,
+.button-variant,
 
 .button a,
-.button-blue a,
+.button-variant a,
 
 .button a:hover,
-.button-blue a:hover {
+.button-variant a:hover {
     color: #fff !important;
     cursor: pointer;
     text-decoration:none;
@@ -26,6 +26,6 @@
     background-color: #F7976E;
 }
 
-.button-blue:hover {
+.button-variant:hover {
     background-color: #56C8EA;
 }

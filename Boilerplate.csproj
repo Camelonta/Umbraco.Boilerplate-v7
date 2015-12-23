@@ -472,7 +472,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\trees.config" />
-    <Content Include="Config\Dashboard.config" />
+    <Content Include="Config\Dashboard.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\applications.config" />
     <Content Include="Views\Faq.cshtml" />
     <Content Include="Views\Partials\_TopLinks.cshtml" />
@@ -551,7 +553,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53963</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53963/</IISUrl>
+          <IISUrl>http://localhost:100/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,11 +1,10 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
 @using System.Text.RegularExpressions
 @{
-    var header = Model.MacroParameters["header"].ToString();
-    var movieUrl = Model.MacroParameters["movieUrl"].ToString();
+    var header = Model.MacroParameters["10-header"].ToString();
+    var movieUrl = Model.MacroParameters["20-movieUrl"].ToString();
     var videoId = GetYouTubeId(movieUrl);
-    var previewImage = string.IsNullOrEmpty(Model.MacroParameters["previewImage"].ToString()) ? string.Format("http://i3.ytimg.com/vi/{0}/maxresdefault.jpg", videoId) : string.Format("{0}?maxwidth=1000", Umbraco.Media(Model.MacroParameters["previewImage"]).Url);
-    var customHeight = Model.MacroParameters["height"].ToString() != "null" ? string.Format("padding-bottom:{0}px;", Model.MacroParameters["height"]) : string.Empty;
+    var previewImage = string.IsNullOrEmpty(Model.MacroParameters["30-previewImage"].ToString()) ? string.Format("http://i3.ytimg.com/vi/{0}/maxresdefault.jpg", videoId) : string.Format("{0}?maxwidth=1000", Umbraco.Media(Model.MacroParameters["30-previewImage"]).Url);
 }
 
 @if (!string.IsNullOrWhiteSpace(movieUrl) && !string.IsNullOrEmpty(videoId))
@@ -18,21 +17,17 @@
 
         @if (movieUrl.Contains("youtu"))
         {
-            <div class="video" data-video-id="@videoId" style="background-image: url('@previewImage');@customHeight">
+            <div class="video" data-video-id="@videoId" style="background-image: url('@previewImage');">
             </div>
         }
     </div>
 }
 
-    @* Helpers *@
-
     @functions{
-
         static string GetYouTubeId(string link)
         {
             var extractId = Regex.Match(link, @"youtu(?:\.be|be\.com)/(?:.*v(?:/|=)|(?:.*/)?)([a-zA-Z0-9-_]+)");
             return extractId.Groups[1].Value;
 
         }
-
     }

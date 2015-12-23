@@ -1,4 +1,9 @@
-﻿[
+﻿/*
+ *  IKONER: http://nicbell.github.io/ucreate/icons.html
+ *  DOKUMENTATION: https://our.umbraco.org/documentation/getting-started/backoffice/property-editors/built-in-property-editors/grid-layout/grid-editors
+ */
+
+[
 	{
 	    "name": "Rich text editor",
 	    "alias": "rte",
@@ -11,28 +16,21 @@
 	    "view": "media",
 	    "icon": "icon-picture"
 	},
+    {
+        "name": "Youtube",
+        "alias": "Youtubevideo",
+        "view": "macro",
+        "icon": "icon-play",
+        "config": {
+            "macroAlias": "Youtubevideo"
+        }
+    },
 	{
 	    "name": "Macro",
 	    "alias": "macro",
 	    "view": "macro",
 	    "icon": "icon-settings-alt"
 	},
-	{
-	    "name": "Embed",
-	    "alias": "embed",
-	    "view": "embed",
-	    "icon": "icon-movie-alt"
-	},
-    {
-        "name": "Headline",
-        "alias": "headline",
-        "view": "textstring",
-        "icon": "icon-coin",
-        "config": {
-            "style": "font-size: 36px; line-height: 45px; font-weight: bold",
-            "markup": "<h1>#value#</h1>"
-        }
-    },
 	{
 	    "name": "Quote",
 	    "alias": "quote",

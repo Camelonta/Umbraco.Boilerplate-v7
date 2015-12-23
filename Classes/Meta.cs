@@ -51,7 +51,7 @@ namespace Camelonta.Boilerplate.Classes
 
             if (string.IsNullOrEmpty(previewImage))
             {
-                previewImage = "/img/default-facebook-share.jpg";
+                previewImage = "/img/default-social-share.jpg";
             }
 
             return previewImage.Split('?').First();
@@ -61,6 +61,8 @@ namespace Camelonta.Boilerplate.Classes
         public static string PageTitle(IPublishedContent page)
         {
             var windowTitle = page.GetPropertyValue<string>("windowTitle");
+
+            // Default-titeln är "Sidans namn - FÖRETAGET". En egen fönstertitel öveskriver alltid default helt. 
             return string.IsNullOrEmpty(windowTitle) ? string.Format("{0} - Boilerplate", page.Name) : windowTitle;
 
         }
