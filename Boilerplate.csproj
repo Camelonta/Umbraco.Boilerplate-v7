@@ -435,6 +435,7 @@
     <Content Include="css\vendor\swiper.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="img\youtube-play.png" />
     <Content Include="README.txt" />
     <Content Include="scripts\cookie-warning.js" />
     <Content Include="scripts\faq.js" />
@@ -536,9 +537,7 @@
     <Compile Include="Models\MenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="img\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
