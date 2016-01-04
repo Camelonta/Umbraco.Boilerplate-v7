@@ -10,10 +10,15 @@
                 func.apply(scope, Array.prototype.slice.call(args));
             }, timeout);
         }
-    };
+    }
+
+    var getCurrentNodeId = function () {
+        return $('body').data('current-node');
+    }
 
     return {
-        Debouncer: debouncer
+        Debouncer: debouncer,
+        GetCurrentNodeId: getCurrentNodeId
     };
 
 })();

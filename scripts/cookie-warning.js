@@ -2,12 +2,16 @@
     var cookieName = 'cookiesaccepted';
 
     if (!Cookies.get(cookieName)) {
-        $.post('/umbraco/surface/partialsurface/cookiewarning', { nodeId: window.currentNode }, function (data) {
+        $.post('/umbraco/surface/partialsurface/cookiewarning', { nodeId: Camelonta.Helper.GetCurrentNodeId() }, function (data) {
 
             if (data.length > 10) {
                 var html = $(data);
-                $('body').prepend(html);
-                html.slideDown();
+
+                // Add element to DOM
+                $.when($('body').prepend(html)).then(function () {
+                    // When it's added, slide it down
+                    html.slideDown();
+                });
             } else {
                 // Disclaimer does not contain any text. Disable it so it doesn't make any more requests
                 Cookies.set(cookieName, true, { expires: 365 });

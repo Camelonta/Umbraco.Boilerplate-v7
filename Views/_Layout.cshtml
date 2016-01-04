@@ -13,7 +13,7 @@
 
     <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
     <meta property="og:url" content="@Model.Content.UrlAbsolute()">
-    <meta property="og:description" content="@Meta.PageTeaser(Model.Content,500)">
+    <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
     <meta property="og:site_name" content="@CurrentSite.Name" />
     @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
     <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
@@ -29,7 +29,7 @@
 
     @Html.Partial("_Favicons")
 </head>
-<body itemscope itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
 
     <header>
         <div class="container">
@@ -44,14 +44,14 @@
     @RenderBody()
     @RenderPage("Partials/_Footer.cshtml")
 
-    <script>var currentNode = '@Model.Content.Id';</script>
-
     <script async src="@Scripts.Url("~/bundles/scripts")"></script>
 
-    @{ var siteScript = Model.Content.GetPropertyValue<string>("siteScript", true);}
-    @if (!String.IsNullOrWhiteSpace(siteScript))
-    {
-        <script async>@Html.Raw(siteScript)</script>
+    @{ 
+        var siteScript = Model.Content.GetPropertyValue<string>("siteScript", true);
+        if (!String.IsNullOrWhiteSpace(siteScript))
+        {
+            <script async>@Html.Raw(siteScript)</script>
+        }
     }
 
 </body>

@@ -80,7 +80,7 @@
 
         if (!hasSubmenu) {
             li.addClass('loading');
-            $.post('/umbraco/surface/navigationsurface/getsubmenus', { id: id, currentNode: window.currentNode }, function (data) {
+            $.post('/umbraco/surface/navigationsurface/getsubmenus', { id: id, currentNode: Camelonta.Helper.GetCurrentNodeId() }, function (data) {
                 var ul = $(data);
                 li.append(ul);
 
