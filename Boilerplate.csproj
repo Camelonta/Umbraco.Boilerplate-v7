@@ -514,6 +514,7 @@
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="Views\Partials\_Favicons.cshtml" />
+    <Content Include="Views\Partials\_Footer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

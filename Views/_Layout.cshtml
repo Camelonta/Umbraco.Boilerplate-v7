@@ -41,14 +41,8 @@
         </div>
     </header>
     @RenderPage("Partials/_TopNav.cshtml")
-
     @RenderBody()
-
-    <footer>
-        <div class="container">
-            @Model.Content.GetPropertyValue("footer", true)
-        </div>
-    </footer>
+    @RenderPage("Partials/_Footer.cshtml")
 
     <script>var currentNode = '@Model.Content.Id';</script>
 
@@ -62,16 +56,3 @@
 
 </body>
 </html>
-
-@*@functions
-    {
-        string BodyClasses()
-        {
-            var classes = "pagetype-" + Model.Content.DocumentTypeAlias.ToLower();
-            if (!LeftNavigation.Any())
-            {
-                classes += " no-leftnav";
-            }
-            return classes;
-        }
-    }*@
