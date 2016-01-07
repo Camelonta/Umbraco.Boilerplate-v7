@@ -33,17 +33,17 @@
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
 
-<header>
-    <div class="container">
-        <a href="@CurrentSite.Url" id="header-logo">
-            <img src="http://placehold.it/350x150/fff/333?text=LOGO" alt="@CurrentSite.Name logo">
-        </a>
+    <header>
+        <div class="container">
+            <a href="@CurrentSite.Url" id="header-logo">
+                <img src="http://placehold.it/350x150/fff/333?text=LOGO" alt="@CurrentSite.Name logo">
+            </a>
 
-        <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
-        @Html.Partial("_TopLinks")
-        @Html.Partial("_SearchForm")
-    </div>
-</header>
+            <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
+            @Html.Partial("_TopLinks")
+            @Html.Partial("_SearchForm")
+        </div>
+    </header>
 
     @Html.Partial("_TopNav")
 
@@ -53,12 +53,14 @@
 
     <script async src="@Scripts.Url("~/bundles/scripts")"></script>
 
-    @{ 
-        var siteScript = Model.Content.GetPropertyValue<string>("siteScript", true);
-        if (!String.IsNullOrWhiteSpace(siteScript))
-        {
-            <script async>@Html.Raw(siteScript)</script>
-        }
+    @if (CurrentSite.HasValue("siteScript"))
+    {
+        <script async>@Html.Raw(CurrentSite.GetPropertyValue("siteScript"))</script>
+    }
+
+    @if (Model.Content.HasValue("pageScript"))
+    {
+        <script async>@Html.Raw(Model.Content.GetPropertyValue("pageScript"))</script>
     }
 </body>
 </html>
