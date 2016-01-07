@@ -1,28 +1,23 @@
-﻿@inherits CamelontaUmbracoTemplatePage
+﻿@inherits SearchTemplatePage
 @{
     Layout = "~/Views/_Layout.cshtml";
+    var search = new Search(Umbraco.TypedSearch(SearchTerm), SearchTerm, CurrentPageNumber); // TODO: Undvika att hämta alla sidor om vi kan få ut totalResults på annat sätt.
 }
 
-@{
-    var searchTerm = Request.QueryString["q"] ?? "";
-    var searchResults = Umbraco.Search(searchTerm);
-}
+<div class="container">
+    <main>
+        <h1>@Model.Content.Name</h1>
+        @RenderPage("Partials/_SearchForm.cshtml")
+        <div id="search-results">
+            @{Html.RenderPartial("~/Views/Partials/_SearchResults.cshtml", search);}
+        </div>
 
-
-<h1>@Model.Content.Name</h1>
-
-@RenderPage("Partials/_SearchForm.cshtml")
-
-@if (searchResults.Any())
-{
-    foreach (var result in searchResults)
-    {
-        var node = Umbraco.TypedContent(result.Id);
-            <b>@node.Name</b><br />
-            <a href="@node.Url">@node.Url</a>
-    }
-}
-else if (!String.IsNullOrWhiteSpace(searchTerm))
-{
-    <p>Inga träffar på: @searchTerm</p>
-}
+        @if (search.HasHiddenResults)
+        {
+            <a id="search-more-results" href="@SearchPage.GetUrl()?q=@search.SearchTerm&page=@NextPage" class="button" data-search-term="@search.SearchTerm" data-next-page="@NextPage">
+                <i class="icon-keyboard-arrow-down2"></i> Visa fler resultat
+            </a>
+            <div id="search-unexpected-error" class="hidden red">Kunde inte hämta fler resultat, vänligen försök igen.</div>
+        }
+    </main>
+</div>

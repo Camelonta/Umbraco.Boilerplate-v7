@@ -1,0 +1,17 @@
+﻿@model Search
+
+@if (Model.SearchResults.Any())
+{
+    <p>Resultat <strong>1 - <span id="search-results-count">@Model.ShowResults</span></strong> av <span id="search-total-results">@Model.TotalResults</span> träffar totalt.</p>
+    foreach (var result in Model.SearchResults)
+    {
+        <div class="search-result">
+            <h3><a href="@result.Url">@result.Name</a></h3>
+            <p>@Meta.PageTeaser(result)</p>
+        </div>
+    }
+}
+else if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
+{
+    <p>Inga träffar på: @Model.SearchTerm</p>
+}

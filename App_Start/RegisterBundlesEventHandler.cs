@@ -31,6 +31,7 @@ namespace Camelonta.Boilerplate.App_Start
                 "nav.css",
                 "animations.css",
                 "faq.css",
+                "utilities.css",
 
                 "modules/_faq.css",
                 "modules/_button.css",
@@ -60,6 +61,7 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/swiper.jquery.min.js",
                 "vendor/modernizr.js",
                 "vendor/js-cookie.2.0.js",
+                "vendor/jquery.highlight.js",
 
                 "main.js",
                 "nav.js",
@@ -67,7 +69,8 @@ namespace Camelonta.Boilerplate.App_Start
                 "video.js",
                 "slider.js",
                 "cookie-warning.js",
-                "faq.js"
+                "faq.js",
+                "search.js"
             }.Select(jsFile => scriptsPath + jsFile).ToArray(); // Add scripts-path;
             var scriptBundle = new ScriptBundle("~/bundles/scripts").Include(jsFiles);
             scriptBundle.Orderer = Bundles.AsIsBundleOrderer;

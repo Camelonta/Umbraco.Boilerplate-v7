@@ -1,0 +1,11 @@
+﻿.hidden {
+    display: none;
+}
+
+.red {
+    color: red;
+}
+
+.highlight {
+    background-color: #FFFF88;
+}

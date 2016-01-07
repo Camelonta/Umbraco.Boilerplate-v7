@@ -13,7 +13,8 @@ namespace Camelonta.Boilerplate.Classes
         public static string PageTeaser(IPublishedContent page, int truncate = 250)
         {
             var teaser = page.GetPropertyValue<string>("metadescription");
-            if (page.HasValue("metadescription")) return teaser;
+            if (page.HasValue("metadescription"))
+                return teaser.Truncate(truncate);
 
             var pageContent = page.GetPropertyValue<string>("contentMiddle");
             if (string.IsNullOrEmpty(pageContent))

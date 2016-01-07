@@ -426,6 +426,7 @@
     <Content Include="css\pagetypes\home.css" />
     <Content Include="css\typo.css" />
     <Content Include="css\base.css" />
+    <Content Include="css\utilities.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\layout.css" />
     <Content Include="css\navigation\misc.css" />
@@ -438,6 +439,8 @@
     <Content Include="img\youtube-play.png" />
     <Content Include="README.txt" />
     <Content Include="scripts\cookie-warning.js" />
+    <Content Include="scripts\vendor\jquery.highlight.js" />
+    <Content Include="scripts\search.js" />
     <Content Include="scripts\faq.js" />
     <Content Include="scripts\helper.js" />
     <Content Include="scripts\slider.js" />
@@ -516,6 +519,7 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
+    <Content Include="Views\Partials\_SearchResults.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -531,9 +535,10 @@
   <ItemGroup>
     <Compile Include="App_Start\DateFolderEventHandler.cs" />
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
-    <Compile Include="Classes\CamelontaUmbracoTemplatePage.cs" />
+    <Compile Include="TemplatePages\CamelontaUmbracoTemplatePage.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />
     <Compile Include="Classes\Meta.cs" />
+    <Compile Include="TemplatePages\SearchTemplatePage.cs" />
     <Compile Include="Controllers\NavigationSurfaceController.cs" />
     <Compile Include="Controllers\PartialSurfaceController.cs" />
     <Compile Include="Models\MenuItems.cs" />

@@ -8,6 +8,10 @@
     width: calc(100% - 73px);
 }
 
+#search-total-results {
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 767px) {
     .search-form {
         display: none;

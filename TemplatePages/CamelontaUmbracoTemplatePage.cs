@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Camelonta.Boilerplate.Classes;
+using System.Collections.Generic;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 
-namespace Camelonta.Boilerplate.Classes
+namespace Camelonta.Boilerplate.TemplatePages
 {
     public abstract class CamelontaUmbracoTemplatePage : UmbracoTemplatePage
     {
