@@ -4,7 +4,7 @@
     var header = Model.MacroParameters["10-header"].ToString();
     var movieUrl = Model.MacroParameters["20-movieUrl"].ToString();
     var videoId = GetYouTubeId(movieUrl);
-    var previewImage = string.IsNullOrEmpty(Model.MacroParameters["30-previewImage"].ToString()) ? string.Format("http://i3.ytimg.com/vi/{0}/maxresdefault.jpg", videoId) : string.Format("{0}?maxwidth=1000", Umbraco.Media(Model.MacroParameters["30-previewImage"]).Url);
+    var previewImage = string.IsNullOrEmpty(Model.MacroParameters["30-previewImage"].ToString()) ? string.Format("http://i3.ytimg.com/vi/{0}/maxresdefault.jpg", videoId) : string.Format("{0}?width=1000&mode=max", Umbraco.Media(Model.MacroParameters["30-previewImage"]).Url);
 }
 
 @if (!string.IsNullOrWhiteSpace(movieUrl) && !string.IsNullOrEmpty(videoId))

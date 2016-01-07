@@ -16,7 +16,7 @@
                         <span>@(topLink.GetValue<string>("text"))</span>
                         @if (!topLink.GetValue<string>("icon").IsEmpty())
                         {
-                            <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?maxwidth=30" alt="@(topLink.GetValue<string>("text"))">
+                            <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=max" alt="@(topLink.GetValue<string>("text"))">
                         }
                     </a>
                 </li>

@@ -48,10 +48,6 @@
 
     #top-nav {
         display: none;
-    }
-
-
-    #top-nav {
         z-index: 100000;
         width: 100%;
     }
