@@ -3,9 +3,9 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
-@RenderPage("Partials/_Slider.cshtml")
+@Html.Partial("_Slider")
 
-@Model.Content.GetGridHtml("grid")
+@Html.GetGridHtml(Model.Content, "grid")
 
 @*
     TODO: Byt ut alla värden (så många du kan) mot dina egna (företaget du skapar åt)
@@ -16,7 +16,7 @@
     "@@context": "http://schema.org",
     "@@type": "Organization",
     "name": "FÖRETAGET",
-    "url":"https://camelonta.se",
+    "url":"https://företaget.se",
     "logo":"@CurrentSite.UrlAbsolute()img/logo.png",
     "description": "Camelonta är en digital byrå med stort engagemang. Vi skapar webblösningar som är enkla att använda, eleganta och med teknisk briljans.",
     "telephone": "08-654654654",

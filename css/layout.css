@@ -7,12 +7,18 @@
     padding-right: 15px;
     padding-left: 15px;
 }
-/* == Header == */
 
+/* == Header == */
 header {
     background: #f16529;
 }
+
+#header-logo img {
+    max-width: 170px;
+    float: left;
+}
 /* == End of Header == */
+
 
 /* == Left sidebar == */
 #l-sidebar {
@@ -21,6 +27,7 @@ header {
     float: left;
 }
 /* == End of Left sidebar == */
+
 
 /* == Right sidebar == */
 aside {
@@ -36,6 +43,7 @@ aside {
 }
 /* == End of Right sidebar == */
 
+
 /* == Footer == */
 footer {
     background: #f16529;
@@ -45,6 +53,7 @@ footer {
     margin-top: 70px;
 }
 /* == End of Footer == */
+
 
 /* == Main content == */
 main {
@@ -61,7 +70,6 @@ main {
 }
 
 /* == End of Main content == */
-
 
 
 @media only screen and (max-width: 990px) {

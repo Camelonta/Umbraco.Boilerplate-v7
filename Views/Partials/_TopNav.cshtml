@@ -3,8 +3,8 @@
 
 <nav id="top-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <div class="container">
-        @RenderPage("_SearchForm.cshtml")
-        @RenderPage("_TopLinks.cshtml")
+        @Html.Partial("_SearchForm")
+        @Html.Partial("_TopLinks")
         <ul class="dyn-menu">
             @foreach (var page in CurrentSite.Children.FilterInvalidPages())
             {

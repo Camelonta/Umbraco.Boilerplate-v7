@@ -79,8 +79,6 @@ namespace Camelonta.Boilerplate.App_Start
                  "vendor/respond.min.js" //Polyfill for media-queries. Needed for the bootstrap grid to function correctly.
             }.Select(jsFile => scriptsPath + jsFile).ToArray();
             bundles.Add(new ScriptBundle("~/bundles/ltIe9Scripts").Include(ltIe9Files));
-
-            Bundles.DisableBundles();
         }
     }
 }

@@ -18,31 +18,38 @@
     @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
     <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
 
-    @*      TODO: Skapa ett eget Icomoon-projekt.*@
+    @Html.Partial("_Favicons")
+
+    @Styles.Render("~/bundles/styles")
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    @* TODO: Skapa ett eget Icomoon-projekt om du behöver ikoner *@
     <link rel="stylesheet" href="http://i.icomoon.io/public/1a91909ce0/Boilerplate-Umbraco/style.css">
 
-    <link href="@Styles.Url("~/bundles/styles")" rel="stylesheet" type="text/css" />
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
         <script src="@Scripts.Url("~/bundles/ltIe9Scripts")"></script>
     <![endif]-->
-
-    @Html.Partial("_Favicons")
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
 
-    <header>
-        <div class="container">
-            <a href="@CurrentSite.Url">@CurrentSite.Name</a>
+<header>
+    <div class="container">
+        <a href="@CurrentSite.Url" id="header-logo">
+            <img src="http://placehold.it/350x150/fff/333?text=LOGO" alt="@CurrentSite.Name logo">
+        </a>
 
-            <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
-            @RenderPage("Partials/_TopLinks.cshtml")
-            @RenderPage("Partials/_SearchForm.cshtml")
-        </div>
-    </header>
-    @RenderPage("Partials/_TopNav.cshtml")
+        <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
+        @Html.Partial("_TopLinks")
+        @Html.Partial("_SearchForm")
+    </div>
+</header>
+
+    @Html.Partial("_TopNav")
+
     @RenderBody()
-    @RenderPage("Partials/_Footer.cshtml")
+
+    @Html.Partial("_Footer")
 
     <script async src="@Scripts.Url("~/bundles/scripts")"></script>
 
@@ -53,6 +60,5 @@
             <script async>@Html.Raw(siteScript)</script>
         }
     }
-
 </body>
 </html>
