@@ -16,11 +16,13 @@ namespace Camelonta.Boilerplate.Classes
             if (page.HasValue("metadescription"))
                 return teaser.Truncate(truncate);
 
-            var pageContent = page.GetPropertyValue<string>("contentMiddle");
-            if (string.IsNullOrEmpty(pageContent))
-                return "";
+            // Get whole property, otherwise we get error "Cannot render a macro when there is no current PublishedContentRequest." if it contains Macro
+            var contentMiddle = page.GetProperty("contentMiddle");
+            if (contentMiddle == null || !contentMiddle.HasValue)
+                return string.Empty;
 
-            teaser = Regex.Replace(pageContent.StripHtml(), @"\s+", " "); // Remove long whitespaces and truncate
+            string value = contentMiddle.DataValue.ToString();
+            teaser = Regex.Replace(value.StripHtml(), @"\s+", " "); // Remove long whitespaces and truncate
 
             return teaser.Truncate(truncate);
         }
