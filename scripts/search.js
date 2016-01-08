@@ -1,6 +1,8 @@
 Camelonta.Search = (function () {
     var highlightDescription = function (searchTerm) {
-        $('.search-result').highlight(searchTerm);
+        if (searchTerm) {
+            $('.search-result').highlight(searchTerm);
+        }
     }
 
     var init = function () {
