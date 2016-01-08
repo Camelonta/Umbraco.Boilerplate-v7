@@ -1,4 +1,4 @@
-﻿using Camelonta.Boilerplate.TemplatePages;
+﻿using Camelonta.Boilerplate.Models;
 using System.Web.Mvc;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;

@@ -3,7 +3,7 @@ using System.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
-namespace Camelonta.Boilerplate.TemplatePages
+namespace Camelonta.Boilerplate.Models
 {
     public class Search
     {
