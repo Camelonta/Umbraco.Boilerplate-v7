@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Umbraco.Core.Models;
-
-namespace Camelonta.Boilerplate.TemplatePages
+﻿namespace Camelonta.Boilerplate.TemplatePages
 {
     public class SearchTemplatePage : CamelontaUmbracoTemplatePage
     {
@@ -39,60 +35,6 @@ namespace Camelonta.Boilerplate.TemplatePages
         public override void Execute()
         {
             
-        }
-    }
-
-    public class Search
-    {
-        private List<IPublishedContent> _allSearchResults;
-        public string SearchTerm { get; set; }
-        public int PageNumber { get; set; }
-
-        public int MaxResults
-        {
-            get
-            {
-                return 10;
-            }
-        }
-
-        public int ShowResults
-        {
-            get
-            {
-                return MaxResults * PageNumber;
-            }
-        }
-
-        public int TotalResults
-        {
-            get
-            {
-                return _allSearchResults.Count;
-            }
-        }
-
-        public List<IPublishedContent> SearchResults
-        {
-            get
-            {
-                return _allSearchResults.Take(ShowResults).ToList();
-            }
-        }
-
-        public bool HasHiddenResults
-        {
-            get
-            {
-                return (SearchResults.Count < TotalResults) && (TotalResults > MaxResults);
-            }
-        }
-
-        public Search(IEnumerable<IPublishedContent> allSearchResults, string searchTerm, int pageNumber)
-        {
-            _allSearchResults = allSearchResults.Where(searchResult => searchResult.DocumentTypeAlias.ToLower() != "site").ToList();
-            SearchTerm = searchTerm;
-            PageNumber = pageNumber;
         }
     }
 }

@@ -39,7 +39,7 @@
                 <img src="http://placehold.it/350x150/fff/333?text=LOGO" alt="@CurrentSite.Name logo">
             </a>
 
-            <a href="#" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
+            <a href="javascript:void(0)" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
             @Html.Partial("_TopLinks")
             @Html.Partial("_SearchForm")
         </div>
@@ -51,7 +51,7 @@
 
     @Html.Partial("_Footer")
 
-    <script async src="@Scripts.Url("~/bundles/scripts")"></script>
+    @Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/bundles/scripts")
 
     @if (CurrentSite.HasValue("siteScript"))
     {

@@ -15,10 +15,10 @@ namespace Camelonta.Boilerplate.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult GetSearchResults(string nodeId, string searchTerm, int nextPage)
+        public PartialViewResult GetSearchResults(string searchTerm, int nextPage)
         {
-            var searchResults = Umbraco.TypedSearch(searchTerm);
-            var search = new Search(searchResults, searchTerm, nextPage);
+            var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+            var search = new Search(umbracoHelper, searchTerm, nextPage);
             return PartialView("~/Views/Partials/_SearchResults.cshtml", search);
         }
     }

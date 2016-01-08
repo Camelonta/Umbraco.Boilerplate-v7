@@ -2,7 +2,7 @@
 
 @if (Model.SearchResults.Any())
 {
-    <p>Resultat <strong>1 - <span id="search-results-count">@Model.ShowResults</span></strong> av <span id="search-total-results">@Model.TotalResults</span> träffar totalt.</p>
+    <p>Resultat <strong>1 - <span id="search-results-count">@Model.ShowingResults</span></strong> av <span id="search-total-results">@Model.TotalResults</span> träffar totalt.</p>
     foreach (var result in Model.SearchResults)
     {
         <div class="search-result">
@@ -13,5 +13,5 @@
 }
 else if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
 {
-    <p>Inga träffar på: @Model.SearchTerm</p>
+    <p>Inga träffar på: <strong>@Model.SearchTerm</strong></p>
 }

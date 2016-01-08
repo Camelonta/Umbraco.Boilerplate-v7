@@ -1,44 +1,4 @@
-﻿@keyframes opaque_enter {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes opaque_enter {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes opaque_enter {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@-o-keyframes opaque_enter {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes opaque_leave {
+﻿@keyframes opaque_leave {
     from {
         opacity: 1;
     }

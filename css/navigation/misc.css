@@ -58,8 +58,9 @@
     }
 /* == End of Mobile menu toggle == */
 
-/* Pulsera plus-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-.dyn-menu .loading .icon-plus {
+/* Pulsera plus-knappen samt sökens "Visa fler resultat" när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+.dyn-menu .loading .icon-plus,
+#search-more-results.loading {
     -webkit-animation: 2s opaque_leave infinite;
     -moz-animation: 2s opaque_leave infinite;
     -o-animation: 2s opaque_leave;

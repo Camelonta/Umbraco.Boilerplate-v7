@@ -4,38 +4,49 @@ Camelonta.Search = (function () {
     }
 
     var init = function () {
-        $('#search-unexpected-error').addClass('hidden');
-
         var searchMoreLink = $('#search-more-results');
         var searchTerm = $('#search-more-results').data('search-term');
 
         searchMoreLink.click(function (e) {
+            // Set loading state
+            searchMoreLink.addClass('loading');
+
+            // Hide error if it's shown and this is another search
+            $('#search-unexpected-error').addClass('hidden'); 
+
+            // Setup data to POST
             var data = {
-                nodeId: Camelonta.Helper.GetCurrentNodeId(),
                 searchTerm: searchTerm,
                 nextPage: searchMoreLink.data('next-page')
             };
 
             $.post('/umbraco/surface/partialsurface/getsearchresults', data, function (response) {
                 // Print response
-                $('#search-results').html(response); // TODO: Testa med exception. Ev hantera
-                $('#search-results').slideDown();
+                $('#search-results').html(response);
 
-                // Increase next page
-                searchMoreLink.data('next-page', data.nextPage + 1);
+                // Increase nextPage
+                var nextPage = data.nextPage + 1;
+                searchMoreLink.data('next-page', nextPage);
 
-                // Remove
-                var resultCount = $('#search-results-count').text();
-                var totalResults = $('#search-total-results').text();
+                var resultCount = parseInt($('#search-results-count').text());
+                var totalResults = parseInt($('#search-total-results').text());
                 if (resultCount >= totalResults) {
+                    // Remove "more results"-link
                     $('#search-more-results').remove();
                 }
                 
                 // Highlight when links is pressed
                 highlightDescription(searchTerm)
+
+                // Set loading state
+                searchMoreLink.removeClass('loading');
             }).fail(function (errorResponse) {
-                //console.error(errorResponse);
+                // Show error
                 $('#search-unexpected-error').removeClass('hidden');
+                //console.error(errorResponse.responseText);
+
+                // Set loading state
+                searchMoreLink.removeClass('loading');
             });
 
             e.preventDefault();

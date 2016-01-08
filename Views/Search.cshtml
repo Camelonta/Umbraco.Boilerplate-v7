@@ -1,7 +1,7 @@
 ﻿@inherits SearchTemplatePage
 @{
     Layout = "~/Views/_Layout.cshtml";
-    var search = new Search(Umbraco.TypedSearch(SearchTerm), SearchTerm, CurrentPageNumber); // TODO: Undvika att hämta alla sidor om vi kan få ut totalResults på annat sätt.
+    var search = new Search(Umbraco, SearchTerm, CurrentPageNumber);
 }
 
 <div class="container">
