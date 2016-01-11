@@ -62,12 +62,22 @@ namespace Camelonta.Boilerplate.Models
             PageNumber = pageNumber;
 
             // Search
-            var search = umbracoHelper.TypedSearch(searchTerm)
-                .Where(searchResult => searchResult.DocumentTypeAlias.ToLower() != "site");
+            var search = FilterSearchResults(umbracoHelper.TypedSearch(searchTerm));
 
             // Set properties depending on the result
             TotalResults = search.Count();
             SearchResults = search.Take(Take).ToList();
+        }
+
+        private IEnumerable<IPublishedContent> FilterSearchResults(IEnumerable<IPublishedContent> pages)
+        {
+            // Remove invalid document types
+            pages = pages.Where(page => page.DocumentTypeAlias.ToLower() != "site");
+
+            // Remove pages that doesn't have "Tillåt EJ sökmotorindexering" set
+            pages = pages.Where(page => !page.GetPropertyValue<bool>("robotsIndex"));
+
+            return pages;
         }
     }
 }
