@@ -5,7 +5,35 @@ Camelonta.Search = (function () {
         }
     }
 
+    var autocomplete = function () {
+        console.log(window.location);
+        $('.search-form input[type="search"').autoComplete({
+            minChars: 1,
+            source: function (term, suggest) {
+                //term = term.toLowerCase();
+
+                // Setup data to POST
+                var data = {
+                    searchTerm: term
+                };
+
+                $.post('/umbraco/surface/partialsurface/GetSearchSuggestions', data, function (response) {
+                    var matches = response;
+                    console.log(response);
+                    suggest(matches);
+                });
+            },
+            onSelect: function (event, term, item) {
+                // Trigger new search
+                //$('.search-form input[type="search"').eq(0).trigger('click');// TODO: FIxa
+
+                window.location = window.location.pathname + '?q=' + term; // TODO: Sök utan att ladda om sidan
+            }
+        });
+    }
+
     var init = function () {
+        autocomplete();
         var searchMoreLink = $('#search-more-results');
         var searchTerm = $('#search-more-results').data('search-term');
 

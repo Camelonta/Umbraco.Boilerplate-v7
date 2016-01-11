@@ -24,6 +24,8 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/normalize.css", // Should be before base.css
                 "vendor/swiper.css",
                 "vendor/bootstrap.css",
+                "vendor/jquery.auto-complete.css", // Stylesheet for search
+                
 
                 "base.css",
                 "layout.css",
@@ -36,8 +38,8 @@ namespace Camelonta.Boilerplate.App_Start
                 "modules/_faq.css",
                 "modules/_button.css",
                 "modules/_video.css",
-                "modules/_search-form.css",
                 "modules/_cookie-warning.css",
+                "modules/_search-form.css", // Stylesheet for search
 
                 "navigation/left-nav.css",
                 "navigation/top-nav.css",
@@ -61,7 +63,9 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/swiper.jquery.min.js",
                 "vendor/modernizr.js",
                 "vendor/js-cookie.2.0.js",
-                "vendor/jquery.highlight.js",
+                "vendor/jquery.highlight.js", // Script for search
+                "vendor/jquery.auto-complete.js", // Script for search
+                
 
                 "main.js",
                 "nav.js",
@@ -70,7 +74,8 @@ namespace Camelonta.Boilerplate.App_Start
                 "slider.js",
                 "cookie-warning.js",
                 "faq.js",
-                "search.js"
+                "search.js" // Script for search
+
             }.Select(jsFile => scriptsPath + jsFile).ToArray(); // Add scripts-path;
             var scriptBundle = new ScriptBundle("~/bundles/scripts").Include(jsFiles);
             scriptBundle.Orderer = Bundles.AsIsBundleOrderer;

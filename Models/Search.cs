@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Camelonta.Boilerplate.Classes;
+using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
@@ -56,28 +57,23 @@ namespace Camelonta.Boilerplate.Models
             }
         }
 
+        /// <summary>
+        /// Search... TODO
+        /// </summary>
+        /// <param name="umbracoHelper"></param>
+        /// <param name="searchTerm"></param>
+        /// <param name="pageNumber"></param>
         public Search(UmbracoHelper umbracoHelper, string searchTerm, int pageNumber)
         {
             SearchTerm = searchTerm;
             PageNumber = pageNumber;
 
             // Search
-            var search = FilterSearchResults(umbracoHelper.TypedSearch(searchTerm));
+            var search = umbracoHelper.TypedSearch(searchTerm).FilterSearchResults();
 
             // Set properties depending on the result
             TotalResults = search.Count();
             SearchResults = search.Take(Take).ToList();
-        }
-
-        private IEnumerable<IPublishedContent> FilterSearchResults(IEnumerable<IPublishedContent> pages)
-        {
-            // Remove invalid document types
-            pages = pages.Where(page => page.DocumentTypeAlias.ToLower() != "site");
-
-            // Remove pages that doesn't have "Tillåt EJ sökmotorindexering" set
-            pages = pages.Where(page => !page.GetPropertyValue<bool>("robotsIndex"));
-
-            return pages;
         }
     }
 }

@@ -431,6 +431,7 @@
     <Content Include="css\layout.css" />
     <Content Include="css\navigation\misc.css" />
     <Content Include="css\modules\_video.css" />
+    <Content Include="css\vendor\jquery.auto-complete.css" />
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />
     <Content Include="css\vendor\swiper.css" />
@@ -439,6 +440,7 @@
     <Content Include="img\youtube-play.png" />
     <Content Include="README.txt" />
     <Content Include="scripts\cookie-warning.js" />
+    <Content Include="scripts\vendor\jquery.auto-complete.js" />
     <Content Include="scripts\vendor\jquery.highlight.js" />
     <Content Include="scripts\search.js" />
     <Content Include="scripts\faq.js" />
