@@ -526,6 +526,7 @@
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="Views\Partials\_SearchResults.cshtml" />
+    <Content Include="App_Code\RenderHelper.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

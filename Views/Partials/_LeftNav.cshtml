@@ -1,10 +1,13 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
 
-@if (LeftNavigation.Any())
+@if (!HideLeftNavigation)
 {
     <section id="l-sidebar">
-        <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = LeftNavigation })
-        </nav>
+        @if (LeftNavigation.Any())
+        {
+            <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = LeftNavigation })
+            </nav>
+        }
     </section>
 }

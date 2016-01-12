@@ -29,11 +29,19 @@ namespace Camelonta.Boilerplate.TemplatePages
             get { return Umbraco.TypedContent(Model.Content.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
         }
 
+        public bool HideLeftNavigation
+        {
+            get
+            {
+                return Model.Content.GetPropertyValue<bool>("hideLeftNav");
+            }
+        }
+
         public List<IPublishedContent> LeftNavigation
         {
             get
             {
-                return Model.Content.GetPropertyValue<bool>("hideLeftNav") ? new List<IPublishedContent>() : Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages();
+                return Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages();
             }
         }
     }

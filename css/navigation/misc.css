@@ -49,6 +49,7 @@
     display: none;
     border-radius: 3px;
     float: right;
+    color: #000;
 }
 
     .mobile-menu-toggle i {

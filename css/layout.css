@@ -25,6 +25,7 @@ header {
     width: 22%;
     margin-right: 3%;
     float: left;
+    min-height: 1px; /* If we don't have any pages in left-nav - still show container*/
 }
 /* == End of Left sidebar == */
 
