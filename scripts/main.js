@@ -28,7 +28,7 @@ var Camelonta = (function () {
         }));
 
         // Hack for making CTA's work correctly when created in Tiny
-        $('[class^="button"]').click(function (e) {
+        $('[class^="button"], [class^="icon"]').click(function (e) {
             var targetNode = e.target.nodeName;
             if (targetNode === 'SPAN') {
                 var link = $(this).find('a'),

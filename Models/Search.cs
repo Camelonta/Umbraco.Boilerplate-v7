@@ -1,6 +1,7 @@
 ﻿using Camelonta.Boilerplate.Classes;
 using System.Collections.Generic;
 using System.Linq;
+using Examine;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
@@ -70,6 +71,11 @@ namespace Camelonta.Boilerplate.Models
 
             // Search
             var search = umbracoHelper.TypedSearch(searchTerm).FilterSearchResults();
+
+            //var searchProvider = ExamineManager.Instance.DefaultSearchProvider;
+            //var searchResults = searchProvider.Search(searchTerm, true);
+            //TotalResults = searchResults.TotalItemCount;
+            //SearchResults = searchResults.Take(Take).ToList(); // TODO: Konvertera till IPublishedContent
 
             // Set properties depending on the result
             TotalResults = search.Count();

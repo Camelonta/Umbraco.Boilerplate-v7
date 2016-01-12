@@ -1,8 +1,10 @@
-﻿using Camelonta.Boilerplate.Classes;
+﻿using System;
+using Camelonta.Boilerplate.Classes;
 using Camelonta.Boilerplate.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Examine;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
@@ -28,32 +30,56 @@ namespace Camelonta.Boilerplate.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetSearchSuggestions(string searchTerm)
+        public JsonResult GetSearchSuggestions(string searchTerm) // TODO: Move to another controller
         {
-            var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
-            var words = new List<string>();
-           
-            var pages = umbracoHelper.TypedSearch(searchTerm).FilterSearchResults();
-            foreach(var page in pages)
-            {
-                var matchingWords = GetMatchingWords(page, searchTerm);
-                if(matchingWords.Any())
-                {
-                    words.AddRange(matchingWords);
-                }
-            }
-            return Json(words.Distinct());
+
+            return Json(GetSuggestedWords(searchTerm));
         }
 
-        private IEnumerable<string> GetMatchingWords(IPublishedContent page, string s)
+        private List<string> GetSuggestedWords(string searchTerm)
         {
-            var contentMiddle = page.GetProperty("contentMiddle");
-            if (contentMiddle == null || !contentMiddle.HasValue)
+            var searchProvider = ExamineManager.Instance.DefaultSearchProvider;
+            var pages = searchProvider.Search(searchTerm, true).ToList();
+            var searchFields = new List<string>
             {
-                return new List<string>();
-            }
+                "nodeName",
+                "contentMiddle",
+                "contentRight",
+                "metadescription",
+            };
 
-            return contentMiddle.DataValue.ToString().StripHtml().Split(' ').Where(word => word.ToLower().Contains(s.ToLower()));
+            var words = new List<string>();
+            foreach (var page in FilterSearchResults(pages)) // TODO: Konvertera till IPublishedContent och använd .FilterSearchResults();
+            {
+                var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
+                foreach (var pageProperty in pageProperties)
+                {
+                    var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var wordInField in wordsInField)
+                    {
+                        if (wordInField.ToLower().Contains(searchTerm.ToLower()))
+                        {
+                            if (!words.Contains(wordInField))
+                            {
+                                words.Add(wordInField);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return words;
+        }
+
+        private IEnumerable<SearchResult> FilterSearchResults(IEnumerable<SearchResult> pages)
+        {
+            // Remove invalid document types
+            pages = pages.Where(page => page.Fields.Single(field => field.Key == "nodeTypeAlias").Value.ToLower() != "site");
+
+            // Remove pages that doesn't have "Tillåt EJ sökmotorindexering" set
+            pages = pages.Where(page => page.Fields.Single(field => field.Key == "robotsIndex").Value != "1"); // 1 = true, 0 = false
+
+            return pages;
         }
     }
 }
