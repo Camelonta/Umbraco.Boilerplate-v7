@@ -17,7 +17,7 @@ namespace Camelonta.Boilerplate.Classes
             // Remove invalid document types
             pages = pages.Where(page => page.DocumentTypeAlias.ToLower() != "site");
 
-            // Remove pages that doesn't have "Tillåt EJ sökmotorindexering" set
+            // Remove pages that doesn't have search engine indexing allowed ("Tillåt EJ sökmotorindexering"-property)
             pages = pages.Where(page => !page.GetPropertyValue<bool>("robotsIndex"));
 
             return pages;

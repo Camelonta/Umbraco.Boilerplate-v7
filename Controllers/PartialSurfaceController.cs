@@ -32,7 +32,6 @@ namespace Camelonta.Boilerplate.Controllers
         [HttpPost]
         public JsonResult GetSearchSuggestions(string searchTerm) // TODO: Move to another controller
         {
-
             return Json(GetSuggestedWords(searchTerm));
         }
 
@@ -76,10 +75,17 @@ namespace Camelonta.Boilerplate.Controllers
             // Remove invalid document types
             pages = pages.Where(page => page.Fields.Single(field => field.Key == "nodeTypeAlias").Value.ToLower() != "site");
 
-            // Remove pages that doesn't have "Tillåt EJ sökmotorindexering" set
-            pages = pages.Where(page => page.Fields.Single(field => field.Key == "robotsIndex").Value != "1"); // 1 = true, 0 = false
+            // Remove pages that doesn't have search engine indexing allowed ("Tillåt EJ sökmotorindexering"-property)
+            pages = pages.Where(page => AllowSearchEngineIndexing(page.Fields)); // 1 = true, 0 = false
 
             return pages;
+        }
+
+        private bool AllowSearchEngineIndexing(IDictionary<string, string> fields)
+        {
+            string fieldName = "robotsIndex";
+            var field = fields.SingleOrDefault(f => f.Key == fieldName);
+            return field.Equals(default(KeyValuePair<string, string>)) || field.Value == "0"; // 1 = true, 0 = false
         }
     }
 }
