@@ -26,7 +26,7 @@ namespace Camelonta.Boilerplate.TemplatePages
         /// </summary>
         public IPublishedContent SearchPage
         {
-            get { return Umbraco.TypedContent(Model.Content.AncestorOrSelf(1).GetPropertyValue<int>("searchPage")); }
+            get { return Umbraco.TypedContent(CurrentSite.GetPropertyValue<int>("searchPage")); }
         }
 
         public bool HideLeftNavigation
