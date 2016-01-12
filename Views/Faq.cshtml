@@ -15,6 +15,7 @@
         }
         else
         {
+            @RenderHelper.Header(Model.Content)
             @Model.Content.GetPropertyValue("contentMiddle")
 
             @* Questionlist *@
