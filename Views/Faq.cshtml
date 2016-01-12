@@ -3,32 +3,32 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
-<section id="l-sidebar">
+<div class="container">
     @RenderPage("Partials/_LeftNav.cshtml")
-</section>
 
-<article>
+    <article>
 
-    @if (Model.Content.DocumentTypeAlias == "Faqquestion")
-    {
-        <h1>@Model.Content.Name</h1>
-        @FaqQuestion(Model.Content)
-    }
-    else
-    {
-        @Model.Content.GetPropertyValue("contentMiddle")
+        @if (Model.Content.DocumentTypeAlias == "Faqquestion")
+        {
+            <h1>@Model.Content.Name</h1>
+            @FaqQuestion(Model.Content)
+        }
+        else
+        {
+            @Model.Content.GetPropertyValue("contentMiddle")
 
-        @* Questionlist *@
+            @* Questionlist *@
         foreach (var page in Model.Content.Children)
         {
             @FaqQuestion(page)
+            }
         }
-    }
 
-</article>
+    </article>
+</div>
 
-
-@helper FaqQuestion(IPublishedContent page) {
+@helper FaqQuestion(IPublishedContent page)
+{
     <div class="faq">
         <h3 class="question">@page.Name</h3>
         <div class="answer">
