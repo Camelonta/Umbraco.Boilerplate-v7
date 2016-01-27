@@ -22,5 +22,18 @@ namespace Camelonta.Boilerplate.Classes
 
             return pages;
         }
+
+        /// <summary>
+        /// Get page from Content picker ID
+        /// </summary>
+        /// <param name="helper">UmbracoHelper</param>
+        /// <param name="page">Page to get property from</param>
+        /// <param name="propertyAlias">Alias of Content picker property</param>
+        /// <returns></returns>
+        public static IPublishedContent GetIPublishedContent(this UmbracoHelper helper, IPublishedContent page, string propertyAlias)
+        {
+            int id = page.GetPropertyValue<int>(propertyAlias);
+            return helper.TypedContent(id);
+        }
     }
 }
