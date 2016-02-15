@@ -1,11 +1,11 @@
 ﻿@using Camelonta.Utilities
 @inherits CamelontaUmbracoTemplatePage
 
-<nav id="top-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+<nav id="top-nav">
     <div class="container">
         @Html.Partial("_SearchForm")
         @Html.Partial("_TopLinks")
-        <ul class="dyn-menu">
+        <ul class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
             @foreach (var page in CurrentSite.Children.FilterInvalidPages())
             {
                 var target = Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank");
