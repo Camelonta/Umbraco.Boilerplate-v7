@@ -32,16 +32,6 @@ ul.sections li.avatar {
 }
 
 
-/* Change colorscheme of grid */
-.usky-grid .tb:hover .td {
-    border-right: 1px dashed #ccc;
-}
-
-.usky-grid .tb:hover .usky-row {
-    border-bottom: 1px dashed #ccc;
-}
-
-
 /* Lists */
 .cam-list div {
     padding: 5px;
@@ -56,18 +46,12 @@ ul.sections li.avatar {
 }
 
 
-/* HTML-editor in grid */
-.mce-tinymce.mce-container.mce-panel {
-    border: 1px solid #ccc !important;
-}
-
-
-/* Larger headlines */
-.umb-panel-header .umb-headline, .umb-panel-header h1 {
+/* Larger headline on edit-page */
+.umb-panel-header .umb-panel-header-name-input {
     font-size: 22px;
 }
 
-/* Login page */
+/* Login-page */
 .login-overlay {
     background: #191919 !important;
 }
@@ -162,18 +146,6 @@ ul.sections li.avatar {
 .controls-row img {
     max-width: 100%;
 }
-
-
-/* Hide upload on root-folder in media */
-form[node-id="-1"] .drop-zone {
-    display: none;
-}
-
-form[node-id="-1"]:before {
-    content: "Uploading to root folder is not allowed. Please create a folder.\A\A"; /* TODO: localize */
-    white-space: pre;
-}
-
 
 /* == Page tree == */
 #tree .icon-home {
