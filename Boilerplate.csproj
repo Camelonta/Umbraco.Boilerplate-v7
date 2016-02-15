@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Camelonta.Boilerplate</RootNamespace>
     <AssemblyName>Camelonta.Boilerplate</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -136,16 +136,12 @@
       <HintPath>packages\UmbracoCms.Core.7.4.0\lib\interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Jumoo.uSync.BackOffice, Version=3.0.5828.22137, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\uSync.3.0.3\lib\net45\Jumoo.uSync.BackOffice.dll</HintPath>
+    <Reference Include="Jumoo.uSync.BackOffice, Version=3.1.0.740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.3.1.0.740\lib\net45\Jumoo.uSync.BackOffice.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Jumoo.uSync.BackOffice.UI, Version=3.0.5750.30839, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\uSync.3.0.3\lib\net45\Jumoo.uSync.BackOffice.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Jumoo.uSync.Core, Version=5.1.5828.22136, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\uSync.Core.5.1.0\lib\net45\Jumoo.uSync.Core.dll</HintPath>
+    <Reference Include="Jumoo.uSync.Core, Version=5.3.0.740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\uSync.Core.5.3.0.740\lib\net45\Jumoo.uSync.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
@@ -422,7 +418,10 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
-    <Content Include="App_Plugins\uSync\BackOffice\uSyncBackOfficeDashboard.ascx" />
+    <Content Include="App_Plugins\uSync\uSyncDashboard.css" />
+    <Content Include="App_Plugins\uSync\uSyncDashboard.html" />
+    <Content Include="App_Plugins\uSync\uSyncDashboardController.js" />
+    <Content Include="App_Plugins\uSync\uSyncDashboardService.js" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
@@ -516,8 +515,6 @@
     <Content Include="Views\MacroPartials\RawHtml.cshtml" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
-    <Content Include="Config\uSyncCore.config" />
-    <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="Views\Partials\_SearchResults.cshtml" />
     <Content Include="App_Code\RenderHelper.cshtml" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
@@ -548,6 +545,9 @@
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
     <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
+    <Content Include="Config\uSyncCore.config" />
+    <Content Include="Config\uSyncBackOffice.Config" />
+    <Content Include="App_Plugins\uSync\package.manifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
