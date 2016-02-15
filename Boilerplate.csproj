@@ -68,20 +68,20 @@
       <HintPath>packages\UmbracoCms.Core.7.4.0\lib\businesslogic.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.ActivityLog, Version=1.3.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CamelontaUmbracoActivityLog.1.3.8\lib\Camelonta.ActivityLog.dll</HintPath>
+    <Reference Include="Camelonta.ActivityLog, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CamelontaUmbracoActivityLog.1.4.0.0\lib\Camelonta.ActivityLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Camelonta.MyVisitors, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\CamelontaUmbracoMyVisitors.0.9\lib\Camelonta.MyVisitors.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.UI, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CamelontaUmbracoUI.2.0.5\lib\Camelonta.UI.dll</HintPath>
+    <Reference Include="Camelonta.UI, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CamelontaUmbracoUI.3.0.0.1\lib\Camelonta.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.Utilities, Version=1.1.3.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\CamelontaUmbracoUtilities.1.1.3.1\lib\Camelonta.Utilities.dll</HintPath>
+    <Reference Include="Camelonta.Utilities, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\CamelontaUmbracoUtilities.1.1.4.0\lib\Camelonta.Utilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ClientDependency.Core, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
@@ -510,8 +510,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Plugins\Camelonta.MyVisitors\package.manifest" />
-    <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
-    <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
     <Content Include="Views\Partials\_CookieWarning.cshtml" />
     <Content Include="Views\Partials\_Favicons.cshtml" />
     <Content Include="Views\Partials\_Footer.cshtml" />
@@ -526,7 +524,6 @@
     <Content Include="Config\umbracoSettings.config" />
     <Content Include="Config\Dashboard.config" />
     <Content Include="Config\ClientDependency.config" />
-    <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
@@ -548,6 +545,9 @@
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
+    <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
+    <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
