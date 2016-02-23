@@ -9,9 +9,9 @@
 }
 
 <div class="container">
-    @RenderPage("Partials/_LeftNav.cshtml")
+    @Html.Partial("Layout/_LeftNav")
 
-    <main>
+    <main role="main">
         <h1>@Model.Content.Name</h1>
 
         @foreach (var page in news)

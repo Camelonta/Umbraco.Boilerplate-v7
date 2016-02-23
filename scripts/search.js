@@ -38,7 +38,7 @@ Camelonta.Search = (function () {
             searchMoreLink.addClass('loading');
 
             // Hide error if it's shown and this is another search
-            $('#search-unexpected-error').addClass('hidden'); 
+            $('#search-unexpected-error').addClass('hide'); 
 
             // Setup data to POST
             var data = {
@@ -68,7 +68,7 @@ Camelonta.Search = (function () {
                 searchMoreLink.removeClass('loading');
             }).fail(function (errorResponse) {
                 // Show error
-                $('#search-unexpected-error').removeClass('hidden');
+                $('#search-unexpected-error').removeClass('hide');
                 //console.error(errorResponse.responseText);
 
                 // Set loading state

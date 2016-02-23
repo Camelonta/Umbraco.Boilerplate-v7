@@ -1,0 +1,48 @@
+﻿/* == Global button properties == */
+%button-properties {
+    color: #fff !important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+%button-hover {
+    -moz-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+@mixin button($hoverColor) {
+    @extend %button-properties;
+    @extend %button-hover;
+
+    a {
+        @extend %button-properties;
+
+        &:hover {
+            @extend %button-properties;
+        }
+    }
+
+    &:hover {
+        background-color: $hoverColor;
+    }
+}
+/* == End of Global button properties == */
+
+
+/* == OUR BUTTON STYLES == */
+.button {
+    @include button(#FDB949);
+}
+
+.button-ghost {
+    border:2px solid #fff;
+    background-color:transparent;
+    @include button(rgba(255, 255, 255, 0.23));
+}
+
+.button-variant {
+    @include button(#1D8DDE);
+}
+/* == END OF OUR BUTTON STYLES == */

@@ -18,11 +18,14 @@ namespace Camelonta.Boilerplate.Classes
 
             // Get whole property, otherwise we get error "Cannot render a macro when there is no current PublishedContentRequest." if it contains Macro
             var contentMiddle = page.GetProperty("contentMiddle");
-            if (contentMiddle == null || !contentMiddle.HasValue)
-                return string.Empty;
+            if (contentMiddle != null && contentMiddle.HasValue)
+                teaser = contentMiddle.DataValue.ToString();
 
-            string value = contentMiddle.DataValue.ToString();
-            teaser = Regex.Replace(value.StripHtml(), @"\s+", " "); // Remove long whitespaces and truncate
+            if (page.HasValue("grid"))
+                teaser = page.GetGridHtml("grid").ToString();
+
+            // Clean text
+            teaser = Regex.Replace(teaser.StripHtml(), @"\s+", " "); // Remove long whitespaces and truncate
 
             return teaser.Truncate(truncate);
         }

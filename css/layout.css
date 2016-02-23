@@ -62,10 +62,6 @@ main, article {
     min-height: 450px;
 }
 
-    main .umb-grid .container {
-        padding: 0; /* Grid-containers should not have padding since we want to be able to wrap grid-content inside our own .container aswell (this avoids double padding on nested containers). */
-    }
-
 .grid-section > div {
     background-position: center; /* Centrera bakgrundsbilder i grid-sektioner */
 }
@@ -92,5 +88,9 @@ main, article {
     main,
     aside {
         width: 100%;
+    }
+
+    #l-sidebar {
+        display: none;
     }
 }

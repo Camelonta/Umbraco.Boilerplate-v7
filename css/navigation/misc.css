@@ -32,12 +32,19 @@
     display: block; /* Only display sub-ul's in 'active' li's '*/
 }
 
-.dyn-menu li.active > a > .toggle:before, .maximizing > a > .toggle:before {
-    content: "\e602"; /* Minus-sign TODO: �ndra till ditt minustecken fr�n Icomoon */
+.dyn-menu li.active > a > .toggle:before,
+.maximizing > a > .toggle:before {
+    content: "-";
 }
 
+
+.dyn-menu .toggle:before {
+    content: "+";
+}
+
+
 .minimizing > a > .toggle:before {
-    content: "\e601" !important; /* Plus-sign  TODO: �ndra till ditt plustecken fr�n Icomoon */
+    content: "+" !important;
 }
 /* == End of Dynamic navigation == */
 
@@ -60,7 +67,7 @@
 /* == End of Mobile menu toggle == */
 
 /* Pulsera plus-knappen samt sökens "Visa fler resultat" när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-.dyn-menu .loading .icon-plus,
+.dyn-menu .loading .toggle,
 #search-more-results.loading {
     -webkit-animation: 2s opaque_leave infinite;
     -moz-animation: 2s opaque_leave infinite;

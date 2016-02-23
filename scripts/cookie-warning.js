@@ -18,7 +18,7 @@
             }
 
             // Click-event on Accept-button
-            $('#cookie-warning .button').on('click', function () {
+            $('#cookie-warning .accept').on('click', function () {
                 Cookies.set(cookieName, true, { expires: 365 });
                 html.slideUp();
             });

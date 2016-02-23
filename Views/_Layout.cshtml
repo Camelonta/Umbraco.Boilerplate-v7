@@ -11,12 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
 
+    @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
+    <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
     <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
     <meta property="og:url" content="@Model.Content.UrlAbsolute()">
     <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
     <meta property="og:site_name" content="@CurrentSite.Name" />
-    @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
-    <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
+
 
     @Html.Partial("_Favicons")
 
@@ -31,9 +32,9 @@
         <script src="@Scripts.Url("~/bundles/ltIe9Scripts")"></script>
     <![endif]-->
 </head>
-<body class="documenttype-@Model.Content.DocumentTypeAlias.ToLower()"" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id" data-search-url="@SearchPage.GetUrl()">
+<body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id" data-search-url="@SearchPage.GetUrl()">
 
-    <header>
+    <header role="banner">
         <div class="container">
             <a href="@CurrentSite.Url" id="header-logo">
                 <img src="http://placehold.it/350x150/fff/333?text=LOGO" alt="@CurrentSite.Name logo">
@@ -47,9 +48,11 @@
 
     @Html.Partial("_TopNav")
 
+    @Html.Partial("Layout/_Hero")
+
     @RenderBody()
 
-    @Html.Partial("_Footer")
+    @Html.Partial("Layout/_Footer")
 
     @Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/bundles/scripts")
 
@@ -64,3 +67,18 @@
     }
 </body>
 </html>
+
+@functions{
+
+    string BodyClasses()
+    {
+        var classes = string.Format("page-{0}", Model.Content.DocumentTypeAlias.ToLower());
+
+        if (Model.Content.HasValue("additionalBodyClass"))
+        {
+            classes += " " + Model.Content.GetPropertyValue("additionalBodyClass");
+        }
+
+        return classes;
+    }
+}

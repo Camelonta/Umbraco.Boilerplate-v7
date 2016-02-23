@@ -4,16 +4,16 @@
 }
 
 <div class="container">
-    @RenderPage("Partials/_LeftNav.cshtml")
+    @Html.Partial("Layout/_LeftNav")
 
     @if (Model.Content.HasValue("contentRight"))
     {
-        <aside>
+        <aside role="complementary">
             @Model.Content.GetPropertyValue("contentRight")
         </aside>
     }
 
-    <main>
+    <main role="main">
         @RenderHelper.Header(Model.Content)
         @Model.Content.GetPropertyValue("contentMiddle")
     </main>

@@ -5,7 +5,7 @@
     var slides = Model.Content.GetPropertyValue<ArchetypeModel>("slider");
 }
 
-@if (slides.Fieldsets.Any())
+@if (slides != null && slides.Fieldsets.Any())
 {
     <div class="swiper-container">
         <div class="swiper-wrapper">

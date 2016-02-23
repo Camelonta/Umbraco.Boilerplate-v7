@@ -442,22 +442,27 @@
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="css\animations.css" />
-    <Content Include="css\modules\_button.css" />
-    <Content Include="css\modules\_cookie-warning.css" />
-    <Content Include="css\modules\_faq.css" />
+    <Content Include="css\Bundled.css">
+      <DependentUpon>Bundled.scss</DependentUpon>
+    </Content>
+    <Content Include="css\Bundled.min.css">
+      <DependentUpon>Bundled.css</DependentUpon>
+    </Content>
+    <Content Include="css\modules\cookie-warning.css" />
+    <Content Include="css\modules\faq.css" />
     <Content Include="css\form.css" />
-    <Content Include="css\modules\_search-form.css" />
+    <Content Include="css\modules\search-form.css" />
     <Content Include="css\navigation\left-nav.css" />
     <Content Include="css\navigation\top-links.css" />
     <Content Include="css\navigation\top-nav.css" />
-    <Content Include="css\pagetypes\home.css" />
+    <Content Include="css\page\home.css" />
     <Content Include="css\typo.css" />
     <Content Include="css\base.css" />
     <Content Include="css\utilities.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\layout.css" />
     <Content Include="css\navigation\misc.css" />
-    <Content Include="css\modules\_video.css" />
+    <Content Include="css\modules\video.css" />
     <Content Include="css\vendor\jquery.auto-complete.css" />
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />
@@ -491,14 +496,10 @@
     <Content Include="Views\Search.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Partials\_TopNav.cshtml" />
-    <Content Include="Views\Partials\_LeftNav.cshtml" />
     <Content Include="Views\MacroPartials\PageList.cshtml" />
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />
     <Content Include="Views\MacroPartials\ImageGallery.cshtml" />
-    <Content Include="Views\Partials\_Slider.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Views\NewsList.cshtml" />
     <Content Include="Config\trees.config" />
     <Content Include="Views\Faq.cshtml" />
@@ -511,7 +512,6 @@
     <Content Include="App_Plugins\Camelonta.MyVisitors\package.manifest" />
     <Content Include="Views\Partials\_CookieWarning.cshtml" />
     <Content Include="Views\Partials\_Favicons.cshtml" />
-    <Content Include="Views\Partials\_Footer.cshtml" />
     <Content Include="Views\MacroPartials\RawHtml.cshtml" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
@@ -548,6 +548,15 @@
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="App_Plugins\uSync\package.manifest" />
+    <Content Include="css\modules\buttons.scss" />
+    <Content Include="css\Bundled.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Views\Partials\Layout\_Footer.cshtml" />
+    <Content Include="Views\Partials\Layout\_Hero.cshtml" />
+    <Content Include="Views\Partials\Layout\_LeftNav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -577,6 +586,7 @@
     <Analyzer Include="packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

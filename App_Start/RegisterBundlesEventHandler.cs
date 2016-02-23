@@ -35,18 +35,19 @@ namespace Camelonta.Boilerplate.App_Start
                 "faq.css",
                 "utilities.css",
 
-                "modules/_faq.css",
-                "modules/_button.css",
-                "modules/_video.css",
-                "modules/_cookie-warning.css",
-                "modules/_search-form.css", // Stylesheet for search
+                "modules/faq.css",
+                "modules/video.css",
+                "modules/cookie-warning.css",
+                "modules/search-form.css", // Stylesheet for search
+
+                "Bundled.css",
 
                 "navigation/left-nav.css",
                 "navigation/top-nav.css",
                 "navigation/top-links.css",
                 "navigation/misc.css",
 
-                "pagetypes/home.css",
+                "page/home.css",
 
                 "typo.css",
                 "print.css"

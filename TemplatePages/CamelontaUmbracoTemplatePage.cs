@@ -1,5 +1,6 @@
 ﻿using Camelonta.Boilerplate.Classes;
 using System.Collections.Generic;
+using System.Linq;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
@@ -8,6 +9,9 @@ namespace Camelonta.Boilerplate.TemplatePages
 {
     public abstract class CamelontaUmbracoTemplatePage : UmbracoTemplatePage
     {
+        private List<IPublishedContent> _leftNav;
+        private IPublishedContent _currentSite;
+
         public IPublishedContent CurrentSite
         {
             get
@@ -19,7 +23,7 @@ namespace Camelonta.Boilerplate.TemplatePages
                 return _currentSite;
             }
         }
-        private IPublishedContent _currentSite;
+     
 
         /// <summary>
         /// The current sites search page
@@ -40,12 +44,8 @@ namespace Camelonta.Boilerplate.TemplatePages
             }
         }
 
-        public List<IPublishedContent> LeftNavigation
-        {
-            get
-            {
-                return Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages();
-            }
-        }
+        public List<IPublishedContent> LeftNavigation => _leftNav ?? (_leftNav = Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages());
+
+        public bool HideLeftNav => !LeftNavigation.Any() || Model.Content.GetPropertyValue<bool>("hideLeftNav");
     }
 }
