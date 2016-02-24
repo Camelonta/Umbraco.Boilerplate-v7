@@ -15,6 +15,7 @@
 1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den
 
 2. Döp om allt (mappen + projektet)
+	- Gör search n replace på "Camelonta.Boilerplate" -> "Kunden", därefter "Boilerplate" -> "Kunden"
 
 3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt)
 
