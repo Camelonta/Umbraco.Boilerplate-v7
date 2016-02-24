@@ -30,4 +30,8 @@
 
 SIST: Ta bort denna README :)
 
+
+Problem:
+    - Ambigious reference: Ta bort dll:en för Camelonta.Boilerplate i din nya bin-katalog (krockar med din dll)
+
 ====================================================
