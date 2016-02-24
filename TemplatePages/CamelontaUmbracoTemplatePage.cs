@@ -1,4 +1,4 @@
-﻿using Camelonta.Boilerplate.Classes;
+using Camelonta.Boilerplate.Classes;
 using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Core.Models;
@@ -33,14 +33,6 @@ namespace Camelonta.Boilerplate.TemplatePages
             get
             {
                 return Umbraco.GetIPublishedContent(CurrentSite, "searchPage");
-            }
-        }
-
-        public bool HideLeftNavigation
-        {
-            get
-            {
-                return Model.Content.GetPropertyValue<bool>("hideLeftNav");
             }
         }
 
