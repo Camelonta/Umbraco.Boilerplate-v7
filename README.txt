@@ -17,7 +17,7 @@
 2. Döp om allt (mappen + projektet)
 	- Gör search n replace på "Camelonta.Boilerplate" -> "Kunden", därefter "Boilerplate" -> "Kunden"
 
-3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt)
+3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt). OBS! Sätt portnumret högre än 1024, annars kan man inte öppna projektet utan att vara Admin.
 
 4. Fixa URL:en i robots.txt
 
