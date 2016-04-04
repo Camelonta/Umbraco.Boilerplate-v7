@@ -441,7 +441,6 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
-    <Content Include="css\animations.css" />
     <Content Include="css\Bundled.css">
       <DependentUpon>Bundled.scss</DependentUpon>
     </Content>
@@ -452,7 +451,6 @@
     <Content Include="css\modules\faq.css" />
     <Content Include="css\form.css" />
     <Content Include="css\modules\search-form.css" />
-    <Content Include="css\navigation\left-nav.css" />
     <Content Include="css\navigation\top-links.css" />
     <Content Include="css\navigation\top-nav.css" />
     <Content Include="css\page\home.css" />
@@ -460,7 +458,6 @@
     <Content Include="css\utilities.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\layout.css" />
-    <Content Include="css\navigation\misc.css" />
     <Content Include="css\modules\video.css" />
     <Content Include="css\vendor\jquery.auto-complete.css" />
     <Content Include="css\vendor\normalize.css" />
@@ -557,6 +554,10 @@
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="css\base.scss" />
+    <Content Include="css\animations.scss" />
+    <Content Include="css\navigation\misc.scss" />
+    <Content Include="css\mixins\flexbox.scss" />
+    <Content Include="css\navigation\left-nav.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
