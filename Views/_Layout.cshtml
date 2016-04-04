@@ -18,7 +18,6 @@
     <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
     <meta property="og:site_name" content="@CurrentSite.Name" />
 
-
     @Html.Partial("_Favicons")
 
     @Styles.Render("~/bundles/styles")
@@ -54,16 +53,17 @@
 
     @Html.Partial("Layout/_Footer")
 
-    @Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/bundles/scripts")
+    @* All site scripts. If NOT debug (if live): set attribute "async" *@
+    @Scripts.RenderFormat(string.Format("<script src=\"{{0}}\" {0}></script>", HttpContext.Current.IsDebuggingEnabled ? "" : " async"), "~/bundles/scripts")
 
     @if (CurrentSite.HasValue("siteScript"))
     {
-        <script async>@Html.Raw(CurrentSite.GetPropertyValue("siteScript"))</script>
+       @Html.Raw(CurrentSite.GetPropertyValue("siteScript"))
     }
 
     @if (Model.Content.HasValue("pageScript"))
     {
-        <script async>@Html.Raw(Model.Content.GetPropertyValue("pageScript"))</script>
+        @Html.Raw(Model.Content.GetPropertyValue("pageScript"))
     }
 </body>
 </html>
