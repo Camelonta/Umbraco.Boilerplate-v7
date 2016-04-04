@@ -1,0 +1,44 @@
+﻿#left-nav {
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        ul {
+            padding-left: 5%; /* Move every submenu a bit to the right */
+
+            a {
+                background-color: transparent;
+                color: #333;
+            }
+        }
+    }
+
+    li {
+        background: #FFECE4; /* Background for submenus */
+    }
+
+    a {
+        background-color: #F16529;
+        color: #FFF;
+        padding: 9px 12px;
+        display: block;
+    }
+
+    > ul > li.active > a {
+        background-color: #8C3611; /* Slightly darker active menu */
+    }
+
+    &.dyn-menu {
+        ul ul {
+            display: none;
+        }
+
+        .active > ul {
+            display: block; /* Only display sub-ul's in 'active' li's '*/
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        display: none;
+    }
+}

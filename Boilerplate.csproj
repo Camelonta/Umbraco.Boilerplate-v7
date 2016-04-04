@@ -128,8 +128,8 @@
       <HintPath>packages\ImageProcessor.Web.4.5.3.0\lib\net45\ImageProcessor.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="InfoCaster.Umbraco.UrlTracker, Version=3.10.5847.28108, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\UrlTracker.3.10\lib\InfoCaster.Umbraco.UrlTracker.dll</HintPath>
+    <Reference Include="InfoCaster.Umbraco.UrlTracker, Version=3.11.5900.30099, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\UrlTracker.3.11\lib\InfoCaster.Umbraco.UrlTracker.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="interfaces, Version=1.0.5891.23238, Culture=neutral, processorArchitecture=MSIL">
@@ -457,7 +457,6 @@
     <Content Include="css\navigation\top-nav.css" />
     <Content Include="css\page\home.css" />
     <Content Include="css\typo.css" />
-    <Content Include="css\base.css" />
     <Content Include="css\utilities.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\layout.css" />
@@ -557,6 +556,7 @@
     <Content Include="Config\404handlers.config" />
     <Content Include="Config\uSyncCore.config" />
     <Content Include="Config\uSyncBackOffice.Config" />
+    <Content Include="css\base.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

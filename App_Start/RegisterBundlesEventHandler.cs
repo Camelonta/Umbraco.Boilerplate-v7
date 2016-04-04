@@ -26,12 +26,10 @@ namespace Camelonta.Boilerplate.App_Start
                 "vendor/bootstrap.css",
                 "vendor/jquery.auto-complete.css", // Stylesheet for search
                 
+                "Bundled.css",
 
-                "base.css",
                 "layout.css",
                 "form.css",
-                "nav.css",
-                "animations.css",
                 "faq.css",
                 "utilities.css",
 
@@ -40,12 +38,8 @@ namespace Camelonta.Boilerplate.App_Start
                 "modules/cookie-warning.css",
                 "modules/search-form.css", // Stylesheet for search
 
-                "Bundled.css",
-
-                "navigation/left-nav.css",
                 "navigation/top-nav.css",
                 "navigation/top-links.css",
-                "navigation/misc.css",
 
                 "page/home.css",
 

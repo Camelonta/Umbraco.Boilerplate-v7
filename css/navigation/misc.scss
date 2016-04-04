@@ -19,13 +19,9 @@
     right: 0;
     top: 0;
     text-align: center;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+
+    @extend %flexbox;
+    @include align-items(center);
 }
 
 .dyn-menu .active > ul {
@@ -59,20 +55,17 @@
     color: #000;
 }
 
-    .mobile-menu-toggle i {
-        vertical-align: middle;
-        margin-right: 5px;
-        font-size: 1.3em;
-    }
+.mobile-menu-toggle i {
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 1.3em;
+}
 /* == End of Mobile menu toggle == */
 
 /* Pulsera plus-knappen samt sökens "Visa fler resultat" när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 .dyn-menu .loading .toggle,
 #search-more-results.loading {
-    -webkit-animation: 2s opaque_leave infinite;
-    -moz-animation: 2s opaque_leave infinite;
-    -o-animation: 2s opaque_leave;
-    animation: 2s opaque_leave infinite;
+    @extend %pulsate;
 }
 
 @media only screen and (max-width: 767px) {

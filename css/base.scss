@@ -55,6 +55,10 @@ hr {
 a {
     color: #E44D26;
     text-decoration: none;
+
+    i, span {
+        vertical-align: middle;
+    }
 }
 
 @media only screen and (max-width: 990px) {
