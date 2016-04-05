@@ -8,13 +8,13 @@
     <main role="main">
         <h1>@Model.Content.Name</h1>
         @Html.Partial("_SearchForm")
-        <div id="search-results">
+        <div id="search-results" data-search-term="@search.SearchTerm">
             @{Html.RenderPartial("~/Views/Partials/_SearchResults.cshtml", search);}
         </div>
 
         @if (search.HasHiddenResults)
         {
-            <a id="search-more-results" href="@SearchPage.GetUrl()?q=@search.SearchTerm&page=@NextPage" class="button" data-search-term="@search.SearchTerm" data-next-page="@NextPage">
+            <a id="search-more-results" href="@SearchPage.GetUrl()?q=@search.SearchTerm&page=@NextPage" class="button" data-next-page="@NextPage">
                 <i class="icon-keyboard-arrow-down2"></i> Visa fler resultat
             </a>
             <div id="search-unexpected-error" class="hide red">Kunde inte hämta fler resultat, vänligen försök igen.</div>

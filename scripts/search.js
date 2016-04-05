@@ -6,7 +6,7 @@ Camelonta.Search = (function () {
     }
 
     var autocomplete = function () {
-        $('.search-form input[type="search"').autoComplete({
+        $('.search-form input[type="search"]').autoComplete({
             minChars: 1,
             source: function (term, suggest) {
                 // Setup data to POST
@@ -31,7 +31,7 @@ Camelonta.Search = (function () {
     var init = function () {
         autocomplete();
         var searchMoreLink = $('#search-more-results');
-        var searchTerm = $('#search-more-results').data('search-term');
+        var searchTerm = $('#search-results').data('search-term');
 
         searchMoreLink.click(function (e) {
             // Set loading state
