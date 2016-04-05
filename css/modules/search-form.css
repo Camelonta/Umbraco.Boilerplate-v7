@@ -12,6 +12,10 @@
     font-weight: bold;
 }
 
+.search-result span {
+    vertical-align: top;
+}
+
 @media only screen and (max-width: 767px) {
     .search-form {
         display: none;
