@@ -2,6 +2,6 @@
 
 <section id="l-sidebar" class="@Umbraco.If(HideLeftNav,"hide")">
     <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-        @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = LeftNavigation })
+        @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = Model.Content.GetPropertyValue<bool>("hideLeftNav") ? new List<IPublishedContent>() : LeftNavigation })
     </nav>
 </section>
