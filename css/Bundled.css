@@ -148,8 +148,9 @@ footer {
   background: #7b5294;
   border-top: 20px solid #c4add2;
   color: white;
-  padding: 20px 0;
-  margin-top: 70px; }
+  padding: 20px 0 80px; }
+  footer p {
+    margin: 3px 0; }
 
 /*-------------------------------------*/
 main, article {
@@ -413,4 +414,22 @@ nav .top-links {
     background-size: 100%; }
   .video:hover:before {
     opacity: .9; }
+
+#cookie-warning {
+  /* TODO - Styla utifall kunden väljer att använda den */
+  background-color: #2D2D2D;
+  box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.56);
+  z-index: 100000;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 15px 0;
+  color: #fff;
+  display: none; }
+  #cookie-warning .icon-cancel {
+    font-size: 3em; }
+
+@media screen and (max-width: 767px) {
+  #cookie-warning {
+    text-align: center; } }
 

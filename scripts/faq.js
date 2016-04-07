@@ -1,13 +1,9 @@
-Camelonta.Faq = (function () {
+(function () {
+    'use strict';
 
-    var init = function () {
-        // Show answers on question-click
-        $(".question").click(function () {
-            $(this).next(".answer").slideToggle();
-        });
-    }
+    // Show answers on question-click
+    $(".question").click(function () {
+        $(this).next(".answer").slideToggle();
+    });
 
-    return {
-        Init: init
-    }
 })();

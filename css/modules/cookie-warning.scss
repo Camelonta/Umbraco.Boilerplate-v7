@@ -1,6 +1,6 @@
 ﻿#cookie-warning {
     /* TODO - Styla utifall kunden väljer att använda den */
-    background-color: #823515;
+    background-color: #2D2D2D;
     box-shadow: 0 0 16px 4px rgba(0,0,0,.56);
     z-index: 100000;
     position: fixed;
@@ -9,6 +9,10 @@
     padding: 15px 0;
     color: #fff;
     display: none;
+
+    .icon-cancel {
+        font-size: 3em;
+    }
 }
 
 @media screen and (max-width: 767px) {

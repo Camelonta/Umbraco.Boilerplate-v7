@@ -55,8 +55,11 @@ footer {
     background: $purple;
     border-top: 20px solid $purple-light;
     color: white;
-    padding: 20px 0;
-    margin-top: 70px;
+    padding: 20px 0 80px;
+
+    p {
+        margin: 3px 0;
+    }
 }
 
 

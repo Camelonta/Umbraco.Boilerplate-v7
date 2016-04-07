@@ -29,10 +29,8 @@ namespace Camelonta.Boilerplate.App_Start
                 "Bundled.css",
 
                 "form.css",
-                "faq.css",
 
                 "modules/faq.css",
-                "modules/cookie-warning.css",
                 "modules/search-form.css", // Stylesheet for search
 
                 "typo.css",
