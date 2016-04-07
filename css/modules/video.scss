@@ -1,7 +1,4 @@
-/* == Modules are the reusable, modular parts of our design. They are the callouts, the sidebar sections, the product lists and so on. == */
-
-/* == Video == */
-.video {
+﻿.video {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -10,9 +7,8 @@
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
-}
 
-    .video iframe {
+    iframe {
         border: 0;
         position: absolute;
         top: 0;
@@ -21,7 +17,7 @@
         height: 100%;
     }
 
-    .video:before {
+    &:before {
         content: "";
         position: absolute;
         top: 0;
@@ -36,7 +32,7 @@
         background-size: 100%;
     }
 
-    .video:hover:before {
+    &:hover:before {
         opacity: .9;
     }
-/* == End of Video == */
+}

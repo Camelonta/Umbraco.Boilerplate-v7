@@ -12,13 +12,13 @@ body {
 }
 
 ::-moz-selection {
-    background: #F16529;
+    background: $purple-light;
     color: #fff;
     text-shadow: none;
 }
 
 ::selection {
-    background: #F16529;
+    background: $purple-light;
     color: #fff;
     text-shadow: none;
 }
@@ -53,7 +53,7 @@ hr {
 }
 
 a {
-    color: #E44D26;
+    color: $purple;
     text-decoration: none;
 
     i, span {

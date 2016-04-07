@@ -14,18 +14,18 @@
     }
 
     li {
-        background: #FFECE4; /* Background for submenus */
+        background: #F3E9F9; /* Background for submenus */
     }
 
     a {
-        background-color: #F16529;
+        background-color: $purple;
         color: #FFF;
         padding: 9px 12px;
         display: block;
     }
 
     > ul > li.active > a {
-        background-color: #8C3611; /* Slightly darker active menu */
+        background-color: #9071A2; /* Slightly darker active menu */
     }
 
     &.dyn-menu {

@@ -1,37 +1,39 @@
 ﻿.top-links {
     text-align: right;
-}
 
-    .top-links li {
+    li {
         display: inline-block;
     }
 
-    .top-links a {
+    a {
         margin-left: 27px;
         color: #fff;
     }
 
-    .top-links span, .top-links img {
+    span,
+    img {
         vertical-align: middle;
     }
 
-    .top-links img {
+    img {
         max-width: 15px;
     }
+}
 
-
-/* Toplinks in the mobile menu */
-nav .top-links {
-    border: 1px solid #3C3C3C;
-    text-align: center;
+/* == Toplinks in the mobile menu == */
+nav {
+    .top-links {
+        border: 1px solid #3C3C3C;
+        text-align: center;
+    }
 }
 
 @media only screen and (max-width: 767px) {
     .top-links {
         display: none;
-    }
 
-        .top-links a {
+        a {
             margin: 0 14px;
         }
+    }
 }

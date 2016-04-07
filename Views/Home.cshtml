@@ -3,31 +3,42 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
-@Html.GetGridHtml(Model.Content, "grid")
+<main role="main">
+    @Html.GetGridHtml(Model.Content, "grid")
+</main>
+
 
 @*
-    TODO: Byt ut alla värden (så många du kan) mot dina egna (företaget du skapar åt)
-    Detta schema behöver bara skrivas ut på startsidan
+    - Schema.org -
+    Blir finare sökträff i Google samt andra sökmotorer
 *@
-<script type="application/ld+json">
-    {
-    "@@context": "http://schema.org",
-    "@@type": "Organization",
-    "name": "FÖRETAGET",
-    "url":"https://företaget.se",
-    "logo":"@CurrentSite.UrlAbsolute()img/logo.png",
-    "description": "Camelonta är en digital byrå med stort engagemang. Vi skapar webblösningar som är enkla att använda, eleganta och med teknisk briljans.",
-    "telephone": "08-654654654",
-    "address":
-    {
-    "@@type": "PostalAddress",
-    "streetAddress": "Gatan 8A",
-    "addressLocality": "Stockholm",
-    "postalCode": "11359",
-    "addressCountry": "SE"
-    },
-    "sameAs" : [ "https://www.facebook.com/LÄNK TILLL FACEBOOK",
-    "http://www.twitter.com/LÄNK TILL TWITTER",
-    "https://plus.google.com/GOOOOOOOOOOOOGLEPLUS"]
-    }
-</script>
+@if (!string.IsNullOrEmpty(CurrentSite.GetPropertyValue<string>("schemaCompanyName")))
+{
+    var socialMediaLinks = CurrentSite.GetPropertyValue<string>("schemaCompanySocialMediaLinks").Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Organization",
+        "name": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyName"))",
+        "url":"@CurrentSite.UrlAbsolute()",
+        @* TODO: Kommentera bort detta och se till att sökvägen går till logotypen "logo":"@CurrentSite.UrlAbsolute()img/logo.png",*@
+        "description": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyDescription"))",
+        "telephone": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyPhone"))",
+        "address":
+        {
+        "@@type": "PostalAddress",
+        "streetAddress": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyStreetAddress"))",
+        "addressLocality": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyAddressLocality"))",
+        "postalCode": "@CurrentSite.GetPropertyValue("schemaCompanyPostalCode")",
+        "addressCountry": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyAddressCountry"))"
+        },
+        "sameAs" : [
+        @foreach (var link in socialMediaLinks)
+                {
+            <text>"@link",</text>
+        }
+        ]
+        }
+    </script>
+}

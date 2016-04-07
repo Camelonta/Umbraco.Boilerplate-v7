@@ -14,7 +14,7 @@ Camelonta.Search = (function () {
                     searchTerm: term
                 };
 
-                $.post('/umbraco/surface/partialsurface/GetSearchSuggestions', data, function (response) {
+                $.post('/umbraco/surface/searchsurface/GetSearchSuggestions', data, function (response) {
                     var matches = response;
                     suggest(matches);
                 });
@@ -46,7 +46,7 @@ Camelonta.Search = (function () {
                 nextPage: searchMoreLink.data('next-page')
             };
 
-            $.post('/umbraco/surface/partialsurface/getsearchresults', data, function (response) {
+            $.post('/umbraco/surface/searchsurface/getsearchresults', data, function (response) {
                 // Print response
                 $('#search-results').html(response);
 

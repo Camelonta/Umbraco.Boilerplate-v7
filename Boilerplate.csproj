@@ -573,6 +573,7 @@
   <ItemGroup>
     <Compile Include="App_Start\DateFolderEventHandler.cs" />
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
+    <Compile Include="Controllers\SearchSurfaceController.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="TemplatePages\CamelontaUmbracoTemplatePage.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />

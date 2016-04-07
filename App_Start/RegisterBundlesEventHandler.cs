@@ -22,26 +22,18 @@ namespace Camelonta.Boilerplate.App_Start
             var cssFiles = new List<string>
             {
                 "vendor/normalize.css", // Should be before base.css
-                "vendor/swiper.css",
                 "vendor/bootstrap.css",
+                "vendor/swiper.css",
                 "vendor/jquery.auto-complete.css", // Stylesheet for search
                 
                 "Bundled.css",
 
-                "layout.css",
                 "form.css",
                 "faq.css",
-                "utilities.css",
 
                 "modules/faq.css",
-                "modules/video.css",
                 "modules/cookie-warning.css",
                 "modules/search-form.css", // Stylesheet for search
-
-                "navigation/top-nav.css",
-                "navigation/top-links.css",
-
-                "page/home.css",
 
                 "typo.css",
                 "print.css"

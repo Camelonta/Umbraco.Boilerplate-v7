@@ -16,7 +16,7 @@ var Camelonta = (function () {
     var init = function () {
         Camelonta.Nav.Init();
         Camelonta.Faq.Init();
-        Camelonta.Video.Init();
+        //Camelonta.Video.Init();
         Camelonta.Slider.Init();
         replaceRightColumn();
 

@@ -1,4 +1,5 @@
-﻿/* == Layout rules divide the page into sections. Layouts hold one or more modules together. == */
+﻿/// <reference path="_variables.scss"/>
+/* == Layout rules divide the page into sections. Layouts hold one or more modules together. == */
 
 .container {
     max-width: 100%;
@@ -8,55 +9,60 @@
     padding-left: 15px;
 }
 
-/* == Header == */
+/*-------------------------------------*/
+// HEADER
 header {
-    background: #f16529;
+    background: $purple;
 }
 
 #header-logo img {
     max-width: 170px;
     float: left;
 }
-/* == End of Header == */
 
 
-/* == Left sidebar == */
+
+/*-------------------------------------*/
+// LEFT SIDEBAR
 #l-sidebar {
     width: 22%;
     margin-right: 3%;
     float: left;
     min-height: 1px; /* If we don't have any pages in left-nav - still show container*/
 }
-/* == End of Left sidebar == */
 
 
-/* == Right sidebar == */
+
+/*-------------------------------------*/
+// RIGHT SIDEBAR
 aside {
     margin-top: 20px;
     float: right;
     font-size: .8em;
     width: 24%;
     margin-left: 3%;
-    border-top: 20px solid #e44d26;
+    border-top: 20px solid $purple-light;
     color: white;
     padding: 0 15px 10px;
-    background: #f16529;
+    background: $purple;
 }
-/* == End of Right sidebar == */
 
 
-/* == Footer == */
+
+/*-------------------------------------*/
+// FOOTER
 footer {
-    background: #f16529;
-    border-top: 20px solid #e44d26;
+    background: $purple;
+    border-top: 20px solid $purple-light;
     color: white;
     padding: 20px 0;
     margin-top: 70px;
 }
-/* == End of Footer == */
 
 
-/* == Main content == */
+
+/*-------------------------------------*/
+// MAIN CONTENT
 main, article {
     overflow: hidden;
     min-height: 450px;
@@ -66,8 +72,10 @@ main, article {
     background-position: center; /* Centrera bakgrundsbilder i grid-sektioner */
 }
 
-/* == End of Main content == */
 
+
+/*-------------------------------------*/
+// MEDIA QUERIES
 
 @media only screen and (max-width: 990px) {
     .umb-grid .column {
