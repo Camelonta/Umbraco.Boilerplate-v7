@@ -447,18 +447,11 @@
     <Content Include="css\Bundled.min.css">
       <DependentUpon>Bundled.css</DependentUpon>
     </Content>
-    <Content Include="css\modules\cookie-warning.css" />
     <Content Include="css\modules\faq.css" />
     <Content Include="css\form.css" />
     <Content Include="css\modules\search-form.css" />
-    <Content Include="css\navigation\top-links.css" />
-    <Content Include="css\navigation\top-nav.css" />
-    <Content Include="css\page\home.css" />
     <Content Include="css\typo.css" />
-    <Content Include="css\utilities.css" />
     <Content Include="css\vendor\bootstrap.css" />
-    <Content Include="css\layout.css" />
-    <Content Include="css\modules\video.css" />
     <Content Include="css\vendor\jquery.auto-complete.css" />
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />
@@ -558,6 +551,15 @@
     <Content Include="css\navigation\misc.scss" />
     <Content Include="css\mixins\flexbox.scss" />
     <Content Include="css\navigation\left-nav.scss" />
+    <Content Include="css\_variables.scss" />
+    <Content Include="css\layout.scss" />
+    <Content Include="css\navigation\top-nav.scss" />
+    <Content Include="css\navigation\top-links.scss" />
+    <Content Include="css\modules\video.scss" />
+    <Content Include="css\page\home.scss" />
+    <Content Include="css\utilities.scss" />
+    <Content Include="css\modules\cookie-warning.scss" />
+    <Content Include="Views\Flex16.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

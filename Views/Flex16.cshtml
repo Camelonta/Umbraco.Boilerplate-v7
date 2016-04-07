@@ -1,0 +1,25 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+    var insideContainer = LeftNavigation.Any() && !Model.Content.GetPropertyValue<bool>
+    ("hideLeftNav");
+    }
+
+    @if (insideContainer)
+    {
+    <div class="container">
+        @PageContent()
+    </div>
+    }
+    else
+    {
+    @PageContent()
+    }
+
+    @helper PageContent()
+    {
+    @Html.Partial("Layout/_LeftNav")
+    <main role="main">
+        @Html.GetGridHtml(Model.Content, "grid")
+    </main>
+    }
