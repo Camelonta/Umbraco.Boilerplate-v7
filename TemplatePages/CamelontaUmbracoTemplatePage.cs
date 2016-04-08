@@ -23,17 +23,14 @@ namespace Camelonta.Boilerplate.TemplatePages
                 return _currentSite;
             }
         }
-     
+
 
         /// <summary>
         /// The current sites search page
         /// </summary>
         public IPublishedContent SearchPage
         {
-            get
-            {
-                return Umbraco.GetIPublishedContent(CurrentSite, "searchPage");
-            }
+            get { return CurrentSite.DescendantOrSelf("Search"); }
         }
 
         public List<IPublishedContent> LeftNavigation => _leftNav ?? (_leftNav = Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages());
