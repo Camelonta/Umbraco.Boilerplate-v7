@@ -149,7 +149,8 @@ footer {
   background: #7b5294;
   border-top: 20px solid #c4add2;
   color: white;
-  padding: 20px 0 80px; }
+  padding: 20px 0 80px;
+  margin-top: 90px; }
   footer p {
     margin: 3px 0; }
 
