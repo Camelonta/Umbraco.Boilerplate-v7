@@ -36,7 +36,20 @@ namespace Camelonta.Boilerplate.App_Start
                 "typo.css",
                 "print.css"
             }.Select(cssFile => cssPath + cssFile).ToArray(); // Add CSS-path
-            var styleBundle = new StyleBundle("~/bundles/styles").Include(cssFiles);
+
+            var styleBundle = bundles.GetBundleFor("~/bundles/styles");
+
+            if (styleBundle == null)
+            {
+                // Always null initially (if no plugin adds files)
+                styleBundle = new StyleBundle("~/bundles/styles").Include(cssFiles);
+            }
+            else
+            {
+                // If bundle is initialized in a plugin - it's NOT null (like in this case)
+                styleBundle.Include(cssFiles);
+            }
+
             styleBundle.Orderer = Bundles.AsIsBundleOrderer;
             bundles.Add(styleBundle);
 

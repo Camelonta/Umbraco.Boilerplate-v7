@@ -1,8 +1,16 @@
 ﻿
 /*-------------------------------------*/
 // COLORS
-$purple:#7b5294;
-$purple-light:#c4add2;
+$purple: #7b5294;
+$purple-light: #c4add2;
+
+
+
+/*-------------------------------------*/
+// WIDTHS
+$defaultContainerWidthValue: 1170!global;
+$defaultContainerWidth: $defaultContainerWidthValue + px;
+
 
 
 
