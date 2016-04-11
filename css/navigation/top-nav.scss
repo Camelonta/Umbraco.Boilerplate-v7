@@ -8,15 +8,13 @@
     }
 
     li {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
+        float: left;
     }
 
     a {
         color: white;
         padding: 18px 30px;
-        display: inline-block;
+        display: block;
     }
 
     .active > a {
@@ -49,6 +47,10 @@
             padding: 6px 0;
         }
 
+        li {
+            float: none;
+        }
+
         .toggle {
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -65,7 +67,7 @@
 
         .search-form,
         a,
-        .dyn-menu li,
+          .dyn-menu li,
         .top-links {
             display: block;
         }

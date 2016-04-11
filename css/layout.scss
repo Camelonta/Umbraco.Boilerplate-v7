@@ -13,6 +13,9 @@
 // HEADER
 header {
     background: $purple;
+   /*   -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;See: Sticky footer */
 }
 
 #header-logo img {
@@ -57,7 +60,9 @@ footer {
     color: white;
     padding: 20px 0 80px;
     margin-top: 90px;
-
+   /*  -ms-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto; See: Sticky footer */
     p {
         margin: 3px 0;
     }
@@ -67,9 +72,14 @@ footer {
 
 /*-------------------------------------*/
 // MAIN CONTENT
-main, article {
+#main-content-wrapper {
+   /*  -ms-flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto; See: Sticky footer */
+}
+
+main {
     overflow: hidden;
-    min-height: 450px;
 }
 
 .grid-section > div {
@@ -106,3 +116,10 @@ main, article {
         display: none;
     }
 }
+
+
+
+/* 
+    Sticky footer: http://tutorialzine.com/2016/03/quick-tip-the-best-way-to-make-sticky-footers/ VID TID: Detta funkar inte bra i IE. Det blir problem med bilder + max-width (containern behåller initiala höjden)
+        - Force the footer to always be at the bottom of the page
+*/

@@ -6,26 +6,24 @@
 <div class="container">
     @Html.Partial("Layout/_LeftNav")
 
-    <article>
 
-        @if (Model.Content.DocumentTypeAlias == "Faqquestion")
-        {
-            <h1>@Model.Content.Name</h1>
+    @if (Model.Content.DocumentTypeAlias == "Faqquestion")
+    {
+        <h1>@Model.Content.Name</h1>
             @FaqQuestion(Model.Content)
-        }
-        else
-        {
-            @RenderHelper.Header(Model.Content)
-            @Model.Content.GetPropertyValue("contentMiddle")
+    }
+    else
+    {
+        @RenderHelper.Header(Model.Content)
+        @Model.Content.GetPropertyValue("contentMiddle")
 
-            @* Questionlist *@
-        foreach (var page in Model.Content.Children)
-        {
-            @FaqQuestion(page)
-            }
+        @* Questionlist *@
+    foreach (var page in Model.Content.Children)
+    {
+        @FaqQuestion(page)
         }
+    }
 
-    </article>
 </div>
 
 @helper FaqQuestion(IPublishedContent page)

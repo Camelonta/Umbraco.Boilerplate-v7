@@ -20,7 +20,8 @@
 
     @Html.Partial("_Favicons")
 
-    @Styles.Render("~/bundles/styles")
+    @*@Styles.Render("~/bundles/styles")*@
+    <link rel="stylesheet" href="../css/Bundled.css"/>
 
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
@@ -49,7 +50,9 @@
 
     @Html.Partial("Layout/_Hero")
 
-    @RenderBody()
+    <div id="main-content-wrapper">
+        @RenderBody()
+    </div>
 
     @Html.Partial("Layout/_Footer")
 
@@ -58,7 +61,7 @@
 
     @if (CurrentSite.HasValue("siteScript"))
     {
-       @Html.Raw(CurrentSite.GetPropertyValue("siteScript"))
+        @Html.Raw(CurrentSite.GetPropertyValue("siteScript"))
     }
 
     @if (Model.Content.HasValue("pageScript"))
