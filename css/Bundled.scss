@@ -1,10 +1,8 @@
 ﻿@import "_variables.scss";
 @import "mixins/flexbox.scss";
 
-@import "vendor/bootstrap.css"; // TODO tabort
-
 @import "base.scss";
-/*
+
 @import "animations.scss";
 @import "layout.scss";
 @import "utilities.scss";
@@ -18,4 +16,4 @@
 
 @import "modules/buttons.scss";
 @import "modules/video.scss";
-@import "modules/cookie-warning.scss";*/
+@import "modules/cookie-warning.scss";
