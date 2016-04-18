@@ -5,6 +5,17 @@
 
 <main role="main">
     @Html.GetGridHtml(Model.Content, "grid")
+
+
+    @{
+        // TODO: TA BORT DETTA :)
+        var readMe = System.IO.File.ReadAllText(Server.MapPath("~/README.txt"));
+        <div class="container">
+            <h1>Read me</h1>
+            <p>@Html.Raw(readMe.Replace("\n", "<br/>"))</p>
+        </div>
+    }
+
 </main>
 
 

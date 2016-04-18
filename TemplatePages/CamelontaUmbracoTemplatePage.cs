@@ -1,6 +1,7 @@
 using Camelonta.Boilerplate.Classes;
 using System.Collections.Generic;
 using System.Linq;
+using Camelonta.Boilerplate.Models;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
@@ -11,6 +12,7 @@ namespace Camelonta.Boilerplate.TemplatePages
     {
         private List<IPublishedContent> _leftNav;
         private IPublishedContent _currentSite;
+        private Hero _hero;
 
         public IPublishedContent CurrentSite
         {
@@ -24,6 +26,7 @@ namespace Camelonta.Boilerplate.TemplatePages
             }
         }
 
+        public Hero Hero => _hero ?? (_hero = Model.Content.GetHero());
 
         /// <summary>
         /// The current sites search page

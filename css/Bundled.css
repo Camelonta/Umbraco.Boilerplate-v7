@@ -72,6 +72,21 @@ a {
   body {
     font-size: 14px; } }
 
+#hero {
+  position: relative;
+  background-position: center bottom;
+  background-size: cover;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  max-height: 80vh;
+  height: 450px;
+  background-position: center; }
+  @media screen and (max-width: 800px) {
+    #hero {
+      min-height: 450px;
+      height: auto;
+      font-size: .8em; } }
+
 /* == Default mixins ==*/
 /* == End of Default mixins ==*/
 @-webkit-keyframes opaque_leave {

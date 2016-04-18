@@ -1,48 +1,29 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
-@using Archetype.Models
 
-@{
-    var slides = Model.Content.GetPropertyValue<ArchetypeModel>("slider");
-}
-
-@if (slides != null && slides.Fieldsets.Any())
+@if (Hero != null)
 {
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            @foreach (var slide in slides)
-            {
-                if (slide.HasValue("image"))
-                {
-                    <div class="swiper-slide">
-                        @Image(Umbraco.Media(slide.GetValue("image")).Url)
-                        @if (!string.IsNullOrEmpty(slide.GetValue("text")))
-                        {
-                            <div class="container">
-                                @Html.Raw(slide.GetValue("text"))
-                            </div>
-                        }
-                    </div>
-                }
-            }
-
-        </div>
-        <div class="container">
-            <a href="javascript:void(0)" id="top-slider-prev" class="swiper-button-prev"></a>
-            <a href="javascript:void(0)" id="top-slider-next" class="swiper-button-next"></a>
-            <div class="swiper-pagination"></div>
-        </div>
+    <div id="hero">
+        @if (!string.IsNullOrEmpty(Hero.Text))
+        {
+            <div class="container">
+                <div class="content">
+                    @Html.Raw(Hero.Text)
+                </div>
+            </div>
+        }
     </div>
+    <style>
+        #hero {background-image: url(@ImageUrl(2600));}
+        @@media screen and (max-width: 1200px) {#hero {background-image: url(@ImageUrl(1800));}}
+        @@media screen and (max-width: 800px) and (orientation: portrait) {#hero {background-image: url(@ImageUrl(1200,1500));}}
+        @@media screen and (max-width: 500px) {#hero {background-image: url(@ImageUrl(1000,1000));}}
+    </style>
 }
 
-@helper Image(string src)
-{
-    const string crop = "&mode=crop&anchor=middlecenter";
-    <picture>
-        <source media="(max-width: 550px)" srcset="@src?height=550&width=550@(crop)">
-        <source media="(max-width: 767px)" srcset="@src?height=500&width=767@(crop)">
-        <source media="(max-width: 1099px)" srcset="@src?height=400&width=1099@(crop)">
-        <source media="(max-width: 2000px)" srcset="@src?height=400&width=1920@(crop)">
-        <source media="(min-width: 2001px)" srcset="@src?height=550&width=2560@(crop)">
-        <img src="@src?height=400&width=1920@(crop)" alt="">
-    </picture>
+@functions {
+
+    HtmlString ImageUrl(int width, int height = 700)
+    {
+        return new HtmlString(string.Format("{0}?width={1}&height={2}&mode=crop", Hero.Image, width, height));
+    }
 }

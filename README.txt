@@ -8,8 +8,6 @@
 
 
 
-
-
 ======= ANVÄND BOILERPLATE TILL ETT PROJEKT =======
 
 1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den
@@ -29,11 +27,17 @@
 
 8. Sök på "TODO" och gå igenom dessa
 
-
 SIST: Ta bort denna README :)
 
-
-Problem:
-    - Ambigious reference: Ta bort dll:en för Camelonta.Boilerplate i din nya bin-katalog (krockar med din dll)
+OBS: Ta helst bort mappen "boilerplate" från mediearkivet när du går live. 
 
 ====================================================
+
+
+
+
+======= VANLIGA PROBLEM =======
+
+- Ambigious reference: Ta bort dll:en för Camelonta.Boilerplate i din nya bin-katalog (krockar med din dll)
+
+===============================

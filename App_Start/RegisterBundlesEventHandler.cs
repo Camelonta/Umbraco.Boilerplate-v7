@@ -23,7 +23,6 @@ namespace Camelonta.Boilerplate.App_Start
             {
                 "vendor/normalize.css", // Should be before base.css
                 "vendor/bootstrap.css",
-                "vendor/swiper.css",
                 "vendor/jquery.auto-complete.css", // Stylesheet for search
                 
                 "Bundled.css",
@@ -58,7 +57,6 @@ namespace Camelonta.Boilerplate.App_Start
             var jsFiles = new List<string>
             {
                 "vendor/jquery-1.11.2.min.js",
-                "vendor/swiper.jquery.min.js",
                 "vendor/modernizr.js",
                 "vendor/js-cookie.2.0.js",
                 "vendor/jquery.highlight.js", // Script for search
@@ -69,7 +67,6 @@ namespace Camelonta.Boilerplate.App_Start
                 "nav.js",
                 "helper.js",
                 "video.js",
-                "slider.js",
                 "cookie-warning.js",
                 "faq.js",
                 "search.js" // Script for search
@@ -81,8 +78,8 @@ namespace Camelonta.Boilerplate.App_Start
 
             var ltIe9Files = new List<string>
             {
-                 "vendor/html5shiv.js",
-                 "vendor/respond.min.js" //Polyfill for media-queries. Needed for the bootstrap grid to function correctly.
+                 "vendor/ltie9/html5shiv.js",
+                 "vendor/ltie9/respond.min.js" //Polyfill for media-queries. Needed for the bootstrap grid to function correctly.
             }.Select(jsFile => scriptsPath + jsFile).ToArray();
             bundles.Add(new ScriptBundle("~/bundles/ltIe9Scripts").Include(ltIe9Files));
         }

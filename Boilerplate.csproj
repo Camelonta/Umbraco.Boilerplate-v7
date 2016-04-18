@@ -464,7 +464,6 @@
     <Content Include="css\vendor\jquery.auto-complete.css" />
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />
-    <Content Include="css\vendor\swiper.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="img\youtube-play.png" />
@@ -475,13 +474,11 @@
     <Content Include="scripts\search.js" />
     <Content Include="scripts\faq.js" />
     <Content Include="scripts\helper.js" />
-    <Content Include="scripts\slider.js" />
-    <Content Include="scripts\vendor\html5shiv.js" />
+    <Content Include="scripts\vendor\ltie9\html5shiv.js" />
     <Content Include="scripts\vendor\jquery-1.11.2.min.js" />
     <Content Include="scripts\vendor\js-cookie.2.0.js" />
     <Content Include="scripts\vendor\modernizr.js" />
-    <Content Include="scripts\vendor\respond.min.js" />
-    <Content Include="scripts\vendor\swiper.jquery.min.js" />
+    <Content Include="scripts\vendor\ltie9\respond.min.js" />
     <Content Include="scripts\video.js" />
     <Content Include="scripts\main.js" />
     <Content Include="scripts\nav.js" />
@@ -571,6 +568,7 @@
     <Content Include="css\page\home.scss" />
     <Content Include="css\utilities.scss" />
     <Content Include="css\modules\cookie-warning.scss" />
+    <Content Include="css\layout\hero.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -588,6 +586,7 @@
     <Compile Include="App_Start\DateFolderEventHandler.cs" />
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
     <Compile Include="Controllers\SearchSurfaceController.cs" />
+    <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="TemplatePages\CamelontaUmbracoTemplatePage.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />

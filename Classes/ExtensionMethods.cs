@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Camelonta.Boilerplate.Models;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
@@ -34,6 +35,27 @@ namespace Camelonta.Boilerplate.Classes
         {
             int id = page.GetPropertyValue<int>(propertyAlias);
             return helper.TypedContent(id);
+        }
+
+        public static Hero GetHero(this IPublishedContent page)
+        {
+            var imageId = page.GetPropertyValue<string>("heroImage");
+
+            if (string.IsNullOrEmpty(imageId)) return null;
+
+            var umbraco = new UmbracoHelper(UmbracoContext.Current);
+            var image = umbraco.TypedMedia(imageId);
+            
+            if (image != null)
+            {
+                return new Hero
+                {
+                    Image = image.Url,
+                    Text = page.GetPropertyValue<string>("heroText")
+                };
+            }
+
+            return null;
         }
     }
 }

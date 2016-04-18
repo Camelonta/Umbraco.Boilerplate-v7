@@ -15,7 +15,6 @@ var Camelonta = (function () {
     // Init scripts
     var init = function () {
         Camelonta.Nav.Init();
-        Camelonta.Slider.Init();
         replaceRightColumn();
 
         // Global resize-event. Triggered if the resize-event has been still for 200ms (debounced)
