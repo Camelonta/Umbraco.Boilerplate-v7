@@ -29,7 +29,7 @@
 
 SIST: Ta bort denna README :)
 
-OBS: Ta helst bort mappen "boilerplate" från mediearkivet när du går live. 
+OBS: Ta helst bort mappen "boilerplate" från mediearkivet när du går live.
 
 ====================================================
 
