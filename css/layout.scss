@@ -1,4 +1,5 @@
 ﻿/// <reference path="_variables.scss"/>
+/// <reference path="mixins/flexbox.scss"/>
 /* == Layout rules divide the page into sections. Layouts hold one or more modules together. == */
 
 .container {
@@ -13,9 +14,6 @@
 // HEADER
 header {
     background: $purple;
-   /*   -ms-flex: 0 0 auto;
-    -webkit-flex: 0 0 auto;
-    flex: 0 0 auto;See: Sticky footer */
 }
 
 #header-logo img {
@@ -60,9 +58,7 @@ footer {
     color: white;
     padding: 20px 0 80px;
     margin-top: 90px;
-   /*  -ms-flex: 0 0 auto;
-    -webkit-flex: 0 0 auto;
-    flex: 0 0 auto; See: Sticky footer */
+
     p {
         margin: 3px 0;
     }
@@ -73,9 +69,7 @@ footer {
 /*-------------------------------------*/
 // MAIN CONTENT
 #main-content-wrapper {
-   /*  -ms-flex: 1 0 auto;
-    -webkit-flex: 1 0 auto;
-    flex: 1 0 auto; See: Sticky footer */
+    @include flex(1,0,0);
 }
 
 main {

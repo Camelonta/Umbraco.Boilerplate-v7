@@ -1,4 +1,5 @@
-﻿/* == Base rules are almost exclusively single element selectors but it could include attribute selectors, pseudo-class selectors, child selectors or sibling selectors. == */
+﻿/// <reference path="mixins/flexbox.scss"/>
+/* == Base rules are almost exclusively single element selectors but it could include attribute selectors, pseudo-class selectors, child selectors or sibling selectors. == */
 
 html {
     color: #222;
@@ -10,13 +11,9 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     line-height: 1.5;
-
-
-    /* ---------------------------- */
-    // Sticky footer (see: bottom of layout.scss) 
-    /*@extend %flexbox;
+    min-height: 100%;
+    @include flexbox;
     @include flex-direction(column);
-    height: 100%;*/
 }
 
 ::-moz-selection {
@@ -43,9 +40,9 @@ video {
     vertical-align: middle;
 }
 
-img{
-    max-width:100%;
-    height:auto;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 textarea {
