@@ -38,4 +38,36 @@ angular.module("umbraco").controller("ActivityLog.DashController", function ($sc
     });
 
     $scope.getActivities(0);
+
+    $scope.isUmbracoFormLogItem = function (item) { 
+        if ($scope.formItem(item) == null) {
+            return false;
+        }
+        return true;
+    }
+
+    $scope.formItem = function (item) {
+        var umbracoFormsPrefix = "UmbracoForm '";
+        var isUmbracoFormLogItem = item.Message.indexOf(umbracoFormsPrefix) > -1;
+        if (isUmbracoFormLogItem) {
+            var endOfObject = item.Message.lastIndexOf("'");
+            var objStr = item.Message.substring(umbracoFormsPrefix.length, endOfObject);
+            var obj = JSON.parse(objStr);
+            // TODO: Pass and print info about workflow
+            if (obj.Event) {
+                var eventStr = '';
+                var words = obj.Event.split(/(?=[A-Z])/);
+                for (var i = 0; i < words.length; i++) {
+                    var word = words[i];
+                    eventStr += word.toLowerCase();
+                    if (i < words.length) {
+                        eventStr += ' ';
+                    }
+                }
+                obj.Event = eventStr; // TODO: New property instead of set this event property
+            }
+            return obj; // TODO: Add properties on ActivityViewModel instead?
+        }
+        return null;
+    }
 });
