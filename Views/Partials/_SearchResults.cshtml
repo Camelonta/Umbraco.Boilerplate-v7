@@ -1,14 +1,17 @@
 ﻿@model Search
+@{
+    var umbraco = new UmbracoHelper(UmbracoContext.Current);
+}
 
 @if (Model.SearchResults.Any())
 {
-    <p>Resultat <strong>1 - <span id="search-results-count">@Model.ShowingResults</span></strong> av <span id="search-total-results">@Model.TotalResults</span> träffar totalt.</p>
     foreach (var result in Model.SearchResults)
     {
-        <div class="search-result">
-            <h3><a href="@result.Url">@result.Name</a></h3>
-            <p>@Meta.PageTeaser(result)</p>
-        </div>
+        var node = umbraco.Content(result.Id);
+        <a href="@node.Url" class="search-result">
+            <h3>@Meta.PageTitle(node)</h3>
+            <p>@Meta.PageTeaser(node)</p>
+        </a>
     }
 }
 else if (!string.IsNullOrWhiteSpace(Model.SearchTerm))

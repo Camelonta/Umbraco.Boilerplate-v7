@@ -1,23 +1,41 @@
-﻿@inherits SearchTemplatePage
+﻿@inherits CamelontaUmbracoTemplatePage
 @{
     Layout = "~/Views/_Layout.cshtml";
-    var search = new Search(Umbraco, SearchTerm, CurrentPageNumber);
+
+    var query = Request.QueryString["q"] ?? "";
+    var skip = 0;
+    const int skipAndTakeAmount = 3;
+
+    if (!string.IsNullOrEmpty(Request.QueryString["skip"]))
+    {
+        int.TryParse(Request.QueryString["skip"], out skip);
+    }
+
+    var search = new Search(query, skip, skipAndTakeAmount);
 }
 
 <div class="container">
     <main role="main">
         <h1>@Model.Content.Name</h1>
         @Html.Partial("_SearchForm")
-        <div id="search-results" data-search-term="@search.SearchTerm">
+        <div id="search-results">
+            <p>
+                Resultat <strong>@(skip + 1 ) - <span id="amount-of-taken-search-results">@search.AmountOfTakenResult</span></strong> av @search.TotalResults träffar totalt.
+            </p>
             @{Html.RenderPartial("~/Views/Partials/_SearchResults.cshtml", search);}
         </div>
 
-        @if (search.HasHiddenResults)
+        @if (search.MoreResultsAvailable)
         {
-            <a id="search-more-results" href="@SearchPage.GetUrl()?q=@search.SearchTerm&page=@NextPage" class="button" data-next-page="@NextPage">
+            <a id="search-more-results" href="@SearchPage.GetUrl()?q=@search.SearchTerm&skip=@(skip + skipAndTakeAmount)">
                 <i class="icon-keyboard-arrow-down2"></i> Visa fler resultat
             </a>
-            <h4 id="search-unexpected-error" style="display: none; color: #cb4437;">Kunde inte hämta fler resultat, vänligen försök igen.</h4>
+            @*<h4 id="search-unexpected-error" style="display: none; color: #cb4437;">Kunde inte hämta fler resultat, vänligen försök igen.</h4>*@
         }
     </main>
 </div>
+
+<script>
+    var skipAndTakeAmount = @skipAndTakeAmount;
+    var query = "@query";
+</script>

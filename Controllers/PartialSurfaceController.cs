@@ -1,12 +1,4 @@
-﻿using System;
-using Camelonta.Boilerplate.Classes;
-using Camelonta.Boilerplate.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Examine;
-using Umbraco.Core;
-using Umbraco.Core.Models;
+﻿using System.Web.Mvc;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 

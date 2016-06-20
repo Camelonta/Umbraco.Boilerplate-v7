@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@Meta.PageTitle(Model.Content)</title>
+    <title>@Meta.PageTitle(Model.Content) - Boilerplate</title>
     <meta name="description" content="@Model.Content.GetPropertyValue("metadescription")">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
@@ -41,7 +41,12 @@
 
             <a href="javascript:void(0)" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
             @Html.Partial("_TopLinks")
-            @Html.Partial("_SearchForm")
+
+            @if (Model.Content.DocumentTypeAlias != "Search")
+            {
+                @Html.Partial("_SearchForm")
+            }
+
         </div>
     </header>
 

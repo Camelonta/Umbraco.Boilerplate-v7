@@ -415,8 +415,6 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.min.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
-    <Content Include="App_Plugins\FlexImage\FlexImage.controller.js" />
-    <Content Include="App_Plugins\FlexImage\FlexImage.html" />
     <Content Include="App_Plugins\GridRowSettings\views\data-bg.html" />
     <Content Include="App_Plugins\GridRowSettings\views\data-container-size.html" />
     <Content Include="App_Plugins\GridRowSettings\css\Bundles.css">
@@ -527,8 +525,6 @@
     <Content Include="App_Plugins\GridRowSettings\css\Bundles.scss" />
     <Content Include="App_Plugins\GridRowSettings\css\data-container-size.scss" />
     <Content Include="App_Plugins\GridRowSettings\css\data-padding.scss" />
-    <Content Include="App_Plugins\FlexImage\FlexImage.cshtml" />
-    <Content Include="App_Plugins\FlexImage\package.manifest" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -589,13 +585,13 @@
     <Compile Include="App_Plugins\GridRowSettings\GridRowSettings.cs" />
     <Compile Include="App_Start\DateFolderEventHandler.cs" />
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
+    <Compile Include="Classes\CoreHelpers.cs" />
     <Compile Include="Controllers\SearchSurfaceController.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Search.cs" />
     <Compile Include="TemplatePages\CamelontaUmbracoTemplatePage.cs" />
     <Compile Include="Classes\ExtensionMethods.cs" />
     <Compile Include="Classes\Meta.cs" />
-    <Compile Include="TemplatePages\SearchTemplatePage.cs" />
     <Compile Include="Controllers\NavigationSurfaceController.cs" />
     <Compile Include="Controllers\PartialSurfaceController.cs" />
     <Compile Include="Models\MenuItems.cs" />
@@ -605,9 +601,7 @@
     <Analyzer Include="packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Plugins\GridEditors\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

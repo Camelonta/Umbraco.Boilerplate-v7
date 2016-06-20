@@ -25,9 +25,9 @@ namespace Camelonta.Boilerplate.Classes
                 teaser = page.GetGridHtml("grid").ToString();
 
             // Clean text
-            teaser = Regex.Replace(teaser.StripHtml(), @"\s+", " "); // Remove long whitespaces and truncate
+            teaser = Regex.Replace(teaser.StripHtml(), @"\s+", " "); // Strip html and remove long whitespaces 
 
-            return teaser.Truncate(truncate);
+            return teaser.Truncate(truncate); // return truncated string
         }
 
         // Every page should have an image that represets that specific page.
@@ -69,7 +69,7 @@ namespace Camelonta.Boilerplate.Classes
             var windowTitle = page.GetPropertyValue<string>("windowTitle");
 
             // Default-titeln är "Sidans namn - FÖRETAGET". En egen fönstertitel öveskriver alltid default helt. 
-            return string.IsNullOrEmpty(windowTitle) ? string.Format("{0} - Boilerplate", page.Name) : windowTitle;
+            return string.IsNullOrEmpty(windowTitle) ? page.Name : windowTitle;
 
         }
 

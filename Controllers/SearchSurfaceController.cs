@@ -1,12 +1,14 @@
 ﻿using System;
-using Camelonta.Boilerplate.Classes;
 using Camelonta.Boilerplate.Models;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web.Mvc;
+using Camelonta.Boilerplate.Classes;
 using Examine;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Umbraco.Core;
-using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 
@@ -15,11 +17,19 @@ namespace Camelonta.Boilerplate.Controllers
     public class SearchSurfaceController : SurfaceController
     {
         [HttpPost]
-        public PartialViewResult GetSearchResults(string searchTerm, int nextPage)
+        public ActionResult GetSearchResults(string searchTerm, int skip, int take)
         {
-            var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
-            var search = new Search(umbracoHelper, searchTerm, nextPage);
-            return PartialView("~/Views/Partials/_SearchResults.cshtml", search);
+            var search = new Search(searchTerm, skip, take);
+
+            dynamic result = new ExpandoObject();
+            result.html = CoreHelpers.RenderPartialToString("~/Views/Partials/_SearchResults.cshtml", search, ControllerContext);
+            result.amountOfTakenResult = search.AmountOfTakenResult;
+            result.moreResultsAvailable = search.MoreResultsAvailable;
+            result.totalResultCount = search.TotalResults;
+
+            var json = JsonConvert.SerializeObject(result);
+
+            return Content(json, "application/json");
         }
 
         [HttpPost]

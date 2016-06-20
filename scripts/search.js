@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    var highlightDescription = function (searchTerm) {
-        if (searchTerm) {
-            $('.search-result').highlight(searchTerm);
-        }
-    }
+    //var highlightDescription = function (searchTerm) {
+    //    if (searchTerm) {
+    //        $('.search-result').highlight(searchTerm);
+    //    }
+    //}
 
     var autocomplete = function () {
         var searchInput = $('.search-form input[type="search"]');
@@ -34,10 +34,14 @@
     }
 
     autocomplete();
+
     var searchMoreLink = $('#search-more-results'),
-     searchTerm = $('#search-results').data('search-term');
+        searchTerm = window.query,
+        skip = window.skipAndTakeAmount;
 
     searchMoreLink.click(function (e) {
+        e.preventDefault();
+
         // Set loading state
         searchMoreLink.addClass('loading');
 
@@ -47,42 +51,41 @@
         // Setup data to POST
         var data = {
             searchTerm: searchTerm,
-            nextPage: searchMoreLink.data('next-page')
+            skip: skip,
+            take: window.skipAndTakeAmount
         };
 
         $.post('/umbraco/surface/searchsurface/getsearchresults', data, function (response) {
-            // Print response
-            $('#search-results').html(response);
 
-            // Increase nextPage
-            var nextPage = data.nextPage + 1;
-            searchMoreLink.data('next-page', nextPage);
+            // Print search results
+            $('#search-results').append(response.html);
 
-            var resultCount = parseInt($('#search-results-count').text());
-            var totalResults = parseInt($('#search-total-results').text());
-            if (resultCount >= totalResults) {
+            // Increase the skip-amount
+            skip = skip + window.skipAndTakeAmount;
+
+            // If there are no more search results - delete the button
+            if (!response.moreResultsAvailable) {
                 // Remove "more results"-link
                 $('#search-more-results').remove();
             }
 
-            // Highlight when links is pressed
-            highlightDescription(searchTerm);
+            // Update the amount of search results we have retireved
+            $('#amount-of-taken-search-results').text(response.amountOfTakenResult);
 
-            // Set loading state
-            searchMoreLink.removeClass('loading');
-        }).fail(function (errorResponse) {
+            // Highlight when links is pressed
+            //highlightDescription(searchTerm);
+
+        }).fail(function () {
             // Show error
             $('#search-unexpected-error').removeClass('hide');
-            //console.error(errorResponse.responseText);
 
-            // Set loading state
+        }).always(function () {
+            // Always remove loading state
             searchMoreLink.removeClass('loading');
         });
-
-        e.preventDefault();
     });
 
     // Highlight on load
-    highlightDescription(searchTerm);
+    //highlightDescription(searchTerm);
 
 })();
