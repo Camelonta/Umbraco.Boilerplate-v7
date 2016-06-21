@@ -41,10 +41,11 @@ namespace Camelonta.Boilerplate.Models
         {
             var searcher = ExamineManager.Instance.SearchProviderCollection["ExternalSearcher"];
             var searchCriteria = searcher.CreateSearchCriteria(BooleanOperation.Or);
+            
             ISearchCriteria query = null;
 
             query = searchCriteria.RawQuery(searchTerm);
-            
+
             var searchResults = searcher.Search(query);
 
             // Set total result-count
@@ -55,7 +56,7 @@ namespace Camelonta.Boilerplate.Models
             Skip = skip;
 
             // Skip, take and order
-            var resultCollection = searchResults.Skip(skip).Take(take).OrderByDescending(x => x.Score);
+            var resultCollection = searchResults.OrderByDescending(x => x.Score).Skip(skip).Take(take);
 
             SearchResults = resultCollection.ToList();
         }

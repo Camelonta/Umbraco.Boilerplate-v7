@@ -7,9 +7,7 @@ using System.Web.Mvc;
 using Camelonta.Boilerplate.Classes;
 using Examine;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Umbraco.Core;
-using Umbraco.Web;
 using Umbraco.Web.Mvc;
 
 namespace Camelonta.Boilerplate.Controllers
@@ -38,6 +36,9 @@ namespace Camelonta.Boilerplate.Controllers
             return Json(GetSuggestedWords(searchTerm));
         }
 
+
+
+        // TODO - This can have more accurate results: http://blog.aabech.no/archive/building-a-spell-checker-for-search-in-umbraco/
         private List<string> GetSuggestedWords(string searchTerm)
         {
             var searchProvider = ExamineManager.Instance.DefaultSearchProvider;
@@ -51,55 +52,26 @@ namespace Camelonta.Boilerplate.Controllers
             };
 
             var words = new List<string>();
-            //foreach (var page in FilterSearchResults(pages)) // TODO: Konvertera till IPublishedContent och använd .FilterSearchResults();
-            //{
-            //    var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
-            //    foreach (var pageProperty in pageProperties)
-            //    {
-            //        var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
-            //        foreach (var wordInField in wordsInField)
-            //        {
-            //            if (wordInField.ToLower().Contains(searchTerm.ToLower()))
-            //            {
-            //                if (!words.Contains(wordInField))
-            //                {
-            //                    words.Add(wordInField);
-            //                }
-            //            }
-            //        }
+            foreach (var page in pages)
+            {
+                var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
+                foreach (var pageProperty in pageProperties)
+                {
+                    var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var wordInField in wordsInField)
+                    {
+                        if (wordInField.ToLower().Contains(searchTerm.ToLower()))
+                        {
+                            if (!words.Contains(wordInField))
+                            {
+                                words.Add(wordInField);
+                            }
+                        }
+                    }
 
-            //    }
-            //}
+                }
+            }
             return words;
         }
-
-        private List<string> GetSuggestedWords2(string searchTerm)
-        {
-            var words = new List<string>();
-            //var search = new Search(searchTerm, 0, 30);
-
-            //foreach (var result in search.SearchResults) // TODO: Konvertera till IPublishedContent och använd .FilterSearchResults();
-            //{
-            //    var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
-            //    foreach (var pageProperty in pageProperties)
-            //    {
-            //        var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
-            //        foreach (var wordInField in wordsInField)
-            //        {
-            //            if (wordInField.ToLower().Contains(searchTerm.ToLower()))
-            //            {
-            //                if (!words.Contains(wordInField))
-            //                {
-            //                    words.Add(wordInField);
-            //                }
-            //            }
-            //        }
-
-            //    }
-            //}
-
-            return words;
-        }
-
     }
 }

@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    //var highlightDescription = function (searchTerm) {
-    //    if (searchTerm) {
-    //        $('.search-result').highlight(searchTerm);
-    //    }
-    //}
+    var highlightDescription = function (searchTerm) {
+        if (searchTerm) {
+            $('.search-result').highlight(searchTerm);
+        }
+    }
 
     var autocomplete = function () {
         var searchInput = $('.search-form input[type="search"]');
@@ -23,12 +23,17 @@
                 });
             },
             onSelect: function (event, term, item) {
-                // TODO: posta formuläret. man får bara inte tag i formuläert på något sätt. ? 
-                //console.log(event)
-                //console.log(term)
-                //console.log(item)
-                //console.log($(this))
-                //$(item).closest('form').submit();
+                // Try to get the form wich the user used to search (no exact way to get this if there are multiple search forms)
+                // Loop thourgh all search inputs
+                for (var i = 0; i < searchInput.length; i++) {
+                    // If this input has a value
+                    if (searchInput[i].value) {
+                        // Get the search form for this input
+                        var formWithSearchValue = $(searchInput[i]).closest('form');
+                        // Submit tjs
+                        formWithSearchValue.submit();
+                    }
+                }
             }
         });
     }
@@ -73,7 +78,7 @@
             $('#amount-of-taken-search-results').text(response.amountOfTakenResult);
 
             // Highlight when links is pressed
-            //highlightDescription(searchTerm);
+            highlightDescription(searchTerm);
 
         }).fail(function () {
             // Show error
@@ -86,6 +91,6 @@
     });
 
     // Highlight on load
-    //highlightDescription(searchTerm);
+    highlightDescription(searchTerm);
 
 })();
