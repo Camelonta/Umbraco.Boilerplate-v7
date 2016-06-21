@@ -1,4 +1,4 @@
-======= UTVECKLA I BOILERPLATE =======
+﻿======= UTVECKLA I BOILERPLATE =======
  
  SASS:  
 	- Ladda ned en extension för Visual studio som kompilerar sass-filerna när du sparar (Web Compiler t.ex. https://visualstudiogallery.msdn.microsoft.com/3b329021-cd7a-4a01-86fc-714c2d05bb6c)
@@ -13,7 +13,7 @@
 1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den
 
 2. Döp om allt (mappen + projektet)
-	- Gör search n replace på "Camelonta.Boilerplate" -> "Kunden", därefter "Boilerplate" -> "Kunden"
+	- Gör search n replace på "Camelonta.Boilerplate" -> "KundensNameSpace" (ex. "SaljarnasForbund"), därefter "Boilerplate" -> "Kundens riktiga namn" (ex. "Säljarnas förbund")
 
 3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt). OBS! Sätt portnumret högre än 1024, annars kan man inte öppna projektet utan att vara Admin.
 
