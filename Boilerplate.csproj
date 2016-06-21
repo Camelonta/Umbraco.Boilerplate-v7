@@ -548,7 +548,9 @@
     <Content Include="Config\FileSystemProviders.config" />
     <Content Include="Config\feedProxy.config" />
     <Content Include="Config\ExamineSettings.config" />
-    <Content Include="Config\ExamineIndex.config" />
+    <Content Include="Config\ExamineIndex.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\EmbeddedMedia.config" />
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\applications.config" />
@@ -569,6 +571,7 @@
     <Content Include="css\utilities.scss" />
     <Content Include="css\modules\cookie-warning.scss" />
     <Content Include="css\layout\hero.scss" />
+    <Content Include="css\page\search.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -584,6 +587,7 @@
   <ItemGroup>
     <Compile Include="App_Plugins\GridRowSettings\GridRowSettings.cs" />
     <Compile Include="App_Start\DateFolderEventHandler.cs" />
+    <Compile Include="App_Start\ExamineEventsEventHandler.cs" />
     <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
     <Compile Include="Classes\CoreHelpers.cs" />
     <Compile Include="Controllers\SearchSurfaceController.cs" />

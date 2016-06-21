@@ -121,8 +121,7 @@ a {
   to {
     opacity: 0; } }
 
-.dyn-menu .loading .toggle,
-#search-more-results.loading {
+.dyn-menu .loading .toggle, .load-more-results.loading {
   -webkit-animation-duration: 2s;
   -moz-animation-duration: 2s;
   -o-animation-duration: 2s;
@@ -400,6 +399,7 @@ nav .top-links {
     STRUKTURDEMO
 
 */
+/* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 /* == Global button properties == */
 .button, .button a, .button a:hover, .button-ghost, .button-ghost a, .button-ghost a:hover, .button-variant, .button-variant a, .button-variant a:hover {
   color: #fff !important;

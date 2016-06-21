@@ -35,7 +35,7 @@
 
     autocomplete();
 
-    var searchMoreLink = $('#search-more-results'),
+    var searchMoreLink = $('.load-more-results'),
         searchTerm = window.query,
         skip = window.skipAndTakeAmount;
 
@@ -66,7 +66,7 @@
             // If there are no more search results - delete the button
             if (!response.moreResultsAvailable) {
                 // Remove "more results"-link
-                $('#search-more-results').remove();
+                searchMoreLink.remove();
             }
 
             // Update the amount of search results we have retireved

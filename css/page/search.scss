@@ -1,0 +1,6 @@
+﻿
+/* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+
+.load-more-results.loading {
+    @extend %pulsate;
+} 

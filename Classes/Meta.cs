@@ -24,6 +24,9 @@ namespace Camelonta.Boilerplate.Classes
             if (page.HasValue("grid"))
                 teaser = page.GetGridHtml("grid").ToString();
 
+            if (teaser == null)
+                return string.Empty; 
+
             // Clean text
             teaser = Regex.Replace(teaser.StripHtml(), @"\s+", " "); // Strip html and remove long whitespaces 
 

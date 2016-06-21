@@ -4,7 +4,7 @@
 
     var query = Request.QueryString["q"] ?? "";
     var skip = 0;
-    const int skipAndTakeAmount = 3;
+    const int skipAndTakeAmount = 10;
 
     if (!string.IsNullOrEmpty(Request.QueryString["skip"]))
     {
@@ -18,19 +18,21 @@
     <main role="main">
         <h1>@Model.Content.Name</h1>
         @Html.Partial("_SearchForm")
-        <div id="search-results">
+        @if (search.TotalResults > 0)
+        {
             <p>
                 Resultat <strong>@(skip + 1 ) - <span id="amount-of-taken-search-results">@search.AmountOfTakenResult</span></strong> av @search.TotalResults träffar totalt.
             </p>
+        }
+        <div id="search-results">
             @{Html.RenderPartial("~/Views/Partials/_SearchResults.cshtml", search);}
         </div>
 
         @if (search.MoreResultsAvailable)
         {
-            <a id="search-more-results" href="@SearchPage.GetUrl()?q=@search.SearchTerm&skip=@(skip + skipAndTakeAmount)">
+            <a class="load-more-results" href="@SearchPage.GetUrl()?q=@query&skip=@(skip + skipAndTakeAmount)">
                 <i class="icon-keyboard-arrow-down2"></i> Visa fler resultat
             </a>
-            @*<h4 id="search-unexpected-error" style="display: none; color: #cb4437;">Kunde inte hämta fler resultat, vänligen försök igen.</h4>*@
         }
     </main>
 </div>

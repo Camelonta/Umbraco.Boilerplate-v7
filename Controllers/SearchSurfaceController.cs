@@ -51,44 +51,55 @@ namespace Camelonta.Boilerplate.Controllers
             };
 
             var words = new List<string>();
-            foreach (var page in FilterSearchResults(pages)) // TODO: Konvertera till IPublishedContent och använd .FilterSearchResults();
-            {
-                var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
-                foreach (var pageProperty in pageProperties)
-                {
-                    var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var wordInField in wordsInField)
-                    {
-                        if (wordInField.ToLower().Contains(searchTerm.ToLower()))
-                        {
-                            if (!words.Contains(wordInField))
-                            {
-                                words.Add(wordInField);
-                            }
-                        }
-                    }
+            //foreach (var page in FilterSearchResults(pages)) // TODO: Konvertera till IPublishedContent och använd .FilterSearchResults();
+            //{
+            //    var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
+            //    foreach (var pageProperty in pageProperties)
+            //    {
+            //        var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
+            //        foreach (var wordInField in wordsInField)
+            //        {
+            //            if (wordInField.ToLower().Contains(searchTerm.ToLower()))
+            //            {
+            //                if (!words.Contains(wordInField))
+            //                {
+            //                    words.Add(wordInField);
+            //                }
+            //            }
+            //        }
 
-                }
-            }
+            //    }
+            //}
             return words;
         }
 
-        private IEnumerable<SearchResult> FilterSearchResults(IEnumerable<SearchResult> pages)
+        private List<string> GetSuggestedWords2(string searchTerm)
         {
-            // Remove invalid document types
-            pages = pages.Where(page => page.Fields.Single(field => field.Key == "nodeTypeAlias").Value.ToLower() != "site");
+            var words = new List<string>();
+            //var search = new Search(searchTerm, 0, 30);
 
-            // Remove pages that doesn't have search engine indexing allowed ("Tillåt EJ sökmotorindexering"-property)
-            pages = pages.Where(page => AllowSearchEngineIndexing(page.Fields)); // 1 = true, 0 = false
+            //foreach (var result in search.SearchResults) // TODO: Konvertera till IPublishedContent och använd .FilterSearchResults();
+            //{
+            //    var pageProperties = page.Fields.Where(field => searchFields.Any(f => f == field.Key));
+            //    foreach (var pageProperty in pageProperties)
+            //    {
+            //        var wordsInField = pageProperty.Value.StripHtml().Split(new[] { " ", @"\n" }, StringSplitOptions.RemoveEmptyEntries);
+            //        foreach (var wordInField in wordsInField)
+            //        {
+            //            if (wordInField.ToLower().Contains(searchTerm.ToLower()))
+            //            {
+            //                if (!words.Contains(wordInField))
+            //                {
+            //                    words.Add(wordInField);
+            //                }
+            //            }
+            //        }
 
-            return pages;
+            //    }
+            //}
+
+            return words;
         }
 
-        private bool AllowSearchEngineIndexing(IDictionary<string, string> fields)
-        {
-            string fieldName = "robotsIndex";
-            var field = fields.SingleOrDefault(f => f.Key == fieldName);
-            return field.Equals(default(KeyValuePair<string, string>)) || field.Value == "0"; // 1 = true, 0 = false
-        }
     }
 }

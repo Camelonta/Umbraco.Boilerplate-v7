@@ -63,8 +63,7 @@
 /* == End of Mobile menu toggle == */
 
 /* Pulsera plus-knappen samt sökens "Visa fler resultat" när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-.dyn-menu .loading .toggle,
-#search-more-results.loading {
+.dyn-menu .loading .toggle {
     @extend %pulsate;
 }
 
