@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boilerplate", "Boilerplate\Boilerplate.csproj", "{892FD604-384F-4D27-A856-B7E92CC283D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boilerplate.Tests", "Boilerplate.Tests\Boilerplate.Tests.csproj", "{A09BC020-4105-4F5F-88D5-3476612E7A53}"
+	ProjectSection(ProjectDependencies) = postProject
+		{892FD604-384F-4D27-A856-B7E92CC283D9} = {892FD604-384F-4D27-A856-B7E92CC283D9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

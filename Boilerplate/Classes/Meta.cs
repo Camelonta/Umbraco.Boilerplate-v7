@@ -5,6 +5,7 @@ using Camelonta.Utilities;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
+using Camelonta.Boilerplate.App_Start;
 
 namespace Camelonta.Boilerplate.Classes
 {
@@ -22,9 +23,11 @@ namespace Camelonta.Boilerplate.Classes
                 teaser = contentMiddle.DataValue.ToString();
 
             if (page.HasValue("grid"))
-                teaser = page.GetGridHtml("grid").ToString();
+            {
+                teaser = ExamineIndexer.GetGridText(page.GetProperty("grid").DataValue.ToString());
+            }
 
-            if (teaser == null)
+            if (string.IsNullOrEmpty(teaser))
                 return string.Empty; 
 
             // Clean text
