@@ -5,7 +5,7 @@ using Camelonta.Utilities;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
-using Camelonta.Boilerplate.App_Start;
+using Camelonta.Boilerplate.Classes.Search;
 
 namespace Camelonta.Boilerplate.Classes
 {

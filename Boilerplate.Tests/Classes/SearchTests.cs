@@ -1,4 +1,4 @@
-﻿using Camelonta.Boilerplate.Models;
+﻿using Camelonta.Boilerplate.Classes.Search;
 using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;

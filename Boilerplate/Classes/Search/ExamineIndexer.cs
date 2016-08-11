@@ -8,7 +8,7 @@ using Umbraco.Core.Logging;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Camelonta.Boilerplate.App_Start
+namespace Camelonta.Boilerplate.Classes.Search
 {
     public class ExamineIndexer
     {

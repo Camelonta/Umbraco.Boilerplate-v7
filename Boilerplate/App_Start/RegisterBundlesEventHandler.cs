@@ -3,16 +3,21 @@ using System.Linq;
 using System.Web.Optimization;
 using Camelonta.Utilities;
 using Umbraco.Core;
+using Camelonta.Boilerplate.Classes.Search;
 
 namespace Camelonta.Boilerplate.App_Start
 {
+    // TODO: Rename class
     public class RegisterBundlesEventHandler : IApplicationEventHandler
     {
+        private static ExamineIndexer _examineIndexer;
+
         public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext) { }
         public void OnApplicationInitialized(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext) { }
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
             RegisterBundles(BundleTable.Bundles);
+            _examineIndexer = new ExamineIndexer();
         }
 
         private void RegisterBundles(BundleCollection bundles)

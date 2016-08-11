@@ -4,7 +4,7 @@ using Examine;
 using Examine.SearchCriteria;
 using Examine.LuceneEngine.SearchCriteria;
 
-namespace Camelonta.Boilerplate.Models
+namespace Camelonta.Boilerplate.Classes.Search
 {
     public class Search
     {
