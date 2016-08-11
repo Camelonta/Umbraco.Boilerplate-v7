@@ -7,20 +7,22 @@ using Camelonta.Boilerplate.Classes.Search;
 
 namespace Camelonta.Boilerplate.App_Start
 {
-    // TODO: Rename class
-    public class RegisterBundlesEventHandler : IApplicationEventHandler
+    public class ApplicationEventHandler : IApplicationEventHandler
     {
-        private static ExamineIndexer _examineIndexer;
+        static ExamineIndexer _examineIndexer;
 
         public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext) { }
         public void OnApplicationInitialized(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext) { }
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
+            // Register bundles
             RegisterBundles(BundleTable.Bundles);
+
+            // Instance ExamineIndexer
             _examineIndexer = new ExamineIndexer();
         }
 
-        private void RegisterBundles(BundleCollection bundles)
+        void RegisterBundles(BundleCollection bundles)
         {
             // CSS
             const string cssPath = "~/css/";

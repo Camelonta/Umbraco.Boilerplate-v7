@@ -633,7 +633,7 @@
     <Compile Include="App_Start\DateFolderEventHandler.cs" />
     <Compile Include="App_Start\ExamineEventsEventHandler.cs" />
     <Compile Include="Classes\Search\ExamineIndexer.cs" />
-    <Compile Include="App_Start\RegisterBundlesEventHandler.cs" />
+    <Compile Include="App_Start\ApplicationEventHandler.cs" />
     <Compile Include="Classes\CoreHelpers.cs" />
     <Compile Include="Classes\Search\SpellCheckIndexer.cs" />
     <Compile Include="Classes\Search\UmbracoSpellChecker.cs" />
