@@ -32,6 +32,21 @@ OBS: Ta helst bort mappen "boilerplate" från mediearkivet när du går live.
 
 
 
+===== VID UPPDATERING AV UMBRACO-VERSION =======
+ 
+--- Se till att detta finns i web.config ---
+ < system.webServer>
+ <!-- CACHE-stuff -->
+  < staticContent>
+ <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="7.00:00:00" />
+  </staticContent>
+
+<urlCompression doDynamicCompression="true" doStaticCompression="true" dynamicCompressionBeforeCache="true"/>
+===============================
+
+
+
+
 ======= VANLIGA PROBLEM =======
 
 - Ambigious reference: Ta bort dll:en för Camelonta.Boilerplate i din nya bin-katalog (krockar med din dll)

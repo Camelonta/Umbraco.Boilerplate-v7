@@ -500,9 +500,6 @@
     <Content Include="css\Bundled.min.css">
       <DependentUpon>Bundled.css</DependentUpon>
     </Content>
-    <Content Include="css\modules\faq.css" />
-    <Content Include="css\form.css" />
-    <Content Include="css\modules\search-form.css" />
     <Content Include="css\typo.css" />
     <Content Include="css\vendor\bootstrap.css" />
     <Content Include="css\vendor\jquery.auto-complete.css" />
@@ -510,7 +507,7 @@
     <Content Include="css\print.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="img\youtube-play.png" />
+    <Content Include="img\video-play.png" />
     <Content Include="README.txt" />
     <Content Include="scripts\cookie-warning.js" />
     <Content Include="scripts\vendor\jquery.auto-complete.js" />
@@ -608,7 +605,7 @@
     <Content Include="css\navigation\left-nav.scss" />
     <Content Include="css\_variables.scss" />
     <Content Include="css\layout.scss" />
-    <Content Include="css\navigation\top-nav.scss" />
+    <Content Include="css\navigation\main-nav.scss" />
     <Content Include="css\navigation\top-links.scss" />
     <Content Include="css\modules\video.scss" />
     <Content Include="css\page\home.scss" />
@@ -616,6 +613,8 @@
     <Content Include="css\modules\cookie-warning.scss" />
     <Content Include="css\layout\hero.scss" />
     <Content Include="css\page\search.scss" />
+    <Content Include="css\forms\global-form.scss" />
+    <Content Include="css\forms\global-contour.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

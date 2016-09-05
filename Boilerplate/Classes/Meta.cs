@@ -17,18 +17,10 @@ namespace Camelonta.Boilerplate.Classes
             if (page.HasValue("metadescription"))
                 return teaser.Truncate(truncate);
 
-            // Get whole property, otherwise we get error "Cannot render a macro when there is no current PublishedContentRequest." if it contains Macro
-            var contentMiddle = page.GetProperty("contentMiddle");
-            if (contentMiddle != null && contentMiddle.HasValue)
-                teaser = contentMiddle.DataValue.ToString();
-
-            if (page.HasValue("grid"))
-            {
-                teaser = ExamineIndexer.GetGridText(page.GetProperty("grid").DataValue.ToString());
-            }
+            teaser = PageMainContent(page);
 
             if (string.IsNullOrEmpty(teaser))
-                return string.Empty; 
+                return string.Empty;
 
             // Clean text
             teaser = Regex.Replace(teaser.StripHtml(), @"\s+", " "); // Strip html and remove long whitespaces 
@@ -42,7 +34,7 @@ namespace Camelonta.Boilerplate.Classes
          * 3. else: take the first image from the content
          * 4. else: take default share-image from our template
          * */
-        public static string PageMainImage(IPublishedContent page, string content = null)
+        public static string PageMainImage(IPublishedContent page)
         {
             var umbraco = new UmbracoHelper(UmbracoContext.Current);
             var previewImage = "";
@@ -52,7 +44,7 @@ namespace Camelonta.Boilerplate.Classes
 
             if (string.IsNullOrEmpty(previewImage))
             {
-                var pageContent = page.GetPropertyValue<string>("contentMiddle") ?? content;
+                var pageContent = PageMainContent(page);
 
                 if (pageContent != null)
                 {
@@ -69,6 +61,20 @@ namespace Camelonta.Boilerplate.Classes
             return previewImage.Split('?').First();
         }
 
+        private static string PageMainContent(IPublishedContent page)
+        {
+            var content = "";
+            // Get whole property, otherwise we get error "Cannot render a macro when there is no current PublishedContentRequest." if it contains Macro
+            var contentMiddle = page.GetProperty("contentMiddle");
+            if (contentMiddle != null && contentMiddle.HasValue)
+                content = contentMiddle.DataValue.ToString();
+
+            if (page.HasValue("grid"))
+                content = ExamineIndexer.GetGridText(page.GetProperty("grid").DataValue.ToString());
+
+            return content;
+        }
+
 
         public static string PageTitle(IPublishedContent page)
         {
@@ -80,20 +86,18 @@ namespace Camelonta.Boilerplate.Classes
         }
 
         // Check if the header is in the content
-        public static bool AutoHeader(this IPublishedContent model)
+        public static bool AutoHeader(this IPublishedContent page)
         {
-            if (model.GetPropertyValue<bool>("hideAutoHeader") || model.DocumentTypeAlias == "Newslist")
+            if (page.GetPropertyValue<bool>("hideAutoHeader") || page.DocumentTypeAlias == "Newslist")
                 return false;
 
-            var content = model.GetPropertyValue<string>("contentMiddle");
-            if (content.Contains("<h1"))
-            {
-                // If index of the header is small, it is in the beginning of the text. Else it might be further down (which is not recommended)
-                return content.IndexOf("<h1") > 10;
-            }
+            var content = PageMainContent(page);
 
-            return true;
+            // If content does NOT contain <h1> = set autoheader (return true)
+            // If content DOES contain <h1> - DON'T set autoheder (return false).  h1 should only occur once at the top of the page. All other headers should be h2,h3 etc.
+            return !content.Contains("<h1");
         }
+
 
         public static string RobotsContent(IPublishedContent page)
         {

@@ -34,12 +34,6 @@ namespace Camelonta.Boilerplate.App_Start
                 
                 "Bundled.css",
 
-                "form.css",
-
-                "modules/faq.css",
-                "modules/search-form.css", // Stylesheet for search
-
-                "typo.css",
                 "print.css"
             }.Select(cssFile => cssPath + cssFile).ToArray(); // Add CSS-path
 
