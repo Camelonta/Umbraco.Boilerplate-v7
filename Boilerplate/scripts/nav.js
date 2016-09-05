@@ -1,86 +1,26 @@
 ﻿Camelonta.Nav = (function () {
     var menuOpen = false,
         menuOpenClass = 'mobile-menu-open',
-        mainNavigation = $('#top-nav');
-
-    var init = function () {
-        // Button to open mobile menu
-        $(".mobile-menu-toggle").click(function () {
-
-            menuOpen = !menuOpen; // Change the sate of menuOpen
-
-            $('body').toggleClass(menuOpenClass);
-        });
-
-        $(".dyn-menu").on('click', '.toggle', function (e) {
-            openSubmenu(e);
-        });
-
-        // Place the submenu correctly
-        placeSubmenu();
-    }
-
-
-    // Put the submenu to the correct location. Either just let it be (desktop) or put it beneath the active link in the main-navigation
-    var placeSubmenu = function () {
-
-        if (Modernizr.mq('screen and (max-width:767px)')) {
-            // Append the submenus to the top navigation (mobile menu)
-            var activeMenu = mainNavigation.find('li.active');
-            $("#left-nav > ul").appendTo(activeMenu);
-        } else {
-            // All submenus in the top navigation (they exist if viewport went from small to large)
-            var allSubmenus = $('#top-nav .dyn-menu > li > ul');
-
-            // If there are submenus
-            if (allSubmenus.length > 0) {
-                var leftNav = $('#left-nav'),
-                    currentMenuItem = mainNavigation.find('li.active');
-
-                var activeParent = currentMenuItem.parents('li.active').last();
-                if (activeParent.length) {
-                    // If we are on a sub sub page, we must find the top-level LI that is active
-                    currentMenuItem = activeParent;
-                }
-
-                // Get the UL of the top-level menuitem
-                var currentSubmenus = currentMenuItem.find('ul').first();
-
-                if (leftNav.length > 0 && currentSubmenus.length > 0) {
-                    // Append submenus to the left nav
-                    currentSubmenus.appendTo(leftNav);
-                }
-
-                var allOtherSubmenusExceptCurrent = allSubmenus.not(currentSubmenus);
-
-                // Remove submenus from top navigation (except for the current one) if screen went from small to large
-                $.each(allOtherSubmenusExceptCurrent, function (i, el) {
-                    var li = $(el).closest('li');
-                    if (!li.hasClass('current'))
-                        li.removeClass('active');
-                });
-                allOtherSubmenusExceptCurrent.remove();
-            }
-
-            // If mobile menu is open and screen is larger than 767, close the menu
-            if (menuOpen) {
-                $('body').removeClass(menuOpenClass);
-                mainNavigation.css('display', '');
-                menuOpen = false;
-            }
-        }
-    };
+        expandedClass = 'nav--is-expanded',
+        loadingClass = 'nav--is-loading';
 
     // Get children from the surfacecontroller
     function openSubmenu(e) {
         e.preventDefault();
-        var li = $(e.target).closest('li'),
+        var navSubExpander = $(e.target),
+            li = $(e.target).closest('li'),
             id = li.data('id'),
             hasSubmenu = li.find('ul').length > 0;
 
+
         if (!hasSubmenu) {
-            li.addClass('loading');
-            $.post('/umbraco/surface/navigationsurface/getsubmenus', { id: id, currentNode: Camelonta.Helper.GetCurrentNodeId() }, function (data) {
+            li.addClass(loadingClass);
+
+            var parentUl = navSubExpander.closest('ul'),
+                level = parentUl.data('level'),
+                type = parentUl.data('type');
+
+            $.post('/umbraco/surface/navigationsurface/getsubmenus', { id: id, currentNode: Camelonta.Helper.GetCurrentNodeId(), level: level, type: type }, function (data) {
                 var ul = $(data);
                 li.append(ul);
 
@@ -89,12 +29,12 @@
                     ul.css('display', '');
                 });
 
-                li.removeClass('loading');
-                li.addClass('active');
+                li.removeClass(loadingClass);
+                li.addClass(expandedClass);
             });
         } else {
             var ul = li.find('ul').first(),
-                isOpen = li.hasClass('active'),
+                isOpen = li.hasClass(expandedClass),
                 actionClass = isOpen ? 'minimizing' : 'maximizing';
 
             // ActionClass is used to add the "active" style before the slide-animation is complete.
@@ -103,14 +43,22 @@
             ul.slideToggle(200, function () {
                 // Remove display after the menu has slided
                 ul.css('display', '');
-                li.toggleClass('active');
+                li.toggleClass(expandedClass);
                 li.removeClass(actionClass);
             });
         }
     }
 
-    return {
-        Init: init,
-        PlaceSubmenu: placeSubmenu
-    }
+
+    // Button to open mobile menu
+    $(".mobile-menu-toggle").click(function () {
+
+        menuOpen = !menuOpen; // Change the sate of menuOpen
+
+        $('body').toggleClass(menuOpenClass);
+    });
+
+    $('nav').on('click', '.nav-sub-expander', function (e) {
+        openSubmenu(e);
+    });
 })();

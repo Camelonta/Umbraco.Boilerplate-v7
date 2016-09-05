@@ -1,4 +1,4 @@
-﻿#top-nav {
+﻿.main-nav {
     background-color: $purple-light;
 
     ul {
@@ -21,8 +21,7 @@
         background-color: #9071A2;
     }
 
-    .toggle,
-    .search-form,
+
     .top-links,
     .dyn-menu ul {
         /* Hide some elements as default. Should only be visible on mobile */
@@ -31,43 +30,46 @@
 }
 
 .mobile-menu-open {
-    #top-nav {
+    .main-nav {
         display: block;
     }
 }
 
 
+
+.main-nav__lv-1 {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .main-nav {
+        .nav-sub-expander {
+            display: none;
+        }
+    }
+}
+
 @media only screen and (max-width: 767px) {
-    #top-nav {
+    .main-nav {
         display: none;
         z-index: 100000;
-        width: 100%;
-
-        a {
-            padding: 6px 0;
-        }
 
         li {
             float: none;
         }
 
-        .toggle {
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
+        .main-nav__lv-0 ul {
+            display: none;
         }
 
-        .active > ul {
-            display: block;
+        .nav--is-expanded > ul {
+            display: block; /* Only display sub-ul's in 'active' li's '*/
         }
 
         ul ul {
             padding-left: 20px;
         }
 
-        .search-form,
-        a,
-          .dyn-menu li,
         .top-links {
             display: block;
         }

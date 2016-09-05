@@ -1,32 +1,51 @@
 ﻿@using Camelonta.Utilities
 @model MenuItems
 
-<ul>
+<ul class="@LevelClass()" data-level="@Model.Level" data-type="@Model.Type">
     @foreach (var page in Model.Pages.FilterInvalidPages())
     {
-        @MenuItem(page)
+        @MenuItem(page, Model.Level)
     }
 </ul>
 
-@helper MenuItem(IPublishedContent page)
+@helper MenuItem(IPublishedContent page, int level)
 {
-    var children = page.Children.FilterInvalidPages();
-    <li data-id="@page.Id" class="@page.IfPageIsCurrent(Model.CurrentPage, "current")@page.IfPageIsActive(Model.CurrentPage, " active")">
-        <a href="@page.GetUrl()" itemprop="url" title="@page.Name">
-            <span itemprop="name">@page.NavName()</span>
+var children = page.Children.FilterInvalidPages();
+var liClass = page.IfPageIsCurrent(Model.CurrentPage, "current") + page.IfPageIsActive(Model.CurrentPage, " nav--is-expanded");
+var target = page.DocumentTypeAlias == "externalLink" ? "target=_blank" : string.Empty;
+
+    <li data-id="@page.Id" class="@liClass">
+        <a href="@page.GetUrl()" class="@LevelClass("link-",level)" @target itemprop="url" title="@page.Name">
+            <span itemprop="name" class="nav-name">@page.NavName()</span>
             @if (children.Any())
             {
-                <span class="toggle"></span>
+                <span class="nav-sub-expander toggle"></span>
             }
         </a>
         @if (children.Any() && page.IsAncestorOrSelf(Model.CurrentPage))
         {
-            <ul>
+            var subLevel = level + 1;
+            <ul class="@LevelClass("",subLevel)" data-level="@subLevel" data-type="@Model.Type">
                 @foreach (var child in children)
                 {
-                    @MenuItem(child)
+                    @MenuItem(child, subLevel)
                 }
             </ul>
         }
     </li>
+}
+
+@functions{
+
+    string LevelClass(string name = "", int lvl = -1)
+    {
+        var level = lvl == -1 ? Model.Level : lvl;
+        return string.Format("{0}__{1}lv-{2}", ClassPrefix(), name, level);
+    }
+
+    string ClassPrefix(string suffix = "")
+    {
+        return string.Format("{0}-nav{1}", Model.Type, suffix);
+    }
+
 }

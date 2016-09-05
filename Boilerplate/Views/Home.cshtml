@@ -44,12 +44,7 @@
         "postalCode": "@CurrentSite.GetPropertyValue("schemaCompanyPostalCode")",
         "addressCountry": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyAddressCountry"))"
         },
-        "sameAs" : [
-        @foreach (var link in socialMediaLinks)
-                {
-            <text>"@link",</text>
-        }
-        ]
+        "sameAs" : [@Html.Raw(string.Join(",", socialMediaLinks.Select(l => string.Format("\"{0}\"", l))))]
         }
     </script>
 }

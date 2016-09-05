@@ -17,7 +17,7 @@ else
 
 @helper PageContent()
 {
-    @Html.Partial("Layout/_LeftNav")
+    Html.RenderPartial("Layout/_LeftNav");
     <main role="main">
         @Html.GetGridHtml(Model.Content, "grid")
     </main>

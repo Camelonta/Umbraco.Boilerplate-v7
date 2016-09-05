@@ -4,7 +4,7 @@
 }
 
 <div class="container">
-    @Html.Partial("Layout/_LeftNav")
+    @{ Html.RenderPartial("Layout/_LeftNav");}
 
 
     @if (Model.Content.DocumentTypeAlias == "Faqquestion")

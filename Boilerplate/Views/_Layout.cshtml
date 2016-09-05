@@ -2,7 +2,7 @@
 @inherits CamelontaUmbracoTemplatePage
 
 <!doctype html>
-<html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName">
+<html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -18,7 +18,10 @@
     <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
     <meta property="og:site_name" content="@CurrentSite.Name" />
 
-    @Html.Partial("_Favicons")
+    @* Fastest way to change "no-js" class to "js" on <html>. This makes sure we don't get the content jump/glitch when styling for .no-js *@
+    <script>(function (e, t, n) { var r = e.querySelectorAll("html")[0]; r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2") })(document, window, 0);</script>
+
+    @{ Html.RenderPartial("_Favicons");}
 
     @Styles.Render("~/bundles/styles")
 
@@ -36,29 +39,31 @@
     <header role="banner">
         <div class="container">
             <a href="@CurrentSite.Url" id="header-logo">
-                <img src="http://placehold.it/350x150/fff/333?text=LOGO" alt="@CurrentSite.Name">
+                <i class="icon-local-cafe" style="color: #fff; font-size: 2.7em;"><span style="font-family: 'Lato'; line-height: 0; font-size: 0.7em; vertical-align: middle; display: inline-table; margin-left: 9px;">Boilerplate</span></i>
             </a>
 
             <a href="javascript:void(0)" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
-            @Html.Partial("_TopLinks")
+            @{ Html.RenderPartial("_TopLinks");}
 
             @if (Model.Content.DocumentTypeAlias != "Search")
             {
-                @Html.Partial("_SearchForm")
+                <div class="header-search">
+                    @{Html.RenderPartial("_SearchForm");}
+                </div>
             }
 
         </div>
     </header>
 
-    @Html.Partial("_TopNav")
+    @{ Html.RenderPartial("_TopNav");}
 
-    @Html.Partial("Layout/_Hero")
+    @{ Html.RenderPartial("Layout/_Hero");}
 
     <div id="main-content-wrapper">
         @RenderBody()
     </div>
 
-    @Html.Partial("Layout/_Footer")
+    @{ Html.RenderPartial("Layout/_Footer");}
 
     @* All site scripts. If NOT debug (if live): set attribute "async" *@
     @Scripts.RenderFormat(string.Format("<script src=\"{{0}}\" {0}></script>", HttpContext.Current.IsDebuggingEnabled ? "" : " async"), "~/bundles/scripts")

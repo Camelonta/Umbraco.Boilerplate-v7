@@ -1,24 +1,15 @@
-﻿@using Camelonta.Utilities
-@inherits CamelontaUmbracoTemplatePage
+﻿@inherits CamelontaUmbracoTemplatePage
 
-<nav id="top-nav">
+<div class="main-nav">
     <div class="container">
-        @Html.Partial("_SearchForm")
-        @Html.Partial("_TopLinks")
-        <ul class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            @foreach (var page in CurrentSite.Children.FilterInvalidPages())
-            {
-                var target = Umbraco.If(page.DocumentTypeAlias == "externalLink", "target=_blank");
-                <li class="@page.IfPageIsCurrent(Model, "current")@page.IfPageIsActive(Model, " active")" @target data-id="@page.Id">
-                    <a href="@page.GetUrl()" title="@page.Name" itemprop="url">
-                        <span itemprop="name">@page.NavName()</span>
-                        @if (page.Children.Any() && !page.GetPropertyValue<bool>("hideLeftNav"))
-                        {
-                            <span class="toggle"></span>
-                        }
-                    </a>
-                </li>
-            }
-        </ul>
+        <nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            @{ Html.RenderPartial("_MenuItems",new MenuItems
+                {
+                    Pages= CurrentSite.Children.FilterInvalidPages(),
+                    CurrentPage = Model.Content,
+                    Type = "main"
+                });}
+        </nav>
+        @{ Html.RenderPartial("_TopLinks");}
     </div>
-</nav>
+</div>

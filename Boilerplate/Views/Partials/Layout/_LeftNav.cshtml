@@ -1,7 +1,13 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
 
 <section id="l-sidebar" class="@Umbraco.If(HideLeftNav,"hide")">
-    <nav id="left-nav" class="dyn-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-        @Html.Partial("~/Views/Partials/_MenuItems.cshtml", new MenuItems { CurrentPage = Model.Content, Pages = Model.Content.GetPropertyValue<bool>("hideLeftNav") ? new List<IPublishedContent>() : LeftNavigation })
+    <nav id="left-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        @{ Html.RenderPartial("_MenuItems", new MenuItems
+            {
+                Pages = Model.Content.GetPropertyValue<bool>("hideLeftNav") ? new List<IPublishedContent>() : LeftNavigation,
+                CurrentPage = Model.Content,
+                Level = 1,
+                Type = "side"
+            });}
     </nav>
 </section>

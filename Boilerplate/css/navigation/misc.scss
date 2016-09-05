@@ -4,42 +4,46 @@
     -ms-transition: background-color .2s;
     -o-transition: background-color .2s;
     transition: background-color .2s;
+    position: relative;
 }
 
 
 /* == Dynamic navigation (top/mobile-nav, left-nav) == */
-.dyn-menu a {
-    position: relative;
-}
 
-.dyn-menu .toggle {
+.nav-sub-expander {
     position: absolute;
     height: 100%;
     width: 45px;
     right: 0;
     top: 0;
     text-align: center;
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.05);
 
     @extend %flexbox;
     @include align-items(center);
+
+    &:before {
+        content: "+";
+        width: 100%;
+    }
 }
 
-.dyn-menu .active > ul {
-    display: block; /* Only display sub-ul's in 'active' li's '*/
+.nav--is-expanded > ul {
+    /* display: block; Only display sub-ul's in 'active' li's '*/
 }
 
-.dyn-menu li.active > a > .toggle:before,
-.maximizing > a > .toggle:before {
+/*.active > ul {
+    display: block; /* Only display sub-ul's in 'active' li's '
+}*/
+
+.nav--is-expanded > a > .nav-sub-expander:before,
+.maximizing > a > .nav-sub-expander:before {
     content: "-";
 }
 
 
-.dyn-menu .toggle:before {
-    content: "+";
-}
-
-
-.minimizing > a > .toggle:before {
+.nav-sub-expander .minimizing > a > .nav-sub-expander:before {
     content: "+" !important;
 }
 /* == End of Dynamic navigation == */
@@ -63,7 +67,7 @@
 /* == End of Mobile menu toggle == */
 
 /* Pulsera plus-knappen samt sökens "Visa fler resultat" när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-.dyn-menu .loading .toggle {
+.nav--is-loading .nav-sub-expander {
     @extend %pulsate;
 }
 

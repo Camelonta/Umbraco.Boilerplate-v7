@@ -9,7 +9,7 @@
 }
 
 <div class="container">
-    @Html.Partial("Layout/_LeftNav")
+    @{ Html.RenderPartial("Layout/_LeftNav");}
 
     <main role="main">
         <h1>@Model.Content.Name</h1>

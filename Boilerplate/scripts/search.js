@@ -41,6 +41,7 @@
     autocomplete();
 
     var searchMoreLink = $('.load-more-results'),
+        loadingClass = 'load-more-results--is-loading',
         searchTerm = window.query,
         skip = window.skipAndTakeAmount;
 
@@ -48,7 +49,7 @@
         e.preventDefault();
 
         // Set loading state
-        searchMoreLink.addClass('loading');
+        searchMoreLink.addClass(loadingClass);
 
         // Hide error if it's shown and this is another search
         $('#search-unexpected-error').addClass('hide');
@@ -86,7 +87,7 @@
 
         }).always(function () {
             // Always remove loading state
-            searchMoreLink.removeClass('loading');
+            searchMoreLink.removeClass(loadingClass);
         });
     });
 

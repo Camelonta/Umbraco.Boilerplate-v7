@@ -9,9 +9,12 @@
 @import "layout.scss";
 @import "utilities.scss";
 
+@import "forms/global-form.scss";
+@import "forms/global-contour.scss";
+
 @import "navigation/misc.scss";
 @import "navigation/left-nav.scss";
-@import "navigation/top-nav.scss";
+@import "navigation/main-nav.scss";
 @import "navigation/top-links.scss";
 
 @import "page/home.scss";

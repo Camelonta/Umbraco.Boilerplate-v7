@@ -1,6 +1,5 @@
 ﻿/// <reference path="_variables.scss"/>
 /// <reference path="mixins/flexbox.scss"/>
-/* == Layout rules divide the page into sections. Layouts hold one or more modules together. == */
 
 .container {
     max-width: 100%;
@@ -14,13 +13,12 @@
 // HEADER
 header {
     background: $purple;
+    padding: 20px 0;
 }
 
-#header-logo img {
-    max-width: 170px;
-    float: left;
+.header-search {
+    float: right;
 }
-
 
 
 /*-------------------------------------*/
@@ -69,7 +67,7 @@ footer {
 /*-------------------------------------*/
 // MAIN CONTENT
 #main-content-wrapper {
-    @include flex(1,0,0);
+    @include flex(1,0);
 }
 
 main {

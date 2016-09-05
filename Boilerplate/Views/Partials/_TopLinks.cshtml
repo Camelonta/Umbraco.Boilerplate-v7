@@ -4,23 +4,22 @@
 @{
     var topLinks = CurrentSite.GetPropertyValue<ArchetypeModel>("topLinks");
 }
-@if (topLinks != null)
+@if (topLinks != null && topLinks.Any())
 {
     <ul class="top-links">
         @foreach (var topLink in topLinks)
         {
-            if (!topLink.GetValue<string>("text").IsEmpty())
-            {
-                <li>
-                    <a href="@(topLink.GetValue<string>("link"))">
-                        <span>@(topLink.GetValue<string>("text"))</span>
-                        @if (!topLink.GetValue<string>("icon").IsEmpty())
-                        {
-                            <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=max" alt="@(topLink.GetValue<string>("text"))">
-                        }
-                    </a>
-                </li>
-            }
+            // TODO använd NavName
+            <li>
+                
+                <a href="@(topLink.GetValue<string>("link"))">
+                    <span>@(topLink.GetValue<string>("text"))</span>
+                    @if (!topLink.GetValue<string>("icon").IsEmpty())
+                    {
+                        <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=max" alt="@(topLink.GetValue<string>("text"))">
+                    }
+                </a>
+            </li>
         }
     </ul>
 }
