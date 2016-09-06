@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     'use strict';
 
     // Show answers on question-click
