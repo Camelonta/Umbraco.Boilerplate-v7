@@ -1,19 +1,18 @@
-﻿angular.module('umbraco.services').config(['$httpProvider', function ($httpProvider) {
+angular.module('umbraco.services').config(['$httpProvider', function ($httpProvider) {
 
     $httpProvider.interceptors.push(function ($q) {
         return {
             'response': function (response) {
-
                 // Load our welcome-text on the login-page
-                if (response.config.url === 'views/common/dialogs/login.html') {
+                if (response.config.url.indexOf('views/common/dialogs/login.html') > -1) {
                     loadLoginPage(response);
                 }
                 // Load camelonta-logo
-                if (response.config.url === 'views/components/application/umb-sections.html') {
+                if (response.config.url.indexOf('views/components/application/umb-sections.html') > -1) {
                     loadCamelontaLogo(response);
                 }
                 // Load our content in help-section
-                if (response.config.url === 'views/common/overlays/help/help.html') {
+                if (response.config.url.indexOf('views/common/overlays/help/help.html') > -1) {
                     loadHelpSection(response);
                 }
 

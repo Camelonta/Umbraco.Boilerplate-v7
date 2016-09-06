@@ -13,6 +13,7 @@ ul.sections li.camelonta-logo {
         padding: 0;
         margin: 0 auto;
         border: 0;
+        max-width: 73%;
     }
 
 /* left border in sidebar */
@@ -168,3 +169,11 @@ ul.sections li.avatar {
     color: #FF0095;
 }
 /* == End of Page tree == */
+
+
+
+
+/* EDITOR VIEW */
+.umb-cell-media{
+    max-width: 570px;
+}
