@@ -38,7 +38,7 @@
 
     <header role="banner">
         <div class="container">
-            <a href="@CurrentSite.Url" id="header-logo">
+            <a href="@CurrentSite.Url" class="header__logo">
                 <i class="icon-local-cafe" style="color: #fff; font-size: 2.7em;"><span style="font-family: 'Lato'; line-height: 0; font-size: 0.7em; vertical-align: middle; display: inline-table; margin-left: 9px;">Boilerplate</span></i>
             </a>
 
@@ -47,7 +47,7 @@
 
             @if (Model.Content.DocumentTypeAlias != "Search")
             {
-                <div class="header-search">
+                <div class="header__search">
                     @{Html.RenderPartial("_SearchForm");}
                 </div>
             }
@@ -55,7 +55,7 @@
         </div>
     </header>
 
-    @{ Html.RenderPartial("_TopNav");}
+    @{ Html.RenderPartial("_MainNav");}
 
     @{ Html.RenderPartial("Layout/_Hero");}
 

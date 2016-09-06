@@ -12,8 +12,8 @@
     }
 
     a {
-        @include transition(background-color .2s);
-        color: white;
+        @include transition(background-color .2s,color .2s);
+        color: inherit;
         padding: 1em;
         display: block;
     }
@@ -43,6 +43,7 @@
         .nav--is-expanded,
         a:hover {
             background: $purple;
+            color: #fff;
         }
 
         .nav-sub-expander {

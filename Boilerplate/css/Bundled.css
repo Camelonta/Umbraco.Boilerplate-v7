@@ -1,5 +1,8 @@
 ﻿@charset "UTF-8";
 /*-------------------------------------*/
+/* 
+    Name those colors: http://www.noxproductions.se/namethosecolors
+*/
 /*-------------------------------------*/
 /*-------------------------------------*/
 .nav-sub-expander {
@@ -154,7 +157,7 @@ header {
   background: #7b5294;
   padding: 20px 0; }
 
-.header-search {
+.header__search {
   float: right; }
 
 /*-------------------------------------*/
@@ -430,11 +433,11 @@ nav a {
   .main-nav li {
     float: left; }
   .main-nav a {
-    -moz-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s;
-    color: white;
+    -moz-transition: background-color 0.2s, color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+    color: inherit;
     padding: 1em;
     display: block; }
   .main-nav .top-links,
@@ -453,7 +456,8 @@ nav a {
     /* Active menu state in large-screen menu */ }
     .main-nav .nav--is-expanded,
     .main-nav a:hover {
-      background: #7b5294; }
+      background: #7b5294;
+      color: #fff; }
     .main-nav .nav-sub-expander {
       display: none; } }
 
