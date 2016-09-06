@@ -11,11 +11,16 @@
 @helper MenuItem(IPublishedContent page, int level)
 {
 var children = page.Children.FilterInvalidPages();
-var liClass = page.IfPageIsCurrent(Model.CurrentPage, "current") + page.IfPageIsActive(Model.CurrentPage, " nav--is-expanded");
+var liCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, string.Format("nav--is-current"));
+var liClass = liCurrentClass + page.IfPageIsActive(Model.CurrentPage, " nav--is-expanded");
+
+var aCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, ClassPrefix("--link-is-current"));
+var aClass = aCurrentClass + " " + LevelClass("link-", level);
+
 var target = page.DocumentTypeAlias == "externalLink" ? "target=_blank" : string.Empty;
 
     <li data-id="@page.Id" class="@liClass">
-        <a href="@page.GetUrl()" class="@LevelClass("link-",level)" @target itemprop="url" title="@page.Name">
+        <a href="@page.GetUrl()" class="@aClass" @target itemprop="url" title="@page.Name">
             <span itemprop="name" class="nav-name">@page.NavName()</span>
             @if (children.Any())
             {
@@ -49,3 +54,14 @@ var target = page.DocumentTypeAlias == "externalLink" ? "target=_blank" : string
     }
 
 }
+
+
+@*
+    -- CHEAT SHEET FOR ADDING MORE SPECIFICITY ON MENU ITEMS --
+    
+
+    LevelClass("li-") = side-nav__li-lv-1 = [TYPE]-nav__[YOUR NAME]-lv-[LEVEL]
+
+    TYPE + IS-CURRENT + LEVEL = ClassPrefix("--is-current-lv-" + level) - add this to "aCurrentClass"
+
+*@

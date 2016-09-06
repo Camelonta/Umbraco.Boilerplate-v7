@@ -1,6 +1,5 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
 @using Archetype.Models
-
 @{
     var topLinks = CurrentSite.GetPropertyValue<ArchetypeModel>("topLinks");
 }
@@ -9,11 +8,11 @@
     <ul class="top-links">
         @foreach (var topLink in topLinks)
         {
-            // TODO använd NavName
+            var page = Umbraco.Content(topLink.GetValue<string>("link"));
+            var text = string.IsNullOrEmpty(topLink.GetValue<string>("text")) ? page.NavName() : topLink.GetValue<string>("text");
             <li>
-                
-                <a href="@(topLink.GetValue<string>("link"))">
-                    <span>@(topLink.GetValue<string>("text"))</span>
+                <a href="@page.Url">
+                    <span>@text</span>
                     @if (!topLink.GetValue<string>("icon").IsEmpty())
                     {
                         <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=max" alt="@(topLink.GetValue<string>("text"))">

@@ -615,6 +615,7 @@
     <Content Include="css\page\search.scss" />
     <Content Include="css\forms\global-form.scss" />
     <Content Include="css\forms\global-contour.scss" />
+    <Content Include="css\mixins\transition.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

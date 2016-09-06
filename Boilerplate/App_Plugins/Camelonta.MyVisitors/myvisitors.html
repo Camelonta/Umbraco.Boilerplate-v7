@@ -1,4 +1,6 @@
-<script src="/App_Plugins/Camelonta.MyVisitors/myvisitors.controller.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.0/angular-chart.min.js"></script>
+<script src="/App_Plugins/Camelonta.MyVisitors/myvisitors.controller.js"></script>-->
 
 <div style="max-width: 1000px" class="ng-scope" ng-controller="MyVisitors.DashController">
 
@@ -9,13 +11,20 @@
     <div ng-hide="sites.length">{{resources.NoSitesConfigured}}</div>
 
     <div ng-show="message.length">{{message}}</div>
+    <div style="height: 200px; width: 200px; background: red;">
+        <chart-line dataset="someData" options="someOptions" segement-stroke-width="5"></chart-line>
+    </div>
 
     <div ng-repeat="site in sites" class="row" ng-hide="showSettings">
-
-        <div class="span7">
+        
+        <div class="span7"> 
 
             <h4>{{resources.TitleVisitorsGraph}}</h4>
-            <iframe height="210" scrolling="no" frameborder="0" ng-show="site.SiteId" ng-src="http://myvisitors.camelonta.se/widgets/flashy/iframe?site_id={{site.SiteId}}&amp;sitekey={{site.SiteKey}}&amp;w={{width}}&amp;h=250&amp;date=last-30-days&amp;type=visitors&amp;title=Besökare&amp;hide_title=1&amp;hide_branding=1&amp;hide_y=0&amp;" style="width: 480px; height: 190px; position: relative"></iframe>
+            <!--<iframe height="210" scrolling="no" frameborder="0" ng-show="site.SiteId" ng-src="https://myvisitors.camelonta.se/widgets/flashy/iframe?site_id={{site.SiteId}}&amp;sitekey={{site.SiteKey}}&amp;w={{width}}&amp;h=250&amp;date=last-30-days&amp;type=visitors&amp;title=Besökare&amp;hide_title=1&amp;hide_branding=1&amp;hide_y=0&amp;" style="width: 480px; height: 190px; position: relative"></iframe>-->
+            <!--https://myvisitors.camelonta.se/api/stats/4?site_id=138273&sitekey=16e54547fe95ea16&type=visitors&date=last-30-days&daily=1&output=json-->
+
+            <!--<myvisitors></myvisitors>-->
+            {{site.someData}}
 
         </div>
 

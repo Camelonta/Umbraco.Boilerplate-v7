@@ -322,14 +322,8 @@ input[type="button"] {
   display: block !important; }
 
 nav a {
-  -webkit-transition: background-color .2s;
-  -moz-transition: background-color .2s;
-  -ms-transition: background-color .2s;
-  -o-transition: background-color .2s;
-  transition: background-color .2s;
   position: relative; }
 
-/* == Dynamic navigation (top/mobile-nav, left-nav) == */
 .nav-sub-expander {
   position: absolute;
   height: 100%;
@@ -348,20 +342,13 @@ nav a {
     content: "+";
     width: 100%; }
 
-.nav--is-expanded > ul {
-  /* display: block; Only display sub-ul's in 'active' li's '*/ }
-
-/*.active > ul {
-    display: block; /* Only display sub-ul's in 'active' li's '
-}*/
 .nav--is-expanded > a > .nav-sub-expander:before,
-.maximizing > a > .nav-sub-expander:before {
+.nav--is-maximizing > a > .nav-sub-expander:before {
   content: "-"; }
 
-.nav-sub-expander .minimizing > a > .nav-sub-expander:before {
+.nav-sub-expander .nav--is-minimizing > a > .nav-sub-expander:before {
   content: "+" !important; }
 
-/* == End of Dynamic navigation == */
 /* == Mobile menu toggle == */
 .mobile-menu-toggle {
   border: 1px solid #333;
@@ -377,49 +364,58 @@ nav a {
   font-size: 1.3em; }
 
 /* == End of Mobile menu toggle == */
-/* Pulsera plus-knappen samt sökens "Visa fler resultat" när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+/* Pulsera expand-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 @media only screen and (max-width: 767px) {
   .mobile-menu-toggle {
     display: block; } }
 
-#left-nav ul {
-  list-style-type: none;
-  /*ul {
-            a {
-                background-color: transparent;
-                color: #333;
-            }
-        }*/ }
+#left-nav {
+  background: #E91E63;
+  /* pink */ }
+  #left-nav ul {
+    list-style-type: none; }
+  #left-nav a {
+    display: block;
+    padding: 1em;
+    color: inherit;
+    -moz-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s; }
+  #left-nav .nav-name {
+    width: 77%;
+    width: calc(100% - 40px);
+    display: block; }
+  #left-nav .nav--is-expanded > ul {
+    display: block;
+    /* Only display sub-ul's inside 'nav--is-expanded' li's '*/ }
 
-#left-nav a {
-  padding: 9px 12px;
-  display: block; }
-
-#left-nav .nav-name {
-  width: 77%;
-  width: calc(100% - 40px);
-  display: block; }
-
-#left-nav .nav--is-expanded > ul {
-  display: block;
-  /* Only display sub-ul's in 'active' li's '*/ }
-
+/*--------------------------------------------------*/
 .side-nav__lv-1 {
-  padding: 0; }
-  .side-nav__lv-1 li {
-    background: #F3E9F9;
-    /* Background for submenus */ }
+  padding: 0;
+  color: #fff; }
   .side-nav__lv-1 ul {
     display: none;
     padding: 0 0 0 5%;
-    /* Move every submenu a bit to the right */ }
+    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ }
 
-.side-nav__link-lv-1 {
-  background-color: #7b5294;
-  color: #FFF; }
+/* Current lvl 1 */
+.side-nav__link-lv-1:hover {
+  background: #b71c1c;
+  /* red */ }
 
+.side-nav__link-lv-1.side-nav--link-is-current {
+  background: #F9A825;
+  /* yellow */ }
+
+/*--------------------------------------------------*/
 .side-nav__lv-2 {
-  font-size: .9em; }
+  font-size: .9em;
+  background: #558B2F;
+  /* green */ }
+  .side-nav__lv-2 .side-nav--link-is-current {
+    font-weight: bold;
+    text-decoration: underline; }
 
 @media only screen and (max-width: 767px) {
   #left-nav {
@@ -434,11 +430,13 @@ nav a {
   .main-nav li {
     float: left; }
   .main-nav a {
+    -moz-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
     color: white;
-    padding: 18px 30px;
+    padding: 1em;
     display: block; }
-  .main-nav .active > a {
-    background-color: #9071A2; }
   .main-nav .top-links,
   .main-nav .dyn-menu ul {
     /* Hide some elements as default. Should only be visible on mobile */
@@ -451,27 +449,36 @@ nav a {
   display: none; }
 
 @media only screen and (min-width: 768px) {
-  .main-nav .nav-sub-expander {
-    display: none; } }
+  .main-nav {
+    /* Active menu state in large-screen menu */ }
+    .main-nav .nav--is-expanded,
+    .main-nav a:hover {
+      background: #7b5294; }
+    .main-nav .nav-sub-expander {
+      display: none; } }
 
 @media only screen and (max-width: 767px) {
   .main-nav {
     display: none;
-    z-index: 100000; }
+    /* TODO - style top links in mobile menu */ }
     .main-nav li {
       float: none; }
-    .main-nav .main-nav__lv-0 ul {
-      display: none; }
     .main-nav .nav--is-expanded > ul {
       display: block;
-      /* Only display sub-ul's in 'active' li's '*/ }
-    .main-nav ul ul {
-      padding-left: 20px; }
+      /* Only display sub-ul's in 'nav--is-expanded' li's '*/ }
     .main-nav .top-links {
-      display: block; } }
+      display: block;
+      float: none;
+      border-top: 1px solid gray; }
+  .main-nav--link-is-current {
+    background: red; }
+  .main-nav__lv-0 ul {
+    display: none;
+    padding-left: 2%;
+    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ } }
 
 .top-links {
-  text-align: right; }
+  float: right; }
   .top-links li {
     display: inline-block; }
   .top-links a {
@@ -483,16 +490,9 @@ nav a {
   .top-links img {
     max-width: 15px; }
 
-/* == Toplinks in the mobile menu == */
-nav .top-links {
-  border: 1px solid #3C3C3C;
-  text-align: center; }
-
 @media only screen and (max-width: 767px) {
   .top-links {
-    display: none; }
-    .top-links a {
-      margin: 0 14px; } }
+    display: none; } }
 
 /* 
 

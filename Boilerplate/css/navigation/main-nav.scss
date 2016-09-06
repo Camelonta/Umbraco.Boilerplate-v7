@@ -12,15 +12,11 @@
     }
 
     a {
+        @include transition(background-color .2s);
         color: white;
-        padding: 18px 30px;
+        padding: 1em;
         display: block;
     }
-
-    .active > a {
-        background-color: #9071A2;
-    }
-
 
     .top-links,
     .dyn-menu ul {
@@ -43,35 +39,51 @@
 
 @media only screen and (min-width: 768px) {
     .main-nav {
+        /* Active menu state in large-screen menu */
+        .nav--is-expanded,
+        a:hover {
+            background: $purple;
+        }
+
         .nav-sub-expander {
             display: none;
         }
     }
 }
 
+
+
 @media only screen and (max-width: 767px) {
     .main-nav {
         display: none;
-        z-index: 100000;
 
         li {
             float: none;
         }
 
         .main-nav__lv-0 ul {
-            display: none;
         }
+
 
         .nav--is-expanded > ul {
-            display: block; /* Only display sub-ul's in 'active' li's '*/
+            display: block; /* Only display sub-ul's in 'nav--is-expanded' li's '*/
         }
-
-        ul ul {
-            padding-left: 20px;
-        }
-
+        /* TODO - style top links in mobile menu */
         .top-links {
             display: block;
+            float: none;
+            border-top: 1px solid gray;
+        }
+    }
+
+    .main-nav--link-is-current {
+        background: red;
+    }
+
+    .main-nav__lv-0 {
+        ul {
+            display: none;
+            padding-left: 2%; /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */
         }
     }
 }

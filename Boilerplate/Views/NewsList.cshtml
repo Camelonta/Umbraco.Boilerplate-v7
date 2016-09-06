@@ -4,33 +4,44 @@
 
     const int take = 40;
     var skip = Request.QueryString["skip"] == null ? 0 : Convert.ToInt32(Request.QueryString["skip"]);
-    var news = Model.Content.Descendants().Where(p => p.DocumentTypeAlias == "News").Skip(skip).Take(take);
-    var count = Model.Content.Descendants().Count(p => p.DocumentTypeAlias == "News");
+    var newsItemsOnThisPage = Model.Content.Descendants("News").OrderByDescending(p => p.GetPropertyValue<DateTime>("displayDate")).Skip(skip).Take(take);
+    decimal newsItemCount = Model.Content.Descendants("News").Count();
 }
 
 <div class="container">
     @{ Html.RenderPartial("Layout/_LeftNav");}
 
     <main role="main">
-        <h1>@Model.Content.Name</h1>
+        @RenderHelper.Header(Model.Content)
 
-        @foreach (var page in news)
+        @foreach (var page in newsItemsOnThisPage)
         {
-            <a href="@page.Url">
-                <h4>@page.Name</h4>
-                <small>@page.CreateDate.ToString("yyyy-MM-dd")</small>
-                <p>@Meta.PageTeaser(page)</p>
+            <a href="@page.Url" class="news-item">
+                <h3 class="news-item__header">@page.Name</h3>
+                <p class="news-item__date">@(page.CreateDate.ToString("yyyy-MM-dd"))</p>
+                <p class="news-item__teaser">@Meta.PageTeaser(page)</p>
+                <p class="news-item__read-more">Läs mer</p>
             </a>
         }
 
         @{
-            var paginationSize = count / take;
-        }
+            // Get the total count of pages by dividing total news-count with "take"
+            var amountOfPages = Math.Ceiling(newsItemCount / take);
 
-        @for (var i = 0; i < paginationSize; i++)
-        {
-            <a href="?skip=@(i*take)">@(i + 1)</a>
-        }
+            if (amountOfPages > 1)
+            {
+                // Calculate current page number based on skip/take
+                var currentPage = skip > 0 ? ((skip / take) + 1) : 1;
 
+                <div class="news-pagination">
+                    @for (var i = 0; i < amountOfPages; i++)
+                    {
+                        var pageNumber = i + 1;
+                        var activeClass = pageNumber == currentPage ? "news-pagination__link--is-active" : "";
+                        <a href="?skip=@(i*take)" class="news-pagination__link @activeClass">@pageNumber</a>
+                    }
+                </div>
+            }
+        }
     </main>
 </div>

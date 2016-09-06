@@ -1,17 +1,14 @@
 ﻿#left-nav {
+    background: #E91E63; /* pink */
     ul {
         list-style-type: none;
-        /*ul {
-            a {
-                background-color: transparent;
-                color: #333;
-            }
-        }*/
     }
 
     a {
-        padding: 9px 12px;
         display: block;
+        padding: 1em;
+        color: inherit;
+        @include transition(background-color .2s);
     }
 
     .nav-name {
@@ -21,37 +18,48 @@
     }
 
     .nav--is-expanded > ul {
-        display: block; /* Only display sub-ul's in 'active' li's '*/
+        display: block; /* Only display sub-ul's inside 'nav--is-expanded' li's '*/
     }
 }
 
 
-
+/*--------------------------------------------------*/
+// LEVEL 1
 .side-nav__lv-1 {
     padding: 0;
-
-    a {
-    }
-
-    li {
-        background: #F3E9F9; /* Background for submenus */
-    }
+    color: #fff;
 
     ul {
         display: none;
-        padding: 0 0 0 5%; /* Move every submenu a bit to the right */
+        padding: 0 0 0 5%; /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */
     }
 }
 
+/* Current lvl 1 */
 .side-nav__link-lv-1 {
-    background-color: $purple;
-    color: #FFF;
+    &:hover {
+        background: #b71c1c; /* red */
+    }
+
+    &.side-nav--link-is-current {
+        background: #F9A825; /* yellow */
+    }
 }
 
 
+/*--------------------------------------------------*/
+// LEVEL 2 AND BELOW
 .side-nav__lv-2 {
     font-size: .9em;
+    background: #558B2F; /* green */
+    .side-nav--link-is-current {
+        font-weight: bold;
+        text-decoration: underline;
+    }
 }
+
+
+
 
 @media only screen and (max-width: 767px) {
     #left-nav {

@@ -1,5 +1,5 @@
 ﻿.top-links {
-    text-align: right;
+    float: right;
 
     li {
         display: inline-block;
@@ -20,20 +20,8 @@
     }
 }
 
-/* == Toplinks in the mobile menu == */
-nav {
-    .top-links {
-        border: 1px solid #3C3C3C;
-        text-align: center;
-    }
-}
-
 @media only screen and (max-width: 767px) {
     .top-links {
         display: none;
-
-        a {
-            margin: 0 14px;
-        }
     }
 }
