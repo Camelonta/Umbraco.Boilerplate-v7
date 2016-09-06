@@ -501,32 +501,51 @@ nav a {
 */
 /* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 /* == Global button properties == */
-.button, .button a, .button a:hover, .button-ghost, .button-ghost a, .button-ghost a:hover, .button-variant, .button-variant a, .button-variant a:hover {
-  color: #fff !important;
+.button, .button a, .button a:hover, .button-variant, .button-variant a, .button-variant a:hover, .button-ghost--blue, .button-ghost--blue a, .button-ghost--blue a:hover {
+  color: #fff;
   cursor: pointer;
   text-decoration: none; }
 
-.button, .button-ghost, .button-variant {
+.button, .button-variant, .button-ghost--blue {
   -moz-transition: background-color .2s;
   -o-transition: background-color .2s;
   -webkit-transition: background-color .2s;
   transition: background-color .2s; }
 
+/* This kind of hack- border is needed to get the border *inside*. If it uses a real border the height of buttons will vary slightly */
 /* == End of Global button properties == */
-/* == OUR BUTTON STYLES == */
-.button:hover {
-  background-color: #FDB949; }
+/*-------------------------------------*/
+.button {
+  background-color: #1565C0;
+  padding: .88em 1.47em;
+  display: inline-block;
+  margin: 3px 0;
+  /* Add a small margin */ }
+  .button:hover {
+    background-color: #1E88E5; }
 
-.button-ghost {
-  border: 2px solid #fff;
-  background-color: transparent; }
-  .button-ghost:hover {
-    background-color: rgba(255, 255, 255, 0.23); }
+.button-variant {
+  background-color: #F9A825;
+  padding: .88em 1.47em;
+  display: inline-block;
+  margin: 3px 0;
+  /* Add a small margin */ }
+  .button-variant:hover {
+    background-color: #FBC02D; }
 
-.button-variant:hover {
-  background-color: #1D8DDE; }
+.button-ghost--blue {
+  padding: .88em 1.47em;
+  display: inline-block;
+  margin: 3px 0;
+  /* Add a small margin */
+  -webkit-box-shadow: inset 0px 0px 0px 2px #bff1f7;
+  -moz-box-shadow: inset 0px 0px 0px 2px #bff1f7;
+  box-shadow: inset 0px 0px 0px 2px #bff1f7;
+  color: #0D47A1;
+  background-color: #fff; }
+  .button-ghost--blue:hover {
+    background-color: #f5feff; }
 
-/* == END OF OUR BUTTON STYLES == */
 .video {
   background-repeat: no-repeat;
   background-size: cover;

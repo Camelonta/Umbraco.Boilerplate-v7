@@ -1,6 +1,6 @@
 ﻿/* == Global button properties == */
 %button-properties {
-    color: #fff !important;
+    color: #fff;
     cursor: pointer;
     text-decoration: none;
 }
@@ -13,6 +13,9 @@
 }
 
 @mixin button($hoverColor) {
+    padding: .88em 1.47em;
+    display: inline-block;
+    margin: 3px 0; /* Add a small margin */
     @extend %button-properties;
     @extend %button-hover;
 
@@ -23,26 +26,37 @@
             @extend %button-properties;
         }
     }
-
     &:hover {
         background-color: $hoverColor;
     }
 }
+
+/* This kind of hack- border is needed to get the border *inside*. If it uses a real border the height of buttons will vary slightly */
+@mixin ghost-button-border($color) {
+    -webkit-box-shadow: inset 0px 0px 0px 2px $color;
+    -moz-box-shadow: inset 0px 0px 0px 2px $color;
+    box-shadow: inset 0px 0px 0px 2px $color;
+}
 /* == End of Global button properties == */
 
 
-/* == OUR BUTTON STYLES == */
-.button {
-    @include button(#FDB949);
-}
 
-.button-ghost {
-    border:2px solid #fff;
-    background-color:transparent;
-    @include button(rgba(255, 255, 255, 0.23));
+
+/*-------------------------------------*/
+//  OUR BUTTON STYLES
+.button {
+    background-color: #1565C0;
+    @include button(#1E88E5);
 }
 
 .button-variant {
-    @include button(#1D8DDE);
+    background-color: #F9A825;
+    @include button(#FBC02D);
 }
-/* == END OF OUR BUTTON STYLES == */
+
+.button-ghost--blue {
+    @include button(rgb(245, 254, 255));
+    @include ghost-button-border(#bff1f7);
+    color: #0D47A1;
+    background-color: #fff;
+}

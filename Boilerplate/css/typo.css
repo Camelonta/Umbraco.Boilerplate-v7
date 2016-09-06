@@ -3,14 +3,14 @@ img {    /* Sätt dessa properties så de även gäller när man redigerar i Tin
 	/* Umbraco sätter fast höjd i Tiny */}
 .button,
 .button-variant{  
-	padding: 12px 24px;    border-radius: 4px;    display: inline-block;	margin: 3px 0;
+	padding: 12px 24px;    display: inline-block;	margin: 3px 0;
 }
 
 /**umb_name:Knapp*/
-.button{background-color: #FB7840;}
+.button{background-color: #1565C0;}
 
 /**umb_name:Knapp 2*/
-.button-variant{background-color:#1AAAD6;}
+.button-variant{background-color:#F9A825;}
 
 /**umb_name:Rubrik 1*/
 h1{font-size: 2.7em;}
