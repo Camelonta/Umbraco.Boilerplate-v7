@@ -10,7 +10,7 @@ using System.Collections;
 using Lucene.Net.Analysis;
 using NSubstitute;
 
-namespace Camelonta.Boilerplate.Tests
+namespace Boilerplate.Web.Tests
 {
     public class MockIndexFactory
     {

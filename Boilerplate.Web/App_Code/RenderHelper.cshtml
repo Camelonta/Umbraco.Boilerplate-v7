@@ -1,0 +1,10 @@
+﻿@using Boilerplate.Web.Classes
+@using Umbraco.Core.Models
+
+@helper Header(IPublishedContent page)
+{
+    if (page.AutoHeader())
+    {
+        <h1>@page.Name</h1>
+    }
+}

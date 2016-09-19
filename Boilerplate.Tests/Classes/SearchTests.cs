@@ -1,10 +1,10 @@
-﻿using Camelonta.Boilerplate.Classes.Search;
+﻿using Boilerplate.Core.Classes.Search;
 using NSubstitute;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Camelonta.Boilerplate.Tests.Classes
+namespace Boilerplate.Web.Tests.Classes
 {
     [TestFixture]
     public class SearchTests
