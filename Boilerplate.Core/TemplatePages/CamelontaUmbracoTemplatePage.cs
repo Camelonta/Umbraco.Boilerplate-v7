@@ -11,6 +11,7 @@ namespace Boilerplate.Core.TemplatePages
     public abstract class CamelontaUmbracoTemplatePage : UmbracoTemplatePage
     {
         private List<IPublishedContent> _leftNav;
+        private IEnumerable<IPublishedContent> _sideContent;
         private IPublishedContent _currentSite;
         private Hero _hero;
 
@@ -39,5 +40,7 @@ namespace Boilerplate.Core.TemplatePages
         public List<IPublishedContent> LeftNavigation => _leftNav ?? (_leftNav = Model.Content.AncestorOrSelf(2).Children.FilterInvalidPages());
 
         public bool HideLeftNav => !LeftNavigation.Any() || Model.Content.GetPropertyValue<bool>("hideLeftNav");
+
+        public IEnumerable<IPublishedContent> SideContent => _sideContent ?? (_sideContent = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("rightColumnContent", true) ?? new List<IPublishedContent>());
     }
 }

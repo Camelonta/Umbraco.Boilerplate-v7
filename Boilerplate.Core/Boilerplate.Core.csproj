@@ -48,6 +48,10 @@
       <HintPath>..\packages\UmbracoCms.Core.7.5.3\lib\businesslogic.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Camelonta.Utilities, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CamelontaUmbracoUtilities.1.1.5\lib\Camelonta.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ClientDependency.Core, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency.1.9.1\lib\net45\ClientDependency.Core.dll</HintPath>
       <Private>True</Private>
@@ -351,6 +355,7 @@
     <Compile Include="TemplatePages\CamelontaUmbracoTemplatePage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

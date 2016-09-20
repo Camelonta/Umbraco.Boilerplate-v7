@@ -52,10 +52,6 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Archetype, Version=1.12.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Archetype.Binaries.1.12.2\lib\net40\Archetype.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -80,8 +76,8 @@
       <HintPath>..\packages\CamelontaUmbracoUI.3.0.0.1\lib\Camelonta.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.Utilities, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CamelontaUmbracoUtilities.1.1.4.0\lib\Camelonta.Utilities.dll</HintPath>
+    <Reference Include="Camelonta.Utilities, Version=1.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CamelontaUmbracoUtilities.1.1.5\lib\Camelonta.Utilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ClientDependency.Core, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -215,6 +211,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Our.Umbraco.NestedContent, Version=0.3.6033.18955, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.NestedContent.0.3.0\lib\net45\Our.Umbraco.NestedContent.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -360,37 +360,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Archetype\assets\logo_50.png" />
-    <Content Include="App_Plugins\Archetype\assets\twitter.png" />
-    <Content Include="App_Plugins\Archetype\css\archetype.css" />
-    <Content Include="App_Plugins\Archetype\js\archetype.js" />
-    <Content Include="App_Plugins\Archetype\langs\da-dk.js" />
-    <Content Include="App_Plugins\Archetype\langs\da.js" />
-    <Content Include="App_Plugins\Archetype\langs\de-de.js" />
-    <Content Include="App_Plugins\Archetype\langs\de.js" />
-    <Content Include="App_Plugins\Archetype\langs\en-gb.js" />
-    <Content Include="App_Plugins\Archetype\langs\en-us.js" />
-    <Content Include="App_Plugins\Archetype\langs\en.js" />
-    <Content Include="App_Plugins\Archetype\langs\es-es.js" />
-    <Content Include="App_Plugins\Archetype\langs\es.js" />
-    <Content Include="App_Plugins\Archetype\langs\fr-fr.js" />
-    <Content Include="App_Plugins\Archetype\langs\he-il.js" />
-    <Content Include="App_Plugins\Archetype\langs\it-it.js" />
-    <Content Include="App_Plugins\Archetype\langs\ja-jp.js" />
-    <Content Include="App_Plugins\Archetype\langs\ko-kr.js" />
-    <Content Include="App_Plugins\Archetype\langs\nb-no.js" />
-    <Content Include="App_Plugins\Archetype\langs\nl-nl.js" />
-    <Content Include="App_Plugins\Archetype\langs\pl-pl.js" />
-    <Content Include="App_Plugins\Archetype\langs\pt-br.js" />
-    <Content Include="App_Plugins\Archetype\langs\ru-ru.js" />
-    <Content Include="App_Plugins\Archetype\langs\sv-se.js" />
-    <Content Include="App_Plugins\Archetype\langs\zh-cn.js" />
-    <Content Include="App_Plugins\Archetype\views\archetype.config.developer.dialog.html" />
-    <Content Include="App_Plugins\Archetype\views\archetype.config.fieldset.dialog.html" />
-    <Content Include="App_Plugins\Archetype\views\archetype.config.html" />
-    <Content Include="App_Plugins\Archetype\views\archetype.config.stylescript.dialog.html" />
-    <Content Include="App_Plugins\Archetype\views\archetype.default.html" />
-    <Content Include="App_Plugins\Archetype\views\archetype.html" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.controller.js" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.css" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.html" />
@@ -409,16 +378,16 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
     <Content Include="App_Plugins\GridRowSettings\views\data-bg.html" />
     <Content Include="App_Plugins\GridRowSettings\views\data-container-size.html" />
-    <Content Include="App_Plugins\GridRowSettings\css\Bundles.css">
-      <DependentUpon>Bundles.scss</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\GridRowSettings\css\Bundles.min.css">
-      <DependentUpon>Bundles.css</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\GridRowSettings\views\data-padding.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\NestedContent\Css\nestedcontent.css" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.controllers.js" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.directives.js" />
+    <Content Include="App_Plugins\NestedContent\Js\nestedcontent.resources.js" />
+    <Content Include="App_Plugins\NestedContent\Views\nestedcontent.doctypepicker.html" />
+    <Content Include="App_Plugins\NestedContent\Views\nestedcontent.editor.html" />
+    <Content Include="App_Plugins\NestedContent\Views\nestedcontent.html" />
     <Content Include="App_Plugins\uSync\uSyncDashboard.css" />
     <Content Include="App_Plugins\uSync\uSyncDashboard.html" />
     <Content Include="App_Plugins\uSync\uSyncDashboardController.js" />
@@ -521,10 +490,9 @@
     <Content Include="App_Plugins\uSync\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
-    <Content Include="App_Plugins\GridRowSettings\css\Bundles.scss" />
     <Content Include="App_Plugins\GridRowSettings\css\data-container-size.scss" />
-    <Content Include="App_Plugins\GridRowSettings\css\data-padding.scss" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="App_Plugins\NestedContent\package.manifest" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -578,6 +546,7 @@
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="Views\Partials\Layout\_RightColumnContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -591,7 +560,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Plugins\GridRowSettings\GridRowSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

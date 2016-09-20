@@ -6,12 +6,7 @@
 <div class="container">
     @{ Html.RenderPartial("Layout/_LeftNav");}
 
-    @if (Model.Content.HasValue("contentRight"))
-    {
-        <aside role="complementary">
-            @Model.Content.GetPropertyValue("contentRight")
-        </aside>
-    }
+    @{ Html.RenderPartial("Layout/_RightColumnContent"); }
 
     <main role="main">
         @RenderHelper.Header(Model.Content)
