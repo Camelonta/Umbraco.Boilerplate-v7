@@ -10,7 +10,7 @@ using System.Collections;
 using Lucene.Net.Analysis;
 using NSubstitute;
 
-namespace Boilerplate.Web.Tests
+namespace Boilerplate.Tests
 {
     public class MockIndexFactory
     {

@@ -1,12 +1,12 @@
-using Boilerplate.Web.Classes;
+using Boilerplate.Core.Classes;
 using System.Collections.Generic;
 using System.Linq;
-using Boilerplate.Web.Models;
+using Boilerplate.Core.Models;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
 
-namespace Boilerplate.Web.TemplatePages
+namespace Boilerplate.Core.TemplatePages
 {
     public abstract class CamelontaUmbracoTemplatePage : UmbracoTemplatePage
     {

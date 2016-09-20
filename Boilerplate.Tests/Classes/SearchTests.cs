@@ -4,7 +4,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Boilerplate.Web.Tests.Classes
+namespace Boilerplate.Tests.Classes
 {
     [TestFixture]
     public class SearchTests

@@ -349,6 +349,7 @@
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\MenuItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplatePages\CamelontaUmbracoTemplatePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
