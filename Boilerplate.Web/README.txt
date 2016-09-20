@@ -13,7 +13,7 @@
 1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den
 
 2. Döp om allt (mappen + projektet + Assembly name + Default namespace i projektproperties)
-	- Gör search n replace på "Boilerplate.Web" -> "KundensNameSpace" (ex. "SaljarnasForbund"), därefter "Boilerplate" -> "Kundens riktiga namn" (ex. "Säljarnas förbund")
+	- Gör search n replace på "Boilerplate.Web" -> "KundensNameSpace.Web" (ex. "SaljarnasForbund.Web"), (OBS! Samma för *.Core), därefter "Boilerplate" -> "Kundens riktiga namn" (ex. "Säljarnas förbund")
 
 3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt). OBS! Sätt portnumret högre än 1024, annars kan man inte öppna projektet utan att vara Admin.
 

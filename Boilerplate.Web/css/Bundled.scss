@@ -4,6 +4,9 @@
 
 @import "base.scss";
 
+@import "../App_Plugins/GridRowSettings/css/data-container-size.scss";
+@import "../App_Plugins/GridRowSettings/css/data-padding.scss";
+
 @import "layout/hero.scss";
 
 @import "animations.scss";
