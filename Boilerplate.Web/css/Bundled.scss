@@ -5,7 +5,6 @@
 @import "base.scss";
 
 @import "../App_Plugins/GridRowSettings/css/data-container-size.scss";
-@import "../App_Plugins/GridRowSettings/css/data-padding.scss";
 
 @import "layout/hero.scss";
 
@@ -17,7 +16,7 @@
 @import "forms/global-contour.scss";
 
 @import "navigation/misc.scss";
-@import "navigation/left-nav.scss";
+@import "navigation/left-nav.scss"; 
 @import "navigation/main-nav.scss";
 @import "navigation/top-links.scss";
 

@@ -117,27 +117,6 @@ a {
 .grid-section > [data-container-size="full"] {
   padding: 0; }
 
-/*--------------------------------------*/
-/*--------------------------------------*/
-.grid-section > [data-padding="0"], [data-padding="0"] {
-  padding: 0; }
-
-.grid-section > [data-padding="20"], [data-padding="20"] {
-  padding: 20px 0; }
-
-.grid-section > [data-padding="50"], [data-padding="50"] {
-  padding: 50px 0; }
-
-.grid-section > [data-padding="70"], [data-padding="70"] {
-  padding: 70px 0; }
-
-/*--------------------------------------*/
-@media only screen and (max-width: 767px) {
-  .grid-section > [data-padding="50"], [data-padding="50"] {
-    padding: 30px 0; }
-  .grid-section > [data-padding="70"], [data-padding="70"] {
-    padding: 30px 0; } }
-
 #hero {
   position: relative;
   background-position: center bottom;
