@@ -4,7 +4,7 @@
 
     const int take = 40;
     var skip = Request.QueryString["skip"] == null ? 0 : Convert.ToInt32(Request.QueryString["skip"]);
-    var newsItemsOnThisPage = Model.Content.Descendants("News").OrderByDescending(p => p.GetPropertyValue<DateTime>("displayDate")).Skip(skip).Take(take);
+    var newsItemsOnThisPage = Model.Content.Descendants("News").OrderByDescending(p => p.CreateDate).Skip(skip).Take(take);
     decimal newsItemCount = Model.Content.Descendants("News").Count();
 }
 

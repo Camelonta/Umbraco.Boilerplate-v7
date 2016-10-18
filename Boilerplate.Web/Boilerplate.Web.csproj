@@ -547,6 +547,7 @@
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
     <Content Include="Views\Partials\Layout\_RightColumnContent.cshtml" />
+    <Content Include="css\page\newslist.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

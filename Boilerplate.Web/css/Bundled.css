@@ -535,6 +535,25 @@ nav a {
 
 */
 /* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+.news-item {
+  color: #333;
+  margin-bottom: 30px;
+  display: block; }
+
+.news-item__header {
+  margin: 0 0 5px; }
+
+.news-item__date {
+  margin: 0;
+  font-size: .8em;
+  color: #9c9c9c; }
+
+.news-item__teaser {
+  margin: 10px 0; }
+
+.news-item__read-more {
+  color: orangered; }
+
 /* == Global button properties == */
 .button, .button a, .button a:hover, .button-variant, .button-variant a, .button-variant a:hover, .button-ghost--blue, .button-ghost--blue a, .button-ghost--blue a:hover {
   color: #fff;
