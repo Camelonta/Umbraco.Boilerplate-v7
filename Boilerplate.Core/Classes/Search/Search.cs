@@ -84,6 +84,12 @@ namespace Boilerplate.Core.Classes.Search
 
         void Initialize()
         {
+            if (string.IsNullOrEmpty(SearchTerm))
+            {
+                SearchResults = new List<SearchResult>();
+                return;
+            }
+            
             // Set indexed fields
             IndexedFields = _indexer.IndexerData.UserFields.Select(f => f.Name).ToList();
 
