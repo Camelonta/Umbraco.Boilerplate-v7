@@ -10,8 +10,8 @@
     {
         var node = umbraco.Content(result.Id);
         <a href="@node.Url" class="search-result">
-            <h3>@Meta.PageTitle(node)</h3>
-            <p>@Meta.PageTeaser(node)</p>
+            <h3 class="search-result__header">@Meta.PageTitle(node)</h3>
+            <p class="search-result__teaser">@Meta.PageTeaser(node)</p>
         </a>
     }
 }

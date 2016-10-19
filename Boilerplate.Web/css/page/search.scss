@@ -1,4 +1,19 @@
 ﻿
+/* ------------------------------------------------------------ */
+// SEARCH RESULT
+.search-result {
+    margin-bottom: 30px;
+    display: block;
+}
+
+.search-result__header {
+    margin: 0;
+}
+
+.search-result__teaser {
+    margin: 0;
+}
+
 
 /* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 .load-more-results--is-loading {
