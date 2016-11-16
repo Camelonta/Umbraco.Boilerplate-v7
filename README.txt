@@ -10,7 +10,7 @@
 
 ======= ANVÄND BOILERPLATE TILL ETT PROJEKT =======
 
-1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den
+1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den (använd gärna Branch/tag i SVN så är det bara checka ut sen i nya mappen)
 
 2. Döp om allt (mappen + projektet + Assembly name + Default namespace i projektproperties)
 	- Gör search n replace på "Boilerplate.Web" -> "KundensNameSpace.Web" (ex. "SaljarnasForbund.Web"), (OBS! Samma för *.Core + *.Tests), därefter "Boilerplate" -> "Kundens riktiga namn" (ex. "Säljarnas förbund")
