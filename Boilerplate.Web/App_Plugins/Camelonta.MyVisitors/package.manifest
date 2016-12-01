@@ -13,8 +13,6 @@
 
     javascript:
     [
-		"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.0/Chart.min.js",
-		"~/App_Plugins/Camelonta.MyVisitors/angular-chart.js?v=4",
         "~/App_Plugins/Camelonta.MyVisitors/myvisitors.controller.js?v=4"
     ]
  }
