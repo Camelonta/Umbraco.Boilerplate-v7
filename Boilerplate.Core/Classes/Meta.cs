@@ -6,6 +6,9 @@ using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 using Boilerplate.Core.Classes.Search;
+using Skybrud.Umbraco.GridData;
+using Skybrud.Umbraco.GridData.Values;
+using System.Web;
 
 namespace Boilerplate.Core.Classes
 {
@@ -70,11 +73,62 @@ namespace Boilerplate.Core.Classes
                 content = contentMiddle.DataValue.ToString();
 
             if (page.HasValue("grid"))
-                content = ExamineIndexer.GetGridText(page.GetProperty("grid").DataValue.ToString());
+                content = GetGridText(page.GetProperty("grid").DataValue.ToString());
 
             return content;
         }
 
+        public static string GetGridText(string content)
+        {
+            GridDataModel grid = GridDataModel.Deserialize(content);
+
+            StringBuilder combined = new StringBuilder();
+
+            foreach (GridControl ctrl in grid.GetAllControls())
+            {
+
+                switch (ctrl.Editor.Alias)
+                {
+
+                    case "rte":
+                        {
+
+                            // Get the HTML value
+                            string html = ctrl.GetValue<GridControlRichTextValue>().Value;
+
+                            // Strip any HTML tags so we only have text
+                            string text = Regex.Replace(html, "<.*?>", "");
+
+                            // Extra decoding may be necessary
+                            text = HttpUtility.HtmlDecode(text);
+
+                            // Now append the text
+                            combined.AppendLine(text);
+
+                            break;
+
+                        }
+
+                    case "media":
+                        {
+                            GridControlMediaValue media = ctrl.GetValue<GridControlMediaValue>();
+                            combined.AppendLine(media.Caption);
+                            break;
+                        }
+
+                    case "headline":
+                    case "quote":
+                        {
+                            combined.AppendLine(ctrl.GetValue<GridControlTextValue>().Value);
+                            break;
+                        }
+
+                }
+
+            }
+
+            return combined.ToString();
+        }
 
         public static string PageTitle(IPublishedContent page)
         {

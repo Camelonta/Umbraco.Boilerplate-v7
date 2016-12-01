@@ -47,7 +47,7 @@ namespace Boilerplate.Core.Classes.Search
 
                 if(field.Key == "grid")
                 {
-                    value = ExamineIndexer.GetGridText(field.Value);
+                    value = Meta.GetGridText(field.Value);
                 }
 
                 cleanValues.Add(CleanValue(value));
