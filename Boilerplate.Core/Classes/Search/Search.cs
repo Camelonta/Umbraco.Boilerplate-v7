@@ -3,7 +3,6 @@ using System.Linq;
 using Examine;
 using Examine.SearchCriteria;
 using Examine.LuceneEngine.SearchCriteria;
-using Lucene.Net.QueryParsers;
 
 namespace Boilerplate.Core.Classes.Search
 {
@@ -95,7 +94,7 @@ namespace Boilerplate.Core.Classes.Search
             IndexedFields = _indexer.IndexerData.UserFields.Select(f => f.Name).ToList();
 
             var searchCriteria = _searcher.CreateSearchCriteria(BooleanOperation.And).Field("robotsIndex", "0").Compile();
-            ISearchCriteria query = searchCriteria.RawQuery(QueryParser.Escape(CreateRawQuery()));
+            ISearchCriteria query = searchCriteria.RawQuery(CreateRawQuery());
             var searchResults = _searcher.Search(query);
             
 
