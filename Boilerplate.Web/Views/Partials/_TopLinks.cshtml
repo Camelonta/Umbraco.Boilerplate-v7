@@ -1,30 +1,30 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
 
 @*
-    
-    
-    TODO: Rewrite to use Nested Content instead of Archetype (like the right column does)
 
 
-@{
-    var topLinks = CurrentSite.GetPropertyValue<ArchetypeModel>("topLinks");
-}
-@if (topLinks != null && topLinks.Any())
-{
-    <ul class="top-links">
-        @foreach (var topLink in topLinks)
-        {
-            var page = Umbraco.Content(topLink.GetValue<string>("link"));
-            var text = string.IsNullOrEmpty(topLink.GetValue<string>("text")) ? page.NavName() : topLink.GetValue<string>("text");
-            <li>
-                <a href="@page.Url">
-                    <span>@text</span>
-                    @if (!topLink.GetValue<string>("icon").IsEmpty())
-                    {
-                        <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=max" alt="@(topLink.GetValue<string>("text"))">
-                    }
-                </a>
-            </li>
-        }
-    </ul>
-}*@
+        TODO: Rewrite to use Nested Content instead of Archetype (like the right column does)
+
+
+    @{
+        var topLinks = CurrentSite.GetPropertyValue<ArchetypeModel>("topLinks");
+    }
+    @if (topLinks != null && topLinks.Any())
+    {
+        <ul class="top-links">
+            @foreach (var topLink in topLinks)
+            {
+                var page = Umbraco.Content(topLink.GetValue<string>("link"));
+                var text = string.IsNullOrEmpty(topLink.GetValue<string>("text")) ? page.NavName() : topLink.GetValue<string>("text");
+                <li>
+                    <a href="@page.Url">
+                        <span>@text</span>
+                        @if (!topLink.GetValue<string>("icon").IsEmpty())
+                        {
+                            <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=min" alt="@(topLink.GetValue<string>("text"))">
+                        }
+                    </a>
+                </li>
+            }
+        </ul>
+    }*@
