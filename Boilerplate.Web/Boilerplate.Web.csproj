@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\uSync.3.3.1.740\build\uSync.props" Condition="Exists('..\packages\uSync.3.3.1.740\build\uSync.props')" />
   <Import Project="..\packages\UmbracoCms.7.5.7\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.7.5.7\build\UmbracoCms.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -100,12 +101,12 @@
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Diplo.TraceLogViewer, Version=2.2.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DiploTraceLogViewer.2.2.4\lib\net45\Diplo.TraceLogViewer.dll</HintPath>
+    <Reference Include="Diplo.TraceLogViewer, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DiploTraceLogViewer.2.3.2\lib\net45\Diplo.TraceLogViewer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Examine, Version=0.1.70.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Examine.0.1.70.0\lib\Examine.dll</HintPath>
+    <Reference Include="Examine, Version=0.1.80.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.0.1.80\lib\net45\Examine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -120,20 +121,20 @@
       <HintPath>..\packages\ImageProcessor.2.5.1\lib\net45\ImageProcessor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ImageProcessor.Web, Version=4.7.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.Web.4.7.2\lib\net45\ImageProcessor.Web.dll</HintPath>
+    <Reference Include="ImageProcessor.Web, Version=4.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.8.0\lib\net45\ImageProcessor.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="interfaces, Version=1.0.6219.11988, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.5.7\lib\interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Jumoo.uSync.BackOffice, Version=3.1.1.740, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.3.1.1.740\lib\net45\Jumoo.uSync.BackOffice.dll</HintPath>
+    <Reference Include="Jumoo.uSync.BackOffice, Version=3.3.1.740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uSync.3.3.1.740\lib\net45\Jumoo.uSync.BackOffice.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Jumoo.uSync.Core, Version=5.3.1.740, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.Core.5.3.1.740\lib\net45\Jumoo.uSync.Core.dll</HintPath>
+    <Reference Include="Jumoo.uSync.Core, Version=5.6.1.740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uSync.Core.5.6.1.740\lib\net45\Jumoo.uSync.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
@@ -371,10 +372,13 @@
     <Content Include="App_Plugins\Camelonta.UI\help.html" />
     <Content Include="App_Plugins\Camelonta.UI\preview.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Detail.Controller.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Resources.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\edit.html" />
-    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\EditController.js" />
-    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.min.js" />
-    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog.css" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\pagination.html" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\plugins\smart-table.min.js" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog3.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
     <Content Include="App_Plugins\GridRowSettings\views\data-bg.html" />
     <Content Include="App_Plugins\GridRowSettings\views\data-container-size.html" />
@@ -434,7 +438,6 @@
     <Content Include="media\1010\gopro-cross.jpg" />
     <Content Include="media\1010\gopro-cross_big-thumb.jpg" />
     <Content Include="media\1010\gopro-cross_thumb.jpg" />
-    <Content Include="README.txt" />
     <Content Include="scripts\cookie-warning.js" />
     <Content Include="scripts\vendor\jquery.auto-complete.js" />
     <Content Include="scripts\vendor\jquery.highlight.js" />
@@ -481,12 +484,11 @@
     <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <Content Include="css\modules\buttons.scss" />
     <Content Include="css\Bundled.scss" />
-    <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
-    <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
     <Content Include="App_Plugins\GridRowSettings\css\data-container-size.scss" />
     <Content Include="App_Plugins\NestedContent\package.manifest" />
-    <Content Include="App_Plugins\uSync\package.manifest" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
+    <Content Include="App_Plugins\uSync\package.manifest" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -605,6 +607,8 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
     <Error Condition="!Exists('..\packages\UmbracoCms.7.5.7\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.5.7\build\UmbracoCms.props'))" />
     <Error Condition="!Exists('..\packages\UmbracoCms.7.5.7\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.5.7\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('..\packages\uSync.3.3.1.740\build\uSync.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\uSync.3.3.1.740\build\uSync.props'))" />
+    <Error Condition="!Exists('..\packages\uSync.3.3.1.740\build\uSync.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\uSync.3.3.1.740\build\uSync.targets'))" />
   </Target>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
@@ -614,6 +618,7 @@
   </Target>
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <Import Project="..\packages\UmbracoCms.7.5.7\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.5.7\build\UmbracoCms.targets')" />
+  <Import Project="..\packages\uSync.3.3.1.740\build\uSync.targets" Condition="Exists('..\packages\uSync.3.3.1.740\build\uSync.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
