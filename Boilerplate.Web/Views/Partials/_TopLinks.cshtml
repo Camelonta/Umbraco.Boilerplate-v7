@@ -1,30 +1,28 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    var topLinks = CurrentSite.GetPropertyValue<IEnumerable<IPublishedContent>>("topLinks");
+}
 
-@*
-
-
-        TODO: Rewrite to use Nested Content instead of Archetype (like the right column does)
-
-
-    @{
-        var topLinks = CurrentSite.GetPropertyValue<ArchetypeModel>("topLinks");
-    }
-    @if (topLinks != null && topLinks.Any())
-    {
-        <ul class="top-links">
+@if (topLinks != null && topLinks.Any())
+{
+    <div class="top-links">
+        <ul class="top-links__list">
             @foreach (var topLink in topLinks)
             {
-                var page = Umbraco.Content(topLink.GetValue<string>("link"));
-                var text = string.IsNullOrEmpty(topLink.GetValue<string>("text")) ? page.NavName() : topLink.GetValue<string>("text");
+                var page = Umbraco.Content(topLink.GetPropertyValue("link"));
+                var linkText = topLink.HasValue("linkText") ? topLink.GetPropertyValue("linkText") : page.NavName();
+
                 <li>
-                    <a href="@page.Url">
-                        <span>@text</span>
-                        @if (!topLink.GetValue<string>("icon").IsEmpty())
+                    <a href="@page.Url" class="top-links__link">
+                        <span>@linkText</span>
+                        @if (topLink.HasValue("icon"))
                         {
-                            <img src="@Umbraco.TypedMedia(topLink.GetValue<string>("icon")).Url?width=30&mode=min" alt="@(topLink.GetValue<string>("text"))">
+                            var iconId = topLink.GetPropertyValue("icon");
+                            <img src="@Umbraco.TypedMedia(iconId).Url?width=30&mode=min" alt="@linkText">
                         }
                     </a>
                 </li>
             }
         </ul>
-    }*@
+    </div>
+}

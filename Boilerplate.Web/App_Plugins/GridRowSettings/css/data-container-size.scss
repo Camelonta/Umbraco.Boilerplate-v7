@@ -1,17 +1,17 @@
 ﻿/*--------------------------------------*/
 // FUNCTIONS
 @function calculateSmallerContainerWidth($percentage) {
-    $widthToSubtract: ($percentage / $defaultContainerWidthValue) * 10000;
-    $newWidth: $defaultContainerWidthValue - $widthToSubtract;
-    @return round($newWidth) + px; 
-}
- 
-@function calculateLargerContainerWidth($percentage) {
-    $widthToAdd: ($percentage / $defaultContainerWidthValue) * 10000;
-    $newWidth: $defaultContainerWidthValue + $widthToAdd;
+    $widthToSubtract: ($percentage / $default-container-width-value) * 10000;
+    $newWidth: $default-container-width-value - $widthToSubtract;
     @return round($newWidth) + px;
 }
- 
+
+@function calculateLargerContainerWidth($percentage) {
+    $widthToAdd: ($percentage / $default-container-width-value) * 10000;
+    $newWidth: $default-container-width-value + $widthToAdd;
+    @return round($newWidth) + px;
+}
+
 
 /*--------------------------------------*/
 // STYLES

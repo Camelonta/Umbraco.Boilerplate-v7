@@ -516,13 +516,14 @@ nav a {
   float: right; }
   .top-links li {
     display: inline-block; }
-  .top-links a {
-    margin-left: 27px;
-    color: #fff; }
-  .top-links span,
-  .top-links img {
+
+.top-links__link {
+  margin-left: 1.2em;
+  color: #fff; }
+  .top-links__link span,
+  .top-links__link img {
     vertical-align: middle; }
-  .top-links img {
+  .top-links__link img {
     max-width: 15px; }
 
 @media only screen and (max-width: 767px) {
@@ -534,6 +535,17 @@ nav a {
     STRUKTURDEMO
 
 */
+/* ------------------------------------------------------------ */
+.search-result {
+  margin-bottom: 30px;
+  display: block; }
+
+.search-result__header {
+  margin: 0; }
+
+.search-result__teaser {
+  margin: 0; }
+
 /* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 .news-item {
   color: #333;

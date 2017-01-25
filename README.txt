@@ -8,6 +8,13 @@
 
 
 
+************************************************************************************************************************************************
+---------------------------------------  CAMELONTAS STYLEGUIDE FÖR CSS: https://github.com/Camelonta/CSS ---------------------------------------
+************************************************************************************************************************************************
+
+
+
+
 ======= ANVÄND BOILERPLATE TILL ETT PROJEKT =======
 
 1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den (använd gärna Branch/tag i SVN så är det bara checka ut sen i nya mappen)
