@@ -482,7 +482,6 @@
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
     <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
-    <Content Include="css\modules\buttons.scss" />
     <Content Include="css\Bundled.scss" />
     <Content Include="App_Plugins\GridRowSettings\css\data-container-size.scss" />
     <Content Include="App_Plugins\NestedContent\package.manifest" />
@@ -499,21 +498,19 @@
     <Content Include="css\base.scss" />
     <Content Include="css\animations.scss" />
     <Content Include="css\navigation\misc.scss" />
-    <Content Include="css\mixins\flexbox.scss" />
+    <Content Include="css\tools\flexbox.scss" />
     <Content Include="css\navigation\left-nav.scss" />
     <Content Include="css\_variables.scss" />
     <Content Include="css\layout.scss" />
     <Content Include="css\navigation\main-nav.scss" />
     <Content Include="css\navigation\top-links.scss" />
-    <Content Include="css\modules\video.scss" />
     <Content Include="css\page\home.scss" />
     <Content Include="css\utilities.scss" />
-    <Content Include="css\modules\cookie-warning.scss" />
     <Content Include="css\layout\hero.scss" />
     <Content Include="css\page\search.scss" />
     <Content Include="css\forms\global-form.scss" />
     <Content Include="css\forms\global-contour.scss" />
-    <Content Include="css\mixins\transition.scss" />
+    <Content Include="css\tools\transition.scss" />
     <Content Include="Views\Partials\Layout\_RightColumnContent.cshtml" />
     <Content Include="css\page\newslist.scss" />
     <Content Include="Config\imageprocessor\security.config" />
@@ -549,6 +546,9 @@
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="css\atoms\buttons.scss" />
+    <Content Include="css\components\cookie-warning.scss" />
+    <Content Include="css\components\video.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -15,15 +15,16 @@
 @import "forms/global-form.scss";
 @import "forms/global-contour.scss";
 
+@import "atoms/buttons.scss";
+
 @import "navigation/misc.scss";
 @import "navigation/left-nav.scss";
 @import "navigation/main-nav.scss";
 @import "navigation/top-links.scss";
 
+@import "components/video.scss";
+@import "components/cookie-warning.scss";
+
 @import "page/home.scss";
 @import "page/search.scss";
 @import "page/newslist.scss";
-
-@import "modules/buttons.scss";
-@import "modules/video.scss";
-@import "modules/cookie-warning.scss";
