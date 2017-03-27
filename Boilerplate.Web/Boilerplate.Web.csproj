@@ -380,6 +380,11 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\plugins\smart-table.min.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog3.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
+    <Content Include="App_Plugins\GibeLinkPicker\Dialogs\linkpicker.controller.js" />
+    <Content Include="App_Plugins\GibeLinkPicker\Dialogs\linkpicker.html" />
+    <Content Include="App_Plugins\GibeLinkPicker\picker.controller.js" />
+    <Content Include="App_Plugins\GibeLinkPicker\picker.css" />
+    <Content Include="App_Plugins\GibeLinkPicker\picker.html" />
     <Content Include="App_Plugins\GridRowSettings\views\data-bg.html" />
     <Content Include="App_Plugins\GridRowSettings\views\data-container-size.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
@@ -415,6 +420,9 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="css\Bundled.css">
       <DependentUpon>Bundled.scss</DependentUpon>
     </Content>
@@ -427,6 +435,7 @@
     <Content Include="css\vendor\normalize.css" />
     <Content Include="css\print.css" />
     <Content Include="default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\video-play.png" />
     <Content Include="media\1008\paddleboard.jpg" />
@@ -438,7 +447,13 @@
     <Content Include="media\1010\gopro-cross.jpg" />
     <Content Include="media\1010\gopro-cross_big-thumb.jpg" />
     <Content Include="media\1010\gopro-cross_thumb.jpg" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\cookie-warning.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="scripts\vendor\jquery.auto-complete.js" />
     <Content Include="scripts\vendor\jquery.highlight.js" />
     <Content Include="scripts\search.js" />
@@ -488,6 +503,7 @@
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\uSync\package.manifest" />
+    <Content Include="App_Plugins\GibeLinkPicker\package.manifest" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -549,6 +565,12 @@
     <Content Include="css\atoms\buttons.scss" />
     <Content Include="css\components\cookie-warning.scss" />
     <Content Include="css\components\video.scss" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

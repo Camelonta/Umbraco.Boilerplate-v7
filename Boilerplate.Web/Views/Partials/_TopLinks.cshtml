@@ -1,6 +1,7 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
 @{
     var topLinks = CurrentSite.GetPropertyValue<IEnumerable<IPublishedContent>>("topLinks");
+
 }
 
 @if (topLinks != null && topLinks.Any())
@@ -9,19 +10,24 @@
         <ul class="top-links__list">
             @foreach (var topLink in topLinks)
             {
-                var page = Umbraco.Content(topLink.GetPropertyValue("link"));
-                var linkText = topLink.HasValue("linkText") ? topLink.GetPropertyValue("linkText") : page.NavName();
+                var jsonLink = topLink.GetPropertyValue<string>("link");
+                if (!string.IsNullOrEmpty(jsonLink))
+                {
+                    var page = Json.Decode<LinkPickerModel>(jsonLink);
+                    var linkText = topLink.HasValue("linkText") ? topLink.GetPropertyValue("linkText") : page.Url;
 
-                <li>
-                    <a href="@page.Url" class="top-links__link">
-                        <span>@linkText</span>
-                        @if (topLink.HasValue("icon"))
+                    <li>
+                        <a href="@page.Url" class="top-links__link">
+                            <span>@linkText</span>
+                            @if (topLink.HasValue("icon"))
                         {
                             var iconId = topLink.GetPropertyValue("icon");
-                            <img src="@Umbraco.TypedMedia(iconId).Url?width=30&mode=min" alt="@linkText">
-                        }
-                    </a>
-                </li>
+                                <img src="@Umbraco.TypedMedia(iconId).Url?width=30&mode=min" alt="@linkText">
+                            }
+                        </a>
+                    </li>
+                }
+
             }
         </ul>
     </div>
