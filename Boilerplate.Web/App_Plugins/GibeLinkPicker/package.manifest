@@ -1,0 +1,19 @@
+﻿{
+	propertyEditors: [
+		{
+			alias: "Gibe.LinkPicker",
+			name: "Link Picker",
+			icon: "icon-link",
+			group: "Pickers",
+			editor: {
+				view: "~/App_Plugins/GibeLinkPicker/picker.html",
+				hideLabel: false,
+				valueType: "JSON"	
+			}
+		}
+	],
+	javascript: [
+		"~/App_Plugins/GibeLinkPicker/picker.controller.js",
+		"~/App_Plugins/GibeLinkPicker/Dialogs/linkpicker.controller.js",
+	]	
+}
