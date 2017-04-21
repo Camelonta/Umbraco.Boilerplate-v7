@@ -355,6 +355,52 @@ input[type="button"] {
 .no-js .contourField {
   display: block !important; }
 
+/* == Global button properties == */
+.button, .button a, .button a:hover, .button-variant, .button-variant a, .button-variant a:hover, .button-ghost--blue, .button-ghost--blue a, .button-ghost--blue a:hover {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; }
+
+.button, .button-variant, .button-ghost--blue {
+  -moz-transition: background-color .2s;
+  -o-transition: background-color .2s;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s; }
+
+/* This kind of hack- border is needed to get the border *inside*. If it uses a real border the height of buttons will vary slightly */
+/* == End of Global button properties == */
+/*-------------------------------------*/
+.button {
+  background-color: #1565C0;
+  padding: .88em 1.47em;
+  display: inline-block;
+  margin: 3px 0;
+  /* Add a small margin */ }
+  .button:hover {
+    background-color: #1E88E5; }
+
+.button-variant {
+  background-color: #F9A825;
+  padding: .88em 1.47em;
+  display: inline-block;
+  margin: 3px 0;
+  /* Add a small margin */ }
+  .button-variant:hover {
+    background-color: #FBC02D; }
+
+.button-ghost--blue {
+  padding: .88em 1.47em;
+  display: inline-block;
+  margin: 3px 0;
+  /* Add a small margin */
+  -webkit-box-shadow: inset 0px 0px 0px 2px #bff1f7;
+  -moz-box-shadow: inset 0px 0px 0px 2px #bff1f7;
+  box-shadow: inset 0px 0px 0px 2px #bff1f7;
+  color: #0D47A1;
+  background-color: #fff; }
+  .button-ghost--blue:hover {
+    background-color: #f5feff; }
+
 nav a {
   position: relative; }
 
@@ -530,88 +576,6 @@ nav a {
   .top-links {
     display: none; } }
 
-/* 
-
-    STRUKTURDEMO
-
-*/
-/* ------------------------------------------------------------ */
-.search-result {
-  margin-bottom: 30px;
-  display: block; }
-
-.search-result__header {
-  margin: 0; }
-
-.search-result__teaser {
-  margin: 0; }
-
-/* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-.news-item {
-  color: #333;
-  margin-bottom: 30px;
-  display: block; }
-
-.news-item__header {
-  margin: 0 0 5px; }
-
-.news-item__date {
-  margin: 0;
-  font-size: .8em;
-  color: #9c9c9c; }
-
-.news-item__teaser {
-  margin: 10px 0; }
-
-.news-item__read-more {
-  color: orangered; }
-
-/* == Global button properties == */
-.button, .button a, .button a:hover, .button-variant, .button-variant a, .button-variant a:hover, .button-ghost--blue, .button-ghost--blue a, .button-ghost--blue a:hover {
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none; }
-
-.button, .button-variant, .button-ghost--blue {
-  -moz-transition: background-color .2s;
-  -o-transition: background-color .2s;
-  -webkit-transition: background-color .2s;
-  transition: background-color .2s; }
-
-/* This kind of hack- border is needed to get the border *inside*. If it uses a real border the height of buttons will vary slightly */
-/* == End of Global button properties == */
-/*-------------------------------------*/
-.button {
-  background-color: #1565C0;
-  padding: .88em 1.47em;
-  display: inline-block;
-  margin: 3px 0;
-  /* Add a small margin */ }
-  .button:hover {
-    background-color: #1E88E5; }
-
-.button-variant {
-  background-color: #F9A825;
-  padding: .88em 1.47em;
-  display: inline-block;
-  margin: 3px 0;
-  /* Add a small margin */ }
-  .button-variant:hover {
-    background-color: #FBC02D; }
-
-.button-ghost--blue {
-  padding: .88em 1.47em;
-  display: inline-block;
-  margin: 3px 0;
-  /* Add a small margin */
-  -webkit-box-shadow: inset 0px 0px 0px 2px #bff1f7;
-  -moz-box-shadow: inset 0px 0px 0px 2px #bff1f7;
-  box-shadow: inset 0px 0px 0px 2px #bff1f7;
-  color: #0D47A1;
-  background-color: #fff; }
-  .button-ghost--blue:hover {
-    background-color: #f5feff; }
-
 .video {
   background-repeat: no-repeat;
   background-size: cover;
@@ -662,4 +626,40 @@ nav a {
 @media screen and (max-width: 767px) {
   #cookie-warning {
     text-align: center; } }
+
+/* 
+
+    STRUKTURDEMO
+
+*/
+/* ------------------------------------------------------------ */
+.search-result {
+  margin-bottom: 30px;
+  display: block; }
+
+.search-result__header {
+  margin: 0; }
+
+.search-result__teaser {
+  margin: 0; }
+
+/* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+.news-item {
+  color: #333;
+  margin-bottom: 30px;
+  display: block; }
+
+.news-item__header {
+  margin: 0 0 5px; }
+
+.news-item__date {
+  margin: 0;
+  font-size: .8em;
+  color: #9c9c9c; }
+
+.news-item__teaser {
+  margin: 10px 0; }
+
+.news-item__read-more {
+  color: orangered; }
 
