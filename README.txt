@@ -1,7 +1,7 @@
-﻿======= UTVECKLA I BOILERPLATE =======
+﻿﻿======= DEVELOP IN BOILERPLATE =======
  
  SASS:  
-	- Ladda ned en extension för Visual studio som kompilerar sass-filerna när du sparar (Web Compiler t.ex. https://visualstudiogallery.msdn.microsoft.com/3b329021-cd7a-4a01-86fc-714c2d05bb6c)
+	- Download an extension that compiles the SASS-files when you save then (Web Compiler ex. https://visualstudiogallery.msdn.microsoft.com/3b329021-cd7a-4a01-86fc-714c2d05bb6c)
 
 ======================================
 
@@ -9,39 +9,39 @@
 
 
 ************************************************************************************************************************************************
----------------------------------------  CAMELONTAS STYLEGUIDE FÖR CSS: https://github.com/Camelonta/CSS ---------------------------------------
+---------------------------------------  CAMELONTA STYLEGUIDE FOR CSS: https://github.com/Camelonta/CSS ---------------------------------------
 ************************************************************************************************************************************************
 
 
 
 
-======= ANVÄND BOILERPLATE TILL ETT PROJEKT =======
+======= USE BOILERPLATE FOR A PROJEKT =======
 
-1. Kopiera hela Boilerplatemappen och klistra in den där du vill ha den (använd gärna Branch/tag i SVN så är det bara checka ut sen i nya mappen)
+1. Copy the Boilerplate to a new repository
 
-2. Döp om allt (mappen + projektet + Assembly name + Default namespace i projektproperties)
-	- Gör search n replace på "Boilerplate.Web" -> "KundensNameSpace.Web" (ex. "SaljarnasForbund.Web"), (OBS! Samma för *.Core + *.Tests), därefter "Boilerplate" -> "Kundens riktiga namn" (ex. "Säljarnas förbund")
+2. Rename everything (the folder + project + Assembly name + Default namespace in project properties)
+	- Search n replace on "Boilerplate.Web" -> "CustomerNameSpace.Web" (ex. "MyCustomer.Web"), (the same for *.Core + *.Tests), and "Boilerplate" -> "The Customers Acctual Name"
 
 3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt). OBS! Sätt portnumret högre än 1024, annars kan man inte öppna projektet utan att vara Admin.
 
-4. Fixa URL:en i robots.txt
+4. Change the URL in robots.txt
 
-5. Fixa en snygg defaultbild för sociala medier (se: _Layout -> <meta property="og:image">). Finns i img/default-social-share.jpg (1200 x 630) (Jesse kan kirra biffen om du vill)
+5. Make a nice default image for social media (ex: _Layout -> <meta property="og:image">). Exists in img/default-social-share.jpg (1200 x 630)
 
-6. Favicons: Fixa en ikon av t.ex. logotypen som är 260 x 260. Generera därefter alla ikoner så att de HAMNAR I ROTEN(!) http://realfavicongenerator.net/ (i ditt lokala projekt kan du ha dem i img/favicons. Men LIVE = roten). Lägg html i Partials/_Favicons
+6. Favicons: Make an icon of ex the logo (260 x 260). Generate all icons in the site root http://realfavicongenerator.net/ (save then in img/favicons for for your local project but copy then to the siteroot for production). HTML for this goes in Partials/_Favicons
 
-SIST: Ta bort denna README :)
+Last but not least: Remove this README :)
 
-OBS: Ta helst bort mappen "boilerplate" från mediearkivet när du går live.
+OBS: Remove the folder "boilerplate" from media before production (contains some images for testing).
 
 ====================================================
 
 
 
 
-===== VID UPPDATERING AV UMBRACO-VERSION =======
+===== UPPDATERING OF UMBRACO-VERSION =======
  
---- Se till att detta finns i web.config ---
+--- Make shure this is still in web.config ---
  < system.webServer>
  <!-- CACHE-stuff -->
   < staticContent>
@@ -54,8 +54,8 @@ OBS: Ta helst bort mappen "boilerplate" från mediearkivet när du går live.
 
 
 
-======= VANLIGA PROBLEM =======
+======= REGULAR PROBLEMS =======
 
-- Ambigious reference: Ta bort dll:en för Boilerplate.Web i din nya bin-katalog (krockar med din dll)
+- Ambigious reference: Remove dll: Boilerplate.Web in your new bin-folder
 
 ===============================
