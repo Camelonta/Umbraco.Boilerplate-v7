@@ -8,9 +8,9 @@
 
 
 
-************************************************************************************************************************************************
+**********************************************************************************************************
 ---------------------------------------  CAMELONTA STYLEGUIDE FOR CSS: https://github.com/Camelonta/CSS ---------------------------------------
-************************************************************************************************************************************************
+**********************************************************************************************************
 
 
 
@@ -22,7 +22,7 @@
 2. Rename everything (the folder + project + Assembly name + Default namespace in project properties)
 	- Search n replace on "Boilerplate.Web" -> "CustomerNameSpace.Web" (ex. "MyCustomer.Web"), (the same for *.Core + *.Tests), and "Boilerplate" -> "The Customers Acctual Name"
 
-3. Byt portnummer (högerklicka på projektet i Visual studio -> Web -> Project Url (skriv in något fint portnummer som rimmar med ditt projekt). OBS! Sätt portnumret högre än 1024, annars kan man inte öppna projektet utan att vara Admin.
+3. Change port (reight-click on the project in Visual Studio -> Web -> Project Url  (needs to be more than 1024, to be able to open it as a user that is not Admin)
 
 4. Change the URL in robots.txt
 
@@ -39,7 +39,7 @@ OBS: Remove the folder "boilerplate" from media before production (contains some
 
 
 
-===== UPPDATERING OF UMBRACO-VERSION =======
+===== UPDATING UMBRACO-VERSION =======
  
 --- Make shure this is still in web.config ---
  < system.webServer>
