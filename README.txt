@@ -9,7 +9,7 @@
 
 
 **********************************************************************************************************
----------------------------------------  CAMELONTA STYLEGUIDE FOR CSS: https://github.com/Camelonta/CSS ---------------------------------------
+				---  CAMELONTA STYLEGUIDE FOR CSS: https://github.com/Camelonta/CSS ---
 **********************************************************************************************************
 
 
@@ -22,13 +22,13 @@
 2. Rename everything (the folder + project + Assembly name + Default namespace in project properties)
 	- Search n replace on "Boilerplate.Web" -> "CustomerNameSpace.Web" (ex. "MyCustomer.Web"), (the same for *.Core + *.Tests), and "Boilerplate" -> "The Customers Acctual Name"
 
-3. Change port (reight-click on the project in Visual Studio -> Web -> Project Url  (needs to be more than 1024, to be able to open it as a user that is not Admin)
+3. Change port (right-click on the project in Visual Studio -> Web -> Project Url  (needs to be more than 1024, to be able to open it as a user that is not Admin)
 
 4. Change the URL in robots.txt
 
 5. Make a nice default image for social media (ex: _Layout -> <meta property="og:image">). Exists in img/default-social-share.jpg (1200 x 630)
 
-6. Favicons: Make an icon of ex the logo (260 x 260). Generate all icons in the site root http://realfavicongenerator.net/ (save then in img/favicons for for your local project but copy then to the siteroot for production). HTML for this goes in Partials/_Favicons
+6. Favicons: Make an icon of ex the logo (260 x 260). Generate all icons in the site root http://realfavicongenerator.net/ (save them in img/favicons for your local project but copy them to the siteroot for production). HTML for this goes in Partials/_Favicons
 
 Last but not least: Remove this README :)
 
