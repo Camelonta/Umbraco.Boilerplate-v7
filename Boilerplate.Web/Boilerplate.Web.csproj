@@ -69,10 +69,6 @@
       <HintPath>..\packages\CamelontaUmbracoActivityLog.1.4.0.0\lib\Camelonta.ActivityLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Camelonta.MyVisitors, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CamelontaUmbracoMyVisitors.0.9\lib\Camelonta.MyVisitors.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Camelonta.UI, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CamelontaUmbracoUI.3.0.0.1\lib\Camelonta.UI.dll</HintPath>
       <Private>True</Private>
@@ -361,16 +357,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.controller.js" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.css" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.html" />
-    <Content Include="App_Plugins\Camelonta.MyVisitors\myvisitors.controller.js" />
-    <Content Include="App_Plugins\Camelonta.MyVisitors\myvisitors.html" />
-    <Content Include="App_Plugins\Camelonta.UI\camelontacms.css" />
-    <Content Include="App_Plugins\Camelonta.UI\camelontacms.js" />
-    <Content Include="App_Plugins\Camelonta.UI\camelontacms.png" />
-    <Content Include="App_Plugins\Camelonta.UI\help.html" />
-    <Content Include="App_Plugins\Camelonta.UI\preview.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Detail.Controller.js" />
@@ -489,14 +479,12 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Plugins\Camelonta.MyVisitors\package.manifest" />
     <Content Include="Views\Partials\_CookieWarning.cshtml" />
     <Content Include="Views\Partials\_Favicons.cshtml" />
     <Content Include="Views\MacroPartials\RawHtml.cshtml" />
     <Content Include="Views\Partials\_SearchResults.cshtml" />
     <Content Include="App_Code\RenderHelper.cshtml" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
-    <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
     <Content Include="App_Plugins\Camelonta.Utilities\Sitemap.cshtml" />
     <Content Include="css\Bundled.scss" />
     <Content Include="App_Plugins\GridRowSettings\css\data-container-size.scss" />
