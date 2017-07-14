@@ -41,6 +41,6 @@ namespace Boilerplate.Core.TemplatePages
 
         public bool HideLeftNav => !LeftNavigation.Any() || Model.Content.GetPropertyValue<bool>("hideLeftNav");
 
-        public IEnumerable<IPublishedContent> SideContent => _sideContent ?? (_sideContent = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("rightColumnContent", true) ?? new List<IPublishedContent>());
+        public IEnumerable<IPublishedContent> SideContent => _sideContent ?? (_sideContent = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("rightColumnContent", false) ?? new List<IPublishedContent>());
     }
 }

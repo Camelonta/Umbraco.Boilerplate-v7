@@ -6,30 +6,37 @@ img {    /* Sätt dessa properties så de även gäller när man redigerar i Tin
 	padding: 12px 24px;    display: inline-block;	margin: 3px 0;
 }
 
-/**umb_name:Knapp*/
-.button{background-color: #1565C0;}
-
-/**umb_name:Knapp 2*/
-.button-variant{background-color:#F9A825;}
-
-/**umb_name:Rubrik 1*/
+/**umb_name:Header 1*/
 h1{font-size: 2.7em;}
 
-/**umb_name:Rubrik 2*/
+/**umb_name:Header 2*/
 h2{font-size: 2.1em;}
 
-/**umb_name:Rubrik 3*/
+/**umb_name:Header 3*/
 h3{font-size: 1.6em;}
 
-/**umb_name:Rubrik 4*/
+/**umb_name:Header 4*/
 h4{font-size: 1.2em;}
 
-/**umb_name:Rubrik 5*/
-h5{}
-
-/**umb_name:Stycke*/
+/**umb_name:Paragraph*/
 p{font-size: 1em;}
 
-/**umb_name:Ingress*/
-.ingress{font-size:1.3em;
+/**umb_name:Preamble*/
+.preamble{font-size:1.3em;
 font-weight:100;}
+
+/**umb_name:Button*/
+.button{background-color: #1565C0;}
+
+/**umb_name:Button 2*/
+.button-variant{background-color:#F9A825;}
+
+/**umb_name:Dark background*/
+.darkBackground{color: #fff;
+display: inline;
+background: rgba(0,0,0,.7);
+box-shadow: 0.47368em 0 0 rgba(0,0,0,.7), -0.47368em 0 0 rgba(0,0,0,.7);
+padding: 2px;}
+
+/**umb_name:No margin top*/
+.noMarginTop{margin-top: 0;}

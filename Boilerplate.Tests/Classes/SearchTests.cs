@@ -54,7 +54,7 @@ namespace Boilerplate.Tests.Classes
 
             SetUp(mockDataSet);
             
-            var search = new Search(mockedIndex.Indexer, mockedIndex.Searcher, "Test", 0, 5);
+            var search = new CamelontaSearch(mockedIndex.Indexer, mockedIndex.Searcher, "Test", 0, 5);
 
             Assert.AreEqual(2, search.SearchResults.Count);
             Assert.AreEqual(11, search.SearchResults.First().Id);
@@ -72,7 +72,7 @@ namespace Boilerplate.Tests.Classes
 
             SetUp(mockDataSet);
 
-            var search = new Search(mockedIndex.Indexer, mockedIndex.Searcher, "Katja testar solen skiner och ölen är kall", 0, 5);
+            var search = new CamelontaSearch(mockedIndex.Indexer, mockedIndex.Searcher, "Katja testar solen skiner och ölen är kall", 0, 5);
 
             Assert.AreEqual(1, search.SearchResults.Count);
             Assert.AreEqual(11, search.SearchResults.Single().Id);
@@ -93,7 +93,7 @@ namespace Boilerplate.Tests.Classes
 
             SetUp(mockDataSet);
 
-            var search = new Search(mockedIndex.Indexer, mockedIndex.Searcher, "Test", 0, take);
+            var search = new CamelontaSearch(mockedIndex.Indexer, mockedIndex.Searcher, "Test", 0, take);
 
             Assert.AreEqual(take, search.SearchResults.Count);
             Assert.AreEqual(totalAmount, search.TotalResults);

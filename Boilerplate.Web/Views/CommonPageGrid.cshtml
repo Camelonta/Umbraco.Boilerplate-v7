@@ -2,9 +2,10 @@
 @{
     Layout = "~/Views/_Layout.cshtml";
     var insideContainer = LeftNavigation.Any() && !Model.Content.GetPropertyValue<bool>("hideLeftNav");
+    var hasRightColumn = SideContent != null && SideContent.Any();
 }
 
-@if (insideContainer)
+@if (insideContainer || hasRightColumn)
 {
     <div class="container">
         @PageContent()
@@ -12,13 +13,16 @@
 }
 else
 {
-    @PageContent()
+    <div class="container one-col">
+        @PageContent()
+    </div>
 }
 
 @helper PageContent()
 {
-Html.RenderPartial("Layout/_LeftNav");
-Html.RenderPartial("Layout/_RightColumnContent");
+    Html.RenderPartial("Layout/_LeftNav");
+    Html.RenderPartial("Layout/_RightColumnContent");
+
     <main role="main">
         @Html.GetGridHtml(Model.Content, "grid")
     </main>

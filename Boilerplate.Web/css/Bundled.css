@@ -1,136 +1,15 @@
 ﻿@charset "UTF-8";
-/*-------------------------------------*/
 /* 
     Name those colors: http://www.noxproductions.se/namethosecolors
 */
-/*-------------------------------------*/
-/*-------------------------------------*/
+/* ------------------------------------------- */
+/* ------------------------------------------- */
 .nav-sub-expander {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex; }
-
-html {
-  color: #222;
-  -webkit-tap-highlight-color: transparent;
-  height: 100%; }
-
-body {
-  font-family: 'Lato', sans-serif;
-  font-size: 17px;
-  line-height: 1.5;
-  min-height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column; }
-
-::-moz-selection {
-  background: #ff005e;
-  color: #fff;
-  text-shadow: none; }
-
-::selection {
-  background: #ff005e;
-  color: #fff;
-  text-shadow: none; }
-
-button {
-  outline: 0; }
-
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle; }
-
-img {
-  max-width: 100%;
-  height: auto; }
-
-textarea {
-  resize: vertical; }
-
-iframe, table {
-  max-width: 100%; }
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; }
-
-a {
-  color: #7b5294;
-  text-decoration: none; }
-  a i, a span {
-    vertical-align: middle; }
-
-@media only screen and (max-width: 990px) {
-  body {
-    font-size: 14px; } }
-
-/* Browsersync is displaying this annoying thing every page reload. Very påträngande when developing mobile header/top-bar */
-#__bs_notify__ {
-  display: none !important; }
-
-/*--------------------------------------*/
-/*--------------------------------------*/
-[data-container-size="-50"] .container {
-  width: 743px; }
-
-[data-container-size="-40"] .container {
-  width: 828px; }
-
-[data-container-size="-30"] .container {
-  width: 914px; }
-
-[data-container-size="-20"] .container {
-  width: 999px; }
-
-[data-container-size="-10"] .container {
-  width: 1085px; }
-
-[data-container-size="+20"] .container {
-  width: 1341px; }
-
-[data-container-size="full"] .container {
-  width: 100%;
-  padding: 0; }
-
-[data-container-size="full"] .column {
-  padding: 0;
-  margin: 0; }
-
-.grid-section > [data-container-size="full"] {
-  padding: 0; }
-
-#hero {
-  position: relative;
-  background-position: center bottom;
-  background-size: cover;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  max-height: 80vh;
-  height: 450px;
-  background-position: center; }
-  @media screen and (max-width: 800px) {
-    #hero {
-      min-height: 450px;
-      height: auto;
-      font-size: .8em; } }
 
 /* == Default mixins ==*/
 /* == End of Default mixins ==*/
@@ -176,184 +55,73 @@ a {
   -o-animation-direction: normal;
   animation-direction: normal; }
 
-.container {
+html {
+  color: #222;
+  -webkit-tap-highlight-color: transparent;
+  height: 100%; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  min-height: 100%;
+  display: block;
+  display: -webkit-flex;
+  display: -moz-flex;
+  flex-direction: column;
+  position: relative; }
+
+::-moz-selection {
+  background: #ff005e;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #ede9ce;
+  text-shadow: none; }
+
+button {
+  outline: 0; }
+
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+img {
   max-width: 100%;
-  width: 1170px;
-  margin: 0 auto;
-  padding-right: 15px;
-  padding-left: 15px; }
-
-/*-------------------------------------*/
-header {
-  background: #7b5294;
-  padding: 20px 0; }
-
-.header__search {
-  float: right; }
-
-/*-------------------------------------*/
-#l-sidebar {
-  width: 22%;
-  margin-right: 3%;
-  float: left;
-  min-height: 1px;
-  /* If we don't have any pages in left-nav - still show container*/ }
-
-/*-------------------------------------*/
-aside {
-  margin-top: 20px;
-  float: right;
-  font-size: .8em;
-  width: 24%;
-  margin-left: 3%;
-  border-top: 20px solid #c4add2;
-  color: white;
-  padding: 0 15px 10px;
-  background: #7b5294; }
-
-/*-------------------------------------*/
-footer {
-  background: #7b5294;
-  border-top: 20px solid #c4add2;
-  color: white;
-  padding: 20px 0 80px;
-  margin-top: 90px; }
-  footer p {
-    margin: 3px 0; }
-
-/*-------------------------------------*/
-#main-content-wrapper {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0;
-  -moz-box-flex: 1;
-  -moz-flex: 1 0;
-  -ms-flex: 1 0;
-  flex: 1 0; }
-
-main {
-  overflow: hidden; }
-
-.grid-section > div {
-  background-position: center;
-  /* Centrera bakgrundsbilder i grid-sektioner */ }
-
-/*-------------------------------------*/
-@media only screen and (max-width: 990px) {
-  .umb-grid .column {
-    margin-top: 15px;
-    margin-bottom: 15px; } }
-
-@media only screen and (max-width: 800px) {
-  aside {
-    width: 75%;
-    display: none; } }
-
-@media only screen and (max-width: 767px) {
-  main,
-  aside {
-    width: 100%; }
-  #l-sidebar {
-    display: none; } }
-
-/* 
-    Sticky footer: http://tutorialzine.com/2016/03/quick-tip-the-best-way-to-make-sticky-footers/ VID TID: Detta funkar inte bra i IE. Det blir problem med bilder + max-width (containern behåller initiala höjden)
-        - Force the footer to always be at the bottom of the page
-*/
-.hide {
-  display: none; }
-
-.highlight {
-  background-color: #FFFF88; }
+  height: auto !important;
+  /* TinyMCE sets a fixed height-attribute on every image. Images should never have a fixed height, that's why this rule should never brake something. If !important brakes something in your template, you might have done something crazy - like setting fixed width or height on an image. */ }
 
 textarea {
-  min-height: 150px;
-  max-height: 1000px; }
+  resize: vertical; }
 
-fieldset {
+iframe, table {
+  max-width: 100%; }
+
+hr {
+  display: block;
+  height: 1px;
   border: 0;
-  margin: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
   padding: 0; }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="url"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="week"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
-select,
-textarea {
-  padding: 0.5em 0.6em;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-shadow: inset 0 1px 3px #ddd;
-  border-radius: 4px;
-  vertical-align: middle;
-  -webkit-appearance: none; }
+a {
+  color: #64706c;
+  text-decoration: none; }
+  a i, a span {
+    vertical-align: middle; }
 
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-select:focus,
-textarea:focus {
-  outline: 0;
-  border-color: #129FEA; }
+@media only screen and (max-width: 990px) {
+  body {
+    font-size: 0.82353em; } }
 
-input[type="file"]:focus,
-input[type="radio"]:focus,
-input[type="checkbox"]:focus {
-  outline: thin solid #129FEA;
-  outline: 1px auto #129FEA; }
-
-button,
-input[type="submit"],
-input[type="button"] {
-  font-family: inherit;
-  font-size: 100%;
-  padding: .5em 1em;
-  border: 1px solid #999;
-  border: 0 transparent;
-  background-color: #E6E6E6;
-  text-decoration: none;
-  border-radius: 2px;
-  display: inline-block;
-  line-height: normal;
-  white-space: nowrap;
-  vertical-align: middle;
-  text-align: center;
-  cursor: pointer; }
-
-.field-validation-error {
-  color: #ff4f4f; }
-
-.contourField {
-  margin-bottom: 15px;
-  clear: both; }
-
-.contour .help-block {
-  font-size: .8em;
-  color: gray;
-  display: block; }
-
-/* Don't hide any fields if javascript is turned off. Fields are hidden when enabling conditions */
-.no-js .contourField {
-  display: block !important; }
+/* Browsersync is displaying this annoying thing every page reload. Very påträngande when developing mobile header/top-bar */
+#__bs_notify__ {
+  display: none !important; }
 
 /* == Global button properties == */
 .button, .button a, .button a:hover, .button-variant, .button-variant a, .button-variant a:hover, .button-ghost--blue, .button-ghost--blue a, .button-ghost--blue a:hover {
@@ -401,180 +169,238 @@ input[type="button"] {
   .button-ghost--blue:hover {
     background-color: #f5feff; }
 
-nav a {
-  position: relative; }
+#hero {
+  position: relative;
+  background-position: center bottom;
+  background-size: cover;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  max-height: 80vh;
+  height: 450px;
+  background-position: center; }
+  @media screen and (max-width: 800px) {
+    #hero {
+      min-height: 450px;
+      height: auto;
+      font-size: .8em; } }
 
-.nav-sub-expander {
-  position: absolute;
-  height: 100%;
-  width: 45px;
-  right: 0;
-  top: 0;
-  text-align: center;
-  font-size: 2em;
-  background: rgba(0, 0, 0, 0.05);
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center; }
-  .nav-sub-expander:before {
-    content: "+";
-    width: 100%; }
+.container {
+  max-width: 100%;
+  width: 1170px;
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px; }
 
-.nav--is-expanded > a > .nav-sub-expander:before,
-.nav--is-maximizing > a > .nav-sub-expander:before {
-  content: "-"; }
+/*-------------------------------------*/
+header {
+  background: #64706c;
+  padding: 20px 0; }
 
-.nav-sub-expander .nav--is-minimizing > a > .nav-sub-expander:before {
-  content: "+" !important; }
+.header__search {
+  float: right; }
+  .header__search button {
+    font-size: 1.15em; }
 
-/* == Mobile menu toggle == */
-.mobile-menu-toggle {
-  border: 1px solid #333;
-  padding: 5px 8px;
-  display: none;
-  border-radius: 3px;
+/*-------------------------------------*/
+#l-sidebar {
+  width: 22%;
+  margin-right: 3%;
+  float: left;
+  min-height: 1px;
+  /* If we don't have any pages in left-nav - still show container*/ }
+
+/*-------------------------------------*/
+aside {
+  margin-top: 20px;
   float: right;
-  color: #000; }
+  font-size: .8em;
+  width: 24%;
+  margin-left: 3%;
+  border-top: 20px solid #ede9ce;
+  color: white;
+  padding: 0 15px 10px;
+  background: #64706c; }
 
-.mobile-menu-toggle i {
-  vertical-align: middle;
-  margin-right: 5px;
-  font-size: 1.3em; }
+/*-------------------------------------*/
+footer {
+  background: #64706c;
+  border-top: 20px solid #ede9ce;
+  color: white;
+  padding: 20px 0 80px;
+  margin-top: 90px; }
+  footer p {
+    margin: 3px 0; }
 
-/* == End of Mobile menu toggle == */
-/* Pulsera expand-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-@media only screen and (max-width: 767px) {
-  .mobile-menu-toggle {
-    display: block; } }
+/*-------------------------------------*/
+#main-content-wrapper {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0;
+  -moz-box-flex: 1;
+  -moz-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0; }
 
-#left-nav {
-  background: #E91E63;
-  /* pink */ }
-  #left-nav ul {
-    list-style-type: none; }
-  #left-nav a {
-    display: block;
-    padding: 1em;
-    color: inherit;
-    -moz-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s; }
-  #left-nav .nav-name {
-    width: 77%;
-    width: calc(100% - 40px);
-    display: block; }
-  #left-nav .nav--is-expanded > ul {
-    display: block;
-    /* Only display sub-ul's inside 'nav--is-expanded' li's '*/ }
+main {
+  overflow: hidden;
+  min-height: 20vh; }
 
-/*--------------------------------------------------*/
-.side-nav__lv-1 {
-  padding: 0;
-  color: #fff; }
-  .side-nav__lv-1 ul {
-    display: none;
-    padding: 0 0 0 5%;
-    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ }
+.grid-section > div {
+  background-position: center;
+  /* center background images in grid sections */
+  margin: 1em 0; }
 
-/* Current lvl 1 */
-.side-nav__link-lv-1:hover {
-  background: #b71c1c;
-  /* red */ }
+.one-col {
+  width: 820px; }
 
-.side-nav__link-lv-1.side-nav--link-is-current {
-  background: #F9A825;
-  /* yellow */ }
+.two-col {
+  width: 1020px; }
 
-/*--------------------------------------------------*/
-.side-nav__lv-2 {
-  font-size: .9em;
-  background: #558B2F;
-  /* green */ }
-  .side-nav__lv-2 .side-nav--link-is-current {
-    font-weight: bold;
-    text-decoration: underline; }
+/*-------------------------------------*/
+@media only screen and (max-width: 1430px) {
+  body {
+    font-size: 14px; }
+  .container {
+    width: 1020px; } }
 
-@media only screen and (max-width: 767px) {
-  #left-nav {
+@media only screen and (max-width: 990px) {
+  .umb-grid .column {
+    margin-top: 15px;
+    margin-bottom: 15px; } }
+
+@media only screen and (max-width: 800px) {
+  aside {
+    width: 75%;
     display: none; } }
 
-.main-nav {
-  background-color: #c4add2; }
-  .main-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none; }
-  .main-nav li {
-    float: left; }
-  .main-nav a {
-    -moz-transition: background-color 0.2s, color 0.2s;
-    -o-transition: background-color 0.2s, color 0.2s;
-    -webkit-transition: background-color 0.2s, color 0.2s;
-    transition: background-color 0.2s, color 0.2s;
-    color: inherit;
-    padding: 1em;
-    display: block; }
-  .main-nav .top-links,
-  .main-nav .dyn-menu ul {
-    /* Hide some elements as default. Should only be visible on mobile */
-    display: none; }
+@media only screen and (max-width: 767px) {
+  main,
+  aside {
+    width: 100%; }
+  #l-sidebar {
+    display: none; } }
 
-.mobile-menu-open .main-nav {
+/* 
+    Sticky footer: http://tutorialzine.com/2016/03/quick-tip-the-best-way-to-make-sticky-footers/ VID TID: Detta funkar inte bra i IE. Det blir problem med bilder + max-width (containern behåller initiala höjden)
+        - Force the footer to always be at the bottom of the page
+*/
+textarea {
+  min-height: 150px;
+  max-height: 1000px; }
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+select,
+textarea {
+  padding: 0.5em 0.6em;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  vertical-align: middle;
+  -webkit-appearance: none; }
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  border-color: #129FEA; }
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin solid #129FEA;
+  outline: 1px auto #129FEA; }
+
+button,
+input[type="submit"],
+input[type="button"] {
+  font-family: inherit;
+  font-size: 100%;
+  padding: .5em 1em;
+  border: none;
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer; }
+
+.field-validation-error {
+  color: #ff4f4f; }
+
+.contourField {
+  margin-bottom: 15px;
+  clear: both; }
+
+.contour .help-block {
+  font-size: .8em;
+  color: gray;
   display: block; }
 
-.main-nav__lv-1 {
-  display: none; }
+/* Don't hide any fields if javascript is turned off. Fields are hidden when enabling conditions */
+.no-js .contourField {
+  display: block !important; }
 
-@media only screen and (min-width: 768px) {
-  .main-nav {
-    /* Active menu state in large-screen menu */ }
-    .main-nav .nav--is-expanded,
-    .main-nav a:hover {
-      background: #7b5294;
-      color: #fff; }
-    .main-nav .nav-sub-expander {
-      display: none; } }
+/*--------------------------------------*/
+/*--------------------------------------*/
+[data-container-size="-50"] .container {
+  width: 743px; }
 
-@media only screen and (max-width: 767px) {
-  .main-nav {
-    display: none;
-    /* TODO - style top links in mobile menu */ }
-    .main-nav li {
-      float: none; }
-    .main-nav .nav--is-expanded > ul {
-      display: block;
-      /* Only display sub-ul's in 'nav--is-expanded' li's '*/ }
-    .main-nav .top-links {
-      display: block;
-      float: none;
-      border-top: 1px solid gray; }
-  .main-nav--link-is-current {
-    background: red; }
-  .main-nav__lv-0 ul {
-    display: none;
-    padding-left: 2%;
-    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ } }
+[data-container-size="-40"] .container {
+  width: 828px; }
 
-.top-links {
-  float: right; }
-  .top-links li {
-    display: inline-block; }
+[data-container-size="-30"] .container {
+  width: 914px; }
 
-.top-links__link {
-  margin-left: 1.2em;
-  color: #fff; }
-  .top-links__link span,
-  .top-links__link img {
-    vertical-align: middle; }
-  .top-links__link img {
-    max-width: 15px; }
+[data-container-size="-20"] .container {
+  width: 999px; }
 
-@media only screen and (max-width: 767px) {
-  .top-links {
-    display: none; } }
+[data-container-size="-10"] .container {
+  width: 1085px; }
+
+[data-container-size="+20"] .container {
+  width: 1341px; }
+
+[data-container-size="full"] .container {
+  width: 100%;
+  padding: 0; }
+
+[data-container-size="full"] .column {
+  padding: 0;
+  margin: 0; }
+
+.grid-section > [data-container-size="full"] {
+  padding: 0; }
 
 .video {
   background-repeat: no-repeat;
@@ -627,11 +453,210 @@ nav a {
   #cookie-warning {
     text-align: center; } }
 
+nav a {
+  position: relative; }
+
+.nav-sub-expander {
+  position: absolute;
+  height: 100%;
+  width: 45px;
+  right: 0;
+  top: 0;
+  text-align: center;
+  font-size: 2em;
+  background: rgba(0, 0, 0, 0.05);
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+  .nav-sub-expander:before {
+    content: "+";
+    width: 100%; }
+
+.nav--is-expanded > a > .nav-sub-expander:before,
+.nav--is-maximizing > a > .nav-sub-expander:before {
+  content: "-"; }
+
+.nav-sub-expander .nav--is-minimizing > a > .nav-sub-expander:before {
+  content: "+" !important; }
+
+/* == Mobile menu toggle == */
+.mobile-menu-toggle {
+  border: 1px solid #ede9ce;
+  padding: 5px 8px;
+  display: none;
+  border-radius: 3px;
+  float: right;
+  color: #ede9ce;
+  margin: 0.15em; }
+
+.mobile-menu-toggle i {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 1.3em; }
+
+/* == End of Mobile menu toggle == */
+/* Pulsera expand-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+@media only screen and (max-width: 767px) {
+  .mobile-menu-toggle {
+    display: block; } }
+
+#left-nav {
+  background: #ede9ce; }
+  #left-nav ul {
+    list-style-type: none; }
+  #left-nav a {
+    display: block;
+    padding: 1em;
+    -moz-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s; }
+  #left-nav .nav-name {
+    width: 77%;
+    width: calc(100% - 40px);
+    display: block; }
+  #left-nav .nav--is-expanded > ul {
+    display: block;
+    /* Only display sub-ul's inside 'nav--is-expanded' li's '*/ }
+
+/*--------------------------------------------------*/
+.side-nav__lv-1 {
+  padding: 0; }
+  .side-nav__lv-1 ul {
+    display: none;
+    padding: 0 0 0 5%;
+    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ }
+
+/* Current lvl 1 */
+.side-nav__link-lv-1:hover {
+  background: #935347;
+  color: #fff; }
+
+.side-nav__link-lv-1.side-nav--link-is-current {
+  background: #935347;
+  color: #fff; }
+
+/*--------------------------------------------------*/
+.side-nav__lv-2 {
+  font-size: .9em;
+  background: #558B2F;
+  /* green */ }
+  .side-nav__lv-2 .side-nav--link-is-current {
+    font-weight: bold;
+    text-decoration: underline; }
+
+@media only screen and (max-width: 767px) {
+  #left-nav {
+    display: none; } }
+
+.main-nav {
+  background-color: #c7ad88; }
+  .main-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none; }
+  .main-nav li {
+    float: left; }
+  .main-nav a {
+    -moz-transition: background-color 0.2s, color 0.2s;
+    -o-transition: background-color 0.2s, color 0.2s;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+    color: inherit;
+    padding: 1em;
+    display: block; }
+  .main-nav .top-links,
+  .main-nav .dyn-menu ul {
+    /* Hide some elements as default. Should only be visible on mobile */
+    display: none; }
+
+.mobile-menu-open .main-nav {
+  display: block; }
+
+.main-nav__lv-1 {
+  display: none; }
+
+@media only screen and (min-width: 768px) {
+  .main-nav {
+    /* Active menu state in large-screen menu */ }
+    .main-nav .nav--is-expanded,
+    .main-nav a:hover {
+      background: #935347;
+      color: #fff; }
+    .main-nav .nav-sub-expander {
+      display: none; } }
+
+@media only screen and (max-width: 767px) {
+  .main-nav {
+    display: none;
+    /* TODO - style top links in mobile menu */ }
+    .main-nav li {
+      float: none; }
+    .main-nav .nav--is-expanded > ul {
+      display: block;
+      /* Only display sub-ul's in 'nav--is-expanded' li's '*/ }
+    .main-nav .top-links {
+      display: block;
+      float: none;
+      border-top: 1px solid gray; }
+  .main-nav--link-is-current {
+    background: #935347;
+    color: #fff; }
+  .main-nav__lv-0 ul {
+    display: none;
+    padding-left: 2%;
+    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ } }
+
+.top-links {
+  float: right; }
+  .top-links ul {
+    margin-top: 0; }
+    .top-links ul li {
+      display: inline-block; }
+      .top-links ul li .top-links__link {
+        color: #fff; }
+        .top-links ul li .top-links__link span,
+        .top-links ul li .top-links__link img {
+          vertical-align: middle; }
+        .top-links ul li .top-links__link img {
+          max-width: 18px;
+          margin-right: .3em; }
+
+@media only screen and (max-width: 767px) {
+  .top-links {
+    display: none; } }
+
+.hide {
+  display: none; }
+
+.highlight {
+  background-color: #FFFF88; }
+
+.noMarginTop {
+  margin-top: 0; }
+
+.darkBackground {
+  color: #fff;
+  display: inline;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0.47368em 0 0 rgba(0, 0, 0, 0.4), -0.47368em 0 0 rgba(0, 0, 0, 0.4);
+  padding: 2px; }
+
+.preamble {
+  font-size: 1.3em;
+  font-weight: 100; }
+
+/* --------------------------------------------------- */
 /* 
 
     STRUKTURDEMO
 
 */
+.page-search #main-content-wrapper > .container {
+  width: 820px; }
+
 /* ------------------------------------------------------------ */
 .search-result {
   margin-bottom: 30px;
@@ -646,7 +671,7 @@ nav a {
 /* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
 .news-item {
   color: #333;
-  margin-bottom: 30px;
+  margin: 1em 0;
   display: block; }
 
 .news-item__header {

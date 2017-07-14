@@ -1,5 +1,7 @@
-﻿.main-nav {
-    background-color: $purple-light;
+﻿/// <reference path="settingss/colors.scss"/>
+
+.main-nav {
+    background-color: $sorrell-brown;
 
     ul {
         padding: 0;
@@ -42,7 +44,7 @@
         /* Active menu state in large-screen menu */
         .nav--is-expanded,
         a:hover {
-            background: $purple;
+            background: $copper-rust;
             color: #fff;
         }
 
@@ -78,7 +80,8 @@
     }
 
     .main-nav--link-is-current {
-        background: red;
+        background: $copper-rust;
+        color: #fff;
     }
 
     .main-nav__lv-0 {

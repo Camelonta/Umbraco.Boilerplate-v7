@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
+﻿using System.Dynamic;
 using System.Linq;
 using System.Web.Mvc;
 using Boilerplate.Core.Classes;
-using Examine;
 using Newtonsoft.Json;
-using Umbraco.Core;
 using Umbraco.Web.Mvc;
 using Boilerplate.Core.Classes.Search;
 
@@ -17,7 +13,7 @@ namespace Boilerplate.Core.Controllers
         [HttpPost]
         public ActionResult GetSearchResults(string searchTerm, int skip, int take)
         {
-            var search = new Search(searchTerm, skip, take);
+            var search = new CamelontaSearch(searchTerm, skip, take);
 
             dynamic result = new ExpandoObject();
             result.html = CoreHelpers.RenderPartialToString("~/Views/Partials/_SearchResults.cshtml", search, ControllerContext);

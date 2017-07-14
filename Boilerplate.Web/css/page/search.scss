@@ -1,4 +1,12 @@
-﻿
+﻿.page-search {
+    #main-content-wrapper{
+        > .container {
+            width: $smallContainerWidth;
+        }
+    }
+}
+
+
 /* ------------------------------------------------------------ */
 // SEARCH RESULT
 .search-result {

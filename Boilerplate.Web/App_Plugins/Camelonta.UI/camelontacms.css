@@ -53,9 +53,6 @@ ul.sections li.avatar {
 }
 
 /* Login-page */
-.login-overlay {
-    background: #191919 !important;
-}
 
 #login, #login * {
     -moz-box-sizing: border-box;
@@ -67,12 +64,16 @@ ul.sections li.avatar {
     background-color: #FFF;
     margin: auto;
     width: 94%;
-    max-width: 380px;
+    max-width: 460px;
     margin-top: 120px;
     margin-top: 16vh;
-    border-radius: 9px;
+    border-radius: 4px;
     position: relative;
-    padding: 33px 17px 30px;
+    padding: 54px 6px 30px;
+}
+
+.login-overlay__background-image {
+    display: none;
 }
 
 .login-overlay .form {
@@ -82,9 +83,14 @@ ul.sections li.avatar {
     position: static;
 }
 
+.login-overlay .umb-login-container {
+    padding-top: 0 !important;
+    background-color: #fff;
+}
+
 .login-overlay h1 {
     text-align: left;
-    font-size: 21px;
+    font-size: 24px;
     margin-bottom: 22px;
     overflow: hidden;
     color: #333;
@@ -104,6 +110,7 @@ ul.sections li.avatar {
 
 #login button {
     width: 100%;
+    max-width: 100px;
     background-color: #97BD2C;
     border: 1px solid #769421;
     color: #FFF;
@@ -176,4 +183,7 @@ ul.sections li.avatar {
 /* EDITOR VIEW */
 .umb-cell-media{
     max-width: 570px;
+}
+.mce-edit-area iframe {
+    min-height: 200px !important;
 }

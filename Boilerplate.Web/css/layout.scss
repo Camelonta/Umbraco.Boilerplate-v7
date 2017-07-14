@@ -1,5 +1,4 @@
-﻿/// <reference path="_variables.scss"/>
-/// <reference path="mixins/flexbox.scss"/>
+﻿/// <reference path="mixins/flexbox.scss"/>
 
 .container {
     max-width: 100%;
@@ -12,12 +11,16 @@
 /*-------------------------------------*/
 // HEADER
 header {
-    background: $purple;
+    background: $corduroy;
     padding: 20px 0;
 }
 
 .header__search {
     float: right;
+
+    button {
+        font-size: 1.15em;
+    }
 }
 
 
@@ -40,10 +43,10 @@ aside {
     font-size: .8em;
     width: 24%;
     margin-left: 3%;
-    border-top: 20px solid $purple-light;
+    border-top: 20px solid $aths-special;
     color: white;
     padding: 0 15px 10px;
-    background: $purple;
+    background: $corduroy;
 }
 
 
@@ -51,8 +54,8 @@ aside {
 /*-------------------------------------*/
 // FOOTER
 footer {
-    background: $purple;
-    border-top: 20px solid $purple-light;
+    background: $corduroy;
+    border-top: 20px solid $aths-special;
     color: white;
     padding: 20px 0 80px;
     margin-top: 90px;
@@ -63,7 +66,6 @@ footer {
 }
 
 
-
 /*-------------------------------------*/
 // MAIN CONTENT
 #main-content-wrapper {
@@ -72,16 +74,34 @@ footer {
 
 main {
     overflow: hidden;
+    min-height: 20vh;
 }
 
 .grid-section > div {
-    background-position: center; /* Centrera bakgrundsbilder i grid-sektioner */
+    background-position: center; /* center background images in grid sections */
+    margin: 1em 0;
 }
 
+.one-col {
+    width: $smallContainerWidth;
+}
 
+.two-col {
+    width: $mediumContainerWidth;
+}
 
 /*-------------------------------------*/
 // MEDIA QUERIES
+
+@media only screen and (max-width: $laptopwidth) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: $mediumContainerWidth;
+    }
+}
 
 @media only screen and (max-width: 990px) {
     .umb-grid .column {

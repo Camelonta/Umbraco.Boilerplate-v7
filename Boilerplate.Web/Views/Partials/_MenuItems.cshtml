@@ -10,16 +10,17 @@
 
 @helper MenuItem(IPublishedContent page, int level)
 {
-var children = page.Children.FilterInvalidPages();
-var liCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, string.Format("nav--is-current"));
-var liClass = liCurrentClass + page.IfPageIsActive(Model.CurrentPage, " nav--is-expanded");
-
-var aCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, ClassPrefix("--link-is-current"));
-var aClass = aCurrentClass + " " + LevelClass("link-", level);
-
-var target = page.DocumentTypeAlias == "externalLink" ? "target=_blank" : string.Empty;
+    var children = page.Children.FilterInvalidPages();
+    var liCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, string.Format("nav--is-current"));
+    var liClass = liCurrentClass + page.IfPageIsActive(Model.CurrentPage, " nav--is-expanded");
+    
+    var aCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, ClassPrefix("--link-is-current"));
+    var aClass = aCurrentClass + " " + LevelClass("link-", level);
+    
+    var target = page.DocumentTypeAlias == "ExternalLink" ? "target=_blank" : string.Empty;
 
     <li data-id="@page.Id" class="@liClass">
+        
         <a href="@page.GetUrl()" class="@aClass" @target itemprop="url" title="@page.Name">
             <span itemprop="name" class="nav-name">@page.NavName()</span>
             @if (children.Any())
@@ -27,6 +28,7 @@ var target = page.DocumentTypeAlias == "externalLink" ? "target=_blank" : string
                 <span class="nav-sub-expander toggle"></span>
             }
         </a>
+
         @if (children.Any() && page.IsAncestorOrSelf(Model.CurrentPage))
         {
             var subLevel = level + 1;
@@ -37,6 +39,7 @@ var target = page.DocumentTypeAlias == "externalLink" ? "target=_blank" : string
                 }
             </ul>
         }
+
     </li>
 }
 

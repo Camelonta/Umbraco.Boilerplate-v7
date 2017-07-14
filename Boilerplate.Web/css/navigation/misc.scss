@@ -36,12 +36,13 @@
 
 /* == Mobile menu toggle == */
 .mobile-menu-toggle {
-    border: 1px solid #333;
+    border: 1px solid $aths-special;
     padding: 5px 8px;
     display: none;
     border-radius: 3px;
     float: right;
-    color: #000;
+    color: $aths-special;
+    margin: 0.15em;
 }
 
 .mobile-menu-toggle i {

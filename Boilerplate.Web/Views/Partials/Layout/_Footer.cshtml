@@ -1,7 +1,10 @@
 ﻿@inherits CamelontaUmbracoTemplatePage
 
+
 <footer>
+    
     <div class="container">
-        @CurrentSite.GetPropertyValue("footer")
+        @Html.GetGridHtml(CurrentSite, "footer")
     </div>
+
 </footer>

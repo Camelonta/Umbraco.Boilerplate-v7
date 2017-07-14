@@ -1,5 +1,8 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Web.Mvc;
+using Umbraco.Core.Models;
+using Umbraco.Web;
 
 namespace Boilerplate.Core.Classes
 {
@@ -22,6 +25,12 @@ namespace Boilerplate.Core.Classes
 
                 return sw.GetStringBuilder().ToString();
             }
+        }
+
+        public static IPublishedContent CurrentSite()
+        {
+            var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
+            return umbracoHelper.TypedContentAtRoot().FirstOrDefault();
         }
     }
 }

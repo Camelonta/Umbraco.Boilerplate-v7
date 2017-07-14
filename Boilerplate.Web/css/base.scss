@@ -10,8 +10,11 @@ body {
     font-size: 17px;
     line-height: 1.5;
     min-height: 100%;
-    @include flexbox;
-    @include flex-direction(column);
+    display: block;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: column;
+    position: relative;
 }
 
 ::-moz-selection {
@@ -21,8 +24,7 @@ body {
 }
 
 ::selection {
-    background: #ff005e;
-    color: #fff;
+    background: $aths-special;
     text-shadow: none;
 }
 
@@ -61,7 +63,7 @@ hr {
 }
 
 a {
-    color: $purple;
+    color: $corduroy;
     text-decoration: none;
 
     i, span {
@@ -71,7 +73,7 @@ a {
 
 @media only screen and (max-width: 990px) {
     body {
-        font-size: 14px;
+        font-size: em(14px);
     }
 }
 

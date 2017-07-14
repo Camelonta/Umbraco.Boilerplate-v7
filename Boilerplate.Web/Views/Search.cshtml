@@ -1,5 +1,6 @@
-﻿@inherits CamelontaUmbracoTemplatePage
-@using Boilerplate.Core.Classes.Search
+﻿@using Boilerplate.Core.Classes.Search
+@inherits CamelontaUmbracoTemplatePage
+
 @{
     Layout = "~/Views/_Layout.cshtml";
 
@@ -12,7 +13,7 @@
         int.TryParse(Request.QueryString["skip"], out skip);
     }
 
-    var search = new Search(query, skip, skipAndTakeAmount);
+    var search = new CamelontaSearch(query, skip, skipAndTakeAmount);
 }
 
 <div class="container">

@@ -1,5 +1,5 @@
 ﻿#left-nav {
-    background: #E91E63; /* pink */
+    background: $aths-special;
 
     ul {
         list-style-type: none;
@@ -8,7 +8,6 @@
     a {
         display: block;
         padding: 1em;
-        color: inherit;
         @include transition(background-color .2s);
     }
 
@@ -28,7 +27,6 @@
 // LEVEL 1
 .side-nav__lv-1 {
     padding: 0;
-    color: #fff;
 
     ul {
         display: none;
@@ -39,11 +37,13 @@
 /* Current lvl 1 */
 .side-nav__link-lv-1 {
     &:hover {
-        background: #b71c1c; /* red */
+        background: $copper-rust;
+        color: #fff;
     }
 
     &.side-nav--link-is-current {
-        background: #F9A825; /* yellow */
+        background: $copper-rust;
+        color: #fff;
     }
 }
 
