@@ -42,7 +42,8 @@ video {
 
 img {
     max-width: 100%;
-    height: auto!important; /* TinyMCE sets a fixed height-attribute on every image. Images should never have a fixed height, that's why this rule should never brake something. If !important brakes something in your template, you might have done something crazy - like setting fixed width or height on an image. */ 
+    height: auto!important; /* TinyMCE sets a fixed height attribute on every image. Images should never have a fixed height, that's why this rule should never break something. If !important breaks something in your template, you might have done something crazy, like setting fixed width or height on an image. */
+    object-fit: cover;
 }
 
 textarea {

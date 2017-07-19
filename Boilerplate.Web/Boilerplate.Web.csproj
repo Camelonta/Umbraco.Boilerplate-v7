@@ -487,6 +487,7 @@
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="Config\uSyncCore.config" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\data-uniform-image-height.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
