@@ -151,6 +151,22 @@ namespace Boilerplate.Core.Classes
             // If content DOES contain <h1> - DON'T set autoheder (return false).  h1 should only occur once at the top of the page. All other headers should be h2,h3 etc.
             return !content.Contains("<h1");
         }
+        
+
+        public static bool GridHasContent(IPublishedContent page, string gridAlias)
+        {
+            var grid = page.GetProperty(gridAlias);
+            if (grid != null && grid.HasValue)
+            {
+                var content = grid.DataValue.ToString();
+                GridDataModel model = GridDataModel.Deserialize(content);
+                var controls = model.GetAllControls();
+
+                return controls != null && controls.Any();
+            }
+
+            return false;
+        }
 
 
         public static string RobotsContent(IPublishedContent page)
