@@ -1,0 +1,17 @@
+﻿.contourField {
+    margin-bottom: 15px;
+    clear: both;
+}
+
+.contour {
+    .help-block {
+        font-size: .8em;
+        color: gray;
+        display: block;
+    }
+}
+
+/* Don't hide any fields if javascript is turned off. Fields are hidden when enabling conditions */
+.no-js .contourField {
+    display: block !important;
+}

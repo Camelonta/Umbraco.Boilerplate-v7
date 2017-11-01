@@ -1,0 +1,16 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="container">
+    @{ Html.RenderPartial("Layout/_LeftNav");}
+
+    @{ Html.RenderPartial("Layout/_RightColumnContent"); }
+
+    <main role="main">
+        @RenderHelper.Header(Model.Content)
+        @Model.Content.GetPropertyValue("contentMiddle")
+    </main>
+
+</div>

@@ -1,0 +1,96 @@
+﻿@using System.Web.Optimization
+@inherits CamelontaUmbracoTemplatePage
+
+<!doctype html>
+<html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@Meta.PageTitle(Model.Content) - Boilerplate</title>
+    <meta name="description" content="@Model.Content.GetPropertyValue("metadescription")">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
+
+    @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
+    <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
+    <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
+    <meta property="og:url" content="@Model.Content.UrlAbsolute()">
+    <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
+    <meta property="og:site_name" content="@CurrentSite.Name" />
+
+    @* Fastest way to change "no-js" class to "js" on <html>. This makes sure we don't get the content jump/glitch when styling for .no-js *@
+    <script>(function (e, t, n) { var r = e.querySelectorAll("html")[0]; r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2") })(document, window, 0);</script>
+
+    @{ Html.RenderPartial("_Favicons");}
+
+    @Styles.Render("~/bundles/styles")
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    @* TODO: Skapa ett eget Icomoon-projekt om du behöver ikoner *@
+    <link rel="stylesheet" href="http://i.icomoon.io/public/1a91909ce0/Boilerplate-Umbraco/style.css">
+
+    <!--[if lt IE 9]>
+        <script src="@Scripts.Url("~/bundles/ltIe9Scripts")"></script>
+    <![endif]-->
+</head>
+<body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
+
+    <header role="banner">
+        <div class="container">
+            <a href="@CurrentSite.Url" class="header__logo">
+                <i class="icon-local-cafe" style="color: #fff; font-size: 2.7em;"><span style="font-family: 'Lato'; line-height: 0; font-size: 0.7em; vertical-align: middle; display: inline-table; margin-left: 9px;">Boilerplate</span></i>
+            </a>
+
+            <a href="javascript:void(0)" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
+            @{ Html.RenderPartial("_TopLinks");}
+
+            @if (Model.Content.DocumentTypeAlias != "Search")
+            {
+                <div class="header__search">
+                    @{Html.RenderPartial("_SearchForm");}
+                </div>
+                        }
+
+        </div>
+    </header>
+
+    @{ Html.RenderPartial("_MainNav");}
+
+    @{ Html.RenderPartial("Layout/_Hero");}
+
+    <div id="main-content-wrapper">
+        @RenderBody()
+    </div>
+
+    @{ Html.RenderPartial("Layout/_Footer");}
+
+    @* All site scripts. If NOT debug (if live): set attribute "async" *@
+    @Scripts.RenderFormat(string.Format("<script src=\"{{0}}\" {0}></script>", HttpContext.Current.IsDebuggingEnabled ? "" : " async"), "~/bundles/scripts")
+
+    @if (CurrentSite.HasValue("siteScript"))
+    {
+        @Html.Raw(CurrentSite.GetPropertyValue("siteScript"))
+    }
+
+    @if (Model.Content.HasValue("pageScript"))
+    {
+        @Html.Raw(Model.Content.GetPropertyValue("pageScript"))
+    }
+</body>
+</html>
+
+@functions{
+
+    string BodyClasses()
+    {
+        var classes = string.Format("page-{0}", Model.Content.DocumentTypeAlias.ToLower());
+
+        if (Model.Content.HasValue("additionalBodyClass"))
+        {
+            classes += " " + Model.Content.GetPropertyValue("additionalBodyClass");
+        }
+
+        return classes;
+    }
+}

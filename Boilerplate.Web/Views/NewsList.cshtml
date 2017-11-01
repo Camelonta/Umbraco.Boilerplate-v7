@@ -1,0 +1,47 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+
+    const int take = 40;
+    var skip = Request.QueryString["skip"] == null ? 0 : Convert.ToInt32(Request.QueryString["skip"]);
+    var newsItemsOnThisPage = Model.Content.Descendants("News").OrderByDescending(p => p.CreateDate).Skip(skip).Take(take);
+    decimal newsItemCount = Model.Content.Descendants("News").Count();
+}
+
+<div class="container two-col">
+    @{ Html.RenderPartial("Layout/_LeftNav");}
+
+    <main role="main">
+        @RenderHelper.Header(Model.Content)
+
+        @foreach (var page in newsItemsOnThisPage)
+        {
+            <a href="@page.Url" class="news-item">
+                <h3 class="news-item__header">@page.Name</h3>
+                <p class="news-item__date">@(page.CreateDate.ToString("yyyy-MM-dd"))</p>
+                <p class="news-item__teaser">@Meta.PageTeaser(page)</p>
+                <p class="news-item__read-more">Läs mer</p>
+            </a>
+        }
+
+        @{
+            // Get the total count of pages by dividing total news-count with "take"
+            var amountOfPages = Math.Ceiling(newsItemCount / take);
+
+            if (amountOfPages > 1)
+            {
+                // Calculate current page number based on skip/take
+                var currentPage = skip > 0 ? ((skip / take) + 1) : 1;
+
+                <div class="news-pagination">
+                    @for (var i = 0; i < amountOfPages; i++)
+                    {
+                        var pageNumber = i + 1;
+                        var activeClass = pageNumber == currentPage ? "news-pagination__link--is-active" : "";
+                        <a href="?skip=@(i*take)" class="news-pagination__link @activeClass">@pageNumber</a>
+                    }
+                </div>
+            }
+        }
+    </main>
+</div>

@@ -1,0 +1,137 @@
+﻿/// <reference path="mixins/flexbox.scss"/>
+
+.container {
+    max-width: 100%;
+    width: $default-container-width;
+    margin: 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/*-------------------------------------*/
+// HEADER
+header {
+    background: $corduroy;
+    padding: 20px 0;
+}
+
+.header__search {
+    float: right;
+
+    button {
+        font-size: 1.15em;
+    }
+}
+
+
+/*-------------------------------------*/
+// LEFT SIDEBAR
+#l-sidebar {
+    width: 22%;
+    margin-right: 3%;
+    float: left;
+    min-height: 1px; /* If we don't have any pages in left-nav - still show container*/
+}
+
+
+
+/*-------------------------------------*/
+// RIGHT SIDEBAR
+aside {
+    margin-top: 20px;
+    float: right;
+    font-size: .8em;
+    width: 24%;
+    margin-left: 3%;
+    border-top: 20px solid $aths-special;
+    color: white;
+    padding: 0 15px 10px;
+    background: $corduroy;
+}
+
+
+
+/*-------------------------------------*/
+// FOOTER
+footer {
+    background: $corduroy;
+    border-top: 20px solid $aths-special;
+    color: white;
+    padding: 20px 0 80px;
+    margin-top: 90px;
+
+    p {
+        margin: 3px 0;
+    }
+}
+
+
+/*-------------------------------------*/
+// MAIN CONTENT
+#main-content-wrapper {
+    @include flex(1,0);
+}
+
+main {
+    overflow: hidden;
+    min-height: 20vh;
+}
+
+.grid-section > div {
+    background-position: center; /* center background images in grid sections */
+    margin: 1em 0;
+}
+
+.one-col {
+    width: $smallContainerWidth;
+}
+
+.two-col {
+    width: $mediumContainerWidth;
+}
+
+/*-------------------------------------*/
+// MEDIA QUERIES
+
+@media only screen and (max-width: $laptopwidth) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: $mediumContainerWidth;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .umb-grid .column {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    aside {
+        width: 75%;
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    main,
+    aside {
+        width: 100%;
+    }
+
+    #l-sidebar {
+        display: none;
+    }
+}
+
+
+
+/* 
+    Sticky footer: http://tutorialzine.com/2016/03/quick-tip-the-best-way-to-make-sticky-footers/ VID TID: Detta funkar inte bra i IE. Det blir problem med bilder + max-width (containern behåller initiala höjden)
+        - Force the footer to always be at the bottom of the page
+*/

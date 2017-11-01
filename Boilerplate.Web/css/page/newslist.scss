@@ -1,0 +1,24 @@
+﻿.news-item {
+    color: #333;
+    margin: 1em 0;
+    display: block;
+}
+
+
+.news-item__header {
+    margin: 0 0 5px;
+}
+
+.news-item__date {
+    margin: 0;
+    font-size: .8em;
+    color: #9c9c9c;
+}
+
+.news-item__teaser {
+    margin: 10px 0;
+}
+
+.news-item__read-more {
+    color: orangered;
+}
