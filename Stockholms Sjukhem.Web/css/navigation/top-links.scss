@@ -1,0 +1,32 @@
+﻿.top-links {
+    float: right;
+
+    ul {
+        margin-top: 0;
+
+        li {
+            display: inline-block;
+
+            .top-links__link {
+                color: #fff;
+            
+                span,
+                img {
+                    vertical-align: middle;
+                }
+            
+                img {
+                    max-width: 18px;
+                    margin-right: .3em;
+                }
+            }
+        }
+    }    
+}
+
+
+@media only screen and (max-width: 767px) {
+    .top-links {
+        display: none;
+    }
+}

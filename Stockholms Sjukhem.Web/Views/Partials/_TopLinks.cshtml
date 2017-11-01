@@ -1,0 +1,56 @@
+﻿@using Newtonsoft.Json
+@inherits CamelontaUmbracoTemplatePage
+@{
+    var topLinks = CurrentSite.GetPropertyValue<IEnumerable<IPublishedContent>>("topLinks");
+}
+
+@if (topLinks != null && topLinks.Any())
+{
+    <div class="top-links">
+        <ul class="top-links__list">
+                @foreach (var topLink in topLinks)
+                {
+                    var jsonLink = topLink.GetPropertyValue<string>("link");
+                    if (!string.IsNullOrEmpty(jsonLink))
+                    {
+                        var url = "";
+                        var link = JsonConvert.DeserializeObject<LinkPickerModel>(jsonLink);
+                        var linkText = link.Name;
+
+                        // no page is selected
+                        if (link.Id == 0)
+                        {
+                            url = link.Url;
+                        }
+
+                        else
+                        {
+                            var page = Umbraco.Content(link.Id);
+                            url = page.Url;
+
+                            if (page.DocumentTypeAlias == "externalLink")
+                            {
+                                link.Target = "_blank";
+                                link = page.GetPropertyValue("externalLink");
+                                linkText = !string.IsNullOrEmpty(linkText) ? linkText : page.NavName();
+                            }
+                        }
+
+                        <li>
+                            <a href="@url" class="top-links__link" target="@link.Target">
+
+                                @if (topLink.HasValue("icon"))
+                                {
+                                    var iconId = topLink.GetPropertyValue("icon");
+                                    <img src="@Umbraco.TypedMedia(iconId).Url?width=30&mode=min" alt="@linkText">
+                                }
+
+                                <span>@linkText</span>
+
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+    </div>
+}

@@ -1,0 +1,65 @@
+﻿nav a {
+    position: relative;
+}
+
+
+
+.nav-sub-expander {
+    position: absolute;
+    height: 100%;
+    width: 45px;
+    right: 0;
+    top: 0;
+    text-align: center;
+    font-size: 2em;
+    background: rgba(0, 0, 0, 0.05);
+
+    @extend %flexbox;
+    @include align-items(center);
+
+    &:before {
+        content: "+";
+        width: 100%;
+    }
+}
+
+.nav--is-expanded > a > .nav-sub-expander:before,
+.nav--is-maximizing > a > .nav-sub-expander:before {
+    content: "-";
+}
+
+
+.nav-sub-expander .nav--is-minimizing > a > .nav-sub-expander:before {
+    content: "+" !important;
+}
+
+
+/* == Mobile menu toggle == */
+.mobile-menu-toggle {
+    border: 1px solid $aths-special;
+    padding: 5px 8px;
+    display: none;
+    border-radius: 3px;
+    float: right;
+    color: $aths-special;
+    margin: 0.15em;
+}
+
+.mobile-menu-toggle i {
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 1.3em;
+}
+/* == End of Mobile menu toggle == */
+
+
+/* Pulsera expand-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
+.nav--is-loading .nav-sub-expander {
+    @extend %pulsate;
+}
+
+@media only screen and (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+}

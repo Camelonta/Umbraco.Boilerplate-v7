@@ -1,0 +1,69 @@
+﻿#left-nav {
+    background: $aths-special;
+
+    ul {
+        list-style-type: none;
+    }
+
+    a {
+        display: block;
+        padding: 1em;
+        @include transition(background-color .2s);
+    }
+
+    .nav-name {
+        width: 77%;
+        width: calc(100% - 40px);
+        display: block;
+    }
+
+    .nav--is-expanded > ul {
+        display: block; /* Only display sub-ul's inside 'nav--is-expanded' li's '*/
+    }
+}
+
+
+/*--------------------------------------------------*/
+// LEVEL 1
+.side-nav__lv-1 {
+    padding: 0;
+
+    ul {
+        display: none;
+        padding: 0 0 0 5%; /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */
+    }
+}
+
+/* Current lvl 1 */
+.side-nav__link-lv-1 {
+    &:hover {
+        background: $copper-rust;
+        color: #fff;
+    }
+
+    &.side-nav--link-is-current {
+        background: $copper-rust;
+        color: #fff;
+    }
+}
+
+
+/*--------------------------------------------------*/
+// LEVEL 2 AND BELOW
+.side-nav__lv-2 {
+    font-size: .9em;
+    background: #558B2F; /* green */
+    .side-nav--link-is-current {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 767px) {
+    #left-nav {
+        display: none;
+    }
+}

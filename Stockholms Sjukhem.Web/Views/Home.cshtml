@@ -1,0 +1,49 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<main role="main">
+    @Html.GetGridHtml(Model.Content, "grid")
+
+
+    @{
+        // TODO: TA BORT DETTA :)
+        <div class="container" style="text-align: center; font-size: 2em;">
+            <h1>Read README.txt </h1>
+            <p>(C:\Work\svn\Umbraco\Boilerplate\README.txt)</p>
+        </div>
+    }
+
+</main>
+
+
+@*
+    - Schema.org -
+    Nicer results in search engines
+*@
+@if (!string.IsNullOrEmpty(CurrentSite.GetPropertyValue<string>("schemaCompanyName")))
+{
+    var socialMediaLinks = CurrentSite.GetPropertyValue<string>("schemaCompanySocialMediaLinks").Split(new[] { "\r\n", "\n" }, StringSplitOptions.None);
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Organization",
+        "name": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyName"))",
+        "url":"@CurrentSite.UrlAbsolute()",
+        @* TODO: Kommentera bort detta och se till att sökvägen går till logotypen "logo":"@CurrentSite.UrlAbsolute()img/logo.png",*@
+        "description": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyDescription"))",
+        "telephone": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyPhone"))",
+        "address":
+        {
+        "@@type": "PostalAddress",
+        "streetAddress": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyStreetAddress"))",
+        "addressLocality": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyAddressLocality"))",
+        "postalCode": "@CurrentSite.GetPropertyValue("schemaCompanyPostalCode")",
+        "addressCountry": "@Html.Raw(CurrentSite.GetPropertyValue("schemaCompanyAddressCountry"))"
+        },
+        "sameAs" : [@Html.Raw(string.Join(",", socialMediaLinks.Select(l => string.Format("\"{0}\"", l))))]
+        }
+    </script>
+}

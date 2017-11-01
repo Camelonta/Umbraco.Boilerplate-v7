@@ -1,0 +1,70 @@
+﻿@using Camelonta.Utilities
+@model MenuItems
+
+<ul class="@LevelClass()" data-level="@Model.Level" data-type="@Model.Type">
+    @foreach (var page in Model.Pages.FilterInvalidPages())
+    {
+        @MenuItem(page, Model.Level)
+    }
+</ul>
+
+@helper MenuItem(IPublishedContent page, int level)
+{
+    var children = page.Children.FilterInvalidPages();
+    var liCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, string.Format("nav--is-current"));
+    var liClass = liCurrentClass + page.IfPageIsActive(Model.CurrentPage, " nav--is-expanded");
+    
+    var aCurrentClass = page.IfPageIsCurrent(Model.CurrentPage, ClassPrefix("--link-is-current"));
+    var aClass = aCurrentClass + " " + LevelClass("link-", level);
+    
+    var target = page.DocumentTypeAlias == "ExternalLink" ? "target=_blank" : string.Empty;
+
+    <li data-id="@page.Id" class="@liClass">
+        
+        <a href="@page.GetUrl()" class="@aClass" @target itemprop="url" title="@page.Name">
+            <span itemprop="name" class="nav-name">@page.NavName()</span>
+            @if (children.Any())
+            {
+                <span class="nav-sub-expander toggle"></span>
+            }
+        </a>
+
+        @if (children.Any() && page.IsAncestorOrSelf(Model.CurrentPage))
+        {
+            var subLevel = level + 1;
+            <ul class="@LevelClass("",subLevel)" data-level="@subLevel" data-type="@Model.Type">
+                @foreach (var child in children)
+                {
+                    @MenuItem(child, subLevel)
+                }
+            </ul>
+        }
+
+    </li>
+}
+
+@functions{
+
+    string LevelClass(string name = "", int lvl = -1)
+    {
+        var level = lvl == -1 ? Model.Level : lvl;
+        return string.Format("{0}__{1}lv-{2}", ClassPrefix(), name, level);
+    }
+
+    string ClassPrefix(string suffix = "")
+    {
+        return string.Format("{0}-nav{1}", Model.Type, suffix);
+    }
+
+}
+
+
+@*
+    -- CHEAT SHEET FOR ADDING MORE SPECIFICITY ON MENU ITEMS --
+    
+
+    LevelClass("li-") = side-nav__li-lv-1 = [TYPE]-nav__[YOUR NAME]-lv-[LEVEL]
+
+    TYPE + IS-CURRENT + LEVEL = ClassPrefix("--is-current-lv-" + level) - add this to "aCurrentClass"
+
+*@
