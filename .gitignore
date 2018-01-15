@@ -20,8 +20,7 @@ bld/
 .vs/
 packages/
 
-[Aa]pp_Data/
-!*.sdf
+
 [Aa]pp_Browsers/
 /Boilerplate.Web/umbraco
 /Boilerplate.Web/umbraco_client

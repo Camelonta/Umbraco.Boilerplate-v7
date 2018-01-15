@@ -41,7 +41,7 @@
 
                                 @if (topLink.HasValue("icon"))
                                 {
-                                    var iconId = topLink.GetPropertyValue("icon");
+                                    var iconId = topLink.GetPropertyValue<int>("icon");
                                     <img src="@Umbraco.TypedMedia(iconId).Url?width=30&mode=min" alt="@linkText">
                                 }
 
