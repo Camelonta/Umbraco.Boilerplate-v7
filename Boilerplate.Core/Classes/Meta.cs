@@ -9,6 +9,7 @@ using Boilerplate.Core.Classes.Search;
 using Skybrud.Umbraco.GridData;
 using Skybrud.Umbraco.GridData.Values;
 using System.Web;
+using Camelonta.Utilities;
 
 namespace Boilerplate.Core.Classes
 {
@@ -173,11 +174,11 @@ namespace Boilerplate.Core.Classes
         {
             var sb = new StringBuilder();
 
-            //sb.Append(page.AllowRobotsIndex() ? "index" : "noindex");
+            sb.Append(page.AllowRobotsIndex() ? "index" : "noindex");
 
-            //sb.Append(",");
+            sb.Append(",");
 
-            //sb.Append(page.AllowRobotsFollow() ? "follow" : "nofollow");
+            sb.Append(page.AllowRobotsFollow() ? "follow" : "nofollow");
 
             return sb.ToString();
         }
