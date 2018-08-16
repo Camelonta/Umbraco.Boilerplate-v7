@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Examine;
@@ -55,8 +56,8 @@ namespace Boilerplate.Core.Classes.Search
         /// <param name="take"></param>
         public CamelontaSearch(string searchTerm, int skip, int take)
         {
-            var rgx = new Regex("[^a-zA-Z0-9 -]");
-            SearchTerm = rgx.Replace(searchTerm, "");
+            FilterInvalidCharacters(ref searchTerm);
+            SearchTerm = searchTerm;
             _take = take;
             _skip = skip;
 
@@ -75,14 +76,20 @@ namespace Boilerplate.Core.Classes.Search
         /// <param name="take"></param>
         public CamelontaSearch(IIndexer indexer, ISearcher searcher, string searchTerm, int skip, int take)
         {
-            var rgx = new Regex("[^a-zA-Z0-9 -]");
-            SearchTerm = rgx.Replace(searchTerm, "");
+            FilterInvalidCharacters(ref searchTerm);
+            SearchTerm = searchTerm;
             _take = take;
             _skip = skip;
 
             _searcher = searcher;
             _indexer = indexer;
            Initialize();
+        }
+
+        private void FilterInvalidCharacters(ref string s)
+        {
+            var invalidChars = new Regex("[!\\[\\]\"():{}^~]");
+            s = invalidChars.Replace(s, string.Empty);
         }
 
         void Initialize()
@@ -97,17 +104,21 @@ namespace Boilerplate.Core.Classes.Search
             IndexedFields = _indexer.IndexerData.UserFields.Select(f => f.Name).ToList();
 
             var searchCriteria = _searcher.CreateSearchCriteria(BooleanOperation.And).Field("robotsIndex", "0").Compile();
-            ISearchCriteria query = searchCriteria.RawQuery(CreateRawQuery());
-            var searchResults = _searcher.Search(query);
-            
 
-            // Set total result-count
-            TotalResults = searchResults.TotalItemCount;
+            try
+            {
+                ISearchCriteria query = searchCriteria.RawQuery(CreateRawQuery());
+                var searchResults = _searcher.Search(query);
 
-            // Skip, take and order
-            var resultCollection = searchResults.OrderByDescending(x => x.Score).Skip(_skip).Take(_take);
+                // Set total result-count
+                TotalResults = searchResults.TotalItemCount;
 
-            SearchResults = resultCollection.ToList();
+                // Skip, take and order
+                var resultCollection = searchResults.OrderByDescending(x => x.Score).Skip(_skip).Take(_take);
+
+                SearchResults = resultCollection.ToList();
+            }
+            catch (Exception e) { }
         }
 
         string CreateRawQuery()

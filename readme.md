@@ -15,6 +15,7 @@ Download an extension that compiles the SASS-files when you save then (Web Compi
 1. Copy the Boilerplate to a new repository
 2. Rename everything (the folder + project + Assembly name + Default namespace in project properties)
 	* Search and replace on "Boilerplate.Web" -> "CustomerNameSpace.Web" (ex. "MyCustomer.Web"), (the same for *.Core + *.Tests), and "Boilerplate" -> "The Customers Acctual Name"
+	* Rename the database file in root folder and move to CustomerNameSpace.Web/App_Data. Only check in database in root folder and only when necessary.
 3. Change port (right-click on the project in Visual Studio -> Web -> Project Url  (needs to be more than 1024, to be able to open it as a user that is not Admin)
 4. Login to /umbraco using the Boilerplate credentials in LastPass
 5. Change admin password for new site. Save in LastPass
@@ -25,6 +26,7 @@ Download an extension that compiles the SASS-files when you save then (Web Compi
 ### Cleanup
 * Remove the folder "boilerplate" from media before production (contains some images for testing).
 * Remove this README :)
+* Clear ActivityLog
 
 ## Upgrading to new Umbraco version
 Make sure this is still in web.config
