@@ -1,0 +1,49 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@using Newtonsoft.Json
+@{
+    Layout = "~/Views/_Layout.cshtml";
+
+    var nestedContent = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("nestedContent");
+}
+
+<div class="section-page">
+    <h1 class="section-page__heading">@Model.Content.Name</h1>
+
+    @foreach (var row in nestedContent)
+    {
+        if (row.IsDocumentType("twoColumnCard"))
+        {
+            <div class="two-column-card">
+                @foreach (var column in row.GetPropertyValue<IEnumerable<IPublishedContent>>("columns"))
+                    {
+                        if (column.IsDocumentType("imageMedia"))
+                        {
+                            <div class="two-column-card__image" style="background-image: url(@Umbraco.TypedMedia(column.GetPropertyValue<int>("imagePicker")).Url)"></div>
+                        }
+                        else if (column.IsDocumentType("richText"))
+                        {
+                            <div class="two-column-card__rich-text">@Html.Raw(column.GetPropertyValue<string>("rte"))</div>
+                        }
+                    }
+            </div>
+        }
+        else if (row.IsDocumentType("linkCardsRow"))
+        {
+            <div class="link-cards-row">
+                @foreach (var linkCard in row.GetPropertyValue<IEnumerable<IPublishedContent>>("linkCards"))
+                {
+                    var link = JsonConvert.DeserializeObject<LinkPickerModel>(@linkCard.GetPropertyValue<string>("link"));
+
+                    <div class="link-card">
+                        <div class="link-card__image" style="background-image: url(@Umbraco.TypedMedia(linkCard.GetPropertyValue<int>("image")).Url)"></div>
+                        <div class="link-card__content">
+                            <h3 class="link-card__header">@linkCard.GetPropertyValue("header")</h3>
+                            <p class="link-card__description">@linkCard.GetPropertyValue("description")</p>
+                            <a class="link-card__link" href="@link.Url">Läs mer</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>

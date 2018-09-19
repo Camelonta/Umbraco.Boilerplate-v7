@@ -1,0 +1,8 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<div class="container">
+    @Html.Raw(Model.Content.GetPropertyValue("rte"))
+</div>
