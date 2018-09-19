@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using Meta = Boilerplate.Core.Classes.Meta;
 @inherits CamelontaUmbracoTemplatePage
 
 <!doctype html>
@@ -6,33 +7,29 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@Meta.PageTitle(Model.Content) - Boilerplate</title>
     <meta name="description" content="@Model.Content.GetPropertyValue("metadescription")">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
 
-    @* TODO: Skapa den default-delningsbild för sociala medier. Meta.PageMainImage har en fallback till den. Kolla gärna camelonta.se*@
     <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
     <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
     <meta property="og:url" content="@Model.Content.UrlAbsolute()">
     <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
     <meta property="og:site_name" content="@CurrentSite.Name" />
 
+    <title>@Meta.PageTitle(Model.Content) - Boilerplate</title>
+
     @* Fastest way to change "no-js" class to "js" on <html>. This makes sure we don't get the content jump/glitch when styling for .no-js *@
     <script>(function (e, t, n) { var r = e.querySelectorAll("html")[0]; r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2") })(document, window, 0);</script>
 
-    @{ Html.RenderPartial("_Favicons");}
+    @{
+        Html.RenderPartial("_Favicons");
+    }
 
     @Styles.Render("~/bundles/styles")
 
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
-    @* TODO: Skapa ett eget Icomoon-projekt om du behöver ikoner *@
     <link rel="stylesheet" href="http://i.icomoon.io/public/1a91909ce0/Boilerplate-Umbraco/style.css">
-
-    <!--[if lt IE 9]>
-        <script src="@Scripts.Url("~/bundles/ltIe9Scripts")"></script>
-    <![endif]-->
 </head>
 <body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
 
@@ -50,7 +47,7 @@
                 <div class="header__search">
                     @{Html.RenderPartial("_SearchForm");}
                 </div>
-                        }
+            }
 
         </div>
     </header>
@@ -77,6 +74,7 @@
     {
         @Html.Raw(Model.Content.GetPropertyValue("pageScript"))
     }
+
 </body>
 </html>
 

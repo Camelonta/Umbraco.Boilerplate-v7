@@ -4,17 +4,7 @@
 }
 
 <main role="main">
-    @Html.GetGridHtml(Model.Content, "grid")
-
-
-    @{
-        // TODO: TA BORT DETTA :)
-        <div class="container" style="text-align: center; font-size: 2em;">
-            <h1>Read README.txt </h1>
-            <p>(C:\Work\svn\Umbraco\Boilerplate\README.txt)</p>
-        </div>
-    }
-
+    @Html.Raw(Model.Content.GetPropertyValue("rte"))
 </main>
 
 
