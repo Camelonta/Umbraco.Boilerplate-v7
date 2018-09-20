@@ -30,8 +30,6 @@
 @import "components/cookie-warning.scss";
 
 
-@import "organisms/section-page.scss";
-
 
 @import "navigation/misc.scss";
 @import "navigation/left-nav.scss";
@@ -40,6 +38,15 @@
 
 
 @import "utilities.scss";
+
+
+
+@import "organisms/site.scss";
+@import "organisms/home.scss";
+@import "organisms/section-page.scss";
+
+@import "molecules/hero.scss";
+
 
 
 /* --------------------------------------------------- */

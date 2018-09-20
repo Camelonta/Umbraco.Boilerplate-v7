@@ -1,0 +1,19 @@
+﻿.hero {
+    position: relative;
+    min-height: 250px;
+    padding: 40px 0;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+
+    .hero__text {
+        margin: auto;
+        width: 960px;
+        max-width: 100%;
+    }
+
+    @media only screen and (min-width: 600px) {
+        min-height: 450px;
+        padding: 60px 0;
+    }
+}

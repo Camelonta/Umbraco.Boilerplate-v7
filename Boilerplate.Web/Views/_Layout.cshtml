@@ -1,5 +1,8 @@
 ﻿@using System.Web.Optimization
 @inherits CamelontaUmbracoTemplatePage
+@{ 
+    var currentSite = Umbraco.TypedContentAtRoot().FirstOrDefault();
+}
 
 <!doctype html>
 <html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName" class="no-js">
@@ -32,34 +35,25 @@
 </head>
 <body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
 
-    <header role="banner">
-        <div class="container">
-            <a href="@CurrentSite.Url" class="header__logo">
-                <i class="icon-local-cafe" style="color: #fff; font-size: 2.7em;"><span style="font-family: 'Lato'; line-height: 0; font-size: 0.7em; vertical-align: middle; display: inline-table; margin-left: 9px;">Boilerplate</span></i>
-            </a>
-
-            <a href="javascript:void(0)" class="mobile-menu-toggle"><i class="icon-menu"></i>meny</a>
-            @{ Html.RenderPartial("_TopLinks");}
-
-            @if (Model.Content.DocumentTypeAlias != "Search")
-            {
-                <div class="header__search">
-                    @{Html.RenderPartial("_SearchForm");}
-                </div>
-            }
-
-        </div>
+    <header class="banner">
+        <a class="banner__home-link" href="@Umbraco.TypedContentAtRoot().FirstOrDefault().Url">
+            <i class="banner__logo icon-local-cafe"></i>
+            <span class="banner__site-name">Boilerplate</span>
+        </a>
     </header>
 
-    @{ Html.RenderPartial("_MainNav");}
-
-    @{ Html.RenderPartial("Layout/_Hero");}
-
-    <div id="main-content-wrapper">
+    <main id="main-content-wrapper">
         @RenderBody()
-    </div>
+    </main>
 
-    @{ Html.RenderPartial("Layout/_Footer");}
+    <footer class="footer">
+        <div class="footer__content">
+            @foreach (var nestedItem in currentSite.GetPropertyValue<IEnumerable<IPublishedContent>>("footerContent"))
+            {
+                <div class="rich-text">@nestedItem.GetPropertyValue("rte")</div>
+            }
+        </div>
+    </footer>
 
     @* All site scripts. If NOT debug (if live): set attribute "async" *@
     @Scripts.RenderFormat(string.Format("<script src=\"{{0}}\" {0}></script>", HttpContext.Current.IsDebuggingEnabled ? "" : " async"), "~/bundles/scripts")

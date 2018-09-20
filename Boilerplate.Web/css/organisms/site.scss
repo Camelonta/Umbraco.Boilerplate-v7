@@ -1,0 +1,22 @@
+﻿.banner {
+    padding: 15px 0;
+    text-align: center;
+
+    .banner__home-link {
+        display: inline-block;
+        font-size: 1.4em;
+        color: #fff;
+    }
+
+    .banner__logo {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+        font-size: 1.1em;
+    }
+
+    .banner__site-name {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

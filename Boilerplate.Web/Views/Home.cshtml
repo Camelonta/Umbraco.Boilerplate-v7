@@ -3,10 +3,14 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
-<main role="main">
-    @Html.Raw(Model.Content.GetPropertyValue("rte"))
-</main>
+<div class="home">
+    @if (Model.Content.HasValue("heroImage"))
+    {
+        Html.RenderPartial("_Hero");
+    }
 
+    <div class="home__content">@Html.Raw(Model.Content.GetPropertyValue("rte"))</div>
+</div>
 
 @*
     - Schema.org -

@@ -1,0 +1,11 @@
+﻿@inherits CamelontaUmbracoTemplatePage
+@{ 
+    var heroImageID = Model.Content.GetPropertyValue<int>("heroImage");
+    var heroImageURL = Umbraco.TypedMedia(heroImageID).Url;
+
+    var heroText = Model.Content.GetPropertyValue("heroText");
+}
+
+<div class="hero" style="background-image: url(@heroImageURL)">
+    <div class="hero__text">@Html.Raw(heroText)</div>
+</div>

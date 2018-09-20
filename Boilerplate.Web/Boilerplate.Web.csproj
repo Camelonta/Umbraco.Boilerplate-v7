@@ -568,6 +568,10 @@
     <Content Include="Views\SectionPage.cshtml" />
     <Content Include="css\organisms\section-page.scss" />
     <Content Include="Views\TextPage.cshtml" />
+    <Content Include="css\organisms\site.scss" />
+    <Content Include="Views\Partials\_Hero.cshtml" />
+    <Content Include="css\molecules\hero.scss" />
+    <Content Include="css\organisms\home.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

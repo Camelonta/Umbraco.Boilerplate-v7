@@ -3,6 +3,11 @@
     Layout = "~/Views/_Layout.cshtml";
 }
 
+@if (Model.Content.HasValue("heroImage"))
+{
+    Html.RenderPartial("_Hero");
+}
+
 <div class="container">
     @Html.Raw(Model.Content.GetPropertyValue("rte"))
 </div>
