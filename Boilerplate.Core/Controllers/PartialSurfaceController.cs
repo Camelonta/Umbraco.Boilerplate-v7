@@ -14,6 +14,12 @@ namespace Boilerplate.Core.Controllers
         }
 
         [HttpPost]
+        public PartialViewResult SearchMenu(string nodeId)
+        {
+            return PartialView("~/Views/Partials/_SearchMenu.cshtml", Umbraco.TypedContent(nodeId));
+        }
+
+        [HttpPost]
         public PartialViewResult CookieWarning(string nodeId)
         {
             var currentSite = Umbraco.TypedContent(nodeId).AncestorOrSelf(1);

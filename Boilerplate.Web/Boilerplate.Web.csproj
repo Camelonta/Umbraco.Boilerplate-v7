@@ -462,6 +462,7 @@
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="scripts\data-uniform-image-height.js" />
     <Content Include="scripts\navigation-menu.js" />
+    <Content Include="scripts\search-menu.js" />
     <Content Include="scripts\vendor\jquery.auto-complete.js" />
     <Content Include="scripts\vendor\jquery.highlight.js" />
     <Content Include="scripts\search.js" />
@@ -578,6 +579,8 @@
     <Content Include="css\organisms\home.scss" />
     <Content Include="Views\Partials\_NavigationMenu.cshtml" />
     <Content Include="css\molecules\navigation-menu.scss" />
+    <Content Include="css\molecules\search-menu.scss" />
+    <Content Include="Views\Partials\_SearchMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

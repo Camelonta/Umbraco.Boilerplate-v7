@@ -72,7 +72,8 @@ namespace Boilerplate.Core
                 "faq.js",
                 "search.js", // Script for search
                 "data-uniform-image-height.js",
-                "navigation-menu.js"
+                "navigation-menu.js",
+                "search-menu.js"
 
             }.Select(jsFile => scriptsPath + jsFile).ToArray(); // Add scripts-path;
             var scriptBundle = new ScriptBundle("~/bundles/scripts").Include(jsFiles);
