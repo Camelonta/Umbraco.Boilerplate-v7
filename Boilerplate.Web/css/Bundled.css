@@ -515,6 +515,7 @@ input[type="button"] {
   margin: 40px auto; }
 
 .section-page .section-page__heading {
+  margin: 20px auto;
   text-align: center; }
 
 .section-page .two-column-card {
