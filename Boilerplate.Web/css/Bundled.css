@@ -651,7 +651,8 @@ nav a {
 
 .banner {
   padding: 15px 0;
-  text-align: center; }
+  text-align: center;
+  background: #64706c; }
   .banner .banner__home-link {
     display: inline-block;
     font-size: 1.4em;
@@ -665,29 +666,23 @@ nav a {
     display: inline-block;
     vertical-align: middle; }
 
-.menu-button {
-  display: inline-block;
-  position: fixed;
-  top: 10px;
-  left: 15px;
-  z-index: 10000;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: #fff;
-  cursor: pointer; }
-  .menu-button .menu-button__icon {
+.footer {
+  margin-top: 90px;
+  border-top: 20px solid #ede9ce;
+  padding: 20px 0 80px;
+  background: #64706c;
+  color: #fff; }
+  .footer .footer__content {
+    margin: auto;
+    width: 960px;
+    max-width: 100%;
+    text-align: center; }
+  .footer .rich-text {
     display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px; }
-  @media only screen and (min-width: 960px) {
-    .menu-button {
-      width: 50px;
-      height: 50px; } }
+    vertical-align: top;
+    width: 49%;
+    padding: 0 15px;
+    text-align: left; }
 
 .home .home__content {
   margin: auto;
@@ -762,6 +757,30 @@ nav a {
     .section-page .link-card .link-card__content {
       padding: 0 25px; } }
 
+.menu-button {
+  display: inline-block;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10000;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer; }
+  .menu-button .menu-button__icon {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px; }
+  @media only screen and (min-width: 960px) {
+    .menu-button {
+      width: 50px;
+      height: 50px; } }
+
 .navigation-menu {
   position: fixed;
   top: 0;
@@ -773,10 +792,11 @@ nav a {
   .navigation-menu .navigation-menu__close {
     display: inline-block;
     position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 20px;
+    left: 20px;
     width: 45px;
-    height: 45px; }
+    height: 45px;
+    cursor: pointer; }
   .navigation-menu .navigation-menu__close-icon {
     display: inline-block;
     position: absolute;

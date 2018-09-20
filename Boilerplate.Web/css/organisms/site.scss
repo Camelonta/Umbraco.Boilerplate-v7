@@ -1,6 +1,7 @@
 ﻿.banner {
     padding: 15px 0;
     text-align: center;
+    background: #64706c;
 
     .banner__home-link {
         display: inline-block;
@@ -21,30 +22,25 @@
     }
 }
 
-.menu-button {
-    display: inline-block;
-    position: fixed;
-    top: 10px;
-    left: 15px;
-    z-index: 10000;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
+.footer {
+    margin-top: 90px;
+    border-top: 20px solid #ede9ce;
+    padding: 20px 0 80px;
+    background: #64706c;
+    color: #fff;
 
-    .menu-button__icon {
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 20px;
-        height: 20px;
+    .footer__content {
+        margin: auto;
+        width: 960px;
+        max-width: 100%;
+        text-align: center;
     }
 
-    @media only screen and (min-width: 960px) {
-        width: 50px;
-        height: 50px;
+    .rich-text {
+        display: inline-block;
+        vertical-align: top;
+        width: 49%;
+        padding: 0 15px;
+        text-align: left;
     }
 }
