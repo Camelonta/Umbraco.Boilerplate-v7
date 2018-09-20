@@ -474,8 +474,6 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\CommonPage.cshtml" />
-    <Content Include="Views\CommonPageGrid.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Search.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
@@ -484,8 +482,6 @@
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />
     <Content Include="Views\MacroPartials\ImageGallery.cshtml" />
-    <Content Include="Views\NewsList.cshtml" />
-    <Content Include="Views\Faq.cshtml" />
     <Content Include="Views\Partials\_TopLinks.cshtml" />
     <Content Include="Views\Partials\_SearchForm.cshtml" />
     <Content Include="Views\Partials\_MenuItems.cshtml" />
@@ -543,7 +539,6 @@
     <Content Include="css\atoms\buttons.scss" />
     <Content Include="css\components\cookie-warning.scss" />
     <Content Include="css\components\video.scss" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
