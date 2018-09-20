@@ -71,7 +71,8 @@ namespace Boilerplate.Core
                 "cookie-warning.js",
                 "faq.js",
                 "search.js", // Script for search
-                "data-uniform-image-height.js"
+                "data-uniform-image-height.js",
+                "navigation-menu.js"
 
             }.Select(jsFile => scriptsPath + jsFile).ToArray(); // Add scripts-path;
             var scriptBundle = new ScriptBundle("~/bundles/scripts").Include(jsFiles);

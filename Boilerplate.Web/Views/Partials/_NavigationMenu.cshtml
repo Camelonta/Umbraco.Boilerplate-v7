@@ -1,0 +1,22 @@
+﻿@model IPublishedContent
+@using Umbraco.Web
+@{ 
+    var site = Model.AncestorOrSelf(1);
+}
+
+<div class="navigation-menu">
+    <div class="navigation-menu__close">
+        <img class="navigation-menu__close-icon" src="~/img/close.svg" />
+    </div>
+
+    <ul class="navigation-links">
+        @foreach (var navigationLink in site.GetPropertyValue<IEnumerable<IPublishedContent>>("navigationLinks"))
+        {
+            var htmlClass = navigationLink.Id == Model.Id ? "navigation-link navigation-link--current" : "navigation-link";
+
+            <li class="@htmlClass">
+                <a class="navigation-link__link" href="@navigationLink.Url">@navigationLink.Name</a>
+            </li>
+        }
+    </ul>
+</div>

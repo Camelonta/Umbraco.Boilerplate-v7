@@ -1,11 +1,18 @@
 ﻿using System.Web.Mvc;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using System.Linq;
 
 namespace Boilerplate.Core.Controllers
 {
     public class PartialSurfaceController : SurfaceController
     {
+        [HttpPost]
+        public PartialViewResult NavigationMenu(string nodeId)
+        {
+            return PartialView("~/Views/Partials/_NavigationMenu.cshtml", Umbraco.TypedContent(nodeId));
+        }
+
         [HttpPost]
         public PartialViewResult CookieWarning(string nodeId)
         {

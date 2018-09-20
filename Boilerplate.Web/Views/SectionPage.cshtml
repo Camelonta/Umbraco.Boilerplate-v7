@@ -3,7 +3,7 @@
 @{
     Layout = "~/Views/_Layout.cshtml";
 
-    var nestedContent = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("nestedContent");
+    var nestedContent = Model.Content.GetPropertyValue<IEnumerable<IPublishedContent>>("sectionNestedContent");
 }
 
 <div class="section-page">

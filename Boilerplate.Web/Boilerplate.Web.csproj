@@ -434,7 +434,10 @@
     <Content Include="default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\close.svg" />
     <Content Include="img\default-social-share.jpg" />
+    <Content Include="img\menu.svg" />
+    <Content Include="img\search.svg" />
     <Content Include="img\video-play.png" />
     <Content Include="media\1008\paddleboard.jpg" />
     <Content Include="media\1008\paddleboard_big-thumb.jpg" />
@@ -458,6 +461,7 @@
     <Content Include="Config\uSyncCore.config" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="scripts\data-uniform-image-height.js" />
+    <Content Include="scripts\navigation-menu.js" />
     <Content Include="scripts\vendor\jquery.auto-complete.js" />
     <Content Include="scripts\vendor\jquery.highlight.js" />
     <Content Include="scripts\search.js" />
@@ -572,6 +576,8 @@
     <Content Include="Views\Partials\_Hero.cshtml" />
     <Content Include="css\molecules\hero.scss" />
     <Content Include="css\organisms\home.scss" />
+    <Content Include="Views\Partials\_NavigationMenu.cshtml" />
+    <Content Include="css\molecules\navigation-menu.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
