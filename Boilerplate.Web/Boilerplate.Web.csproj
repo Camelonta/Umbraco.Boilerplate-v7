@@ -480,7 +480,6 @@
     </Content>
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Search.cshtml" />
-    <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\MacroPartials\PageList.cshtml" />
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />
@@ -565,6 +564,7 @@
     <Content Include="css\molecules\navigation-menu.scss" />
     <Content Include="css\molecules\search-menu.scss" />
     <Content Include="Views\Partials\_SearchMenu.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
