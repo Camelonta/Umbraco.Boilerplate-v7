@@ -482,14 +482,11 @@
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Search.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
-    <Content Include="Views\Partials\_MainNav.cshtml" />
     <Content Include="Views\MacroPartials\PageList.cshtml" />
     <Content Include="Views\MacroPartials\Youtube.cshtml" />
     <Content Include="Views\MacroPartials\RSS.cshtml" />
     <Content Include="Views\MacroPartials\ImageGallery.cshtml" />
-    <Content Include="Views\Partials\_TopLinks.cshtml" />
     <Content Include="Views\Partials\_SearchForm.cshtml" />
-    <Content Include="Views\Partials\_MenuItems.cshtml" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
@@ -511,9 +508,6 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <Content Include="Views\Partials\Layout\_Footer.cshtml" />
-    <Content Include="Views\Partials\Layout\_Hero.cshtml" />
-    <Content Include="Views\Partials\Layout\_LeftNav.cshtml" />
     <Content Include="css\base.scss" />
     <Content Include="css\navigation\misc.scss" />
     <Content Include="css\tools\flexbox.scss" />
@@ -528,7 +522,6 @@
     <Content Include="css\forms\global-form.scss" />
     <Content Include="css\forms\global-contour.scss" />
     <Content Include="css\tools\transition.scss" />
-    <Content Include="Views\Partials\Layout\_RightColumnContent.cshtml" />
     <Content Include="css\page\newslist.scss" />
     <Content Include="Config\imageprocessor\security.config" />
     <Content Include="Config\imageprocessor\processing.config" />
