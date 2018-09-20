@@ -12,7 +12,7 @@
     <ul class="navigation-links">
         @foreach (var navigationLink in site.GetPropertyValue<IEnumerable<IPublishedContent>>("navigationLinks"))
         {
-            var htmlClass = navigationLink.Id == Model.Id ? "navigation-link navigation-link--current" : "navigation-link";
+            var htmlClass = navigationLink.IsAncestorOrSelf(Model) ? "navigation-link navigation-link--current" : "navigation-link";
 
             <li class="@htmlClass">
                 <a class="navigation-link__link" href="@navigationLink.Url">@navigationLink.Name</a>
