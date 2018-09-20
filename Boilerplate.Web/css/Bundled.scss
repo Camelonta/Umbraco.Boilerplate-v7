@@ -1,65 +1,29 @@
-﻿@import "settings/colors.scss";
-@import "settings/sizes.scss"; 
+﻿/// Settings and tools
+/// First in order and available for other styles to use.
+@import "settings/colors.scss";
+@import "settings/sizes.scss";
 
+@import "tools/animations.scss";
 @import "tools/flexbox.scss";
-@import "tools/transition.scss";
 @import "tools/px-to-em.scss";
 @import "tools/transform.scss";
-@import "tools/animations.scss";
-
-
+@import "tools/transition.scss";
 
 @import "base.scss";
-
-@import "atoms/buttons.scss";
-
-
-@import "layout/hero.scss";
 @import "layout.scss";
-
-
-@import "forms/global-form.scss";
-@import "forms/global-contour.scss";
-
-
-@import "../App_Plugins/GridRowSettings/css/data-container-size.scss";
-
-
-
-@import "components/video.scss";
-@import "components/cookie-warning.scss";
-
-
-
-@import "navigation/misc.scss";
-@import "navigation/left-nav.scss";
-@import "navigation/main-nav.scss";
-@import "navigation/top-links.scss";
-
-
 @import "utilities.scss";
 
-
-
-@import "organisms/site.scss";
-@import "organisms/home.scss";
-@import "organisms/section-page.scss";
+@import "atoms/global-contour.scss";
+@import "atoms/global-form.scss";
+@import "atoms/video.scss";
 
 @import "molecules/navigation-menu.scss";
 @import "molecules/search-menu.scss";
 @import "molecules/hero.scss";
 
 
-
-/* --------------------------------------------------- */
-/// PAGES
-// Last in order since there should only be page-specific variations/overrides/styles that is independent of component. One component (in components-folder) should never override a page-specific style.
-
-// Home
-@import "page/home.scss";
-
-// Search
-@import "page/search.scss";
-
-// Newslist
-@import "page/newslist.scss";
+/// Organisms
+/// Last in order since there should only be page-specific variations/overrides/styles that is independent of component. One component (in components-folder) should never override a page-specific style.
+@import "organisms/site.scss";
+@import "organisms/home.scss";
+@import "organisms/section-page.scss";

@@ -4,13 +4,6 @@
 */
 /* ------------------------------------------- */
 /* ------------------------------------------- */
-.nav-sub-expander {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex; }
-
 /* == Default mixins ==*/
 /* == End of Default mixins ==*/
 @-webkit-keyframes opaque_leave {
@@ -36,24 +29,6 @@
     opacity: 1; }
   to {
     opacity: 0; } }
-
-.nav--is-loading .nav-sub-expander, .load-more-results--is-loading {
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: opaque_leave;
-  -moz-animation-name: opaque_leave;
-  -o-animation-name: opaque_leave;
-  animation-name: opaque_leave;
-  -webkit-animation-direction: normal;
-  -moz-animation-direction: normal;
-  -o-animation-direction: normal;
-  animation-direction: normal; }
 
 html {
   color: #222;
@@ -123,67 +98,6 @@ a {
 /* Browsersync is displaying this annoying thing every page reload. Very påträngande when developing mobile header/top-bar */
 #__bs_notify__ {
   display: none !important; }
-
-/* == Global button properties == */
-.button, .button a, .button a:hover, .button-variant, .button-variant a, .button-variant a:hover, .button-ghost--blue, .button-ghost--blue a, .button-ghost--blue a:hover {
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none; }
-
-.button, .button-variant, .button-ghost--blue {
-  -moz-transition: background-color .2s;
-  -o-transition: background-color .2s;
-  -webkit-transition: background-color .2s;
-  transition: background-color .2s; }
-
-/* This kind of hack- border is needed to get the border *inside*. If it uses a real border the height of buttons will vary slightly */
-/* == End of Global button properties == */
-/*-------------------------------------*/
-.button {
-  background-color: #1565C0;
-  padding: .88em 1.47em;
-  display: inline-block;
-  margin: 3px 0;
-  /* Add a small margin */ }
-  .button:hover {
-    background-color: #1E88E5; }
-
-.button-variant {
-  background-color: #F9A825;
-  padding: .88em 1.47em;
-  display: inline-block;
-  margin: 3px 0;
-  /* Add a small margin */ }
-  .button-variant:hover {
-    background-color: #FBC02D; }
-
-.button-ghost--blue {
-  padding: .88em 1.47em;
-  display: inline-block;
-  margin: 3px 0;
-  /* Add a small margin */
-  -webkit-box-shadow: inset 0px 0px 0px 2px #bff1f7;
-  -moz-box-shadow: inset 0px 0px 0px 2px #bff1f7;
-  box-shadow: inset 0px 0px 0px 2px #bff1f7;
-  color: #0D47A1;
-  background-color: #fff; }
-  .button-ghost--blue:hover {
-    background-color: #f5feff; }
-
-#hero {
-  position: relative;
-  background-position: center bottom;
-  background-size: cover;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  max-height: 80vh;
-  height: 450px;
-  background-position: center; }
-  @media screen and (max-width: 800px) {
-    #hero {
-      min-height: 450px;
-      height: auto;
-      font-size: .8em; } }
 
 .container {
   max-width: 100%;
@@ -284,6 +198,39 @@ main {
     Sticky footer: http://tutorialzine.com/2016/03/quick-tip-the-best-way-to-make-sticky-footers/ VID TID: Detta funkar inte bra i IE. Det blir problem med bilder + max-width (containern behåller initiala höjden)
         - Force the footer to always be at the bottom of the page
 */
+.hide {
+  display: none; }
+
+.highlight {
+  background-color: #FFFF88; }
+
+.noMarginTop {
+  margin-top: 0; }
+
+.darkBackground {
+  color: #fff;
+  display: inline;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0.47368em 0 0 rgba(0, 0, 0, 0.4), -0.47368em 0 0 rgba(0, 0, 0, 0.4);
+  padding: 2px; }
+
+.preamble {
+  font-size: 1.3em;
+  font-weight: 100; }
+
+.contourField {
+  margin-bottom: 15px;
+  clear: both; }
+
+.contour .help-block {
+  font-size: .8em;
+  color: gray;
+  display: block; }
+
+/* Don't hide any fields if javascript is turned off. Fields are hidden when enabling conditions */
+.no-js .contourField {
+  display: block !important; }
+
 textarea {
   min-height: 150px;
   max-height: 1000px; }
@@ -359,50 +306,6 @@ input[type="button"] {
 .field-validation-error {
   color: #ff4f4f; }
 
-.contourField {
-  margin-bottom: 15px;
-  clear: both; }
-
-.contour .help-block {
-  font-size: .8em;
-  color: gray;
-  display: block; }
-
-/* Don't hide any fields if javascript is turned off. Fields are hidden when enabling conditions */
-.no-js .contourField {
-  display: block !important; }
-
-/*--------------------------------------*/
-/*--------------------------------------*/
-[data-container-size="-50"] .container {
-  width: 743px; }
-
-[data-container-size="-40"] .container {
-  width: 828px; }
-
-[data-container-size="-30"] .container {
-  width: 914px; }
-
-[data-container-size="-20"] .container {
-  width: 999px; }
-
-[data-container-size="-10"] .container {
-  width: 1085px; }
-
-[data-container-size="+20"] .container {
-  width: 1341px; }
-
-[data-container-size="full"] .container {
-  width: 100%;
-  padding: 0; }
-
-[data-container-size="full"] .column {
-  padding: 0;
-  margin: 0; }
-
-.grid-section > [data-container-size="full"] {
-  padding: 0; }
-
 .video {
   background-repeat: no-repeat;
   background-size: cover;
@@ -435,327 +338,6 @@ input[type="button"] {
     background-size: 100%; }
   .video:hover:before {
     opacity: .9; }
-
-#cookie-warning {
-  /* TODO - Styla utifall kunden väljer att använda den */
-  background-color: #2D2D2D;
-  box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.56);
-  z-index: 100000;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  padding: 15px 0;
-  color: #fff;
-  display: none; }
-  #cookie-warning .icon-cancel {
-    font-size: 3em; }
-
-@media screen and (max-width: 767px) {
-  #cookie-warning {
-    text-align: center; } }
-
-nav a {
-  position: relative; }
-
-.nav-sub-expander {
-  position: absolute;
-  height: 100%;
-  width: 45px;
-  right: 0;
-  top: 0;
-  text-align: center;
-  font-size: 2em;
-  background: rgba(0, 0, 0, 0.05);
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center; }
-  .nav-sub-expander:before {
-    content: "+";
-    width: 100%; }
-
-.nav--is-expanded > a > .nav-sub-expander:before,
-.nav--is-maximizing > a > .nav-sub-expander:before {
-  content: "-"; }
-
-.nav-sub-expander .nav--is-minimizing > a > .nav-sub-expander:before {
-  content: "+" !important; }
-
-/* == Mobile menu toggle == */
-.mobile-menu-toggle {
-  border: 1px solid #ede9ce;
-  padding: 5px 8px;
-  display: none;
-  border-radius: 3px;
-  float: right;
-  color: #ede9ce;
-  margin: 0.15em; }
-
-.mobile-menu-toggle i {
-  vertical-align: middle;
-  margin-right: 5px;
-  font-size: 1.3em; }
-
-/* == End of Mobile menu toggle == */
-/* Pulsera expand-knappen när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-@media only screen and (max-width: 767px) {
-  .mobile-menu-toggle {
-    display: block; } }
-
-#left-nav {
-  background: #ede9ce; }
-  #left-nav ul {
-    list-style-type: none; }
-  #left-nav a {
-    display: block;
-    padding: 1em;
-    -moz-transition: background-color 0.2s;
-    -o-transition: background-color 0.2s;
-    -webkit-transition: background-color 0.2s;
-    transition: background-color 0.2s; }
-  #left-nav .nav-name {
-    width: 77%;
-    width: calc(100% - 40px);
-    display: block; }
-  #left-nav .nav--is-expanded > ul {
-    display: block;
-    /* Only display sub-ul's inside 'nav--is-expanded' li's '*/ }
-
-/*--------------------------------------------------*/
-.side-nav__lv-1 {
-  padding: 0; }
-  .side-nav__lv-1 ul {
-    display: none;
-    padding: 0 0 0 5%;
-    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ }
-
-/* Current lvl 1 */
-.side-nav__link-lv-1:hover {
-  background: #935347;
-  color: #fff; }
-
-.side-nav__link-lv-1.side-nav--link-is-current {
-  background: #935347;
-  color: #fff; }
-
-/*--------------------------------------------------*/
-.side-nav__lv-2 {
-  font-size: .9em;
-  background: #558B2F;
-  /* green */ }
-  .side-nav__lv-2 .side-nav--link-is-current {
-    font-weight: bold;
-    text-decoration: underline; }
-
-@media only screen and (max-width: 767px) {
-  #left-nav {
-    display: none; } }
-
-.main-nav {
-  background-color: #c7ad88; }
-  .main-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none; }
-  .main-nav li {
-    float: left; }
-  .main-nav a {
-    -moz-transition: background-color 0.2s, color 0.2s;
-    -o-transition: background-color 0.2s, color 0.2s;
-    -webkit-transition: background-color 0.2s, color 0.2s;
-    transition: background-color 0.2s, color 0.2s;
-    color: inherit;
-    padding: 1em;
-    display: block; }
-  .main-nav .top-links,
-  .main-nav .dyn-menu ul {
-    /* Hide some elements as default. Should only be visible on mobile */
-    display: none; }
-
-.mobile-menu-open .main-nav {
-  display: block; }
-
-.main-nav__lv-1 {
-  display: none; }
-
-@media only screen and (min-width: 768px) {
-  .main-nav {
-    /* Active menu state in large-screen menu */ }
-    .main-nav .nav--is-expanded,
-    .main-nav a:hover {
-      background: #935347;
-      color: #fff; }
-    .main-nav .nav-sub-expander {
-      display: none; } }
-
-@media only screen and (max-width: 767px) {
-  .main-nav {
-    display: none;
-    /* TODO - style top links in mobile menu */ }
-    .main-nav li {
-      float: none; }
-    .main-nav .nav--is-expanded > ul {
-      display: block;
-      /* Only display sub-ul's in 'nav--is-expanded' li's '*/ }
-    .main-nav .top-links {
-      display: block;
-      float: none;
-      border-top: 1px solid gray; }
-  .main-nav--link-is-current {
-    background: #935347;
-    color: #fff; }
-  .main-nav__lv-0 ul {
-    display: none;
-    padding-left: 2%;
-    /* Move every submenu a bit to the right. Clean solution if your submenus does NOT have --is-active background-colors */ } }
-
-.top-links {
-  float: right; }
-  .top-links ul {
-    margin-top: 0; }
-    .top-links ul li {
-      display: inline-block; }
-      .top-links ul li .top-links__link {
-        color: #fff; }
-        .top-links ul li .top-links__link span,
-        .top-links ul li .top-links__link img {
-          vertical-align: middle; }
-        .top-links ul li .top-links__link img {
-          max-width: 18px;
-          margin-right: .3em; }
-
-@media only screen and (max-width: 767px) {
-  .top-links {
-    display: none; } }
-
-.hide {
-  display: none; }
-
-.highlight {
-  background-color: #FFFF88; }
-
-.noMarginTop {
-  margin-top: 0; }
-
-.darkBackground {
-  color: #fff;
-  display: inline;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0.47368em 0 0 rgba(0, 0, 0, 0.4), -0.47368em 0 0 rgba(0, 0, 0, 0.4);
-  padding: 2px; }
-
-.preamble {
-  font-size: 1.3em;
-  font-weight: 100; }
-
-.banner {
-  padding: 15px 0;
-  text-align: center;
-  background: #64706c; }
-  .banner .banner__home-link {
-    display: inline-block;
-    font-size: 1.4em;
-    color: #fff; }
-  .banner .banner__logo {
-    display: inline-block;
-    margin-right: 5px;
-    vertical-align: middle;
-    font-size: 1.1em; }
-  .banner .banner__site-name {
-    display: inline-block;
-    vertical-align: middle; }
-
-.footer {
-  margin-top: 90px;
-  border-top: 20px solid #ede9ce;
-  padding: 20px 0 80px;
-  background: #64706c;
-  color: #fff; }
-  .footer .footer__content {
-    margin: auto;
-    width: 960px;
-    max-width: 100%;
-    text-align: center; }
-  .footer .rich-text {
-    display: inline-block;
-    vertical-align: top;
-    width: 49%;
-    padding: 0 15px;
-    text-align: left; }
-
-.home .home__content {
-  margin: auto;
-  width: 960px;
-  max-width: 100%;
-  padding: 0 15px; }
-
-.section-page > * {
-  margin: 40px auto; }
-
-.section-page .section-page__heading {
-  text-align: center; }
-
-.section-page .two-column-card {
-  position: relative;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 6px 1px;
-  width: 960px;
-  min-height: 160px;
-  max-width: 100%;
-  overflow: hidden; }
-  .section-page .two-column-card .two-column-card__image {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    background-position: center center;
-    background-size: cover; }
-  .section-page .two-column-card .two-column-card__rich-text {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-    padding: 4px 8px; }
-  .section-page .two-column-card *:last-child {
-    position: absolute;
-    right: 0; }
-
-.section-page .link-cards-row {
-  width: 960px;
-  max-width: 100%;
-  text-align: center; }
-
-.section-page .link-card {
-  display: inline-block;
-  margin: 0 5px;
-  vertical-align: top;
-  width: 45%;
-  text-align: left; }
-  .section-page .link-card .link-card__image {
-    width: 100%;
-    padding: 0 0 80%;
-    background-position: center center;
-    background-size: cover; }
-  .section-page .link-card .link-card__content {
-    padding: 0 10px; }
-  .section-page .link-card .link-card__link {
-    border-bottom: 3px solid #64706c; }
-
-@media only screen and (min-width: 600px) {
-  .section-page .two-column-card {
-    min-height: 250px; }
-  .section-page .link-card {
-    margin: 0 10px; }
-    .section-page .link-card .link-card__content {
-      padding: 0 15px; } }
-
-@media only screen and (min-width: 960px) {
-  .section-page .two-column-card {
-    min-height: 350px; }
-  .section-page .link-card {
-    margin: 0 20px; }
-    .section-page .link-card .link-card__content {
-      padding: 0 25px; } }
 
 .menu-button {
   display: inline-block;
@@ -888,43 +470,111 @@ nav a {
       min-height: 450px;
       padding: 60px 0; } }
 
-/* --------------------------------------------------- */
-/* 
+.banner {
+  padding: 25px 0;
+  text-align: center;
+  background: #64706c; }
+  .banner .banner__home-link {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #fff; }
+  .banner .banner__logo {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+    font-size: 1.1em; }
+  .banner .banner__site-name {
+    display: inline-block;
+    vertical-align: middle; }
 
-    STRUKTURDEMO
+.footer {
+  margin-top: 90px;
+  border-top: 20px solid #ede9ce;
+  padding: 20px 0 80px;
+  background: #64706c;
+  color: #fff; }
+  .footer .footer__content {
+    margin: auto;
+    width: 960px;
+    max-width: 100%;
+    text-align: center; }
+  .footer .rich-text {
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    padding: 0 15px;
+    text-align: left; }
 
-*/
-.page-search #main-content-wrapper > .container {
-  width: 820px; }
+.home .home__content {
+  margin: auto;
+  width: 960px;
+  max-width: 100%;
+  padding: 0 15px; }
 
-/* ------------------------------------------------------------ */
-.search-result {
-  margin-bottom: 30px;
-  display: block; }
+.section-page > * {
+  margin: 40px auto; }
 
-.search-result__header {
-  margin: 0; }
+.section-page .section-page__heading {
+  text-align: center; }
 
-.search-result__teaser {
-  margin: 0; }
+.section-page .two-column-card {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 5px 6px 1px;
+  width: 960px;
+  min-height: 160px;
+  max-width: 100%;
+  overflow: hidden; }
+  .section-page .two-column-card .two-column-card__image {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-position: center center;
+    background-size: cover; }
+  .section-page .two-column-card .two-column-card__rich-text {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding: 4px 8px; }
+  .section-page .two-column-card *:last-child {
+    position: absolute;
+    right: 0; }
 
-/* Pulsera sökens "Visa fler resultat"-knapp när det laddar för att ge användaren någon respons om det skulle ta lång tid */
-.news-item {
-  color: #333;
-  margin: 1em 0;
-  display: block; }
+.section-page .link-cards-row {
+  width: 960px;
+  max-width: 100%;
+  text-align: center; }
 
-.news-item__header {
-  margin: 0 0 5px; }
+.section-page .link-card {
+  display: inline-block;
+  margin: 0 5px;
+  vertical-align: top;
+  width: 45%;
+  text-align: left; }
+  .section-page .link-card .link-card__image {
+    width: 100%;
+    padding: 0 0 80%;
+    background-position: center center;
+    background-size: cover; }
+  .section-page .link-card .link-card__content {
+    padding: 0 10px; }
+  .section-page .link-card .link-card__link {
+    border-bottom: 3px solid #64706c; }
 
-.news-item__date {
-  margin: 0;
-  font-size: .8em;
-  color: #9c9c9c; }
+@media only screen and (min-width: 600px) {
+  .section-page .two-column-card {
+    min-height: 250px; }
+  .section-page .link-card {
+    margin: 0 10px; }
+    .section-page .link-card .link-card__content {
+      padding: 0 15px; } }
 
-.news-item__teaser {
-  margin: 10px 0; }
-
-.news-item__read-more {
-  color: orangered; }
+@media only screen and (min-width: 960px) {
+  .section-page .two-column-card {
+    min-height: 350px; }
+  .section-page .link-card {
+    margin: 0 20px; }
+    .section-page .link-card .link-card__content {
+      padding: 0 25px; } }
 

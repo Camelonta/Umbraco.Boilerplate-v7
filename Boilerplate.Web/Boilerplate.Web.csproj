@@ -456,7 +456,6 @@
     <Content Include="css\settings\colors.scss" />
     <Content Include="css\settings\sizes.scss" />
     <Content Include="App_Plugins\Camelonta.UI\package.manifest" />
-    <Content Include="css\animations.scss" />
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="Config\uSyncCore.config" />
     <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
@@ -509,20 +508,13 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="css\base.scss" />
-    <Content Include="css\navigation\misc.scss" />
     <Content Include="css\tools\flexbox.scss" />
-    <Content Include="css\navigation\left-nav.scss" />
     <Content Include="css\layout.scss" />
-    <Content Include="css\navigation\main-nav.scss" />
-    <Content Include="css\navigation\top-links.scss" />
-    <Content Include="css\page\home.scss" />
     <Content Include="css\utilities.scss" />
-    <Content Include="css\layout\hero.scss" />
-    <Content Include="css\page\search.scss" />
-    <Content Include="css\forms\global-form.scss" />
-    <Content Include="css\forms\global-contour.scss" />
+    <Content Include="css\organisms\search.scss" />
+    <Content Include="css\atoms\global-form.scss" />
+    <Content Include="css\atoms\global-contour.scss" />
     <Content Include="css\tools\transition.scss" />
-    <Content Include="css\page\newslist.scss" />
     <Content Include="Config\imageprocessor\security.config" />
     <Content Include="Config\imageprocessor\processing.config" />
     <Content Include="Config\imageprocessor\cache.config" />
@@ -534,9 +526,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\ClientDependency.config" />
-    <Content Include="css\atoms\buttons.scss" />
-    <Content Include="css\components\cookie-warning.scss" />
-    <Content Include="css\components\video.scss" />
+    <Content Include="css\molecules\cookie-warning.scss" />
+    <Content Include="css\atoms\video.scss" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
