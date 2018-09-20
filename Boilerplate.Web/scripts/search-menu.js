@@ -1,13 +1,11 @@
 ﻿(function () {
 
     $('.search-button').click(function () {
-        $.post('/umbraco/surface/partialsurface/searchmenu', { nodeId: Camelonta.Helper.GetCurrentNodeId() }, function (data) {
-            $('body').prepend($(data));
+        $('.search-menu').addClass('search-menu--open');
+    });
 
-            $('.search-menu__close').click(function () {
-                $('.search-menu').remove();
-            });
-        });
+    $('.search-menu__close').click(function () {
+        $('.search-menu').removeClass('search-menu--open');
     });
 
 })();

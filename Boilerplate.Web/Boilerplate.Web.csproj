@@ -560,10 +560,8 @@
     <Content Include="Views\Partials\_Hero.cshtml" />
     <Content Include="css\molecules\hero.scss" />
     <Content Include="css\organisms\home.scss" />
-    <Content Include="Views\Partials\_NavigationMenu.cshtml" />
     <Content Include="css\molecules\navigation-menu.scss" />
     <Content Include="css\molecules\search-menu.scss" />
-    <Content Include="Views\Partials\_SearchMenu.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

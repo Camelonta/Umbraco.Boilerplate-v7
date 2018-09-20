@@ -25,10 +25,15 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    right: -4000px;
     z-index: 100000;
+    width: 100%;
     background-color: #ede9ce;
+    transition: right .25s ease-in-out;
+
+    &.search-menu--open {
+        right: 0;
+    }
 
     .search-menu__close {
         display: inline-block;

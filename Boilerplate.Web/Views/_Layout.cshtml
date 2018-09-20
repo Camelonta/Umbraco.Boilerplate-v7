@@ -1,7 +1,7 @@
 ﻿@using System.Web.Optimization
 @inherits CamelontaUmbracoTemplatePage
 @{
-    var currentSite = Umbraco.TypedContentAtRoot().FirstOrDefault();
+    var site = Model.Content.AncestorOrSelf(1);
 }
 
 <!doctype html>
@@ -35,6 +35,30 @@
 </head>
 <body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
 
+    <div class="navigation-menu">
+        <div class="navigation-menu__close">
+            <img class="navigation-menu__close-icon" src="~/img/close.svg" />
+        </div>
+        <ul class="navigation-links">
+            @foreach (var navigationLink in site.GetPropertyValue<IEnumerable<IPublishedContent>>("navigationLinks"))
+            {
+                var htmlClass = navigationLink.IsAncestorOrSelf(Model.Content) ? "navigation-link navigation-link--current" : "navigation-link";
+
+                <li class="@htmlClass">
+                    <a class="navigation-link__link" href="@navigationLink.Url">@navigationLink.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="search-menu">
+        <div class="search-menu__close">
+            <img class="search-menu__close-icon" src="~/img/close.svg" />
+        </div>
+
+        @{ Html.RenderPartial("_SearchForm"); }
+    </div>
+
     <header class="banner">
         <a class="banner__home-link" href="@Umbraco.TypedContentAtRoot().FirstOrDefault().Url">
             <i class="banner__logo icon-local-cafe"></i>
@@ -56,7 +80,7 @@
 
     <footer class="footer">
         <div class="footer__content">
-            @foreach (var nestedItem in currentSite.GetPropertyValue<IEnumerable<IPublishedContent>>("footerContent"))
+            @foreach (var nestedItem in site.GetPropertyValue<IEnumerable<IPublishedContent>>("footerContent"))
             {
                 <div class="rich-text">@nestedItem.GetPropertyValue("rte")</div>
             }

@@ -25,10 +25,15 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -4000px;
     z-index: 100000;
+    width: 100%;
     background-color: #ede9ce;
+    transition: left .25s ease-in-out;
+
+    &.navigation-menu--open {
+        left: 0;
+    }
 
     .navigation-menu__close {
         display: inline-block;
