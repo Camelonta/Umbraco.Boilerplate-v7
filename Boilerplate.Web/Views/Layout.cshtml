@@ -1,0 +1,119 @@
+﻿@using System.Web.Optimization
+@inherits CamelontaUmbracoTemplatePage
+@{
+    var site = Model.Content.AncestorOrSelf(1);
+}
+
+<!doctype html>
+<html lang="@UmbracoContext.PublishedContentRequest.Culture.TwoLetterISOLanguageName" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="@Model.Content.GetPropertyValue("metadescription")">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="@Meta.RobotsContent(Model.Content)" />
+
+    <meta property="og:image" content="@CurrentSite.UrlAbsolute()@Meta.PageMainImage(Model.Content)">
+    <meta property="og:title" content="@Meta.PageTitle(Model.Content)">
+    <meta property="og:url" content="@Model.Content.UrlAbsolute()">
+    <meta property="og:description" content="@Meta.PageTeaser(Model.Content, 500)">
+    <meta property="og:site_name" content="@CurrentSite.Name" />
+
+    <title>@Meta.PageTitle(Model.Content) - Boilerplate</title>
+
+    @* Fastest way to change "no-js" class to "js" on <html>. This makes sure we don't get the content jump/glitch when styling for .no-js *@
+    <script>(function (e, t, n) { var r = e.querySelectorAll("html")[0]; r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2") })(document, window, 0);</script>
+
+    @{
+        Html.RenderPartial("_Favicons");
+    }
+
+    @Styles.Render("~/bundles/styles")
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://i.icomoon.io/public/1a91909ce0/Boilerplate-Umbraco/style.css">
+</head>
+<body class="@BodyClasses()" itemscope itemtype="http://schema.org/WebPage" data-current-node="@Model.Content.Id">
+
+    <div class="navigation-menu">
+        <div class="navigation-menu__close">
+            <img class="navigation-menu__close-icon" src="~/img/close.svg" />
+        </div>
+        <ul class="navigation-links">
+            @foreach (var navigationLink in site.GetPropertyValue<IEnumerable<IPublishedContent>>("navigationLinks"))
+            {
+                var htmlClass = navigationLink.IsAncestorOrSelf(Model.Content) ? "navigation-link navigation-link--current" : "navigation-link";
+
+                <li class="@htmlClass">
+                    <a class="navigation-link__link" href="@navigationLink.Url">@navigationLink.Name</a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="search-menu">
+        <div class="search-menu__close">
+            <img class="search-menu__close-icon" src="~/img/close.svg" />
+        </div>
+
+        @{ Html.RenderPartial("_SearchForm"); }
+    </div>
+
+    <header class="banner">
+        <a class="banner__home-link" href="@Umbraco.TypedContentAtRoot().FirstOrDefault().Url">
+            <i class="banner__logo icon-local-cafe"></i>
+            <span class="banner__site-name">Boilerplate</span>
+        </a>
+    </header>
+
+    <div class="menu-button">
+        <img class="menu-button__icon" src="~/img/menu.svg" />
+    </div>
+
+    <div class="search-button">
+        <img class="search-button__icon" src="~/img/search.svg" />
+    </div>
+
+    <main id="main-content-wrapper">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            @foreach (var nestedItem in site.GetPropertyValue<IEnumerable<IPublishedContent>>("footerContent"))
+            {
+                <div class="rich-text">@nestedItem.GetPropertyValue("rte")</div>
+            }
+        </div>
+    </footer>
+
+    @* All site scripts. If NOT debug (if live): set attribute "async" *@
+    @Scripts.RenderFormat(string.Format("<script src=\"{{0}}\" {0}></script>", HttpContext.Current.IsDebuggingEnabled ? "" : " async"), "~/bundles/scripts")
+
+    @if (CurrentSite.HasValue("siteScript"))
+    {
+        @Html.Raw(CurrentSite.GetPropertyValue("siteScript"))
+    }
+
+    @if (Model.Content.HasValue("pageScript"))
+    {
+        @Html.Raw(Model.Content.GetPropertyValue("pageScript"))
+    }
+
+</body>
+</html>
+
+@functions{
+
+    string BodyClasses()
+    {
+        var classes = string.Format("page-{0}", Model.Content.DocumentTypeAlias.ToLower());
+
+        if (Model.Content.HasValue("additionalBodyClass"))
+        {
+            classes += " " + Model.Content.GetPropertyValue("additionalBodyClass");
+        }
+
+        return classes;
+    }
+}
