@@ -65,17 +65,6 @@
     <Reference Include="businesslogic, Version=1.0.6795.23038, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.0\lib\net45\businesslogic.dll</HintPath>
     </Reference>
-    <Reference Include="Camelonta.ActivityLog, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Camelonta.ActivityLog.1.0.5\lib\net45\Camelonta.ActivityLog.dll</HintPath>
-    </Reference>
-    <Reference Include="Camelonta.UI, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CamelontaUmbracoUI.1.2.6\lib\Camelonta.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Camelonta.Utilities, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CamelontaUmbracoUtilities.1.0.1\lib\Camelonta.Utilities.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="ClientDependency.Core, Version=1.9.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency.1.9.6\lib\net45\ClientDependency.Core.dll</HintPath>
     </Reference>
@@ -342,9 +331,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.controller.js" />
-    <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.css" />
-    <Content Include="App_Plugins\Camelonta.ActivityLog\activitylog.html" />
     <Content Include="App_Plugins\Camelonta.UI\camelontacms.css" />
     <Content Include="App_Plugins\Camelonta.UI\camelontacms.js" />
     <Content Include="App_Plugins\Camelonta.UI\camelontacms.png" />
@@ -440,7 +426,6 @@
     <Content Include="css\animations.scss" />
     <Content Include="Config\uSyncBackOffice.Config" />
     <Content Include="Config\uSyncCore.config" />
-    <Content Include="App_Plugins\Camelonta.ActivityLog\package.manifest" />
     <Content Include="scripts\data-uniform-image-height.js" />
     <Content Include="scripts\vendor\jquery.auto-complete.js" />
     <Content Include="scripts\vendor\jquery.highlight.js" />

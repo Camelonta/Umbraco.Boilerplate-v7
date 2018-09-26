@@ -1,0 +1,8 @@
+﻿{
+	javascript: [
+		'~/App_Plugins/Camelonta.UI/camelontacms.js'
+	],
+	css: [
+		'~/App_Plugins/Camelonta.UI/camelontacms.css'
+	]
+}

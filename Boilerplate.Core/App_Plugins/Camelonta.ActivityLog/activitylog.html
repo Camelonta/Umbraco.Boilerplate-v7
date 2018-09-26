@@ -1,0 +1,145 @@
+<script src="/App_Plugins/Camelonta.ActivityLog/activitylog.controller.js?v=1"></script>
+
+<div ng-controller="ActivityLog.DashController" class="cam-activitylog" ng-class="{'umb-loader': !loglist.length}">
+
+    <div ng-repeat="item in loglist">
+        <h5 ng-if="item.SectionHeader">{{item.SectionHeader}}</h5>
+        <div class="cam-logItem" ng-class="{ even: !($index % 2), odd: !!($index % 2) }">
+            <span>{{item.Timestamp | date:'shortTime'}} - </span>
+            <img ng-src="{{item.UserAvatarUrl}}" class="profile-image" alt="" />
+            <strong>{{item.UserDisplayName}}</strong>
+
+            <span ng-if="item.LogItemType =='Save'">
+                {{resources.Saved}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='Copy'">
+                {{resources.Copied}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='Move'">
+                {{resources.Moved}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='RollBack'">
+                {{resources.RolledBack}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='MovePageToRecycleBin'">
+                {{resources.Moved}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                {{item.DisplayName}} {{resources.To}}
+                <i class="icon-trash"></i>
+                <a href="#/content/content/recyclebin">{{resources.RecycleBin}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='Publish'">
+                <span ng-if="!isUmbracoFormLogItem(item)">
+                    {{resources.Saved}} {{resources.And}} {{resources.Published}}
+                    <i class="{{item.ContentTypeIcon}}"></i>
+                    <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+                </span>
+
+                <!-- Umbraco forms -->
+                <span ng-if="isUmbracoFormLogItem(item)">
+                    <span ng-if="formItem(item).Event == 'Saved'">
+                        {{resources.Saved}} {{resources.And}} {{resources.Published}}
+                    </span>
+                    <span ng-if="formItem(item).Event != 'Saved'">
+                        {{formItem(item).Event | lowercase}}
+                    </span>
+                    <i class="icon-umb-contour"></i>
+                    <span ng-if="formItem(item).Event == 'Deleted'">{{formItem(item).Name}}</span>
+                    <a ng-if="formItem(item).Event != 'Deleted'" href="#/forms/form/edit/{{formItem(item).Id}}">{{formItem(item).Name}}</a><!-- TODO: Only anchor if form exists -->
+                    
+                </span>
+            </span>
+
+            <span ng-if="item.LogItemType =='Delete'">
+                {{resources.Moved}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <span>{{item.DisplayName}}</span>
+                {{resources.To}}
+                <i class="icon-trash"></i>
+                <a href="#/content/content/recyclebin">{{resources.RecycleBin}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='RecycleBinEmptied'">
+                <i class="icon-trash"></i>
+                <a href="#/content/content/recyclebin">{{resources.EmptiedRecycleBin}}</a>
+            </span>
+
+            <span ng-if="item.LogItemType =='Image'">
+                <span ng-if="item.CustomAction == 'SaveMedia'">
+                    {{resources.Uploaded}}
+                    <img ng-src="{{item.ContentTypeIcon}}?height=20" />
+                    <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
+                </span>
+                <span ng-if="item.CustomAction == 'MoveMediaToRecycleBin'">
+                    {{resources.Moved}}
+                    <img ng-src="{{item.ContentTypeIcon}}?height=20" />
+                    <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
+                    {{resources.To}}
+                    <i class="icon-trash"></i>
+                    <a href="#/media/media/recyclebin">{{resources.RecycleBin}}</a>
+                </span>
+
+            </span>
+
+            <span ng-if="item.LogItemType =='File'">
+                <span ng-if="item.CustomAction == 'SaveMedia'">
+                    {{resources.Uploaded}}
+                    <i class="icon-document"></i>
+                    <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
+                </span>
+                <span ng-if="item.CustomAction == 'MoveMediaToRecycleBin'">
+                    {{resources.Moved}}
+                    <i class="icon-document"></i>
+                    <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
+                    {{resources.To}}
+                    <i class="icon-trash"></i>
+                    <a href="#/media/media/recyclebin">{{resources.RecycleBin}}</a>
+                </span>
+
+            </span>
+
+            <span ng-if="item.LogItemType =='Folder'">
+                <span ng-if="item.CustomAction == 'SaveMedia'">
+                    {{resources.Created}}
+                    <i class="icon-folder"></i>
+                    <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
+                </span>
+                <span ng-if="item.CustomAction == 'MoveMediaToRecycleBin'">
+                    {{resources.Moved}}
+                    <i class="icon-folder"></i>
+                    <a href="{{item.ContentTypeIcon}}" target="_blank">{{item.DisplayName}}</a>
+                    {{resources.To}}
+                    <i class="icon-trash"></i>
+                    <a href="#/media/media/recyclebin">{{resources.RecycleBin}}</a>
+                </span>
+            </span>
+
+            <span ng-if="item.LogItemType =='UnPublish'">
+                {{resources.Unpublished}}
+                <i class="{{item.ContentTypeIcon}}"></i>
+                <a href="#/content/content/edit/{{item.NodeId}}">{{item.DisplayName}}</a>
+            </span>
+            <!--{{item.LogItemType}}-->
+            <!--{{item.Message}}-->
+        </div>
+    </div>
+
+    <div class="cam-pageIndexes">
+        <span ng-show="lessPages">...</span>
+        <span ng-repeat="p in currentPages" class="cam-pageIndex" ng-class="{active:currentPage==p.index}" ng-click="getActivities(p.skip, this)">{{p.index}}</span>
+        <span ng-show="morePages">...</span>
+    </div>
+</div>

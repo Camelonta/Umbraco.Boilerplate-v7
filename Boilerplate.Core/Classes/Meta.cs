@@ -1,15 +1,12 @@
 ﻿using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-//using Camelonta.Utilities;
 using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
-using Boilerplate.Core.Classes.Search;
 using Skybrud.Umbraco.GridData;
 using Skybrud.Umbraco.GridData.Values;
 using System.Web;
-using Camelonta.Utilities;
 
 namespace Boilerplate.Core.Classes
 {

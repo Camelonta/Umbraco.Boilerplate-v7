@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Optimization;
-using Camelonta.Utilities;
+using Boilerplate.Core.Classes.CamelontaUI;
 using Umbraco.Core;
 using Boilerplate.Core.Classes.Search;
 

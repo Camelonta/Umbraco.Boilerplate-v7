@@ -25,7 +25,7 @@ angular.module('umbraco.services').config(['$httpProvider', function ($httpProvi
     function loadLoginPage(response) {
         var html = $('<div />', { html: response.data });
         html.find("#login h1")
-            .html("Welcome to <span class='cam-green'>Umbraco CMS</span> <span class='cam-basedon'>- Built and maintained by <span class='cam-orange'>Camelonta AB</span></span>")
+            .html("Welcome to <span class='cam-green'>Umbraco CMS</span> <span class='cam-basedon'>- Maintained by <span class='cam-orange'>Camelonta AB</span></span>")
             .css('opacity', 1);
 
         html.find("#login").prepend("<div class='camelonta-logo'><a href='/umbraco'><img src='../App_Plugins/Camelonta.UI/camelontacms.png'/></a></div>");

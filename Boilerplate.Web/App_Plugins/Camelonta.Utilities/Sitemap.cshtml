@@ -1,21 +1,20 @@
-﻿@inherits System.Web.Mvc.WebViewPage<Camelonta.Utilities.ViewModels.Sitemap>
+﻿@inherits System.Web.Mvc.WebViewPage<Stbd.Core.ViewModels.Sitemap>
 @using System.Linq;
-@using Camelonta.Utilities
+@using Stbd.Core.Classes.CamelontaUI
 @using Umbraco.Core.Models
 @using Umbraco.Web
 @{
     Layout = null;
     Response.ContentType = "text/xml";
-
-}<?xml version='1.0' encoding='UTF-8' ?>
-@*<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemalocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">*@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-@foreach (var rootNode in Model.RootNodes)
-{
-    @ListChildNodes(rootNode);
 }
+
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    @foreach (var rootNode in Model.RootNodes)
+    {
+        @ListChildNodes(rootNode);
+    }
 </urlset>
 
 @helper ListChildNodes(IPublishedContent startNode)
