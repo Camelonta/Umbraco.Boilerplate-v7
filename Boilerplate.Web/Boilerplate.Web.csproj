@@ -356,6 +356,12 @@
     <Content Include="App_Plugins\Camelonta.UI\camelontacms.png" />
     <Content Include="App_Plugins\Camelonta.UI\help.html" />
     <Content Include="App_Plugins\Camelonta.UI\preview.js" />
+    <Content Include="App_Plugins\CustomBackoffice\stacked-content.css">
+      <DependentUpon>stacked-content.scss</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\CustomBackoffice\stacked-content.min.css">
+      <DependentUpon>stacked-content.css</DependentUpon>
+    </Content>
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\detail.html" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Controller.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\Diplo.TraceLog.Detail.Controller.js" />
@@ -502,6 +508,8 @@
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="App_Plugins\InnerContent\package.manifest" />
     <Content Include="App_Plugins\StackedContent\package.manifest" />
+    <Content Include="App_Plugins\CustomBackoffice\package.manifest" />
+    <Content Include="App_Plugins\CustomBackoffice\stacked-content.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -563,6 +571,8 @@
     <Content Include="css\molecules\navigation-menu.scss" />
     <Content Include="css\molecules\search-menu.scss" />
     <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\Partials\stack\imageMedia.cshtml" />
+    <Content Include="Views\Partials\stack\richText.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

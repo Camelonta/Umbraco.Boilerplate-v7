@@ -1,0 +1,7 @@
+﻿@inherits UmbracoViewPage
+@{
+    var mediaID = Model.GetPropertyValue<int>("imagePicker");
+    var mediaURL = Umbraco.TypedMedia(mediaID).Url;
+}
+
+<img class="image-media-preview" src="@mediaURL" />
