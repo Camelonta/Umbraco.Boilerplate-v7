@@ -1,0 +1,19 @@
+﻿.search-form {
+    display: block;
+    position: relative;
+
+    .search-form__button {
+        position: relative;
+        width: 36px;
+        height: 36px;
+        background-color: #64706c;
+    }
+
+    .search-form__button-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+    }
+}

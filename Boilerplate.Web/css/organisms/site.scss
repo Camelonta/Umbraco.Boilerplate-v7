@@ -1,4 +1,5 @@
-﻿.banner {
+﻿/* Banner */
+.banner {
     padding: 25px 0;
     text-align: center;
     background: #64706c;
@@ -22,6 +23,7 @@
     }
 }
 
+/* Footer */
 .footer {
     margin-top: 90px;
     border-top: 20px solid #ede9ce;
@@ -42,5 +44,179 @@
         width: 49%;
         padding: 0 15px;
         text-align: left;
+    }
+}
+
+/* Cookie warning */
+#cookie-warning {
+    /* TODO - Styla utifall kunden väljer att använda den */
+    background-color: #2D2D2D;
+    box-shadow: 0 0 16px 4px rgba(0,0,0,.56);
+    z-index: 100000;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    padding: 15px 0;
+    color: #fff;
+    display: none;
+
+    .icon-cancel {
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #cookie-warning {
+        text-align: center;
+    }
+}
+
+/* Navigation menu */
+.menu-button {
+    display: inline-block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ede9ce;
+    cursor: pointer;
+
+    .menu-button__icon {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.navigation-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -4000px;
+    z-index: 100000;
+    width: 100%;
+    background-color: #ede9ce;
+    transition: left .25s ease-in-out;
+
+    &.navigation-menu--open {
+        left: 0;
+    }
+
+    .navigation-menu__close {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+    }
+
+    .navigation-menu__close-icon {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+    }
+
+    .navigation-links {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        width: 960px;
+        max-width: 100%;
+        padding: 0 15px;
+        text-align: center;
+        list-style: none;
+    }
+
+    .navigation-link {
+        display: block;
+        margin: .5em 0;
+        font-size: 24px;
+    }
+
+    .navigation-link--current {
+        .navigation-link__link {
+            border-bottom: 3px solid #64706c;
+        }
+    }
+}
+
+/* Search menu */
+.search-button {
+    display: inline-block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ede9ce;
+    cursor: pointer;
+
+    .search-button__icon {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.search-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -4000px;
+    z-index: 100000;
+    width: 100%;
+    background-color: #ede9ce;
+    transition: right .25s ease-in-out;
+
+    &.search-menu--open {
+        right: 0;
+    }
+
+    .search-menu__close {
+        display: inline-block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+    }
+
+    .search-menu__close-icon {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+    }
+
+    .search-form {
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
     }
 }

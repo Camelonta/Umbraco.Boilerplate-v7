@@ -533,7 +533,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\ClientDependency.config" />
-    <Content Include="css\molecules\cookie-warning.scss" />
     <Content Include="css\atoms\video.scss" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -568,11 +567,10 @@
     <Content Include="Views\Partials\_Hero.cshtml" />
     <Content Include="css\molecules\hero.scss" />
     <Content Include="css\organisms\home.scss" />
-    <Content Include="css\molecules\navigation-menu.scss" />
-    <Content Include="css\molecules\search-menu.scss" />
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Partials\stack\imageMedia.cshtml" />
     <Content Include="Views\Partials\stack\richText.cshtml" />
+    <Content Include="css\atoms\search-form.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
