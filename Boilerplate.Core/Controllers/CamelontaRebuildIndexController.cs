@@ -6,21 +6,23 @@ using System.Linq;
 using System.Web.Hosting;
 using System.Web.Http;
 using Examine;
+using Examine.LuceneEngine.Providers;
+using Examine.Providers;
 using Umbraco.Core.Logging;
 using Umbraco.Web.WebApi;
 
 namespace Boilerplate.Core.Controllers
 {
     /// <summary>
-    /// Rebuilds External index if at night (time is after midnight and before 1 am) and more than a week ago since last time (or first time).
+    /// Rebuilds External index if at night (time is after midnight and before 1 am) and deletions exist and a day has passed since last rebuild.
     /// Time is saved in /App_Data/RebuildExternalIndexDateTime.txt.
     /// umbracoSettings.config need to specify this scheduled task to run once per hour. This is inactivated by default.
     /// AppSetting IndexesToRebuild needs to be specified with a csv of the names of indexes included.
     /// </summary>
     public class CamelontaRebuildIndexController: UmbracoApiController
     {
-        private string _filePath;
-        private string[] _indexNames;
+        private readonly string _filePath;
+        private readonly string[] _indexNames;
 
         public CamelontaRebuildIndexController()
         {
@@ -35,7 +37,7 @@ namespace Boilerplate.Core.Controllers
         [HttpGet]
         public void Init()
         {
-            if (IsNight() && IsMoreThanAWeek())
+            if (IsNight() && IsMoreThanADay())
             {
                 if (_indexNames != null && _indexNames.Any())
                 {
@@ -43,9 +45,12 @@ namespace Boilerplate.Core.Controllers
 
                     foreach (var indexName in _indexNames)
                     {
-                        LogHelper.Info<CamelontaRebuildIndexController>("Camelonta - Rebuilding index: " + indexName);
                         var provider = ExamineManager.Instance.IndexProviderCollection[indexName];
-                        provider.RebuildIndex();
+                        if (NumberOfDeletions(provider) > 0)
+                        {
+                            LogHelper.Info<CamelontaRebuildIndexController>("Camelonta - Rebuilding index: " + indexName);
+                            provider.RebuildIndex();
+                        }
                     }
 
                     UpdateTextFile();
@@ -55,11 +60,10 @@ namespace Boilerplate.Core.Controllers
 
         private bool IsNight()
         {
-            return true;
             return DateTime.Now.Hour == 0;
         }
 
-        private bool IsMoreThanAWeek()
+        private bool IsMoreThanADay()
         {
             var textFileContent = ReadTextFile();
             if (!string.IsNullOrEmpty(textFileContent))
@@ -67,8 +71,8 @@ namespace Boilerplate.Core.Controllers
                 DateTime lastDate;
                 if (DateTime.TryParse(textFileContent, out lastDate))
                 {
-                    var week = new TimeSpan(7);
-                    return DateTime.Now - lastDate > week;
+                    var day = new TimeSpan(0, 23, 0, 0);
+                    return DateTime.Now - lastDate > day;
                 }
 
                 File.Delete(_filePath);
@@ -96,6 +100,32 @@ namespace Boilerplate.Core.Controllers
             }
 
             return string.Empty;
+        }
+
+        private int NumberOfDeletions(BaseIndexProvider provider)
+        {
+            var numberOfDeletions = 0;
+            var luceneIndexer = provider as LuceneIndexer;
+            if (luceneIndexer != null)
+            {
+                if (luceneIndexer.IndexExists())
+                {
+                    try
+                    {
+                        using (var reader = luceneIndexer.GetIndexWriter().GetReader())
+                        {
+                            numberOfDeletions = reader.NumDeletedDocs();
+                        }
+                    }
+
+                    catch
+                    {
+                        LogHelper.Warn<CamelontaRebuildIndexController>("Camelonta - RebuildIndex. Could not detect deletions.");
+                    }
+                }
+            }
+
+            return numberOfDeletions;
         }
     }
 }
