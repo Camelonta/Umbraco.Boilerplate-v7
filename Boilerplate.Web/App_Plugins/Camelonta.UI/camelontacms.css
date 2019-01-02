@@ -178,12 +178,19 @@ ul.sections li.avatar {
 /* == End of Page tree == */
 
 
-
-
 /* EDITOR VIEW */
 .umb-cell-media{
     max-width: 570px;
 }
 .mce-edit-area iframe {
     min-height: 200px !important;
+}
+
+/*Nested content*/
+.nested-content__heading {
+    float: none !important;
+    text-align: left;
+}
+.nested-content__heading span {
+    padding-left: 2em;
 }
