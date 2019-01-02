@@ -16,23 +16,23 @@ ul.sections li.camelonta-logo {
         max-width: 73%;
     }
 
-/* left border in sidebar */
-ul.sections li.current, ul.sections li:hover {
-    border-left: 4px #94BD2C solid;
-}
-
 
 /* Avatar in bottom of sidebar */
 ul.sections li.avatar {
     position: absolute;
-    bottom: 60px;
+    bottom: 73px;
     left: 0;
     display: block;
-    width: 100%;
+    width: 95%;
     height: 50px;
+    border-bottom: none;
 }
-
-
+ul.sections li.avatar:hover {
+    border-left: 4px solid #00aea2;
+}
+ul.sections li.help {
+    border-top: 1px solid #2e2246 !important;
+}
 /* Lists */
 .cam-list div {
     padding: 5px;
