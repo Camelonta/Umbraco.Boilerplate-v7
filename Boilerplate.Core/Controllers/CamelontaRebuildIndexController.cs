@@ -17,7 +17,7 @@ namespace Boilerplate.Core.Controllers
     /// Rebuilds External index if at night (time is after midnight and before 1 am) and deletions exist and a day has passed since last rebuild.
     /// Time is saved in /App_Data/RebuildExternalIndexDateTime.txt.
     /// umbracoSettings.config need to specify this scheduled task to run once per hour. This is inactivated by default.
-    /// AppSetting IndexesToRebuild needs to be specified with a csv of the names of indexes included.
+    /// AppSetting IndexesToRebuild needs to be specified with a csv of the names of indexes included. This is inactivated by default.
     /// </summary>
     public class CamelontaRebuildIndexController: UmbracoApiController
     {
@@ -46,7 +46,7 @@ namespace Boilerplate.Core.Controllers
                     foreach (var indexName in _indexNames)
                     {
                         var provider = ExamineManager.Instance.IndexProviderCollection[indexName];
-                        if (NumberOfDeletions(provider) > 0)
+                        if (provider != null && NumberOfDeletions(provider) > 0)
                         {
                             LogHelper.Info<CamelontaRebuildIndexController>("Camelonta - Rebuilding index: " + indexName);
                             provider.RebuildIndex();
