@@ -344,6 +344,7 @@
     <Compile Include="Controllers\ActivityLogController.cs" />
     <Compile Include="Controllers\NavigationSurfaceController.cs" />
     <Compile Include="Controllers\PartialSurfaceController.cs" />
+    <Compile Include="Controllers\CamelontaRebuildIndexController.cs" />
     <Compile Include="Controllers\SearchSurfaceController.cs" />
     <Compile Include="Models\ActivityLog\ActivityViewModel.cs" />
     <Compile Include="Models\ActivityLog\CustomActions.cs" />
