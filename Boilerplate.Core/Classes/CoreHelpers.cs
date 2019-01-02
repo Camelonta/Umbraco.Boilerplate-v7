@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using Umbraco.Core.Models;
@@ -27,10 +28,16 @@ namespace Boilerplate.Core.Classes
             }
         }
 
+        [Obsolete("This method is deprecated, use CurrentSite with argument instead")]
         public static IPublishedContent CurrentSite()
         {
             var umbracoHelper = new UmbracoHelper(UmbracoContext.Current);
             return umbracoHelper.TypedContentAtRoot().FirstOrDefault();
+        }
+
+        public static IPublishedContent CurrentSite(IPublishedContent currentPage)
+        {
+            return currentPage.AncestorOrSelf(1);
         }
     }
 }
