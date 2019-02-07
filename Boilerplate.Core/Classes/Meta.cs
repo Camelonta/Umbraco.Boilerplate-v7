@@ -110,7 +110,10 @@ namespace Boilerplate.Core.Classes
                     case "media":
                         {
                             GridControlMediaValue media = ctrl.GetValue<GridControlMediaValue>();
-                            combined.AppendLine(media.Caption);
+                            if(media != null)
+                            {
+                               combined.AppendLine(media.Caption);
+                            }
                             break;
                         }
 
