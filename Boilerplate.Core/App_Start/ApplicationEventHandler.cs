@@ -78,12 +78,12 @@ namespace Boilerplate.Core
             scriptBundle.Orderer = Bundles.AsIsBundleOrderer;
             bundles.Add(scriptBundle);
 
-            //var ltIe9Files = new List<string>
-            //{
-            //     "vendor/ltie9/html5shiv.js",
-            //     "vendor/ltie9/respond.min.js" //Polyfill for media-queries. Needed for the bootstrap grid to function correctly.
-            //}.Select(jsFile => scriptsPath + jsFile).ToArray();
-            //bundles.Add(new ScriptBundle("~/bundles/ltIe9Scripts").Include(ltIe9Files));
+            var ltIe9Files = new List<string>
+            {
+                 "vendor/ltie9/html5shiv.js",
+                 "vendor/ltie9/respond.min.js" //Polyfill for media-queries. Needed for the bootstrap grid to function correctly.
+            }.Select(jsFile => scriptsPath + jsFile).ToArray();
+            bundles.Add(new ScriptBundle("~/bundles/ltIe9Scripts").Include(ltIe9Files));
         }
     }
 }
