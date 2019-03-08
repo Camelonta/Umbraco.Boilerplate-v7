@@ -397,6 +397,8 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="Config\splashes\booting.aspx" />
     <Content Include="Config\splashes\noNodes.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -425,6 +427,8 @@
     <Content Include="media\1010\gopro-cross.jpg" />
     <Content Include="media\1010\gopro-cross_big-thumb.jpg" />
     <Content Include="media\1010\gopro-cross_thumb.jpg" />
+    <Content Include="scripts\vendor\bootstrap.js" />
+    <Content Include="scripts\vendor\bootstrap.min.js" />
     <Content Include="scripts\cookie-warning.js" />
     <Content Include="App_Plugins\GibeLinkPicker\package.manifest" />
     <Content Include="css\tools\px-to-em.scss" />
@@ -517,7 +521,9 @@
     <Content Include="Config\Dashboard.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\ClientDependency.config" />
+    <Content Include="Config\ClientDependency.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="css\atoms\buttons.scss" />
     <Content Include="css\components\cookie-warning.scss" />
     <Content Include="css\components\video.scss" />
@@ -548,6 +554,11 @@
     <Content Include="Config\BackOfficeTours\getting-started.json" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
