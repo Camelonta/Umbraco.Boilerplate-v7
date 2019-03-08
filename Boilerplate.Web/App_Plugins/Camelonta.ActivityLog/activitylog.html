@@ -2,8 +2,6 @@
 
 <div ng-controller="ActivityLog.DashController" class="cam-activitylog" ng-class="{'umb-loader': !loglist.length}">
 
-    <h3>{{resources.ActivityLog}}</h3>
-
     <div ng-repeat="item in loglist">
         <h5 ng-if="item.SectionHeader">{{item.SectionHeader}}</h5>
         <div class="cam-logItem" ng-class="{ even: !($index % 2), odd: !!($index % 2) }">

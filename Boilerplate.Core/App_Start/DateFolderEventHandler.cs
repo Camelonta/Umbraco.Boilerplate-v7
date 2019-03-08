@@ -1,4 +1,5 @@
-﻿using Umbraco.Core;
+﻿using Boilerplate.Core.Classes.CamelontaUI;
+using Umbraco.Core;
 using Umbraco.Core.Events;
 using Umbraco.Core.Models;
 using Umbraco.Core.Services;
@@ -17,9 +18,9 @@ namespace Boilerplate.Core
 
         private void ContentService_Saved(IContentService sender, SaveEventArgs<IContent> e)
         {
-            //var contentService = ApplicationContext.Current.Services.ContentService;
-            //var pageOrganizer = new Camelonta.Utilities.PageOrganizer();
-            //pageOrganizer.MoveToDatefolder(e, contentService, "News", "NewsList");
+            var contentService = ApplicationContext.Current.Services.ContentService;
+            var pageOrganizer = new PageOrganizer();
+            pageOrganizer.MoveToDatefolder(e, contentService, "News", "NewsList");
         }
     }
 }

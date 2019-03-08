@@ -1,0 +1,43 @@
+﻿<div class="umb-panel">
+
+    <div class="umb-panel-header">
+        <div class="umb-el-wrap">
+            <h3>Link Checker Help <i class="icon-help-alt"></i></h3>
+        </div>
+    </div>
+
+    <div class="umb-panel-body with-footer">
+
+        <h5>Getting Started</h5>
+        <p>Link Checker can be used to check for broken or invalid links within some or all of the pages within your Umbraco site.</p>
+        <p>To get started click <b>Start Check</b> and then select the page you want to start checking from. The checker will then start and will check your chosen page <i>and</i> all the descendant pages.</p>
+        <p><small><b>Note:</b> The more pages you chose to check, the longer it will take. Checking your site in smaller sections might be a better idea for large sites.</small></p>
+
+        <h5>Viewing Results</h5>
+        <p>The Checker will then display every page that has been checked and will indicate how many links have been checked (grey), how many are OK (green) and how many have errored (red). In the <b>Action</b> column you can also select to View the page that has been checked or Edit it within Umbraco.</p>
+        <p>You can then click <b>View Results</b> to display all the links that have been checked and their status.</p>
+        <p>To view more details about any link you can click it and a dialogue (like this one) will show you further details about the link and it's status.</p>
+
+        <h5>Interpreting Results</h5>
+        <p>Not all links that are highlighted as problematic are necessarily "broken". Sometimes a link may be temporarily unavailable or a slow server might not respond in time.</p>
+        <p>Some servers might even reject the link checker request. It is always a good idea to manually check a link to see how it works for you or re-run the checker on the page for a second time.</p>
+
+        <h5>Options</h5>
+        <p><b>Only show errors</b> - tick to just show pages and links that have been detected as problematic.</p>
+        <p><b>Check entire document</b> - by default Link Checker just checks the main page body. To check the entire page, including hidden metadata, select this option.</p>
+        <p><b>Timeout</b> - this is the value (in seconds) for how long Link Checker will wait for a server to respond. Higher values help eliminate "false positives" with slow loading pages but will make the checker take longer.</p>
+        <p><b>Show search box</b> - ticking this option adds a search option above all links to help further filter the results</p>
+        <p><b>Only check internal links</b> - tick to only check links within your website (ie. not external links to other sites)</p>
+        <p><b>Status codes</b> - add a comma-separated list of HTTP status codes to limit results to just those codes eg. 404,500</p>
+    </div>
+
+    <div class="umb-panel-footer">
+        <div class="umb-el-wrap umb-panel-buttons">
+            <div class="btn-toolbar umb-btn-toolbar pull-right">
+                <a href ng-click="close()" class="btn btn-default">
+                    Close
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

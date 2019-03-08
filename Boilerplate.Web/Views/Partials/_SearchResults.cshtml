@@ -4,7 +4,7 @@
     var umbraco = new UmbracoHelper(UmbracoContext.Current);
 }
 
-@if (Model.SearchResults.Any())
+@if (Model.SearchResults != null && Model.SearchResults.Any())
 {
     foreach (var result in Model.SearchResults)
     {
@@ -15,6 +15,7 @@
         </a>
     }
 }
+
 else if (!string.IsNullOrWhiteSpace(Model.SearchTerm))
 {
     <p>Inga träffar på: <strong>@Model.SearchTerm</strong></p>

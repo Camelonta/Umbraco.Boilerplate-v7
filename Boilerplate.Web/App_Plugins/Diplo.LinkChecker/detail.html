@@ -1,0 +1,87 @@
+﻿<script>
+    function LinkCheckerDetailController($scope, $routeParams, $http, $filter) {
+
+        $http.get("/App_Plugins/Diplo.LinkChecker/HttpStatusCodes.js").
+            success(function (data, status, headers, config) {
+                $scope.httpCode = $filter('filter')(data, function (d) { return d.code == $scope.dialogData.StatusCode; })[0];
+            });
+    }
+</script>
+
+<style type="text/css">
+    #linkdetail table a {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="umb-panel" ng-controller="LinkCheckerDetailController" id="linkdetail">
+
+    <div class="umb-panel-header">
+        <div class="umb-el-wrap">
+            <h3>Link Details <b class="icon-alert" ng-show="!dialogData.IsSuccessCode"></b></h3>
+        </div>
+    </div>
+
+    <div class="umb-panel-body with-footer">
+
+        <table class="table">
+            <tr>
+                <th>URL</th>
+                <td><a ng-href="{{ dialogData.Url }}" target="_blank" title="Open link">{{ dialogData.Url }}</a></td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>
+                    <span ng-class="{ 'label label-success' : dialogData.IsSuccessCode, 'label label-error' : !dialogData.IsSuccessCode }">{{ dialogData.StatusCode }}</span>
+                    {{ dialogData.Status }} {{ dialogData.Error }}
+                </td>
+            </tr>
+            <tr ng-show="httpCode.description.length > 0">
+                <th>Explanation</th>
+                <td><a ng-href="{{ httpCode.spec_href }}" target="_blank" title="{{ httpCode.spec_title }}">{{ httpCode.description }}</a></td>
+            </tr>
+            <tr ng-show="dialogData.ContentType.length > 0">
+                <th>Content</th>
+                <td><span title="{{ dialogData.ContentType }}">{{ dialogData.TypeName }}</span></td>
+            </tr>
+            <tr>
+                <th>Link Type</th>
+                <td>{{ dialogData.LinkType }} ({{ dialogData.TagName}} {{ dialogData.Attribute }})</td>
+            </tr>
+            <tr ng-show="dialogData.Text.length > 0">
+                <th>Link Text</th>
+                <td title="The link text">{{ dialogData.Text }}</td>
+            </tr>
+            <tr>
+                <th>Page</th>
+                <td title="Id: {{ dialogData.page.Id }}">{{ dialogData.page.Name }}</td>
+            </tr>
+            <tr>
+                <th>Host</th>
+                <td>{{ dialogData.Host }} ({{ dialogData.IsInternal == true ? "Internal" : "External" }})</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>Line {{ dialogData.Line }}, Column {{ dialogData.Column }}</td>
+            </tr>
+            <tr>
+                <th>Updated</th>
+                <td>Last edited by {{ dialogData.page.UpdateUser }} on {{ dialogData.page.UpdateDate }}</td>
+            </tr>
+            <tr>
+                <th>Action</th>
+                <td><a ng-href="{{dialogData.page.Url}}" target="_blank" title="View">View Page</a> | <a ng-href="#/content/content/edit/{{ dialogData.page.Id }}" target="_blank" title="Edit page">Edit Page</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="umb-panel-footer">
+        <div class="umb-el-wrap umb-panel-buttons">
+            <div class="btn-toolbar umb-btn-toolbar pull-right">
+                <a href ng-click="close()" class="btn btn-default">
+                    <localize key="general_cancel">Cancel</localize>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

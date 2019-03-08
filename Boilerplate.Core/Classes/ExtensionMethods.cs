@@ -46,5 +46,20 @@ namespace Boilerplate.Core.Classes
 
             return null;
         }
+
+        public static bool AllowRobotsFollow(this IPublishedContent p)
+        {
+            return p.GetPropertyValue<bool>("robotsFollow") == false;
+        }
+
+        public static bool AllowRobotsIndex(this IPublishedContent p)
+        {
+            return p.GetPropertyValue<bool>("robotsIndex") == false;
+        }
+
+        public static IEnumerable<IPublishedContent> WhereAllowRobotsIndex(this IEnumerable<IPublishedContent> pages)
+        {
+            return pages.Where(AllowRobotsIndex);
+        }
     }
 }
